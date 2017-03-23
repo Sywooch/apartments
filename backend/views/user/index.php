@@ -38,6 +38,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'template' => '{my_button}',
                 'buttons' => [
                     'my_button' => function ($url, $model, $key) {
+                        if($model->status == 10){
                         return Html::a('Заблокировать', ['blocked', 'id'=>$model->id],[
                             'class' => 'btn btn-danger',
                             'data' => [
@@ -45,6 +46,16 @@ $this->params['breadcrumbs'][] = $this->title;
                                 'method' => 'post',
                             ],
                         ]);
+                        }
+                        if($model->status == 0){
+                            return Html::a('Разблокировать', ['blocked', 'id'=>$model->id],[
+                                'class' => 'btn btn-success',
+                                'data' => [
+                                    'confirm' => 'Вы уверены, что хотите разблокировать пользователя?',
+                                    'method' => 'post',
+                                ],
+                            ]);
+                        }
                     },
                 ]
             ],

@@ -36,4 +36,19 @@ class UserController extends Controller
         ]);
     }
 
+    public function actionBlocked($id)
+    {
+        $model = User::find()->where('id='.$id)->one();
+        if ($model->status == 10){
+            $model->status = 0;
+            Yii::$app->getSession()->setFlash('danger', 'Вы заблокировали пользователя '.$model->username);
+        } else if ($model->status == 0) {
+            $model->status = 10;
+            Yii::$app->getSession()->setFlash('success', 'Вы разблокировали пользователя '.$model->username);
+        }
+        $model->save(false);
+
+        return $this->redirect(Yii::$app->request->referrer);
+    }
+
 }

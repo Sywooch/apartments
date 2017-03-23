@@ -1,6 +1,7 @@
 <?php
 
 use yii\helpers\Html;
+use yii\helpers\Url;
 use kartik\grid\GridView;
 use common\models\FacilitiesSearch;
 
@@ -73,7 +74,15 @@ $this->params['breadcrumbs'][] = $this->title;
             'type',
             'area',
             'floor',
-            ['class' => 'yii\grid\ActionColumn'],
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'template' => '{view} {update} {images} {delete}',
+                'buttons' => [
+                    'images' => function ($url, $model, $key) {
+                        return Html::a('<span class="glyphicon glyphicon glyphicon-picture" aria-label="Image"></span>', Url::to(['image/index', 'id' => $model->id]));
+                    }
+                ],
+            ],
         ],
     ]); ?>
 </div>

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "2b3dfb6475b2d7e38c3d3237ff38ba98",
+    "content-hash": "08dd861b1ad4b2bb13268c4e1e5c533b",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -96,6 +96,104 @@
             ]
         },
         {
+            "name": "bower-asset/bootstrap3-dialog",
+            "version": "v1.35.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nakupanda/bootstrap3-dialog.git",
+                "reference": "4aa9d536516957e01c39afd1b5e8bdd88976ef7b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nakupanda/bootstrap3-dialog/zipball/4aa9d536516957e01c39afd1b5e8bdd88976ef7b",
+                "reference": "4aa9d536516957e01c39afd1b5e8bdd88976ef7b",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/bootstrap": ">=3.1.0",
+                "bower-asset/jquery": ">=1.9.0"
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": [
+                    "dist/less/bootstrap-dialog.less",
+                    "dist/css/bootstrap-dialog.min.css",
+                    "dist/js/bootstrap-dialog.min.js"
+                ],
+                "bower-asset-ignore": [
+                    "source",
+                    "spec",
+                    ".bowerrc",
+                    ".gitignore",
+                    ".jshintignore",
+                    ".jshintrc",
+                    "bower.json",
+                    "gruntfile.js",
+                    "package.json",
+                    "README.md"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Make use of Bootstrap Modal more monkey-friendly. http://nakupanda.github.io/bootstrap3-dialog/",
+            "keywords": [
+                "css",
+                "framework",
+                "front-end",
+                "js",
+                "less",
+                "mobile-first",
+                "responsive",
+                "web"
+            ]
+        },
+        {
+            "name": "bower-asset/fullcalendar",
+            "version": "v3.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fullcalendar/fullcalendar.git",
+                "reference": "5d6574b29d454d5db9f5f5ce551da835ab2a245c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fullcalendar/fullcalendar/zipball/5d6574b29d454d5db9f5f5ce551da835ab2a245c",
+                "reference": "5d6574b29d454d5db9f5f5ce551da835ab2a245c",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/jquery": ">=2,<4.0",
+                "bower-asset/moment": ">=2.9.0,<3.0.0"
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": [
+                    "dist/fullcalendar.js",
+                    "dist/fullcalendar.css"
+                ],
+                "bower-asset-ignore": [
+                    "*",
+                    "**/.*",
+                    "!/dist/**",
+                    "!/README.*",
+                    "!/LICENSE.*",
+                    "!/CHANGELOG.*",
+                    "!/CONTRIBUTING.*"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Full-sized drag & drop event calendar",
+            "keywords": [
+                "calendar",
+                "event",
+                "full-sized",
+                "jquery-plugin"
+            ]
+        },
+        {
             "name": "bower-asset/jquery",
             "version": "2.2.4",
             "source": {
@@ -125,6 +223,31 @@
                 "jquery",
                 "library"
             ]
+        },
+        {
+            "name": "bower-asset/jquery-ui",
+            "version": "1.11.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/components/jqueryui.git",
+                "reference": "c34f8dbf3ba57b3784b93f26119f436c0e8288e1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/components/jqueryui/zipball/c34f8dbf3ba57b3784b93f26119f436c0e8288e1",
+                "reference": "c34f8dbf3ba57b3784b93f26119f436c0e8288e1",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/jquery": ">=1.6"
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": [
+                    "jquery-ui.js"
+                ],
+                "bower-asset-ignore": []
+            }
         },
         {
             "name": "bower-asset/jquery.inputmask",
@@ -177,6 +300,48 @@
                 "jquery",
                 "mask",
                 "plugins"
+            ]
+        },
+        {
+            "name": "bower-asset/moment",
+            "version": "2.18.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/moment/moment.git",
+                "reference": "b8a7fc310eb3625e83fc0c8f1ea2840fa83c7378"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/moment/moment/zipball/b8a7fc310eb3625e83fc0c8f1ea2840fa83c7378",
+                "reference": "b8a7fc310eb3625e83fc0c8f1ea2840fa83c7378",
+                "shasum": ""
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": "moment.js",
+                "bower-asset-ignore": [
+                    "**/.*",
+                    "benchmarks",
+                    "bower_components",
+                    "meteor",
+                    "node_modules",
+                    "scripts",
+                    "tasks",
+                    "test",
+                    "component.json",
+                    "composer.json",
+                    "CONTRIBUTING.md",
+                    "ender.js",
+                    "Gruntfile.js",
+                    "Moment.js.nuspec",
+                    "package.js",
+                    "package.json",
+                    "ISSUE_TEMPLATE.md",
+                    "typing-tests"
+                ]
+            },
+            "license": [
+                "MIT"
             ]
         },
         {
@@ -240,6 +405,42 @@
             "license": [
                 "MIT"
             ]
+        },
+        {
+            "name": "bpampuch/pdfmake",
+            "version": "0.1.26",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bpampuch/pdfmake.git",
+                "reference": "158d07d5eea5b1e3675d9af87a086d5e79a90cee"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bpampuch/pdfmake/zipball/158d07d5eea5b1e3675d9af87a086d5e79a90cee",
+                "reference": "158d07d5eea5b1e3675d9af87a086d5e79a90cee",
+                "shasum": ""
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bartek Pampuch",
+                    "email": "bartosz.pampuch@gmail.com",
+                    "homepage": "http://pdfmake.org",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Client/server side PDF printing in pure JavaScript",
+            "homepage": "https://github.com/bpampuch/pdfmake",
+            "keywords": [
+                "javascript",
+                "pdf",
+                "pdfmake"
+            ],
+            "time": "2017-02-26T13:06:27+00:00"
         },
         {
             "name": "cebe/markdown",
@@ -345,6 +546,64 @@
             "time": "2013-12-10T17:49:58+00:00"
         },
         {
+            "name": "components/flag-icon-css",
+            "version": "2.8.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/lipis/flag-icon-css.git",
+                "reference": "b0a4e05d5e5054e58bd7537c3f1f6712ead19dae"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/lipis/flag-icon-css/zipball/b0a4e05d5e5054e58bd7537c3f1f6712ead19dae",
+                "reference": "b0a4e05d5e5054e58bd7537c3f1f6712ead19dae",
+                "shasum": ""
+            },
+            "type": "component",
+            "extra": {
+                "component": {
+                    "name": "flag-icon-css",
+                    "files": [
+                        "less/**",
+                        "css/**",
+                        "flags/**"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Panayiotis Lipiridis (Lipis)",
+                    "email": "lipiridis@gmail.com"
+                }
+            ],
+            "description": "CSS for vector based country flags",
+            "time": "2016-12-11T22:30:13+00:00"
+        },
+        {
+            "name": "dimsemenov/magnific-popup",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dimsemenov/Magnific-Popup.git",
+                "reference": "6b7a8088783cbce01034414c1fd2d8e1889093ae"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dimsemenov/Magnific-Popup/zipball/6b7a8088783cbce01034414c1fd2d8e1889093ae",
+                "reference": "6b7a8088783cbce01034414c1fd2d8e1889093ae",
+                "shasum": ""
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "Light and responsive lightbox script with focus on performance.",
+            "homepage": "http://dimsemenov.com/plugins/magnific-popup/",
+            "time": "2016-02-20T09:06:30+00:00"
+        },
+        {
             "name": "dmstr/yii2-adminlte-asset",
             "version": "2.3.4",
             "source": {
@@ -403,6 +662,93 @@
                 "yii2"
             ],
             "time": "2016-10-21T02:03:45+00:00"
+        },
+        {
+            "name": "drmonty/animate.css",
+            "version": "3.5.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mrohnstock/animate.css.git",
+                "reference": "ae9cba67bb4b31fbb63b6df17416fdcd697e3325"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mrohnstock/animate.css/zipball/ae9cba67bb4b31fbb63b6df17416fdcd697e3325",
+                "reference": "ae9cba67bb4b31fbb63b6df17416fdcd697e3325",
+                "shasum": ""
+            },
+            "require": {
+                "robloach/component-installer": "*"
+            },
+            "type": "component",
+            "extra": {
+                "component": {
+                    "files": [
+                        "css/animate.css",
+                        "css/animate.min.css"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A cross-browser library of CSS animations. As easy to use as an easy thing.",
+            "homepage": "http://daneden.github.io/animate.css",
+            "time": "2016-06-07T06:29:18+00:00"
+        },
+        {
+            "name": "drmonty/ekko-lightbox",
+            "version": "5.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mrohnstock/ekko-lightbox.git",
+                "reference": "e9394282eceb97af79d1509fefd537413b7fbfa8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mrohnstock/ekko-lightbox/zipball/e9394282eceb97af79d1509fefd537413b7fbfa8",
+                "reference": "e9394282eceb97af79d1509fefd537413b7fbfa8",
+                "shasum": ""
+            },
+            "require": {
+                "robloach/component-installer": "*"
+            },
+            "type": "component",
+            "extra": {
+                "component": {
+                    "scripts": [
+                        "js/ekko-lightbox.js"
+                    ],
+                    "styles": [
+                        "css/ekko-lightbox.css"
+                    ],
+                    "files": [
+                        "js/ekko-lightbox.min.js",
+                        "css/ekko-lightbox.min.css"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GNU GENERAL PUBLIC LICENSE"
+            ],
+            "authors": [
+                {
+                    "name": "ashleydw",
+                    "email": "hello@ashleyd.ws"
+                }
+            ],
+            "description": "A lightbox gallery plugin for Bootstrap 3 based on the modal plugin",
+            "homepage": "https://github.com/ashleydw/lightbox",
+            "keywords": [
+                "bootstrap",
+                "gallery",
+                "jquery",
+                "lightbox",
+                "modal"
+            ],
+            "time": "2017-01-31T11:00:05+00:00"
         },
         {
             "name": "ezyang/htmlpurifier",
@@ -500,6 +846,402 @@
             "time": "2016-10-24T15:52:54+00:00"
         },
         {
+            "name": "happyworm/jplayer",
+            "version": "2.9.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/happyworm/jPlayer.git",
+                "reference": "34e55cd7694552447bd0dbc38d886fdc96df0d06"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/happyworm/jPlayer/zipball/34e55cd7694552447bd0dbc38d886fdc96df0d06",
+                "reference": "34e55cd7694552447bd0dbc38d886fdc96df0d06",
+                "shasum": ""
+            },
+            "require": {
+                "robloach/component-installer": "*"
+            },
+            "suggest": {
+                "components/jquery": ">=1.7.2"
+            },
+            "type": "component",
+            "extra": {
+                "component": {
+                    "scripts": [
+                        "dist/jplayer/jquery.jplayer.js"
+                    ],
+                    "files": [
+                        "dist"
+                    ],
+                    "shim": {
+                        "deps": [
+                            "jquery"
+                        ]
+                    }
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mark J Panaghiston",
+                    "email": "markp@happyworm.com"
+                }
+            ],
+            "description": "jPlayer allows you to create a media player with a consistent interface and experience across all browsers.",
+            "homepage": "http://jplayer.org/",
+            "keywords": [
+                "HTML5",
+                "audio",
+                "jplayer",
+                "media",
+                "player",
+                "streaming",
+                "video"
+            ],
+            "time": "2014-12-15T00:55:35+00:00"
+        },
+        {
+            "name": "imsky/holder",
+            "version": "v2.9.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/imsky/holder.git",
+                "reference": "5784f33534bd373ab8f77df2de64f47758218924"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/imsky/holder/zipball/5784f33534bd373ab8f77df2de64f47758218924",
+                "reference": "5784f33534bd373ab8f77df2de64f47758218924",
+                "shasum": ""
+            },
+            "require": {
+                "robloach/component-installer": "*"
+            },
+            "type": "component",
+            "extra": {
+                "component": {
+                    "scripts": [
+                        "holder.js"
+                    ],
+                    "files": [
+                        "holder.min.js"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ivan Malopinsky",
+                    "homepage": "http://imsky.co"
+                }
+            ],
+            "description": "Client-side image placeholders.",
+            "homepage": "http://holderjs.com",
+            "keywords": [
+                "canvas",
+                "client-side",
+                "development",
+                "generation",
+                "images",
+                "placeholders"
+            ],
+            "time": "2016-08-26T01:28:20+00:00"
+        },
+        {
+            "name": "kalyabin/yii2-select-google-map-location",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kalyabin/yii2-select-google-map-location.git",
+                "reference": "0369eb9f5e9dbef6fc992b70a921aa2948fc570d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kalyabin/yii2-select-google-map-location/zipball/0369eb9f5e9dbef6fc992b70a921aa2948fc570d",
+                "reference": "0369eb9f5e9dbef6fc992b70a921aa2948fc570d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0",
+                "yiisoft/yii2": "2.*"
+            },
+            "type": "package",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "kalyabin\\maplocation\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Max Kalyabin",
+                    "email": "maksim@kalyabin.ru"
+                },
+                {
+                    "name": "Kirill Arutyunov",
+                    "email": "kirill@arutyunov.me"
+                }
+            ],
+            "description": "Yii2 widget to select location at map and choose map coordinates",
+            "keywords": [
+                "framework",
+                "input widget",
+                "location",
+                "map",
+                "widgets",
+                "yii2"
+            ],
+            "time": "2016-10-14T11:56:45+00:00"
+        },
+        {
+            "name": "kartik-v/yii2-dialog",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kartik-v/yii2-dialog.git",
+                "reference": "4aaf8918c6dbd90218b6ad9036b1aae211480716"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kartik-v/yii2-dialog/zipball/4aaf8918c6dbd90218b6ad9036b1aae211480716",
+                "reference": "4aaf8918c6dbd90218b6ad9036b1aae211480716",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/bootstrap3-dialog": "~1.34",
+                "kartik-v/yii2-krajee-base": "~1.7"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "kartik\\dialog\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Kartik Visweswaran",
+                    "email": "kartikv2@gmail.com",
+                    "homepage": "http://www.krajee.com/"
+                }
+            ],
+            "description": "An asset bundle for bootstrap3-dialog for Yii 2.0 framework.",
+            "homepage": "https://github.com/kartik-v/yii2-dialog",
+            "keywords": [
+                "alert",
+                "bootstrap",
+                "dialog",
+                "extension",
+                "modal",
+                "yii2"
+            ],
+            "time": "2016-09-13T18:15:26+00:00"
+        },
+        {
+            "name": "kartik-v/yii2-grid",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kartik-v/yii2-grid.git",
+                "reference": "05b889d6b51cdebd7e442be51b3cb7cf4f49fb9a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kartik-v/yii2-grid/zipball/05b889d6b51cdebd7e442be51b3cb7cf4f49fb9a",
+                "reference": "05b889d6b51cdebd7e442be51b3cb7cf4f49fb9a",
+                "shasum": ""
+            },
+            "require": {
+                "kartik-v/yii2-dialog": "~1.0",
+                "kartik-v/yii2-krajee-base": "~1.7"
+            },
+            "suggest": {
+                "kartik-v/yii2-mpdf": "For exporting grids to PDF"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "kartik\\grid\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Kartik Visweswaran",
+                    "email": "kartikv2@gmail.com",
+                    "homepage": "http://www.krajee.com/"
+                }
+            ],
+            "description": "Yii 2 GridView on steroids. Various enhancements and utilities for the Yii 2.0 GridView widget.",
+            "homepage": "https://github.com/kartik-v/yii2-grid",
+            "keywords": [
+                "extension",
+                "grid",
+                "widget",
+                "yii2"
+            ],
+            "time": "2017-03-11 10:54:52"
+        },
+        {
+            "name": "kartik-v/yii2-krajee-base",
+            "version": "v1.8.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kartik-v/yii2-krajee-base.git",
+                "reference": "2479241c03c87995cfc528ae7b297f5ae9e733cb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kartik-v/yii2-krajee-base/zipball/2479241c03c87995cfc528ae7b297f5ae9e733cb",
+                "reference": "2479241c03c87995cfc528ae7b297f5ae9e733cb",
+                "shasum": ""
+            },
+            "require": {
+                "yiisoft/yii2-bootstrap": "@dev"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.8.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "kartik\\base\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Kartik Visweswaran",
+                    "email": "kartikv2@gmail.com",
+                    "homepage": "http://www.krajee.com/"
+                }
+            ],
+            "description": "Base library and foundation components for all Yii2 Krajee extensions.",
+            "homepage": "https://github.com/kartik-v/yii2-krajee-base",
+            "keywords": [
+                "base",
+                "extension",
+                "foundation",
+                "krajee",
+                "widget",
+                "yii2"
+            ],
+            "time": "2017-02-22T05:58:53+00:00"
+        },
+        {
+            "name": "kriswallsmith/assetic",
+            "version": "v1.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kriswallsmith/assetic.git",
+                "reference": "e911c437dbdf006a8f62c2f59b15b2d69a5e0aa1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kriswallsmith/assetic/zipball/e911c437dbdf006a8f62c2f59b15b2d69a5e0aa1",
+                "reference": "e911c437dbdf006a8f62c2f59b15b2d69a5e0aa1",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.1",
+                "symfony/process": "~2.1|~3.0"
+            },
+            "conflict": {
+                "twig/twig": "<1.27"
+            },
+            "require-dev": {
+                "leafo/lessphp": "^0.3.7",
+                "leafo/scssphp": "~0.1",
+                "meenie/javascript-packer": "^1.1",
+                "mrclay/minify": "<2.3",
+                "natxet/cssmin": "3.0.4",
+                "patchwork/jsqueeze": "~1.0|~2.0",
+                "phpunit/phpunit": "~4.8 || ^5.6",
+                "psr/log": "~1.0",
+                "ptachoire/cssembed": "~1.0",
+                "symfony/phpunit-bridge": "~2.7|~3.0",
+                "twig/twig": "~1.23|~2.0",
+                "yfix/packager": "dev-master"
+            },
+            "suggest": {
+                "leafo/lessphp": "Assetic provides the integration with the lessphp LESS compiler",
+                "leafo/scssphp": "Assetic provides the integration with the scssphp SCSS compiler",
+                "leafo/scssphp-compass": "Assetic provides the integration with the SCSS compass plugin",
+                "patchwork/jsqueeze": "Assetic provides the integration with the JSqueeze JavaScript compressor",
+                "ptachoire/cssembed": "Assetic provides the integration with phpcssembed to embed data uris",
+                "twig/twig": "Assetic provides the integration with the Twig templating engine"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.4-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Assetic": "src/"
+                },
+                "files": [
+                    "src/functions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kris Wallsmith",
+                    "email": "kris.wallsmith@gmail.com",
+                    "homepage": "http://kriswallsmith.net/"
+                }
+            ],
+            "description": "Asset Management for PHP",
+            "homepage": "https://github.com/kriswallsmith/assetic",
+            "keywords": [
+                "assets",
+                "compression",
+                "minification"
+            ],
+            "time": "2016-11-11T18:43:20+00:00"
+        },
+        {
             "name": "mdmsoft/yii2-admin",
             "version": "2.7",
             "source": {
@@ -558,6 +1300,520 @@
             "time": "2016-05-20T23:38:13+00:00"
         },
         {
+            "name": "moontoast/math",
+            "version": "1.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ramsey/moontoast-math.git",
+                "reference": "c2792a25df5cad4ff3d760dd37078fc5b6fccc79"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ramsey/moontoast-math/zipball/c2792a25df5cad4ff3d760dd37078fc5b6fccc79",
+                "reference": "c2792a25df5cad4ff3d760dd37078fc5b6fccc79",
+                "shasum": ""
+            },
+            "require": {
+                "ext-bcmath": "*",
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "jakub-onderka/php-parallel-lint": "^0.9.0",
+                "phpunit/phpunit": "^4.7|>=5.0 <5.4",
+                "satooshi/php-coveralls": "^0.6.1",
+                "squizlabs/php_codesniffer": "^2.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Moontoast\\Math\\": "src/Moontoast/Math/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Ben Ramsey",
+                    "email": "ben@benramsey.com",
+                    "homepage": "https://benramsey.com"
+                }
+            ],
+            "description": "A mathematics library, providing functionality for large numbers",
+            "homepage": "https://github.com/ramsey/moontoast-math",
+            "keywords": [
+                "bcmath",
+                "math"
+            ],
+            "time": "2017-02-16T16:54:46+00:00"
+        },
+        {
+            "name": "nostalgiaz/bootstrap-switch",
+            "version": "3.3.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Bttstrp/bootstrap-switch.git",
+                "reference": "02721b769a6ac83eabe733fd9f08a2ddc7320756"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Bttstrp/bootstrap-switch/zipball/02721b769a6ac83eabe733fd9f08a2ddc7320756",
+                "reference": "02721b769a6ac83eabe733fd9f08a2ddc7320756",
+                "shasum": ""
+            },
+            "type": "component",
+            "extra": {
+                "component": {
+                    "name": "bootstrap-switch",
+                    "files": [
+                        "dist/**"
+                    ],
+                    "scripts": [
+                        "dist/js/bootstrap-switch.js"
+                    ],
+                    "shim": {
+                        "exports": "BootstrapSwitch"
+                    }
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache License Version 2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Mattia Larentis",
+                    "homepage": "http://www.larentis.eu"
+                }
+            ],
+            "description": "Turn checkboxes and radio buttons into toggle switches.",
+            "homepage": "https://bttstrp.github.io/bootstrap-switch",
+            "keywords": [
+                "JS",
+                "bootstrap",
+                "javascript",
+                "switch"
+            ],
+            "time": "2017-02-25T18:32:28+00:00"
+        },
+        {
+            "name": "onokumus/metismenu",
+            "version": "v2.7.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/onokumus/metismenu.git",
+                "reference": "412043318ac2cf5c589154d6042d7ac45fffc0be"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/onokumus/metismenu/zipball/412043318ac2cf5c589154d6042d7ac45fffc0be",
+                "reference": "412043318ac2cf5c589154d6042d7ac45fffc0be",
+                "shasum": ""
+            },
+            "suggest": {
+                "components/jquery": ">=1.9"
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Osman Nuri Okumus",
+                    "email": "onokumus@gmail.com",
+                    "homepage": "http://onokumus.com"
+                }
+            ],
+            "description": "A jQuery menu plugin",
+            "homepage": "https://github.com/onokumus/metisMenu",
+            "keywords": [
+                "JS",
+                "bootstrap",
+                "css",
+                "jquery",
+                "menu",
+                "plugin",
+                "web"
+            ],
+            "time": "2017-03-08T16:25:10+00:00"
+        },
+        {
+            "name": "p2made/yii2-p2y2-things",
+            "version": "2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/p2made/yii2-p2y2-things.git",
+                "reference": "9d03e2a559797d8ceccbb73990644aeb4ca63506"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/p2made/yii2-p2y2-things/zipball/9d03e2a559797d8ceccbb73990644aeb4ca63506",
+                "reference": "9d03e2a559797d8ceccbb73990644aeb4ca63506",
+                "shasum": ""
+            },
+            "require": {
+                "bpampuch/pdfmake": "^0.1.24",
+                "components/flag-icon-css": "^2.8",
+                "dimsemenov/magnific-popup": "^1.1",
+                "drmonty/animate.css": "^3.5",
+                "drmonty/ekko-lightbox": "^5.0",
+                "fortawesome/font-awesome": "^4.7",
+                "happyworm/jplayer": "^2.9",
+                "imsky/holder": "^2.9",
+                "moontoast/math": "^1.1",
+                "nostalgiaz/bootstrap-switch": "^3.3",
+                "onokumus/metismenu": "^2.6",
+                "philippfrenzel/yii2fullcalendar": "^3.0",
+                "ramsey/uuid": "^3.5",
+                "rmrevin/yii2-fontawesome": "^2.17",
+                "stuk/jszip": "^3.0",
+                "thomaspark/bootswatch": "^3.3",
+                "yiisoft/yii2": "^2.0"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "p2m\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Pedro Plowman",
+                    "email": "p2opensource@gmail.com",
+                    "homepage": "https://github.com/p2made"
+                }
+            ],
+            "description": "A bunch of CSS & JS resources wrapped as Yii 2 AssetBundles &/or Widgets.",
+            "keywords": [
+                "Bootstrap Social",
+                "Holder.js",
+                "Morris.js",
+                "Respond.JS",
+                "alerts",
+                "asset",
+                "bundle",
+                "calendar",
+                "charts",
+                "data",
+                "datatables",
+                "ector",
+                "ector graphics",
+                "excanvas",
+                "extension",
+                "flot",
+                "fullcalendar",
+                "graphics",
+                "html5shiv",
+                "menu",
+                "metisMenu",
+                "moment",
+                "moment-timezone",
+                "moment.js",
+                "morris",
+                "php",
+                "placeholder",
+                "placeholder-image",
+                "raphael",
+                "social",
+                "sweetalert",
+                "tables",
+                "time",
+                "timezone",
+                "widget",
+                "yii",
+                "yii2"
+            ],
+            "time": "2017-03-22T12:02:30+00:00"
+        },
+        {
+            "name": "p2made/yii2-p2y2-things-demo",
+            "version": "2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/p2made/yii2-p2y2-things-demo.git",
+                "reference": "09f0e237fc98df6eb0f2bd717d142d4fc5151dfb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/p2made/yii2-p2y2-things-demo/zipball/09f0e237fc98df6eb0f2bd717d142d4fc5151dfb",
+                "reference": "09f0e237fc98df6eb0f2bd717d142d4fc5151dfb",
+                "shasum": ""
+            },
+            "require": {
+                "p2made/yii2-p2y2-things": "^2.1"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "p2m\\demo\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Pedro Plowman",
+                    "email": "p2opensource@gmail.com",
+                    "homepage": "https://github.com/p2made"
+                }
+            ],
+            "description": "Not really a theme. A set of pages to demonstrate p2made/yii2-p2y2-things, bundled as a theme.",
+            "keywords": [
+                "admin",
+                "asset",
+                "bundle",
+                "extension",
+                "frontend",
+                "php",
+                "theme",
+                "ui",
+                "user-interface",
+                "yii",
+                "yii2"
+            ],
+            "time": "2017-03-22T11:59:48+00:00"
+        },
+        {
+            "name": "p2made/yii2-sb-admin-theme",
+            "version": "2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/p2made/yii2-sb-admin-theme.git",
+                "reference": "3d44900e303ec4744973814fa68259a560628efe"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/p2made/yii2-sb-admin-theme/zipball/3d44900e303ec4744973814fa68259a560628efe",
+                "reference": "3d44900e303ec4744973814fa68259a560628efe",
+                "shasum": ""
+            },
+            "require": {
+                "p2made/yii2-p2y2-things": "^2.1",
+                "p2made/yii2-p2y2-things-demo": "^2.1"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "p2m\\sbAdmin\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Pedro Plowman",
+                    "email": "p2opensource@gmail.com",
+                    "homepage": "https://github.com/p2made"
+                }
+            ],
+            "description": "SB Admin from Start Bootstrap, http://startbootstrap.com/, as a backend UI for Yii 2 Framework.",
+            "keywords": [
+                "Start-Bootstrap",
+                "admin",
+                "asset",
+                "backend",
+                "bundle",
+                "extension",
+                "php",
+                "sb-admin-2",
+                "theme",
+                "ui",
+                "user-interface",
+                "yii",
+                "yii2"
+            ],
+            "time": "2017-03-22T11:59:57+00:00"
+        },
+        {
+            "name": "paragonie/random_compat",
+            "version": "v2.0.10",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/paragonie/random_compat.git",
+                "reference": "634bae8e911eefa89c1abfbf1b66da679ac8f54d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/634bae8e911eefa89c1abfbf1b66da679ac8f54d",
+                "reference": "634bae8e911eefa89c1abfbf1b66da679ac8f54d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.*|5.*"
+            },
+            "suggest": {
+                "ext-libsodium": "Provides a modern crypto API that can be used to generate random bytes."
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "lib/random.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Paragon Initiative Enterprises",
+                    "email": "security@paragonie.com",
+                    "homepage": "https://paragonie.com"
+                }
+            ],
+            "description": "PHP 5.x polyfill for random_bytes() and random_int() from PHP 7",
+            "keywords": [
+                "csprng",
+                "pseudorandom",
+                "random"
+            ],
+            "time": "2017-03-13T16:27:32+00:00"
+        },
+        {
+            "name": "philippfrenzel/yii2fullcalendar",
+            "version": "3.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/philippfrenzel/yii2fullcalendar.git",
+                "reference": "4b287f2d5a5ccf6720e66b63c7f29e41f025bb6b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/philippfrenzel/yii2fullcalendar/zipball/4b287f2d5a5ccf6720e66b63c7f29e41f025bb6b",
+                "reference": "4b287f2d5a5ccf6720e66b63c7f29e41f025bb6b",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/fullcalendar": "3.*",
+                "php": ">=5.4.0",
+                "yiisoft/yii2": "*",
+                "yiisoft/yii2-jui": "*"
+            },
+            "require-dev": {
+                "codeception/codeception": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "yii2fullcalendar\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Philipp Frenzel",
+                    "email": "philipp@frenzel.net",
+                    "homepage": "http://www.frenzel.net/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Yii2 fullcalendar Widgets",
+            "homepage": "http://www.frenzel.net/",
+            "keywords": [
+                "fullcalendar",
+                "yii2"
+            ],
+            "time": "2016-09-23T10:20:14+00:00"
+        },
+        {
+            "name": "ramsey/uuid",
+            "version": "3.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ramsey/uuid.git",
+                "reference": "0b7bdfb180e72c8d76e75a649ced67e392201458"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ramsey/uuid/zipball/0b7bdfb180e72c8d76e75a649ced67e392201458",
+                "reference": "0b7bdfb180e72c8d76e75a649ced67e392201458",
+                "shasum": ""
+            },
+            "require": {
+                "paragonie/random_compat": "^1.0|^2.0",
+                "php": "^5.4 || ^7.0"
+            },
+            "replace": {
+                "rhumsaa/uuid": "self.version"
+            },
+            "require-dev": {
+                "apigen/apigen": "^4.1",
+                "codeception/aspect-mock": "1.0.0",
+                "doctrine/annotations": "~1.2.0",
+                "goaop/framework": "1.0.0-alpha.2",
+                "ircmaxell/random-lib": "^1.1",
+                "jakub-onderka/php-parallel-lint": "^0.9.0",
+                "mockery/mockery": "^0.9.4",
+                "moontoast/math": "^1.1",
+                "php-mock/php-mock-phpunit": "^0.3|^1.1",
+                "phpunit/phpunit": "^4.7|>=5.0 <5.4",
+                "satooshi/php-coveralls": "^0.6.1",
+                "squizlabs/php_codesniffer": "^2.3"
+            },
+            "suggest": {
+                "ext-libsodium": "Provides the PECL libsodium extension for use with the SodiumRandomGenerator",
+                "ext-uuid": "Provides the PECL UUID extension for use with the PeclUuidTimeGenerator and PeclUuidRandomGenerator",
+                "ircmaxell/random-lib": "Provides RandomLib for use with the RandomLibAdapter",
+                "moontoast/math": "Provides support for converting UUID to 128-bit integer (in string form).",
+                "ramsey/uuid-console": "A console application for generating UUIDs with ramsey/uuid",
+                "ramsey/uuid-doctrine": "Allows the use of Ramsey\\Uuid\\Uuid as Doctrine field type."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Ramsey\\Uuid\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marijn Huizendveld",
+                    "email": "marijn.huizendveld@gmail.com"
+                },
+                {
+                    "name": "Thibaud Fabre",
+                    "email": "thibaud@aztech.io"
+                },
+                {
+                    "name": "Ben Ramsey",
+                    "email": "ben@benramsey.com",
+                    "homepage": "https://benramsey.com"
+                }
+            ],
+            "description": "Formerly rhumsaa/uuid. A PHP 5.4+ library for generating RFC 4122 version 1, 3, 4, and 5 universally unique identifiers (UUID).",
+            "homepage": "https://github.com/ramsey/uuid",
+            "keywords": [
+                "guid",
+                "identifier",
+                "uuid"
+            ],
+            "time": "2017-03-18T15:38:09+00:00"
+        },
+        {
             "name": "rmrevin/yii2-fontawesome",
             "version": "2.17.1",
             "source": {
@@ -608,6 +1864,97 @@
                 "yii"
             ],
             "time": "2017-01-11T14:05:47+00:00"
+        },
+        {
+            "name": "robloach/component-installer",
+            "version": "0.2.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/RobLoach/component-installer.git",
+                "reference": "908a859aa7c4949ba9ad67091e67bac10b66d3d7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/RobLoach/component-installer/zipball/908a859aa7c4949ba9ad67091e67bac10b66d3d7",
+                "reference": "908a859aa7c4949ba9ad67091e67bac10b66d3d7",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.0",
+                "kriswallsmith/assetic": "1.*",
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "composer/composer": "1.*@alpha",
+                "phpunit/phpunit": "4.*"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                },
+                "class": "ComponentInstaller\\ComponentInstallerPlugin"
+            },
+            "autoload": {
+                "psr-0": {
+                    "ComponentInstaller": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Rob Loach",
+                    "homepage": "http://robloach.net"
+                }
+            ],
+            "description": "Allows installation of Components via Composer.",
+            "time": "2015-08-10T12:35:38+00:00"
+        },
+        {
+            "name": "stuk/jszip",
+            "version": "v3.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kamihouse/jszip.git",
+                "reference": "9a0f7c2fdb11ac3089e0a73dcf59f32fe1dae439"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kamihouse/jszip/zipball/9a0f7c2fdb11ac3089e0a73dcf59f32fe1dae439",
+                "reference": "9a0f7c2fdb11ac3089e0a73dcf59f32fe1dae439",
+                "shasum": ""
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Thiago Pereira Rosa",
+                    "email": "thiagor@engineer.com",
+                    "homepage": "http://coderi.com.br",
+                    "role": "Contributor"
+                },
+                {
+                    "name": "Stuart Knightley",
+                    "email": "stuart@Stuartk.com",
+                    "homepage": "http://stuartk.com/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Create, read and edit .zip files with Javascript",
+            "homepage": "https://github.com/Stuk/jszip",
+            "keywords": [
+                "create",
+                "edit",
+                "jszip",
+                "pdf"
+            ],
+            "time": "2016-05-04T13:00:35+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -662,6 +2009,113 @@
                 "mailer"
             ],
             "time": "2017-02-13T07:52:53+00:00"
+        },
+        {
+            "name": "symfony/process",
+            "version": "v3.2.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/process.git",
+                "reference": "68bfa8c83f24c0ac04ea7193bcdcda4519f41892"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/process/zipball/68bfa8c83f24c0ac04ea7193bcdcda4519f41892",
+                "reference": "68bfa8c83f24c0ac04ea7193bcdcda4519f41892",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.9"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Process\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Process Component",
+            "homepage": "https://symfony.com",
+            "time": "2017-03-04T12:23:14+00:00"
+        },
+        {
+            "name": "thomaspark/bootswatch",
+            "version": "v3.3.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thomaspark/bootswatch.git",
+                "reference": "4b0d3762f309326a6d66fa4ea18945a7fc11f8ef"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thomaspark/bootswatch/zipball/4b0d3762f309326a6d66fa4ea18945a7fc11f8ef",
+                "reference": "4b0d3762f309326a6d66fa4ea18945a7fc11f8ef",
+                "shasum": ""
+            },
+            "suggest": {
+                "robloach/component-installer": "Allows installation of Components via Composer"
+            },
+            "type": "component",
+            "extra": {
+                "component": {
+                    "name": "bootswatch",
+                    "files": [
+                        "README.md",
+                        "LICENSE",
+                        "amelia/*",
+                        "cerulean/*",
+                        "cosmo/*",
+                        "cyborg/*",
+                        "darkly/*",
+                        "flatly/*",
+                        "fonts/*",
+                        "journal/*",
+                        "lumen/*",
+                        "paper/*",
+                        "readable/*",
+                        "sandstone/*",
+                        "simplex/*",
+                        "slate/*",
+                        "spacelab/*",
+                        "superhero/*",
+                        "united/*",
+                        "yeti/*"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "thomaspark",
+                    "email": "thomas@bootswatch.com"
+                }
+            ],
+            "description": "Themes for Bootstrap",
+            "time": "2016-07-30T21:56:26+00:00"
         },
         {
             "name": "yiisoft/yii2",
@@ -862,6 +2316,56 @@
                 "yii2"
             ],
             "time": "2016-12-20T13:26:02+00:00"
+        },
+        {
+            "name": "yiisoft/yii2-jui",
+            "version": "2.0.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yiisoft/yii2-jui.git",
+                "reference": "843a2160cfe30f5c8b0cb2e9dbd8ee6bcf97e71d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yiisoft/yii2-jui/zipball/843a2160cfe30f5c8b0cb2e9dbd8ee6bcf97e71d",
+                "reference": "843a2160cfe30f5c8b0cb2e9dbd8ee6bcf97e71d",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/jquery-ui": "1.11.*@stable",
+                "yiisoft/yii2": ">=2.0.4"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                },
+                "asset-installer-paths": {
+                    "npm-asset-library": "vendor/npm",
+                    "bower-asset-library": "vendor/bower"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "yii\\jui\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Qiang Xue",
+                    "email": "qiang.xue@gmail.com"
+                }
+            ],
+            "description": "The Jquery UI extension for the Yii framework",
+            "keywords": [
+                "jQuery UI",
+                "yii2"
+            ],
+            "time": "2016-07-22T22:26:59+00:00"
         },
         {
             "name": "yiisoft/yii2-swiftmailer",
@@ -3292,7 +4796,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "kartik-v/yii2-grid": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

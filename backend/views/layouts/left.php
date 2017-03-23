@@ -20,8 +20,11 @@
                 'encodeLabels' => false,
                 'items' => [
                     ['label' => 'Меню', 'options' => ['class' => 'header']],
-                    ['label' => 'Gii', 'icon' => 'fa fa-file-code-o', 'url' => ['/gii']],
-                    ['label' => 'Debug', 'icon' => 'fa fa-dashboard', 'url' => ['/debug']],
+                    ['label' => 'Сайт', 'icon' => 'fa fa-home', 'url' => '/frontend/web/'],
+                    ['label' => 'Квартиры', 'icon' => 'fa fa-bed', 'url' => '/backend/web/apartment/'],
+                    ['label' => 'Пользователи', 'icon' => 'fa fa-user', 'url' => '/backend/web/user/'],
+//                    ['label' => 'Gii', 'icon' => 'fa fa-file-code-o', 'url' => ['/gii']],
+//                    ['label' => 'Debug', 'icon' => 'fa fa-dashboard', 'url' => ['/debug']],
                     ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
                     [
                         'label' => '<span class="glyphicon glyphicon-warning-sign"></span> RBAC',

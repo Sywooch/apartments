@@ -1,6 +1,8 @@
 <?php
 namespace frontend\controllers;
 
+use common\models\Apartment;
+use common\models\Image;
 use Yii;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
@@ -64,7 +66,22 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-        return $this->render('index');
+        $map = Apartment::find()->all();
+        $map_items = [];
+        if(isset($map) && !empty($map)){
+            foreach ($map as $item){
+                $image = Image::find()->where('apartment_id='.$item->id)->one();
+                $single_image = 'http://'.substr(strstr($image->image, 'domains\\'), 8, strlen($image->image));
+                $map_items[] = [
+                    'position' => [$item->latitude, $item->longitude],
+                    'content' => '<h3>'.$item->title_ru.'</h3><img style="height:200px;" src="'.$single_image.'"><p>'.substr($item->coordinates, 0, -55).'</p>'
+                ];
+            }
+        }
+        return $this->render('index', [
+            'map_items' => $map_items,
+            'map' => $map,
+        ]);
     }
 
 

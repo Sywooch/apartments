@@ -41,10 +41,22 @@ return [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
+            'class' => 'frontend\widgets\MultiLang\components\UrlManager',
+            'languages' => ['ru', 'en'],
+            'enableDefaultLanguageUrlCode' => true,
             //'suffix' => '.html',
             'rules' => [
                 '' => 'site/index',
                 '<action>'=>'site/<action>',
+            ],
+        ],
+        'i18n' => [
+            'translations' => [
+                'app*' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'basePath' => '@frontend/messages',
+                    'sourceLanguage' => 'ru',
+                ],
             ],
         ],
         'assetManager' => [

@@ -2,8 +2,8 @@
 -- version 4.4.15.7
 -- http://www.phpmyadmin.net
 --
--- Хост: 127.0.0.1:3307
--- Время создания: Мар 23 2017 г., 20:05
+-- Хост: 127.0.0.1:3306
+-- Время создания: Мар 24 2017 г., 17:43
 -- Версия сервера: 5.5.50
 -- Версия PHP: 5.6.23
 
@@ -35,6 +35,8 @@ CREATE TABLE IF NOT EXISTS `apartment` (
   `description_ua` text NOT NULL,
   `description_en` text NOT NULL,
   `coordinates` text NOT NULL,
+  `latitude` varchar(255) DEFAULT NULL,
+  `longitude` varchar(255) DEFAULT NULL,
   `stock` int(11) DEFAULT '0',
   `price_2` float NOT NULL,
   `price_night` float NOT NULL,
@@ -53,10 +55,10 @@ CREATE TABLE IF NOT EXISTS `apartment` (
 -- Дамп данных таблицы `apartment`
 --
 
-INSERT INTO `apartment` (`id`, `title_ru`, `title_ua`, `title_en`, `description_ru`, `description_ua`, `description_en`, `coordinates`, `stock`, `price_2`, `price_night`, `price_day`, `price_5`, `price_10`, `room_count`, `bed_count`, `type`, `area`, `floor`, `apartment_area`) VALUES
-(5, 'ghj', 'fghj', 'fghj', 'fghj', 'fghjf', 'ghj', 'gfhjfghj', 1, 22, 22, 22, 22, 22, 2, 4, 'Дом', 'Днепровский', 6, 69),
-(6, 'gfjhkfgjk', '657tryuj', 'ruyhy76ru76u', 'rtuj76u6ru', 'r7urtu7', 'ur67ur67u', 'Заводская улица 2, Запорожье, Запорожская область, Украина', 0, 55, 22, 22, 22, 22, 3, 10, 'Дом', 'Заводской', 20, 100),
-(7, 'арпо', 'апрол', 'апро', 'апро', 'апро', 'апро', 'Ладожская улица 17, Запорожье, Запорожская область, Украина', 1, 454, 44, 44, 44, 44, 2, 2, 'Квартира', 'Заводской', 6, 44);
+INSERT INTO `apartment` (`id`, `title_ru`, `title_ua`, `title_en`, `description_ru`, `description_ua`, `description_en`, `coordinates`, `latitude`, `longitude`, `stock`, `price_2`, `price_night`, `price_day`, `price_5`, `price_10`, `room_count`, `bed_count`, `type`, `area`, `floor`, `apartment_area`) VALUES
+(5, 'ghj', 'fghj', 'fghj', 'fghj', 'fghjf', 'ghj', 'вулиця Богдана Хмельницького 19, Запорожье, Запорожская область, Украина', '47.8566003', '35.100325', 1, 22, 22, 22, 22, 22, 2, 4, 'Дом', 'Днепровский', 6, 69),
+(6, 'gfjhkfgjk', '657tryuj', 'ruyhy76ru76u', 'rtuj76u6ru', 'r7urtu7', 'ur67ur67u', 'Заводская улица 2, Запорожье, Запорожская область, Украина', '47.8518485', '35.13174470000001', 0, 55, 22, 22, 22, 22, 3, 10, 'Дом', 'Заводской', 20, 100),
+(7, 'арпо', 'апрол', 'апро', 'апро', 'апро', 'апро', 'Ладожская улица 17, Запорожье, Запорожская область, Украина', '47.8870025', '35.06736699999999', 1, 454, 44, 44, 44, 44, 2, 2, 'Квартира', 'Заводской', 6, 44);
 
 -- --------------------------------------------------------
 
@@ -188,7 +190,14 @@ CREATE TABLE IF NOT EXISTS `image` (
   `id` int(11) NOT NULL,
   `apartment_id` int(11) NOT NULL,
   `image` varchar(255) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `image`
+--
+
+INSERT INTO `image` (`id`, `apartment_id`, `image`) VALUES
+(27, 7, 'D:\\OpenServer\\domains\\apartments.loc/frontend/web/images/ecab293f3e70d8e1d290c88ad39dde58.jpg');
 
 -- --------------------------------------------------------
 
@@ -216,7 +225,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 
 INSERT INTO `user` (`id`, `username`, `name`, `surname`, `auth_key`, `password_hash`, `password_reset_token`, `email`, `status`, `created_at`, `updated_at`) VALUES
 (1, 'Admin', 'Администратор', 'Администраторович', 'UTo8q7LX4oqzNWicwZE7txlyFy8QQlXf', '$2y$13$jdKfU1vtbmHEY.P8Wg7W4.40CHL7BZU5yKbjnWsY0qtg2.a58V81S', NULL, 'prybylov.v@gmail.com', 10, 1490176869, 1490179685),
-(4, 'vasya', 'Василий', 'Иванов', 'QmOmPJu4x_JjsiLpdHSBarbi4YYM8qSL', '$2y$13$jdKfU1vtbmHEY.P8Wg7W4.40CHL7BZU5yKbjnWsY0qtg2.a58V81S', NULL, 'vlad.vasyakot@mail.ru', 10, 1490185426, 1490286812);
+(4, 'vasya', 'Василий', 'Иванов', 'QmOmPJu4x_JjsiLpdHSBarbi4YYM8qSL', '$2y$13$jdKfU1vtbmHEY.P8Wg7W4.40CHL7BZU5yKbjnWsY0qtg2.a58V81S', NULL, 'vlad.vasyakot@mail.ru', 10, 1490185426, 1490342020);
 
 --
 -- Индексы сохранённых таблиц
@@ -296,7 +305,7 @@ ALTER TABLE `facilities`
 -- AUTO_INCREMENT для таблицы `image`
 --
 ALTER TABLE `image`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=30;
 --
 -- AUTO_INCREMENT для таблицы `user`
 --

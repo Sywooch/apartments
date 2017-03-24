@@ -4,6 +4,7 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 use kartik\grid\GridView;
 use common\models\FacilitiesSearch;
+use common\models\Image;
 
 $this->title = 'Квартиры';
 $this->params['breadcrumbs'][] = $this->title;
@@ -64,6 +65,17 @@ $this->params['breadcrumbs'][] = $this->title;
                         'dataProvider' => $dataProvider,
                     ]);
                 },
+            ],
+            [
+                'header' => 'Фото',
+                'format' => 'raw',
+                'value' => function($model){
+                    $image = Image::find()->where('apartment_id='.$model->id)->one();
+                    if(isset($image->image) && !empty($image->image)){
+                        return Html::img($image->image = 'http://'.substr(strstr($image->image, 'domains\\'), 8, strlen($image->image)),
+                            ['width' => '100px', 'height' => '100px']);
+                    }
+                }
             ],
             'title_ru',
             'description_ru:ntext',

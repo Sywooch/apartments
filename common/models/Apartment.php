@@ -6,9 +6,9 @@ use Yii;
 
 class Apartment extends \yii\db\ActiveRecord
 {
-    public $address;
-    public $longitude = 35.19031;
-    public $latitude = 47.82289;
+//    public $address;
+//    public $longitude;
+//    public $latitude;
 
     public static function tableName()
     {
@@ -19,7 +19,7 @@ class Apartment extends \yii\db\ActiveRecord
     {
         return [
             [['title_ru', 'title_ua', 'title_en', 'description_ru', 'description_ua', 'description_en', 'coordinates', 'price_2', 'price_night', 'price_day', 'price_5', 'price_10', 'type', 'area'], 'required'],
-            [['description_ru', 'description_ua', 'description_en', 'coordinates'], 'string'],
+            [['description_ru', 'description_ua', 'description_en', 'coordinates', 'latitude', 'longitude'], 'string'],
             [['stock'], 'integer'],
             [['price_2', 'price_night', 'price_day', 'price_5', 'price_10', 'apartment_area'], 'number'],
             [['title_ru', 'title_ua', 'title_en', 'area', 'room_count', 'bed_count', 'floor'], 'string', 'max' => 255],

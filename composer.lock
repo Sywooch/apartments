@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "08dd861b1ad4b2bb13268c4e1e5c533b",
+    "content-hash": "905d9b4ce1c4731675f9bb47f6d28401",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -97,16 +97,16 @@
         },
         {
             "name": "bower-asset/bootstrap3-dialog",
-            "version": "v1.35.3",
+            "version": "v1.35.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nakupanda/bootstrap3-dialog.git",
-                "reference": "4aa9d536516957e01c39afd1b5e8bdd88976ef7b"
+                "reference": "3dd11d586f78de75356af418907ec6e3b347377c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nakupanda/bootstrap3-dialog/zipball/4aa9d536516957e01c39afd1b5e8bdd88976ef7b",
-                "reference": "4aa9d536516957e01c39afd1b5e8bdd88976ef7b",
+                "url": "https://api.github.com/repos/nakupanda/bootstrap3-dialog/zipball/3dd11d586f78de75356af418907ec6e3b347377c",
+                "reference": "3dd11d586f78de75356af418907ec6e3b347377c",
                 "shasum": ""
             },
             "require": {
@@ -150,16 +150,16 @@
         },
         {
             "name": "bower-asset/fullcalendar",
-            "version": "v3.2.0",
+            "version": "v3.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fullcalendar/fullcalendar.git",
-                "reference": "5d6574b29d454d5db9f5f5ce551da835ab2a245c"
+                "reference": "cdbc0bff3e3fa09ed1afb5b7efc2bef011c0d2fe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fullcalendar/fullcalendar/zipball/5d6574b29d454d5db9f5f5ce551da835ab2a245c",
-                "reference": "5d6574b29d454d5db9f5f5ce551da835ab2a245c",
+                "url": "https://api.github.com/repos/fullcalendar/fullcalendar/zipball/cdbc0bff3e3fa09ed1afb5b7efc2bef011c0d2fe",
+                "reference": "cdbc0bff3e3fa09ed1afb5b7efc2bef011c0d2fe",
                 "shasum": ""
             },
             "require": {
@@ -2116,6 +2116,46 @@
             ],
             "description": "Themes for Bootstrap",
             "time": "2016-07-30T21:56:26+00:00"
+        },
+        {
+            "name": "voime/yii2-google-maps",
+            "version": "1.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/voime/yii2-google-maps.git",
+                "reference": "55771f64fb8ff82419ff4ee13ab7d8a3e67b24f4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/voime/yii2-google-maps/zipball/55771f64fb8ff82419ff4ee13ab7d8a3e67b24f4",
+                "reference": "55771f64fb8ff82419ff4ee13ab7d8a3e67b24f4",
+                "shasum": ""
+            },
+            "require": {
+                "yiisoft/yii2": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "voime\\GoogleMaps\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Arvi Võime",
+                    "email": "avoime@gmail.com"
+                }
+            ],
+            "description": "Google Maps Yii2 wrapper",
+            "keywords": [
+                "extension",
+                "yii2"
+            ],
+            "time": "2016-04-13T12:58:11+00:00"
         },
         {
             "name": "yiisoft/yii2",

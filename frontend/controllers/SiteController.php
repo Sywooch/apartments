@@ -1,23 +1,23 @@
 <?php
 namespace frontend\controllers;
 
-use common\models\Apartment;
-use common\models\Image;
+use common\models\ApartmentSearch;
 use Yii;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
 use yii\web\Controller;
+use yii\data\ActiveDataProvider;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use common\models\LoginForm;
+use common\models\Apartment;
+use common\models\Image;
 use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 
-/**
- * Site controller
- */
+
 class SiteController extends Controller
 {
 
@@ -66,6 +66,10 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
+
+        $searchModel = new ApartmentSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
         $map = Apartment::find()->all();
         $map_items = [];
         if(isset($map) && !empty($map)){
@@ -81,6 +85,8 @@ class SiteController extends Controller
         return $this->render('index', [
             'map_items' => $map_items,
             'map' => $map,
+            'dataProvider' => $dataProvider,
+            'searchModel' => $searchModel,
         ]);
     }
 

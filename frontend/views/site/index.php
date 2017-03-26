@@ -1,6 +1,12 @@
 <?php
+
+use yii\helpers\Html;
+use yii\widgets\ActiveForm;
+use yii\widgets\ListView;
+use yii\widgets\Pjax;
 use voime\GoogleMaps\Map;
 use frontend\widgets\MultiLang\MultiLang;
+
 $this->title = 'Главная';
 $lang = Yii::$app->language;
 ?>
@@ -29,13 +35,44 @@ $lang = Yii::$app->language;
             'markerFitBounds'=>true
         ]);
         ?>
-        <?php
-            if ($lang == 'en'){
-                echo 'en';
-            } else if ($lang == 'ru')
-            {
-                echo 'ru';
-            }
-        ?>
+<!--        --><?php
+//            if ($lang == 'en'){
+//                echo 'en';
+//            } else if ($lang == 'ru')
+//            {
+//                echo 'ru';
+//            }
+//        ?>
+        
+
+            <?php Pjax::begin(['id' => 'new_country']); ?>
+
+            <?php $form = ActiveForm::begin(['method' => 'get','options' => ['data-pjax' => true ]]); ?>
+
+            <?= $form->field($searchModel, 'title_ru') ?>
+
+            <?= $form->field($searchModel, 'area')->dropDownList([
+                'prompt'=>'Выберите район...',
+                'Александровский' => 'Александровский',
+                'Заводской' => 'Заводской',
+                'Коммунарский' => 'Коммунарский',
+                'Днепровский' => 'Днепровский',
+                'Вознесеновский' => 'Вознесеновский',
+                'Хортицкий' => 'Хортицкий',
+                'Шевченковский' => 'Шевченковский',
+            ]);
+            ?>
+
+            <div class="form-group">
+                <?= Html::submitButton('Apply', ['class' => 'btn btn-success']) ?>
+            </div>
+
+        <?php ActiveForm::end(); ?>
+
+        <?= ListView::widget([
+            'dataProvider' => $dataProvider,
+            'itemView' => '_apartment',
+        ]);?>
+        <?php Pjax::end(); ?>
     </div>
 </div>

@@ -1583,16 +1583,16 @@
         },
         {
             "name": "p2made/yii2-sb-admin-theme",
-            "version": "2.1.0",
+            "version": "2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/p2made/yii2-sb-admin-theme.git",
-                "reference": "3d44900e303ec4744973814fa68259a560628efe"
+                "reference": "0572829123512b0ad33742353687f987bd23bf63"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/p2made/yii2-sb-admin-theme/zipball/3d44900e303ec4744973814fa68259a560628efe",
-                "reference": "3d44900e303ec4744973814fa68259a560628efe",
+                "url": "https://api.github.com/repos/p2made/yii2-sb-admin-theme/zipball/0572829123512b0ad33742353687f987bd23bf63",
+                "reference": "0572829123512b0ad33742353687f987bd23bf63",
                 "shasum": ""
             },
             "require": {
@@ -1632,7 +1632,7 @@
                 "yii",
                 "yii2"
             ],
-            "time": "2017-03-22T11:59:57+00:00"
+            "time": "2017-03-26T07:20:47+00:00"
         },
         {
             "name": "paragonie/random_compat",

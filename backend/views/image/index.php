@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 
-$this->title = 'Фото товара';
+$this->title = 'Фото квартиры';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="image-index">

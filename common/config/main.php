@@ -30,6 +30,7 @@ return [
             'site/index',
             'site/about',
             'site/contact',
+            'site/detail',
         ],
     ],
 ];

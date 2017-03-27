@@ -2,6 +2,7 @@
 namespace frontend\controllers;
 
 use common\models\ApartmentSearch;
+use common\models\Comments;
 use Yii;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
@@ -87,6 +88,23 @@ class SiteController extends Controller
             'map' => $map,
             'dataProvider' => $dataProvider,
             'searchModel' => $searchModel,
+        ]);
+    }
+    
+    
+    public function actionDetail($id){
+        $model = Apartment::find()->where('id='.$id)->one();
+        $comments = Comments::find()->where('apartment_id='.$model->id)->orderBy('id DESC')->all();
+        $new_comment = new Comments();
+
+        if ($new_comment->load(Yii::$app->request->post()) && $new_comment->save()) {
+            return $this->redirect(Yii::$app->request->referrer);
+        }
+        
+        return $this->render('detail', [
+            'model' => $model,
+            'comments' => $comments,
+            'new_comment' => $new_comment,
         ]);
     }
 

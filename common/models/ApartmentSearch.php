@@ -10,7 +10,6 @@ use common\models\Apartment;
 
 class ApartmentSearch extends Apartment
 {
-
     public $min_price;
     public $max_price;
     public $elevator;

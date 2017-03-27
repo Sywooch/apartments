@@ -35,19 +35,10 @@ $lang = Yii::$app->language;
             'markerFitBounds'=>true
         ]);
         ?>
-<!--        --><?php
-//            if ($lang == 'en'){
-//                echo 'en';
-//            } else if ($lang == 'ru')
-//            {
-//                echo 'ru';
-//            }
-//        ?>
-        
 
-            <?php Pjax::begin(['id' => 'new_country']); ?>
+        <?php Pjax::begin(['id' => 'new_country']); ?>
 
-            <?php $form = ActiveForm::begin([ 'id' => 'test','method' => 'get','options' => ['data-pjax' => true ]]); ?>
+        <?php $form = ActiveForm::begin([ 'id' => 'test','method' => 'get','options' => ['data-pjax' => true ]]); ?>
 
             <?= $form->field($searchModel, 'room_count')->dropDownList([
                 'prompt'=>'Выберите количество комнат...',
@@ -85,11 +76,7 @@ $lang = Yii::$app->language;
                 'Шевченковский' => 'Шевченковский',
             ]);
             ?>
-
-
-<!--            --><?//= $form->field($searchModel, 'type')->checkbox(['value' => 'Дом'])->label('Дом') ?>
-<!--            --><?//= $form->field($searchModel, 'type')->checkbox(['value' => 'Квартира'])->label('Квартира') ?>
-<!--            --><?//= $form->field($searchModel, 'type')->checkbox(['value' => 'Комната'])->label('Комната') ?>
+        
             <?= $form->field($searchModel, 'type')->checkboxList(['Дом'=>'Дом', 'Квартира'=>'Квартира', 'Комната'=>'Комната']) ?>
 
             <?= $form->field($searchModel, 'stock')->checkbox(['uncheckValue'=>NULL]) ?>
@@ -102,58 +89,57 @@ $lang = Yii::$app->language;
                 </div>
             </div>
 
-<!--            <h1 style="text-align: center">Удобства</h1><br><br>-->
-<!--            <div class="row">-->
-<!--                <div class="col-md-3">-->
-<!--    -->
+            <h1 style="text-align: center">Удобства</h1><br><br>
+            <div class="row">
+                <div class="col-md-3">
                     <?= $form->field($searchModel, 'elevator')->checkbox() ?>
-<!--    -->
-<!--                    --><?//= $form->field($facilities, 'internet')->checkbox() ?>
-<!--    -->
-<!--                    --><?//= $form->field($facilities, 'animals')->checkbox() ?>
-<!--    -->
-<!--                    --><?//= $form->field($facilities, 'kitchen')->checkbox() ?>
-<!--    -->
-<!--                    --><?//= $form->field($facilities, 'gym')->checkbox() ?>
-<!--    -->
-<!--                    --><?//= $form->field($facilities, 'intercom')->checkbox() ?>
-<!--                </div>-->
-<!--                <div class="col-md-3">-->
-<!--                    --><?//= $form->field($facilities, 'fireplace')->checkbox() ?>
-<!--    -->
-<!--                    --><?//= $form->field($facilities, 'waggon')->checkbox() ?>
-<!--    -->
-<!--                    --><?//= $form->field($facilities, 'heating')->checkbox() ?>
-<!--    -->
-<!--                    --><?//= $form->field($facilities, 'wifi')->checkbox() ?>
-<!--    -->
-<!--                    --><?//= $form->field($facilities, 'disabled')->checkbox() ?>
-<!--    -->
-<!--                    --><?//= $form->field($facilities, 'iron')->checkbox() ?>
-<!--                </div>-->
-<!--                <div class="col-md-3">-->
-<!--                    --><?//= $form->field($facilities, 'drying_machine')->checkbox() ?>
-<!--    -->
-<!--                    --><?//= $form->field($facilities, 'family')->checkbox() ?>
-<!--    -->
-<!--                    --><?//= $form->field($facilities, 'parking')->checkbox() ?>
-<!--    -->
-<!--                    --><?//= $form->field($facilities, 'washer_machine')->checkbox() ?>
-<!--    -->
-<!--                    --><?//= $form->field($facilities, 'hair_dryer')->checkbox() ?>
-<!--    -->
-<!--                    --><?//= $form->field($facilities, 'tv')->checkbox() ?>
-<!--                </div>-->
-<!--                <div class="col-md-3">-->
-<!--                    --><?//= $form->field($facilities, 'conditioner')->checkbox() ?>
-<!--    -->
-<!--                    --><?//= $form->field($facilities, 'cable_tv')->checkbox() ?>
-<!--    -->
-<!--                    --><?//= $form->field($facilities, 'smoke')->checkbox() ?>
-<!--    -->
-<!--                    --><?//= $form->field($facilities, 'separate_entrance')->checkbox() ?>
-<!--                </div>-->
-<!--            </div>-->
+
+                    <?= $form->field($searchModel, 'internet')->checkbox() ?>
+
+                    <?= $form->field($searchModel, 'animals')->checkbox() ?>
+
+                    <?= $form->field($searchModel, 'kitchen')->checkbox() ?>
+
+                    <?= $form->field($searchModel, 'gym')->checkbox() ?>
+
+                    <?= $form->field($searchModel, 'intercom')->checkbox() ?>
+                </div>
+                <div class="col-md-3">
+                    <?= $form->field($searchModel, 'fireplace')->checkbox() ?>
+
+                    <?= $form->field($searchModel, 'waggon')->checkbox() ?>
+
+                    <?= $form->field($searchModel, 'heating')->checkbox() ?>
+
+                    <?= $form->field($searchModel, 'wifi')->checkbox() ?>
+
+                    <?= $form->field($searchModel, 'disabled')->checkbox() ?>
+
+                    <?= $form->field($searchModel, 'iron')->checkbox() ?>
+                </div>
+                <div class="col-md-3">
+                    <?= $form->field($searchModel, 'drying_machine')->checkbox() ?>
+
+                    <?= $form->field($searchModel, 'family')->checkbox() ?>
+
+                    <?= $form->field($searchModel, 'parking')->checkbox() ?>
+
+                    <?= $form->field($searchModel, 'washer_machine')->checkbox() ?>
+
+                    <?= $form->field($searchModel, 'hair_dryer')->checkbox() ?>
+
+                    <?= $form->field($searchModel, 'tv')->checkbox() ?>
+                </div>
+                <div class="col-md-3">
+                    <?= $form->field($searchModel, 'conditioner')->checkbox() ?>
+
+                    <?= $form->field($searchModel, 'cable_tv')->checkbox() ?>
+
+                    <?= $form->field($searchModel, 'smoke')->checkbox() ?>
+
+                    <?= $form->field($searchModel, 'separate_entrance')->checkbox() ?>
+                </div>
+            </div>
 
             <div class="form-group">
                 <?= Html::submitButton('Поиск', ['class' => 'btn btn-success']) ?>

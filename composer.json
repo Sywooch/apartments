@@ -23,7 +23,8 @@
         "p2made/yii2-sb-admin-theme": "^2.1",
         "kalyabin/yii2-select-google-map-location": "*",
         "kartik-v/yii2-grid": "@dev",
-        "voime/yii2-google-maps": "*"
+        "voime/yii2-google-maps": "*",
+        "kartik-v/yii2-date-range": "*"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

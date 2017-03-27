@@ -34,6 +34,7 @@ return [
             'site/login',
         ],
     ],
+    'defaultRoute' => 'orders/index',
     'components' => [
         'user' => [
             'identityClass' => 'common\models\User',

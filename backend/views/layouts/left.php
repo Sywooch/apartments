@@ -21,6 +21,7 @@
                 'items' => [
                     ['label' => 'Меню', 'options' => ['class' => 'header']],
                     ['label' => 'Сайт', 'icon' => 'fa fa-home', 'url' => '/frontend/web/'],
+                    ['label' => 'Заказы', 'icon' => 'fa fa-shopping-cart', 'url' => '/backend/web/orders/'],
                     ['label' => 'Квартиры', 'icon' => 'fa fa-bed', 'url' => '/backend/web/apartment/'],
                     ['label' => 'Пользователи', 'icon' => 'fa fa-user', 'url' => '/backend/web/user/'],
 //                    ['label' => 'Gii', 'icon' => 'fa fa-file-code-o', 'url' => ['/gii']],

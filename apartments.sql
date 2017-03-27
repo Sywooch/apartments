@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Мар 24 2017 г., 17:43
+-- Время создания: Мар 27 2017 г., 16:20
 -- Версия сервера: 5.5.50
 -- Версия PHP: 5.6.23
 
@@ -78,7 +78,8 @@ CREATE TABLE IF NOT EXISTS `auth_assignment` (
 
 INSERT INTO `auth_assignment` (`item_name`, `user_id`, `created_at`) VALUES
 ('Admin', '1', 1490184484),
-('User', '4', 1490185426);
+('User', '4', 1490185426),
+('User', '5', 1490607406);
 
 -- --------------------------------------------------------
 
@@ -197,7 +198,26 @@ CREATE TABLE IF NOT EXISTS `image` (
 --
 
 INSERT INTO `image` (`id`, `apartment_id`, `image`) VALUES
-(27, 7, 'D:\\OpenServer\\domains\\apartments.loc/frontend/web/images/ecab293f3e70d8e1d290c88ad39dde58.jpg');
+(27, 7, 'D:\\OpenServer\\domains\\apartments.loc/frontend/web/images/ecab293f3e70d8e1d290c88ad39dde58.jpg'),
+(29, 6, 'D:\\OpenServer\\domains\\apartments.loc/frontend/web/images/1155b2f86fe2cc39a27430e1874f8605.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `Orders`
+--
+
+CREATE TABLE IF NOT EXISTS `Orders` (
+  `id` int(11) NOT NULL,
+  `apartment_id` int(11) NOT NULL,
+  `date_start` date NOT NULL,
+  `date_end` date NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `order_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `status` int(11) NOT NULL DEFAULT '0',
+  `total_price` float DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -217,7 +237,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `status` smallint(6) NOT NULL DEFAULT '10',
   `created_at` int(11) NOT NULL,
   `updated_at` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Дамп данных таблицы `user`
@@ -279,6 +299,13 @@ ALTER TABLE `image`
   ADD KEY `image_ibfk_1` (`apartment_id`);
 
 --
+-- Индексы таблицы `Orders`
+--
+ALTER TABLE `Orders`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `apartment_id` (`apartment_id`);
+
+--
 -- Индексы таблицы `user`
 --
 ALTER TABLE `user`
@@ -307,10 +334,15 @@ ALTER TABLE `facilities`
 ALTER TABLE `image`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=30;
 --
+-- AUTO_INCREMENT для таблицы `Orders`
+--
+ALTER TABLE `Orders`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT для таблицы `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
 -- Ограничения внешнего ключа сохраненных таблиц
 --
@@ -345,6 +377,12 @@ ALTER TABLE `facilities`
 --
 ALTER TABLE `image`
   ADD CONSTRAINT `image_ibfk_1` FOREIGN KEY (`apartment_id`) REFERENCES `apartment` (`id`) ON DELETE CASCADE;
+
+--
+-- Ограничения внешнего ключа таблицы `Orders`
+--
+ALTER TABLE `Orders`
+  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`apartment_id`) REFERENCES `apartment` (`id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

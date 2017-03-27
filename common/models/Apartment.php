@@ -57,4 +57,9 @@ class Apartment extends \yii\db\ActiveRecord
     {
         return $this->hasMany(Facilities::className(), ['apartment_id' => 'id']);
     }
+
+    public function getImage()
+    {
+        return $this->hasMany(Facilities::className(), ['apartment_id' => 'id']);
+    }
 }

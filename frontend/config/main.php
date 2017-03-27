@@ -42,7 +42,7 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'class' => 'frontend\widgets\MultiLang\components\UrlManager',
-            'languages' => ['ru', 'en'],
+            'languages' => ['ru', 'en', 'ua'],
             'enableDefaultLanguageUrlCode' => true,
             //'suffix' => '.html',
             'rules' => [

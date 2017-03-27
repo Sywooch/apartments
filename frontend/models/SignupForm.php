@@ -13,6 +13,7 @@ class SignupForm extends Model
     public $surname;
     public $email;
     public $password;
+    public $confirm_password;
 
 
     public function rules()
@@ -33,6 +34,9 @@ class SignupForm extends Model
 
             ['password', 'required'],
             ['password', 'string', 'min' => 6],
+
+            ['confirm_password', 'required'],
+            ['confirm_password', 'matchPassword'],
         ];
     }
 
@@ -45,9 +49,17 @@ class SignupForm extends Model
             'surname' => 'Фамилия',
             'email' => 'Email',
             'password' => 'Пароль',
+            'confirm_password' => 'Пароль подтверждения',
             'status' => 'Статус',
             'created_at' => 'Зарегистрирован',
         ];
+    }
+
+    public function matchPassword($attribute)
+    {
+        if ($this->password != $this->confirm_password) {
+            $this->addError($attribute, "Не верный пароль подтверждения");
+        }
     }
 
 

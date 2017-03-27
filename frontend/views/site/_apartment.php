@@ -1,3 +1,10 @@
+<?php $lang = Yii::$app->language; ?>
 
 
-<?= $model->title_ru ?>
+<?php if($lang == 'ru'){
+    echo $model->title_ru;
+} else if($lang == 'ua'){
+    echo $model->title_ua;
+} else if($lang == 'en'){
+    echo $model->title_en;
+}?>

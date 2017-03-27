@@ -3,16 +3,20 @@
 namespace backend\controllers;
 
 use Yii;
-use common\models\Facilities;
-use common\models\FacilitiesSearch;
+use common\models\Orders;
+use common\models\OrdersSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
-
-class FacilitiesController extends Controller
+/**
+ * OrdersController implements the CRUD actions for Orders model.
+ */
+class OrdersController extends Controller
 {
-
+    /**
+     * @inheritdoc
+     */
     public function behaviors()
     {
         return [
@@ -25,10 +29,13 @@ class FacilitiesController extends Controller
         ];
     }
 
-
+    /**
+     * Lists all Orders models.
+     * @return mixed
+     */
     public function actionIndex()
     {
-        $searchModel = new FacilitiesSearch();
+        $searchModel = new OrdersSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -37,7 +44,11 @@ class FacilitiesController extends Controller
         ]);
     }
 
-
+    /**
+     * Displays a single Orders model.
+     * @param integer $id
+     * @return mixed
+     */
     public function actionView($id)
     {
         return $this->render('view', [
@@ -45,10 +56,14 @@ class FacilitiesController extends Controller
         ]);
     }
 
-
+    /**
+     * Creates a new Orders model.
+     * If creation is successful, the browser will be redirected to the 'view' page.
+     * @return mixed
+     */
     public function actionCreate()
     {
-        $model = new Facilities();
+        $model = new Orders();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -59,7 +74,12 @@ class FacilitiesController extends Controller
         }
     }
 
-
+    /**
+     * Updates an existing Orders model.
+     * If update is successful, the browser will be redirected to the 'view' page.
+     * @param integer $id
+     * @return mixed
+     */
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
@@ -73,7 +93,12 @@ class FacilitiesController extends Controller
         }
     }
 
-
+    /**
+     * Deletes an existing Orders model.
+     * If deletion is successful, the browser will be redirected to the 'index' page.
+     * @param integer $id
+     * @return mixed
+     */
     public function actionDelete($id)
     {
         $this->findModel($id)->delete();
@@ -81,10 +106,16 @@ class FacilitiesController extends Controller
         return $this->redirect(['index']);
     }
 
-
+    /**
+     * Finds the Orders model based on its primary key value.
+     * If the model is not found, a 404 HTTP exception will be thrown.
+     * @param integer $id
+     * @return Orders the loaded model
+     * @throws NotFoundHttpException if the model cannot be found
+     */
     protected function findModel($id)
     {
-        if (($model = Facilities::findOne($id)) !== null) {
+        if (($model = Orders::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

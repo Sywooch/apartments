@@ -34,7 +34,7 @@ return [
             'site/login',
         ],
     ],
-    'defaultRoute' => 'orders/index',
+    'defaultRoute' => '/orders/index',
     'components' => [
         'user' => [
             'identityClass' => 'common\models\User',
@@ -72,16 +72,16 @@ return [
             'showScriptName' => false,
             //'suffix' => '.html',
             'rules' => [
-                '' => 'site/index',
+//                '' => 'site/index',
                 '<action>'=>'site/<action>',
             ],
         ],
         'assetManager' => [
             'basePath' => '@webroot/assets',
-            'baseUrl' => '@web/assets'
+            'baseUrl' => '/backend/web/assets'
         ],
         'request' => [
-//            'baseUrl' => '/admin'
+            'baseUrl' => '/admin'
         ]
     ],
     'params' => $params,

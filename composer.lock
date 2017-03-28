@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "c977d6d5295a6a918872d60f4305fde8",
+    "content-hash": "1854580f987a46d9e58d465438f3a698",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -605,16 +605,16 @@
         },
         {
             "name": "dmstr/yii2-adminlte-asset",
-            "version": "2.4.0",
+            "version": "2.3.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dmstr/yii2-adminlte-asset.git",
-                "reference": "b34bdc251df6ceeecab6eebf129e5cc58d233944"
+                "reference": "32fdb7378f3f4bcc5fb35db5e17a2dd11f9e2b57"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dmstr/yii2-adminlte-asset/zipball/b34bdc251df6ceeecab6eebf129e5cc58d233944",
-                "reference": "b34bdc251df6ceeecab6eebf129e5cc58d233944",
+                "url": "https://api.github.com/repos/dmstr/yii2-adminlte-asset/zipball/32fdb7378f3f4bcc5fb35db5e17a2dd11f9e2b57",
+                "reference": "32fdb7378f3f4bcc5fb35db5e17a2dd11f9e2b57",
                 "shasum": ""
             },
             "require": {
@@ -661,7 +661,7 @@
                 "theme",
                 "yii2"
             ],
-            "time": "2017-03-24T11:36:51+00:00"
+            "time": "2016-10-21T02:03:45+00:00"
         },
         {
             "name": "drmonty/animate.css",

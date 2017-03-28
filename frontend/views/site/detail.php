@@ -35,6 +35,10 @@ if(!Yii::$app->user->isGuest) {
         <div class="form-group">
             <?= Html::submitButton('Добавить', ['class' => 'btn btn-success']) ?>
         </div>
+    <?php } else if(Yii::$app->user->isGuest){ ?>
+        <div class="form-group">
+            <p>Вы не авторизированы, <?= Html::a('авторизируйтесь', ['/site/login']) ?>, чтобы оставить комментарий.</p>
+        </div>
     <?php } ?>
 
     <?php ActiveForm::end(); ?>

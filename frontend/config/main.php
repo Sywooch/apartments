@@ -9,7 +9,7 @@ $params = array_merge(
 return [
     'id' => 'app-frontend',
     'basePath' => dirname(__DIR__),
-    'language' => 'ru-RU',
+//    'language' => 'ru-RU',
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
@@ -44,7 +44,7 @@ return [
             'class' => 'frontend\widgets\MultiLang\components\UrlManager',
             'languages' => ['ru', 'en', 'ua'],
             'enableDefaultLanguageUrlCode' => true,
-            //'suffix' => '.html',
+//            'suffix' => '.html',
             'rules' => [
                 '' => 'site/index',
                 '<action>'=>'site/<action>',
@@ -61,7 +61,7 @@ return [
         ],
         'assetManager' => [
             'basePath' => '@webroot/assets',
-            'baseUrl' => '@web/assets',
+            'baseUrl' => '/frontend/web/assets',
         ],
     ],
     'params' => $params,

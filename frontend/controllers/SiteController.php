@@ -67,7 +67,6 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-
         $searchModel = new ApartmentSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 

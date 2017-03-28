@@ -24,13 +24,7 @@ return [
     'as access' => [
         'class' => 'mdm\admin\components\AccessControl',
         'allowActions' => [
-            'site/logout',
-            'site/login',
-            'site/signup',
-            'site/index',
-            'site/about',
-            'site/contact',
-            'site/detail',
+            'site/*'
         ],
     ],
 ];

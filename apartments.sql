@@ -225,10 +225,10 @@ INSERT INTO `image` (`id`, `apartment_id`, `image`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `Orders`
+-- Структура таблицы `orders`
 --
 
-CREATE TABLE IF NOT EXISTS `Orders` (
+CREATE TABLE IF NOT EXISTS `orders` (
   `id` int(11) NOT NULL,
   `apartment_id` int(11) NOT NULL,
   `date_start` date NOT NULL,
@@ -328,9 +328,9 @@ ALTER TABLE `image`
   ADD KEY `image_ibfk_1` (`apartment_id`);
 
 --
--- Индексы таблицы `Orders`
+-- Индексы таблицы `orders`
 --
-ALTER TABLE `Orders`
+ALTER TABLE `orders`
   ADD PRIMARY KEY (`id`),
   ADD KEY `apartment_id` (`apartment_id`);
 
@@ -368,9 +368,9 @@ ALTER TABLE `facilities`
 ALTER TABLE `image`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=30;
 --
--- AUTO_INCREMENT для таблицы `Orders`
+-- AUTO_INCREMENT для таблицы `orders`
 --
-ALTER TABLE `Orders`
+ALTER TABLE `orders`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT для таблицы `user`
@@ -420,9 +420,9 @@ ALTER TABLE `image`
   ADD CONSTRAINT `image_ibfk_1` FOREIGN KEY (`apartment_id`) REFERENCES `apartment` (`id`) ON DELETE CASCADE;
 
 --
--- Ограничения внешнего ключа таблицы `Orders`
+-- Ограничения внешнего ключа таблицы `orders`
 --
-ALTER TABLE `Orders`
+ALTER TABLE `orders`
   ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`apartment_id`) REFERENCES `apartment` (`id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

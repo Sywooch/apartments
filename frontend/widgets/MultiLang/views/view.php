@@ -1,32 +1,35 @@
 <?php
 namespace frontend\widgets\MultiLang;
-use yii\helpers\Html;
-use Yii;
-?>
 
-<div class="btn-group <?= $cssClass; ?>">
-    <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-        <span class="uppercase"><?= Yii::$app->language; ?></span>
-        <span class="caret"></span>
-    </a>
-    <ul class="dropdown-menu">
-        <li class="item-lang">
-            <?= Html::a('Русский', array_merge(
-                \Yii::$app->request->get(),
-                [\Yii::$app->controller->route, 'language' => 'ru']
-            )); ?>
-        </li>
-        <li class="item-lang">
-            <?= Html::a('Українська', array_merge(
-                \Yii::$app->request->get(),
-                [\Yii::$app->controller->route, 'language' => 'ua']
-            )); ?>
-        </li>
-        <li class="item-lang">
-            <?= Html::a('English', array_merge(
-                \Yii::$app->request->get(),
-                [\Yii::$app->controller->route, 'language' => 'en']
-            )); ?>
-        </li>
-    </ul>
-</div>
+use Yii;
+use yii\helpers\Html;
+
+$lang = Yii::$app->language;
+$class_en = 'lang';
+$class_ru = 'lang';
+$class_ua = 'lang';
+?>
+    
+<?php
+    if($lang == 'en'){
+        $class_en = 'lang lang_active';
+    } elseif($lang == 'ru') {
+        $class_ru = 'lang lang_active';
+    } elseif($lang == 'ua') {
+        $class_ua = 'lang lang_active';
+    }
+?>    
+<?= Html::a('ENG', array_merge(
+    \Yii::$app->request->get(),
+    [\Yii::$app->controller->route, 'language' => 'en']
+), ['class' => $class_en]); ?>
+
+<?= Html::a('РУС', array_merge(
+    \Yii::$app->request->get(),
+    [\Yii::$app->controller->route, 'language' => 'ru']
+), ['class' => $class_ru]); ?>
+
+<?= Html::a('УКР', array_merge(
+    \Yii::$app->request->get(),
+    [\Yii::$app->controller->route, 'language' => 'ua']
+), ['class' => $class_ua]); ?>

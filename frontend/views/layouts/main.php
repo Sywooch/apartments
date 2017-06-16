@@ -33,8 +33,8 @@ AppAsset::register($this);
         <span id="filter_close"></span>
         <a href="/site/index"><img class="logo_img" src="/frontend/web/img/logo.png" alt="logo"></a>
         <nav class="header_nav">
-            <a class="headerbutton" href="contacts.html"><?= Yii::t('app', 'Контакты') ?></a>
-            <a class="headerbutton" href="sdai.html"><?= Yii::t('app', 'Сдай свое жилье') ?></a>
+            <a class="headerbutton" href="/site/contact"><?= Yii::t('app', 'Контакты') ?></a>
+            <a class="headerbutton" href="/site/about"><?= Yii::t('app', 'Сдай свое жилье') ?></a>
                 <span>
 <!--                    --><?php //Pjax::begin(['id'=>'change-language', 'options'=>['tag'=>'span']]) ?>
                     <?= MultiLang::widget(); ?>
@@ -86,17 +86,37 @@ AppAsset::register($this);
         <?= $content ?>
     </div>
 
-<footer>
-    <p class="footer_copyright">© <?= Yii::t('app', 'Аренда квартир') ?> <?= date('Y') ?></p>
-    <nav class="footer_social">
-        <a class="imgoverlay" href="#"><img src="/frontend/web/img/facebook-icon.png" title="facebook"></a>
-        <a class="imgoverlay" href="#"><img src="/frontend/web/img/vk-icon.png" title="vk"></a>
-        <a class="imgoverlay" href="#"><img src="/frontend/web/img/google--icon.png" title="googleplus"></a>
-        <a class="imgoverlay" href="#"><img src="/frontend/web/img/twitter-icon.png" title="twitter"></a>
-        <a class="imgoverlay" href="#"><img src="/frontend/web/img/instagram-icon.png" title="instagram"></a>
-    </nav>
-</footer>
-
+<?php if(
+    Yii::$app->request->url == '/ru/about' ||
+    Yii::$app->request->url == '/en/about' ||
+    Yii::$app->request->url == '/ua/about' ||
+    Yii::$app->request->url == '/ru/contact' ||
+    Yii::$app->request->url == '/en/contact' ||
+    Yii::$app->request->url == '/ua/contact'){
+?>
+    <footer class="singlepage_footer">
+        <div class="skyline"></div>
+        <p class="footer_copyright">© <?= Yii::t('app', 'Аренда квартир') ?> <?= date('Y') ?></p>
+        <nav class="footer_social">
+            <a class="imgoverlay" href="#"><img src="/frontend/web/img/facebook-icon.png" title="facebook"></a>
+            <a class="imgoverlay" href="#"><img src="/frontend/web/img/vk-icon.png" title="vk"></a>
+            <a class="imgoverlay" href="#"><img src="/frontend/web/img/google--icon.png" title="googleplus"></a>
+            <a class="imgoverlay" href="#"><img src="/frontend/web/img/twitter-icon.png" title="twitter"></a>
+            <a class="imgoverlay" href="#"><img src="/frontend/web/img/instagram-icon.png" title="instagram"></a>
+        </nav>
+    </footer>
+<?php }else{ ?>
+    <footer>
+        <p class="footer_copyright">© <?= Yii::t('app', 'Аренда квартир') ?> <?= date('Y') ?></p>
+        <nav class="footer_social">
+            <a class="imgoverlay" href="#"><img src="/frontend/web/img/facebook-icon.png" title="facebook"></a>
+            <a class="imgoverlay" href="#"><img src="/frontend/web/img/vk-icon.png" title="vk"></a>
+            <a class="imgoverlay" href="#"><img src="/frontend/web/img/google--icon.png" title="googleplus"></a>
+            <a class="imgoverlay" href="#"><img src="/frontend/web/img/twitter-icon.png" title="twitter"></a>
+            <a class="imgoverlay" href="#"><img src="/frontend/web/img/instagram-icon.png" title="instagram"></a>
+        </nav>
+    </footer>
+<?php } ?>
 <?php $this->endBody() ?>
 </body>
 </html>

@@ -8,12 +8,12 @@ $lang = Yii::$app->language;
     <div class="flatblock">
         <a href="#"><img class="flatimg" src="/frontend/web/img/flat.jpg" alt="flat picture"></a>
         <div class="nameblock">
-            <h4>2к с джакузи.Центр города.WIFI</h4>
+            <h4><?= $model->room_count ?>к с джакузи.Центр города.WIFI</h4>
             <p class="flat_adress">пр-т Соборный (Ленина), 129</p>
         </div>
         <div class="priceblock">
-            <p class="flat_price"><span>1450</span> ₴</p>
-            <p>сутки</p>
+            <p class="flat_price"><span><?= $model->price_day ?></span> ₴</p>
+            <p><?= Yii::t('app', 'сутки') ?></p>
         </div>
         <div class="infoblock">
             <p class="filterblock">
@@ -23,8 +23,8 @@ $lang = Yii::$app->language;
                 <img src="/frontend/web/img/tv_filter.png" title="Розовый динозаврик3">
             </p>
             <p class="floar">
-                <span>5к</span>
-                <span>2 этаж</span>
+                <span><?= $model->room_count ?>к</span>
+                <span><?= $model->floor ?> <?= Yii::t('app', 'этаж') ?></span>
             </p>
         </div>
     </div>

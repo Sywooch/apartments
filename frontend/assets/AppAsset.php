@@ -23,7 +23,8 @@ class AppAsset extends AssetBundle
         'js/jquery.flexslider.js',
         'js/jquery.raty.js',
         'js/main.js',
-        'js/menu.js'
+        'js/menu.js',
+        'js/request.js'
     ];
     public $depends = [
         'yii\web\YiiAsset',

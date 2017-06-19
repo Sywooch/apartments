@@ -1,6 +1,7 @@
 <?php
 
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\widgets\ActiveForm;
 use yii\widgets\ListView;
 use yii\widgets\Pjax;
@@ -12,7 +13,7 @@ $this->title = Yii::t('app', 'Главная');
 
 <?php Pjax::begin(['id' => 'new_country']); ?>
 <aside class="sidebar">
-        <?php $form = ActiveForm::begin(['id' => 'search-pjax','method' => 'get','options' => ['data-pjax' => true ], 'class'=>'sidebar_filters']) ?>
+        <?php $form = ActiveForm::begin(['id' => 'search-filters','method' => 'get','options' => ['data-pjax' => true ], 'class'=>'sidebar_filters']) ?>
 <!--        <form action="" class="sidebar_filters">-->
             <div class="set">
                 <a href="#">
@@ -59,9 +60,9 @@ $this->title = Yii::t('app', 'Главная');
                 </a>
                 <div class="content">
                     <ul class="filter_list filter_house_type">
-                        <li><input type="checkbox" id="check1" name="ApartmentSearch[type][]" value="Дом"><label for="check1"><?= Yii::t('app', 'Дом') ?></label></li>
-                        <li><input type="checkbox" id="check2" name="ApartmentSearch[type][]" value="Квартира"><label for="check2"><?= Yii::t('app', 'Квартира') ?></label></li>
-                        <li><input type="checkbox" id="check3" name="ApartmentSearch[type][]" value="Комната"><label for="check3"><?= Yii::t('app', 'Комната') ?></label></li>
+                        <li><input type="checkbox" id="check1" name="ApartmentSearch[type][]" value="Дом" onclick="sendRequest();"><label for="check1"><?= Yii::t('app', 'Дом') ?></label></li>
+                        <li><input type="checkbox" id="check2" name="ApartmentSearch[type][]" value="Квартира" onclick="sendRequest();"><label for="check2"><?= Yii::t('app', 'Квартира') ?></label></li>
+                        <li><input type="checkbox" id="check3" name="ApartmentSearch[type][]" value="Комната" onclick="sendRequest();"><label for="check3"><?= Yii::t('app', 'Комната') ?></label></li>
                     </ul>
                 </div>
             </div>
@@ -72,8 +73,8 @@ $this->title = Yii::t('app', 'Главная');
                     <i class="filter-plus"></i>
                 </a>
                 <div class="content">
-                    <span class="filter_pricerange"><?= Yii::t('app', 'от') ?> <input type="number" name="ApartmentSearch[min_price]"/></span>
-                    <span class="filter_pricerange"><?= Yii::t('app', 'до') ?> <input type="number" name="ApartmentSearch[max_price]"/></span>
+                    <span class="filter_pricerange"><?= Yii::t('app', 'от') ?> <input type="number" name="ApartmentSearch[min_price]"/ onblur="sendRequest();"></span>
+                    <span class="filter_pricerange"><?= Yii::t('app', 'до') ?> <input type="number" name="ApartmentSearch[max_price]"/ onblur="sendRequest();"></span>
                 </div>
             </div>
             <div class="set">
@@ -117,13 +118,13 @@ $this->title = Yii::t('app', 'Главная');
                 </a>
                 <div class="content">
                     <ul class="filter_list filter_area">
-                        <li><input type="checkbox" id="check4area"><label for="check4area">Александровский<br><i>(Жовтневый)</i></label></li>
-                        <li><input type="checkbox" id="check6area4"><label for="check6area4">Заводский</label></li>
-                        <li><input type="checkbox" id="check6area2"><label for="check6area2">Коммунарский</label></li>
-                        <li><input type="checkbox" id="check5area"><label for="check5area">Днепровский<br><i>(Ленинский)</i></label></li>
-                        <li><input type="checkbox" id="check6area3"><label for="check6area3">Вознесеновский<br><i>(Орджоникидзевский)</i></label></li>
-                        <li><input type="checkbox" id="check6area"><label for="check6area">Хортицкий</label></li>
-                        <li><input type="checkbox" id="check6area1"><label for="check6area1">Шевченковский</label></li>
+                        <li><input type="checkbox" id="check4area" name="ApartmentSearch[area][]" value="Александровский" onclick="sendRequest();"><label for="check4area"><?= Yii::t('app', 'Александровский') ?><br><i>(<?= Yii::t('app', 'Жовтневый') ?>)</i></label></li>
+                        <li><input type="checkbox" id="check6area4" name="ApartmentSearch[area][]" value="Заводской" onclick="sendRequest();"><label for="check6area4"><?= Yii::t('app', 'Заводской') ?></label></li>
+                        <li><input type="checkbox" id="check6area2" name="ApartmentSearch[area][]" value="Коммунарский" onclick="sendRequest();"><label for="check6area2"><?= Yii::t('app', 'Коммунарский') ?></label></li>
+                        <li><input type="checkbox" id="check5area" name="ApartmentSearch[area][]" value="Днепровский" onclick="sendRequest();"><label for="check5area"><?= Yii::t('app', 'Днепровский') ?><br><i>(<?= Yii::t('app', 'Ленинский') ?>)</i></label></li>
+                        <li><input type="checkbox" id="check6area3" name="ApartmentSearch[area][]" value="Вознесеновский" onclick="sendRequest();"><label for="check6area3"><?= Yii::t('app', 'Вознесеновский') ?><br><i>(<?= Yii::t('app', 'Орджоникидзевский') ?>)</i></label></li>
+                        <li><input type="checkbox" id="check6area" name="ApartmentSearch[area][]" value="Хортицкий" onclick="sendRequest();"><label for="check6area"><?= Yii::t('app', 'Хортицкий') ?></label></li>
+                        <li><input type="checkbox" id="check6area1" name="ApartmentSearch[area][]" value="Шевченковский" onclick="sendRequest();"><label for="check6area1"><?= Yii::t('app', 'Шевченковский') ?></label></li>
                     </ul>
                 </div>
             </div>
@@ -139,7 +140,7 @@ $this->title = Yii::t('app', 'Главная');
     <a class="filter_topmenu_responsive" href="#">Войти</a>
 
 </aside>
-<section class="flat">
+<section class="flat" id="apartment-list">
     <?= ListView::widget([
         'dataProvider' => $dataProvider,
         'summary' => '',

@@ -9,7 +9,7 @@ $lang = Yii::$app->language;
         <a href="#"><img class="flatimg" src="/frontend/web/img/flat.jpg" alt="flat picture"></a>
         <div class="nameblock">
             <h4><?= $model->room_count ?>к с джакузи.Центр города.WIFI</h4>
-            <p class="flat_adress">пр-т Соборный (Ленина), 129</p>
+            <p class="flat_adress"><?= substr($model->coordinates, 0, -55).', '.$model->area.' '.Yii::t('app', 'район') ?></p>
         </div>
         <div class="priceblock">
             <p class="flat_price"><span><?= $model->price_day ?></span> ₴</p>

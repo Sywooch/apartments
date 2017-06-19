@@ -10,7 +10,7 @@ return [
     'id' => 'app-frontend',
     'basePath' => dirname(__DIR__),
 //    'language' => 'ru-RU',
-    'bootstrap' => ['log', 'debug'],
+    'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
         'request' => [
@@ -56,10 +56,12 @@ return [
             'class' => 'frontend\widgets\MultiLang\components\UrlManager',
             'languages' => ['ru', 'en', 'ua'],
             'enableDefaultLanguageUrlCode' => true,
-//            'suffix' => '.html',
             'rules' => [
                 '' => 'site/index',
-                '<action>'=>'site/<action>',
+                'filters' => 'site/filters',
+                'contact' => 'site/contact',
+                'about' => 'site/about',
+//                '<action>'=>'site/<action>',
             ],
         ],
         'i18n' => [

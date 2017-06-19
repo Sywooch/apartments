@@ -80,6 +80,19 @@ class SiteController extends Controller
         ]);
     }
     
+    public function actionFilters()
+    {
+        if(Yii::$app->request->isAjax){
+            $searchModel = new ApartmentSearch();
+            $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+            
+            return $this->renderPartial('_apartment_list',[
+                'searchModel' => $searchModel,
+                'dataProvider' => $dataProvider
+            ]);
+        }
+    }
+    
     public function actionDetail($id){
         $model = Apartment::find()->where('id='.$id)->one();
         $comments = Comments::find()->where('apartment_id='.$model->id)->orderBy('id DESC')->all();

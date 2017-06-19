@@ -83,6 +83,15 @@ class ApartmentSearch extends Apartment
             ]);
         }
 
+        if (is_array($this->area)) {
+            $query->andFilterWhere(['in', 'area', $this->area]);
+        }
+        else {
+            $query->andFilterWhere([
+                'area' => $this->area
+            ]);
+        }
+
         $query->andFilterWhere([
             'id' => $this->id,
             'description_ua' => $this->description_ua,
@@ -107,7 +116,7 @@ class ApartmentSearch extends Apartment
             ->andFilterWhere(['like', 'description_ru', $this->description_ru])
             ->andFilterWhere(['like', 'coordinates', $this->coordinates])
 //            ->orFilterWhere(['like', 'type', $this->type])
-            ->andFilterWhere(['like', 'area', $this->area])
+//            ->andFilterWhere(['like', 'area', $this->area])
             ->andFilterWhere(['>=', 'price_day', $this->min_price])
             ->andFilterWhere(['<=', 'price_day', $this->max_price])
             ->andFilterWhere(['like', 'facilities.elevator', $this->elevator])

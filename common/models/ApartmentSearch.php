@@ -12,38 +12,35 @@ class ApartmentSearch extends Apartment
 {
     public $min_price;
     public $max_price;
-    public $elevator;
-    public $internet;
-    public $animals;
-    public $kitchen;
-    public $gym;
-    public $intercom;
-    public $fireplace;
-    public $waggon;
-    public $heating;
-    public $wifi;
-    public $disabled;
-    public $iron;
-    public $drying_machine;
-    public $family;
-    public $parking;
-    public $washer_machine;
-    public $hair_dryer;
     public $tv;
-    public $conditioner;
-    public $cable_tv;
+    public $iron;
+    public $plazm_tv;
+    public $fridge;
+    public $balcony;
+    public $door;
     public $smoke;
+    public $drying_machine;
     public $separate_entrance;
+    public $internet;
+    public $washer_machine;
+    public $gas;
+    public $wifi;
+    public $boiler;
+    public $laptop;
+    public $conditioner;
+    public $jacuzzi;
+    public $pool;
     public $apartment_id;
     public $image;
+    public $comment;
 
     public function rules()
     {
         return [
             [['id', 'description_ua', 'description_en', 'stock', 'room_count', 'bed_count', 'floor'], 'integer'],
-            [['title_ru', 'title_ua', 'title_en', 'description_ru', 'coordinates', 'type', 'area', 'min_price', 'max_price', 'apartment_id', 'elevator',
-            'internet', 'animals', 'kitchen', 'gym', 'intercom', 'fireplace', 'waggon', 'heating', 'wifi', 'disabled', 'iron', 'drying_machine', 'family', 'parking', 'washer_machine', 'hair_dryer',
-            'tv', 'conditioner', 'cable_tv', 'smoke', 'separate_entrance', 'image'], 'safe'],
+            [['title_ru', 'title_ua', 'title_en', 'description_ru', 'coordinates', 'type', 'area', 'min_price', 'max_price', 'apartment_id',
+                'tv', 'iron', 'plazm_tv', 'fridge', 'balcony', 'door', 'smoke', 'drying_machine', 'separate_entrance', 'internet',
+                'washer_machine', 'gas', 'wifi', 'boiler', 'laptop', 'conditioner', 'jacuzzi', 'pool', 'image', 'comment'], 'safe'],
             [['price_2', 'price_night', 'price_day', 'price_5', 'price_10', 'apartment_area'], 'number'],
         ];
     }
@@ -57,12 +54,10 @@ class ApartmentSearch extends Apartment
     {
         $query = Apartment::find()->orderBy('id DESC');
 
-        // add conditions that should always apply here
-
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
             'pagination' => [
-                'pageSize' => 12,
+                'pageSize' => 6,
             ],
         ]);
 
@@ -92,6 +87,15 @@ class ApartmentSearch extends Apartment
             ]);
         }
 
+        if (!empty($this->comment)){
+            $query->andWhere('apartment.id = comments.apartment_id');
+        }
+
+        if (!empty($this->image)){
+            $model = new Apartment();
+            $query->andWhere($model->getTotal(7).' > 3');
+        }
+
         $query->andFilterWhere([
             'id' => $this->id,
             'description_ua' => $this->description_ua,
@@ -108,7 +112,7 @@ class ApartmentSearch extends Apartment
             'apartment_area' => $this->apartment_area,
         ]);
 
-        $query->joinWith(['facilities', 'image']);
+        $query->joinWith(['facilities', 'comments']);
 
         $query->andFilterWhere(['like', 'title_ru', $this->title_ru])
             ->andFilterWhere(['like', 'title_ua', $this->title_ua])
@@ -119,28 +123,24 @@ class ApartmentSearch extends Apartment
 //            ->andFilterWhere(['like', 'area', $this->area])
             ->andFilterWhere(['>=', 'price_day', $this->min_price])
             ->andFilterWhere(['<=', 'price_day', $this->max_price])
-            ->andFilterWhere(['like', 'facilities.elevator', $this->elevator])
-            ->andFilterWhere(['like', 'facilities.internet', $this->internet])
-            ->andFilterWhere(['like', 'facilities.animals', $this->animals])
-            ->andFilterWhere(['like', 'facilities.kitchen', $this->kitchen])
-            ->andFilterWhere(['like', 'facilities.gym', $this->gym])
-            ->andFilterWhere(['like', 'facilities.intercom', $this->intercom])
-            ->andFilterWhere(['like', 'facilities.fireplace', $this->fireplace])
-            ->andFilterWhere(['like', 'facilities.waggon', $this->waggon])
-            ->andFilterWhere(['like', 'facilities.heating', $this->heating])
-            ->andFilterWhere(['like', 'facilities.wifi', $this->wifi])
-            ->andFilterWhere(['like', 'facilities.disabled', $this->disabled])
-            ->andFilterWhere(['like', 'facilities.iron', $this->iron])
-            ->andFilterWhere(['like', 'facilities.drying_machine', $this->drying_machine])
-            ->andFilterWhere(['like', 'facilities.family', $this->family])
-            ->andFilterWhere(['like', 'facilities.parking', $this->parking])
-            ->andFilterWhere(['like', 'facilities.washer_machine', $this->washer_machine])
-            ->andFilterWhere(['like', 'facilities.hair_dryer', $this->hair_dryer])
             ->andFilterWhere(['like', 'facilities.tv', $this->tv])
-            ->andFilterWhere(['like', 'facilities.conditioner', $this->conditioner])
-            ->andFilterWhere(['like', 'facilities.cable_tv', $this->cable_tv])
+            ->andFilterWhere(['like', 'facilities.iron', $this->iron])
+            ->andFilterWhere(['like', 'facilities.plazm_tv', $this->plazm_tv])
+            ->andFilterWhere(['like', 'facilities.fridge', $this->fridge])
+            ->andFilterWhere(['like', 'facilities.balcony', $this->balcony])
+            ->andFilterWhere(['like', 'facilities.door', $this->door])
             ->andFilterWhere(['like', 'facilities.smoke', $this->smoke])
-            ->andFilterWhere(['like', 'facilities.separate_entrance', $this->separate_entrance]);
+            ->andFilterWhere(['like', 'facilities.drying_machine', $this->drying_machine])
+            ->andFilterWhere(['like', 'facilities.separate_entrance', $this->separate_entrance])
+            ->andFilterWhere(['like', 'facilities.internet', $this->internet])
+            ->andFilterWhere(['like', 'facilities.washer_machine', $this->washer_machine])
+            ->andFilterWhere(['like', 'facilities.gas', $this->gas])
+            ->andFilterWhere(['like', 'facilities.wifi', $this->wifi])
+            ->andFilterWhere(['like', 'facilities.boiler', $this->boiler])
+            ->andFilterWhere(['like', 'facilities.laptop', $this->laptop])
+            ->andFilterWhere(['like', 'facilities.conditioner', $this->conditioner])
+            ->andFilterWhere(['like', 'facilities.jacuzzi', $this->jacuzzi])
+            ->andFilterWhere(['like', 'facilities.pool', $this->pool]);
 
         return $dataProvider;
     }

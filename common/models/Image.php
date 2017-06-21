@@ -48,9 +48,9 @@ class Image extends \yii\db\ActiveRecord
         return Yii::getAlias('@frontendWebroot/images/' . $this->getHash() . '.jpg');
     }
 
-    public function afterDelete()
-    {
-        unlink($this->getPath());
-        parent::afterDelete();
-    }
+//    public function afterDelete()
+//    {
+//        unlink($this->getPath());
+//        parent::afterDelete();
+//    }
 }

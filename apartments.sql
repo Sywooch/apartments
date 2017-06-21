@@ -2,9 +2,9 @@
 -- version 4.4.15.7
 -- http://www.phpmyadmin.net
 --
--- Хост: 127.0.0.1:3307
--- Время создания: Мар 27 2017 г., 19:59
--- Версия сервера: 5.5.50
+-- Хост: 127.0.0.1:3306
+-- Время создания: Июн 21 2017 г., 16:49
+-- Версия сервера: 5.6.31
 -- Версия PHP: 5.6.23
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -56,9 +56,9 @@ CREATE TABLE IF NOT EXISTS `apartment` (
 --
 
 INSERT INTO `apartment` (`id`, `title_ru`, `title_ua`, `title_en`, `description_ru`, `description_ua`, `description_en`, `coordinates`, `latitude`, `longitude`, `stock`, `price_2`, `price_night`, `price_day`, `price_5`, `price_10`, `room_count`, `bed_count`, `type`, `area`, `floor`, `apartment_area`) VALUES
-(5, 'ghj', 'fghj', 'fghj', 'fghj', 'fghjf', 'ghj', 'вулиця Богдана Хмельницького 19, Запорожье, Запорожская область, Украина', '47.8566003', '35.100325', 1, 22, 22, 22, 22, 22, 2, 4, 'Дом', 'Днепровский', 6, 69),
-(6, 'gfjhkfgjk', '657tryuj', 'ruyhy76ru76u', 'rtuj76u6ru', 'r7urtu7', 'ur67ur67u', 'Заводская улица 2, Запорожье, Запорожская область, Украина', '47.8518485', '35.13174470000001', 0, 55, 22, 22, 22, 22, 3, 10, 'Дом', 'Заводской', 20, 100),
-(7, 'арпо', 'апрол', 'апро', 'апро', 'апро', 'апро', 'Ладожская улица 17, Запорожье, Запорожская область, Украина', '47.8870025', '35.06736699999999', 1, 454, 44, 44, 44, 44, 2, 2, 'Квартира', 'Заводской', 6, 44);
+(5, 'Новая квартира в самом центре города, Евро ремонт', 'fghj', 'fghj', 'fghj', 'fghjf', 'ghj', 'вулиця Богдана Хмельницького 19, Запорожье, Запорожская область, Украина', '47.8566003', '35.100325', 1, 22, 22, 150, 22, 22, 2, 4, 'Дом', 'Днепровский', 6, 69),
+(6, 'Квартира Люкс, Центр, Пушкина, Район ЗАГСА', '657tryuj', 'ruyhy76ru76u', 'rtuj76u6ru', 'r7urtu7', 'ur67ur67u', 'Заводская улица 2, Запорожье, Запорожская область, Украина', '47.8518485', '35.13174470000001', 0, 55, 22, 280, 22, 22, 3, 10, 'Дом', 'Александровский', 20, 100),
+(7, 'Квартира Люкс, Центр, Гагарина, Район 5 гор. Больницы', 'апрол', 'апро', 'апро', 'апро', 'апро', 'Ладожская улица 17, Запорожье, Запорожская область, Украина', '47.8870025', '35.06736699999999', 1, 454, 44, 120, 44, 44, 2, 2, 'Квартира', 'Заводской', 6, 44);
 
 -- --------------------------------------------------------
 
@@ -150,15 +150,14 @@ CREATE TABLE IF NOT EXISTS `comments` (
   `apartment_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `comment` varchar(255) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `comments`
 --
 
 INSERT INTO `comments` (`id`, `apartment_id`, `user_id`, `comment`) VALUES
-(3, 7, 4, 'Сойдет!'),
-(4, 6, 4, 'Вау, просто супер!');
+(3, 7, 4, 'Сойдет!');
 
 -- --------------------------------------------------------
 
@@ -169,38 +168,34 @@ INSERT INTO `comments` (`id`, `apartment_id`, `user_id`, `comment`) VALUES
 CREATE TABLE IF NOT EXISTS `facilities` (
   `id` int(11) NOT NULL,
   `apartment_id` int(11) DEFAULT NULL,
-  `elevator` int(11) DEFAULT '0',
   `internet` int(11) DEFAULT '0',
-  `animals` int(11) DEFAULT '0',
-  `kitchen` int(11) DEFAULT '0',
-  `gym` int(11) DEFAULT '0',
-  `intercom` int(11) DEFAULT '0',
-  `fireplace` int(11) DEFAULT '0',
-  `waggon` int(11) DEFAULT '0',
-  `heating` int(11) DEFAULT '0',
   `wifi` int(11) DEFAULT '0',
-  `disabled` int(11) DEFAULT '0',
   `iron` int(11) DEFAULT '0',
   `drying_machine` int(11) DEFAULT '0',
-  `family` int(11) DEFAULT '0',
-  `parking` int(11) DEFAULT '0',
   `washer_machine` int(11) DEFAULT '0',
-  `hair_dryer` int(11) DEFAULT '0',
   `tv` int(11) DEFAULT '0',
+  `plazm_tv` int(11) DEFAULT '0',
+  `fridge` int(11) DEFAULT '0',
+  `balcony` int(11) DEFAULT '0',
+  `door` int(11) DEFAULT '0',
   `conditioner` int(11) DEFAULT '0',
-  `cable_tv` int(11) DEFAULT '0',
   `smoke` int(11) DEFAULT '0',
-  `separate_entrance` int(11) DEFAULT '0'
+  `separate_entrance` int(11) DEFAULT '0',
+  `gas` int(11) DEFAULT '0',
+  `boiler` int(11) DEFAULT '0',
+  `laptop` int(11) DEFAULT '0',
+  `jacuzzi` int(11) DEFAULT '0',
+  `pool` int(11) DEFAULT '0'
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `facilities`
 --
 
-INSERT INTO `facilities` (`id`, `apartment_id`, `elevator`, `internet`, `animals`, `kitchen`, `gym`, `intercom`, `fireplace`, `waggon`, `heating`, `wifi`, `disabled`, `iron`, `drying_machine`, `family`, `parking`, `washer_machine`, `hair_dryer`, `tv`, `conditioner`, `cable_tv`, `smoke`, `separate_entrance`) VALUES
-(4, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0),
-(5, 6, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(6, 7, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1);
+INSERT INTO `facilities` (`id`, `apartment_id`, `internet`, `wifi`, `iron`, `drying_machine`, `washer_machine`, `tv`, `plazm_tv`, `fridge`, `balcony`, `door`, `conditioner`, `smoke`, `separate_entrance`, `gas`, `boiler`, `laptop`, `jacuzzi`, `pool`) VALUES
+(4, 5, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(5, 6, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(6, 7, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -212,15 +207,22 @@ CREATE TABLE IF NOT EXISTS `image` (
   `id` int(11) NOT NULL,
   `apartment_id` int(11) NOT NULL,
   `image` varchar(255) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=67 DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `image`
 --
 
 INSERT INTO `image` (`id`, `apartment_id`, `image`) VALUES
-(27, 7, 'D:\\OpenServer\\domains\\apartments.loc/frontend/web/images/ecab293f3e70d8e1d290c88ad39dde58.jpg'),
-(29, 6, 'D:\\OpenServer\\domains\\apartments.loc/frontend/web/images/1155b2f86fe2cc39a27430e1874f8605.jpg');
+(57, 7, '/frontend/web/images/594a2c383d0e9.jpg'),
+(59, 7, '/frontend/web/images/594a2c383e997.jpg'),
+(60, 7, '/frontend/web/images/594a2c383f817.jpg'),
+(61, 7, '/frontend/web/images/594a2c38404ac.jpg'),
+(62, 6, '/frontend/web/images/594a2cb91f86d.jpg'),
+(63, 6, '/frontend/web/images/594a2cb92065f.jpg'),
+(64, 6, '/frontend/web/images/594a2cb92135c.jpg'),
+(65, 5, '/frontend/web/images/594a2d1173fc2.jpg'),
+(66, 5, '/frontend/web/images/594a2d1174d61.jpg');
 
 -- --------------------------------------------------------
 
@@ -258,7 +260,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `status` smallint(6) NOT NULL DEFAULT '10',
   `created_at` int(11) NOT NULL,
   `updated_at` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Дамп данных таблицы `user`
@@ -266,7 +268,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 
 INSERT INTO `user` (`id`, `username`, `name`, `surname`, `auth_key`, `password_hash`, `password_reset_token`, `email`, `status`, `created_at`, `updated_at`) VALUES
 (1, 'Admin', 'Администратор', 'Администраторович', 'UTo8q7LX4oqzNWicwZE7txlyFy8QQlXf', '$2y$13$jdKfU1vtbmHEY.P8Wg7W4.40CHL7BZU5yKbjnWsY0qtg2.a58V81S', NULL, 'prybylov.v@gmail.com', 10, 1490176869, 1490179685),
-(4, 'vasya', 'Василий', 'Иванов', 'QmOmPJu4x_JjsiLpdHSBarbi4YYM8qSL', '$2y$13$jdKfU1vtbmHEY.P8Wg7W4.40CHL7BZU5yKbjnWsY0qtg2.a58V81S', NULL, 'vlad.vasyakot@mail.ru', 10, 1490185426, 1490342020);
+(4, 'vasya', 'Василий', 'Иванов', 'QmOmPJu4x_JjsiLpdHSBarbi4YYM8qSL', '$2y$13$jdKfU1vtbmHEY.P8Wg7W4.40CHL7BZU5yKbjnWsY0qtg2.a58V81S', NULL, 'vlad.vasyakot@mail.ru', 10, 1490185426, 1497875945);
 
 --
 -- Индексы сохранённых таблиц
@@ -356,7 +358,7 @@ ALTER TABLE `apartment`
 -- AUTO_INCREMENT для таблицы `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT для таблицы `facilities`
 --
@@ -366,7 +368,7 @@ ALTER TABLE `facilities`
 -- AUTO_INCREMENT для таблицы `image`
 --
 ALTER TABLE `image`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=67;
 --
 -- AUTO_INCREMENT для таблицы `orders`
 --
@@ -376,7 +378,7 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT для таблицы `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- Ограничения внешнего ключа сохраненных таблиц
 --
@@ -404,8 +406,8 @@ ALTER TABLE `auth_item_child`
 -- Ограничения внешнего ключа таблицы `comments`
 --
 ALTER TABLE `comments`
-  ADD CONSTRAINT `comments_ibfk_2` FOREIGN KEY (`apartment_id`) REFERENCES `apartment` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
+  ADD CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
+  ADD CONSTRAINT `comments_ibfk_2` FOREIGN KEY (`apartment_id`) REFERENCES `apartment` (`id`) ON DELETE CASCADE;
 
 --
 -- Ограничения внешнего ключа таблицы `facilities`

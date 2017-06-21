@@ -14,7 +14,7 @@ class MultipleUploadForm extends Model
     public function rules()
     {
         return [
-            [['files'], 'file', 'extensions' => 'png ,jpg', 'maxFiles' => 10, 'skipOnEmpty' => false],
+            [['files'], 'file', 'extensions' => 'png ,jpg, JPEG', 'maxFiles' => 20, 'skipOnEmpty' => false],
         ];
     }
 }

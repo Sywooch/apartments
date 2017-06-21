@@ -28,14 +28,13 @@ use yii\widgets\ActiveForm;
 
             <?= $form->field($model, 'description_en')->textarea(['rows' => 6]) ?>
 
-<!--            --><?//= $form->field($model, 'coordinates')->textarea(['rows' => 6]) ?>
             <?= $form->field($model, 'coordinates')->widget(\kalyabin\maplocation\SelectMapLocationWidget::className(), [
                 'attributeLatitude' => 'latitude',
                 'attributeLongitude' => 'longitude',
                 'googleMapApiKey' => 'AIzaSyDvdY_YjgJ2FCdyfMZ89DGodrrtOXpvETA',
             ]); ?>
-
         </div>
+
         <div class="col-md-6">
 
             <?= $form->field($model, 'price_2')->textInput() ?>
@@ -127,52 +126,43 @@ use yii\widgets\ActiveForm;
                 <div class="col-md-3">
                     <!--            --><?//= $form->field($facilities, 'apartment_id')->hiddenInput(['value' => $model->id])->label(false) ?>
 
-                    <?= $form->field($facilities, 'elevator')->checkbox() ?>
+                    <?= $form->field($facilities, 'tv')->checkbox() ?>
+
+                    <?= $form->field($facilities, 'iron')->checkbox() ?>
+
+                    <?= $form->field($facilities, 'plazm_tv')->checkbox() ?>
+
+                    <?= $form->field($facilities, 'fridge')->checkbox() ?>
+
+                    <?= $form->field($facilities, 'balcony')->checkbox() ?>
+
+                    <?= $form->field($facilities, 'door')->checkbox() ?>
+                </div>
+                <div class="col-md-3">
+                    <?= $form->field($facilities, 'smoke')->checkbox() ?>
+
+                    <?= $form->field($facilities, 'drying_machine')->checkbox() ?>
+
+                    <?= $form->field($facilities, 'separate_entrance')->checkbox() ?>
 
                     <?= $form->field($facilities, 'internet')->checkbox() ?>
 
-                    <?= $form->field($facilities, 'animals')->checkbox() ?>
-
-                    <?= $form->field($facilities, 'kitchen')->checkbox() ?>
-
-                    <?= $form->field($facilities, 'gym')->checkbox() ?>
-
-                    <?= $form->field($facilities, 'intercom')->checkbox() ?>
-                </div>
-                <div class="col-md-3">
-                    <?= $form->field($facilities, 'fireplace')->checkbox() ?>
-
-                    <?= $form->field($facilities, 'waggon')->checkbox() ?>
-
-                    <?= $form->field($facilities, 'heating')->checkbox() ?>
-
-                    <?= $form->field($facilities, 'wifi')->checkbox() ?>
-
-                    <?= $form->field($facilities, 'disabled')->checkbox() ?>
-
-                    <?= $form->field($facilities, 'iron')->checkbox() ?>
-                </div>
-                <div class="col-md-3">
-                    <?= $form->field($facilities, 'drying_machine')->checkbox() ?>
-
-                    <?= $form->field($facilities, 'family')->checkbox() ?>
-
-                    <?= $form->field($facilities, 'parking')->checkbox() ?>
-
                     <?= $form->field($facilities, 'washer_machine')->checkbox() ?>
 
-                    <?= $form->field($facilities, 'hair_dryer')->checkbox() ?>
-
-                    <?= $form->field($facilities, 'tv')->checkbox() ?>
+                    <?= $form->field($facilities, 'gas')->checkbox() ?>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4">
+                    <?= $form->field($facilities, 'wifi')->checkbox() ?>
+
+                    <?= $form->field($facilities, 'boiler')->checkbox() ?>
+
+                    <?= $form->field($facilities, 'laptop')->checkbox() ?>
+
                     <?= $form->field($facilities, 'conditioner')->checkbox() ?>
 
-                    <?= $form->field($facilities, 'cable_tv')->checkbox() ?>
+                    <?= $form->field($facilities, 'jacuzzi')->checkbox() ?>
 
-                    <?= $form->field($facilities, 'smoke')->checkbox() ?>
-
-                    <?= $form->field($facilities, 'separate_entrance')->checkbox() ?>
+                    <?= $form->field($facilities, 'pool')->checkbox() ?>
                 </div>
             </div>
         </div>

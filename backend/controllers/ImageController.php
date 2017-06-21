@@ -47,9 +47,9 @@ class ImageController extends Controller
                     $image = new Image();
                     $image->apartment_id = $id;
                     if ($image->save()) {
-                        $path = $image->getPath();
-                        $file->saveAs($path);
-                        $image->image = $path;
+                        $imageName = uniqid();
+                        $file->saveAs('../../frontend/web/images/' . $imageName . '.' . $file->extension);
+                        $image->image = '/frontend/web/images/' . $imageName . '.' . $file->extension;
                         $image->save(false);
                     }
                 }
@@ -68,6 +68,7 @@ class ImageController extends Controller
         $image = $this->findModel($id);
         $productId = $image->apartment_id;
         $image->delete();
+        unlink('../..'.$image->image);
 
         return $this->redirect(['index', 'id' => $productId]);
     }

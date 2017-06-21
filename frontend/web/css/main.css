@@ -155,6 +155,15 @@ header {
     transition: all 0.3s ease 0s;
 }
 
+.header_nav .arenda_dom {
+    background: #ff9100;
+}
+
+.header_nav .arenda_dom:hover {
+    background: transparent;
+}
+
+
 .logo_img {
     float: left;
     display: block;
@@ -473,6 +482,12 @@ header {
     color: #fff;
 }
 
+.pagination_fullwrapper {
+    width: 100%;
+    float: none;
+    clear: both;
+}
+
 .map_wrapper {
     width: 36.15%;
     /*height: 100%;*/
@@ -699,13 +714,15 @@ footer {
     margin-bottom: 5px;
 }
 
-.filter_room_count li a, .filter_sleep_count li a {
+.filter_room_count li input, .filter_sleep_count li input {
     text-decoration: none;
     display: block;
     width: 100%;
     height: 100%;
     transition: all 0.2s ease 0s;
     border-radius: 3px;
+    border: 0 none;
+    text-align: center;
 }
 
 .filter_room_count li a:hover, .filter_sleep_count li a:hover {
@@ -869,6 +886,21 @@ input[type=number] {
     line-height: 22px;
 }
 
+#contact_submitbutton {
+    border-radius: 10px;
+    border: 0 none;
+    background: #ff9100 none repeat scroll 0 0;
+    color: #fff;
+    display: table;
+    font-family: "Open Sans",sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 15px;
+    padding: 13px 33px;
+    text-decoration: none;
+    transition: all 0.3s ease 0s;
+}
+
 
 .sity_phone {
     background: url("../img/phone-icon.png") no-repeat scroll 0 6px;
@@ -931,7 +963,7 @@ input[type=number] {
 
 .contactform label {
     float: left;
-    display: block;
+    display: table;
     color: #636363;
     font-family: "Open Sans", sans-serif;
     font-size: 14px;
@@ -948,6 +980,7 @@ input[type=number] {
     /*box-sizing: border-box;*/
     min-height: 15vh;
     margin-top: 10px;
+    margin-bottom: 15px;
     border: 1px solid #cbcbcb;
 }
 

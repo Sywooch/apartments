@@ -27,7 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'header' => 'Фото',
                 'format' => 'raw',
                 'value' => function ($model, $key, $index, $column) {
-                    return Html::img($result = 'http://'.substr(strstr($model->image, 'domains\\'), 8, strlen($model->image)),
+                    return Html::img($model->image,
                         ['width' => '100px', 'height' => '100px']);
                 },
             ],

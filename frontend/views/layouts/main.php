@@ -34,7 +34,7 @@ AppAsset::register($this);
         <a href="/site/index"><img class="logo_img" src="/frontend/web/img/logo.png" alt="logo"></a>
         <nav class="header_nav">
             <a class="headerbutton" href="/site/contact"><?= Yii::t('app', 'Контакты') ?></a>
-            <a class="headerbutton" href="/site/about"><?= Yii::t('app', 'Сдай свое жилье') ?></a>
+            <a class="headerbutton arenda_dom" href="/site/about"><?= Yii::t('app', 'Сдай свое жилье') ?></a>
                 <span>
 <!--                    --><?php //Pjax::begin(['id'=>'change-language', 'options'=>['tag'=>'span']]) ?>
                     <?= MultiLang::widget(); ?>

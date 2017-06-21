@@ -58,9 +58,18 @@ class Apartment extends \yii\db\ActiveRecord
         return $this->hasMany(Facilities::className(), ['apartment_id' => 'id']);
     }
 
-    public function getImage()
+    public function getTotal($apartment_id)
     {
-        return $this->hasMany(Facilities::className(), ['apartment_id' => 'id']);
+        $test = Image::find()
+            ->where(['apartment_id' => $apartment_id])
+            ->groupBy(['id'])
+            ->count();
+        return $test;
+    }
+
+    public function getComments()
+    {
+        return $this->hasMany(Comments::className(), ['apartment_id' => 'id']);
     }
 
     public function Map()
@@ -69,8 +78,8 @@ class Apartment extends \yii\db\ActiveRecord
         $map_items = [];
         if(isset($map) && !empty($map)){
             foreach ($map as $item){
-                $image = Image::find()->where(['apartment_id'=>$item->id])->one();
-                $single_image = 'http://'.substr(strstr($image->image, 'domains\\'), 8, strlen($image->image));
+//                $image = Image::find()->where(['apartment_id'=>$item->id])->one();
+//                $single_image = 'http://'.substr(strstr($image->image, 'domains\\'), 8, strlen($image->image));
                 $map_items[] = [
                     'position' => [$item->latitude, $item->longitude],
                     'content' => '<h3>'.$item->title_ru.'</h3><img style="height:200px;" src="'.$single_image.'"><p>'.substr($item->coordinates, 0, -55).'</p>',

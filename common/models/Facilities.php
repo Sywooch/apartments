@@ -15,7 +15,9 @@ class Facilities extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['apartment_id', 'elevator', 'internet', 'animals', 'kitchen', 'gym', 'intercom', 'fireplace', 'waggon', 'heating', 'wifi', 'disabled', 'iron', 'drying_machine', 'family', 'parking', 'washer_machine', 'hair_dryer', 'tv', 'conditioner', 'cable_tv', 'smoke', 'separate_entrance'], 'integer'],
+            [['apartment_id', 'elevator', 'internet', 'wifi', 'iron', 'drying_machine', 'washer_machine', 'tv',
+                'conditioner', 'smoke', 'separate_entrance', 'plazm_tv', 'fridge', 'balcony', 'door', 'gas', 'boiler',
+                'laptop', 'jacuzzi', 'pool'], 'integer'],
             [['apartment_id'], 'exist', 'skipOnError' => true, 'targetClass' => Apartment::className(), 'targetAttribute' => ['apartment_id' => 'id']],
         ];
     }
@@ -27,26 +29,23 @@ class Facilities extends \yii\db\ActiveRecord
             'apartment_id' => 'Квартира',
             'elevator' => 'Лифт',
             'internet' => 'Интернет',
-            'animals' => 'Можно с животными',
-            'kitchen' => 'Кухня',
-            'gym' => 'Спортивный зал',
-            'intercom' => 'Домофон',
-            'fireplace' => 'Камин',
-            'waggon' => 'Вахтер',
-            'heating' => 'Отопление',
             'wifi' => 'Wi-Fi',
-            'disabled' => 'Подходит людям с ограниченными возможностями',
             'iron' => 'Утюг',
             'drying_machine' => 'Сушильная машина',
-            'family' => 'Подходит для детей/семей',
-            'parking' => 'Парковка',
             'washer_machine' => 'Стиральная машина',
-            'hair_dryer' => 'Фен',
             'tv' => 'Телевизор',
             'conditioner' => 'Кондиционер',
-            'cable_tv' => 'Кабельное телевидение',
             'smoke' => 'Можно курить',
             'separate_entrance' => 'Отдельный вход',
+            'plazm_tv' => 'Плазменный телевизор',
+            'fridge' => 'Холодильник',
+            'balcony' => 'Балкон',
+            'door' => 'Бронедверь',
+            'gas' => 'Газовая плита',
+            'boiler' => 'Бойлер',
+            'laptop' => 'Место для работы на ноутбуке',
+            'jacuzzi' => 'Джакузи',
+            'pool' => 'Бассейн'
         ];
     }
 

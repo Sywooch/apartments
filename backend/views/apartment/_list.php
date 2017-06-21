@@ -4,8 +4,51 @@
     <div class="col-md-3">
         <div class="form-group">
             <input type="hidden">
-            <input type="checkbox" <?= $model->elevator == 1 ? 'checked' : 'unchecked' ?> disabled>
-            <label>Лифт</label>
+            <input type="checkbox" <?= $model->tv == 1 ? 'checked' : 'unchecked' ?> disabled>
+            <label>Телевизор</label>
+        </div>
+        <div class="form-group">
+            <input type="hidden">
+            <input type="checkbox" <?= $model->iron == 1 ? 'checked' : 'unchecked' ?> disabled>
+            <label>Утюг</label>
+        </div>
+        <div class="form-group">
+            <input type="hidden">
+            <input type="checkbox" <?= $model->plazm_tv == 1 ? 'checked' : 'unchecked' ?> disabled>
+            <label>Плазменный телевизор</label>
+        </div>
+        <div class="form-group">
+            <input type="hidden">
+            <input type="checkbox" <?= $model->fridge == 1 ? 'checked' : 'unchecked' ?> disabled>
+            <label>Холодильник</label>
+        </div>
+        <div class="form-group">
+            <input type="hidden">
+            <input type="checkbox" <?= $model->balcony == 1 ? 'checked' : 'unchecked' ?> disabled>
+            <label>Балкон</label>
+        </div>
+        <div class="form-group">
+            <input type="hidden">
+            <input type="checkbox" <?= $model->door == 1 ? 'checked' : 'unchecked' ?> disabled>
+            <label>Бронедверь</label>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="form-group">
+            <input type="hidden">
+            <input type="checkbox" <?= $model->smoke == 1 ? 'checked' : 'unchecked' ?> disabled>
+            <label>Можно курить</label>
+        </div>
+        <div class="form-group">
+            <input type="hidden">
+            <input type="checkbox" <?= $model->drying_machine == 1 ? 'checked' : 'unchecked' ?> disabled>
+            <label>Сушильная машина</label>
+        </div>
+        <div class="form-group">
+            <input type="hidden">
+            <input type="checkbox" <?= $model->separate_entrance == 1 ? 'checked' : 'unchecked' ?> disabled>
+            <label>Отдельный вход</label>
         </div>
         <div class="form-group">
             <input type="hidden">
@@ -14,42 +57,17 @@
         </div>
         <div class="form-group">
             <input type="hidden">
-            <input type="checkbox" <?= $model->animals == 1 ? 'checked' : 'unchecked' ?> disabled>
-            <label>Можно с животными</label>
+            <input type="checkbox" <?= $model->washer_machine == 1 ? 'checked' : 'unchecked' ?> disabled>
+            <label>Стиральная машина</label>
         </div>
         <div class="form-group">
             <input type="hidden">
-            <input type="checkbox" <?= $model->kitchen == 1 ? 'checked' : 'unchecked' ?> disabled>
-            <label>Кухня</label>
-        </div>
-        <div class="form-group">
-            <input type="hidden">
-            <input type="checkbox" <?= $model->gym == 1 ? 'checked' : 'unchecked' ?> disabled>
-            <label>Спортивный зал</label>
-        </div>
-        <div class="form-group">
-            <input type="hidden">
-            <input type="checkbox" <?= $model->intercom == 1 ? 'checked' : 'unchecked' ?> disabled>
-            <label>Домофон</label>
+            <input type="checkbox" <?= $model->gas == 1 ? 'checked' : 'unchecked' ?> disabled>
+            <label>Газовая плита</label>
         </div>
     </div>
 
-    <div class="col-md-3">
-        <div class="form-group">
-            <input type="hidden">
-            <input type="checkbox" <?= $model->fireplace == 1 ? 'checked' : 'unchecked' ?> disabled>
-            <label>Камин</label>
-        </div>
-        <div class="form-group">
-            <input type="hidden">
-            <input type="checkbox" <?= $model->waggon == 1 ? 'checked' : 'unchecked' ?> disabled>
-            <label>Вахтер</label>
-        </div>
-        <div class="form-group">
-            <input type="hidden">
-            <input type="checkbox" <?= $model->heating == 1 ? 'checked' : 'unchecked' ?> disabled>
-            <label>Отопление</label>
-        </div>
+    <div class="col-md-4">
         <div class="form-group">
             <input type="hidden">
             <input type="checkbox" <?= $model->wifi == 1 ? 'checked' : 'unchecked' ?> disabled>
@@ -57,50 +75,14 @@
         </div>
         <div class="form-group">
             <input type="hidden">
-            <input type="checkbox" <?= $model->cable_tv == 1 ? 'checked' : 'unchecked' ?> disabled>
-            <label>Кабельное телевидение</label>
+            <input type="checkbox" <?= $model->boiler == 1 ? 'checked' : 'unchecked' ?> disabled>
+            <label>Бойлер</label>
         </div>
         <div class="form-group">
             <input type="hidden">
-            <input type="checkbox" <?= $model->iron == 1 ? 'checked' : 'unchecked' ?> disabled>
-            <label>Утюг</label>
+            <input type="checkbox" <?= $model->laptop == 1 ? 'checked' : 'unchecked' ?> disabled>
+            <label>Место для работы на ноутбуке</label>
         </div>
-    </div>
-
-    <div class="col-md-3">
-        <div class="form-group">
-            <input type="hidden">
-            <input type="checkbox" <?= $model->drying_machine == 1 ? 'checked' : 'unchecked' ?> disabled>
-            <label>Сушильная машина</label>
-        </div>
-        <div class="form-group">
-            <input type="hidden">
-            <input type="checkbox" <?= $model->family == 1 ? 'checked' : 'unchecked' ?> disabled>
-            <label>Подходит для детей/семей</label>
-        </div>
-        <div class="form-group">
-            <input type="hidden">
-            <input type="checkbox" <?= $model->parking == 1 ? 'checked' : 'unchecked' ?> disabled>
-            <label>Парковка</label>
-        </div>
-        <div class="form-group">
-            <input type="hidden">
-            <input type="checkbox" <?= $model->washer_machine == 1 ? 'checked' : 'unchecked' ?> disabled>
-            <label>Стиральная машина</label>
-        </div>
-        <div class="form-group">
-            <input type="hidden">
-            <input type="checkbox" <?= $model->hair_dryer == 1 ? 'checked' : 'unchecked' ?> disabled>
-            <label>Фен</label>
-        </div>
-        <div class="form-group">
-            <input type="hidden">
-            <input type="checkbox" <?= $model->tv == 1 ? 'checked' : 'unchecked' ?> disabled>
-            <label>Телевизор</label>
-        </div>
-    </div>
-
-    <div class="col-md-3">
         <div class="form-group">
             <input type="hidden">
             <input type="checkbox" <?= $model->conditioner == 1 ? 'checked' : 'unchecked' ?> disabled>
@@ -108,17 +90,12 @@
         </div>
         <div class="form-group">
             <input type="hidden">
-            <input type="checkbox" <?= $model->smoke == 1 ? 'checked' : 'unchecked' ?> disabled>
-            <label>Можно курить</label>
+            <input type="checkbox" <?= $model->jacuzzi == 1 ? 'checked' : 'unchecked' ?> disabled>
+            <label>Джакузи</label>
         </div>
         <div class="form-group">
             <input type="hidden">
-            <input type="checkbox" <?= $model->disabled == 1 ? 'checked' : 'unchecked' ?> disabled>
-            <label>Подходит людям с ограниченными возможностями</label>
-        </div>
-        <div class="form-group">
-            <input type="hidden">
-            <input type="checkbox" <?= $model->separate_entrance == 1 ? 'checked' : 'unchecked' ?> disabled>
-            <label>Отдельный вход</label>
+            <input type="checkbox" <?= $model->pool == 1 ? 'checked' : 'unchecked' ?> disabled>
+            <label>Бассейн</label>
         </div>
     </div>

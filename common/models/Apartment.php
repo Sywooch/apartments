@@ -82,7 +82,7 @@ class Apartment extends \yii\db\ActiveRecord
 //                $single_image = 'http://'.substr(strstr($image->image, 'domains\\'), 8, strlen($image->image));
                 $map_items[] = [
                     'position' => [$item->latitude, $item->longitude],
-                    'content' => '<h3>'.$item->title_ru.'</h3><img style="height:200px;" src="'.$single_image.'"><p>'.substr($item->coordinates, 0, -55).'</p>',
+                    'content' => '<h3>'.$item->title_ru.'</h3><p>'.substr($item->coordinates, 0, -55).'</p>',
                     'options' => ["icon" => "'/frontend/web/img/marker.png'"],
                     'label' => [
                         'text' => 'test',

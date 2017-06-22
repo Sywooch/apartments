@@ -1,20 +1,15 @@
 <?php
 
 use yii\helpers\Html;
-use yii\helpers\Url;
 use yii\widgets\ActiveForm;
-use yii\widgets\ListView;
 use yii\widgets\Pjax;
 use voime\GoogleMaps\Map;
 
 $this->title = Yii::t('app', 'Главная');
-
 ?>
 
-<?php //Pjax::begin(['id' => 'new_country']); ?>
 <aside class="sidebar">
         <?php $form = ActiveForm::begin(['id' => 'search-filters','method' => 'get','options' => ['data-pjax' => true ], 'class'=>'sidebar_filters']) ?>
-<!--        <form action="" class="sidebar_filters">-->
             <div class="set">
                 <a href="#">
                     <img class="filter_img" src="/frontend/web/img/sidebar-roomcount.png" data-hover="/frontend/web/img/sidebar-roomcount_hover.png" data-src="/frontend/web/img/sidebar-roomcount.png" alt="room_count">
@@ -152,31 +147,12 @@ $this->title = Yii::t('app', 'Главная');
     <a class="filter_topmenu_responsive" href="#"><?= Yii::t('app', 'Войти') ?></a>
 
 </aside>
-<section class="flat" id="apartment-list">
-    <?= ListView::widget([
-        'dataProvider' => $dataProvider,
-        'summary' => '',
-        'itemView' => '_apartment',
-        'layout' => "{pager}\n{summary}\n<div id=\"test\" class=\"items\">{items}</div>\n{pager}",
-        'options' => [
-            'tag' => false
-        ],
-        'itemOptions' => [
-            'tag' => false
-        ]
-    ]);?>
-    
-<!--    <ul class="pagination">-->
-<!--        <li><a href="#">Предыдущая</a></li>-->
-<!--        <li class="page_active"><a href="#">1</a></li>-->
-<!--        <li><a href="#">2</a></li>-->
-<!--        <li>...</li>-->
-<!--        <li><a href="#">7</a></li>-->
-<!--        <li><a href="#">Следующая</a></li>-->
-<!--    </ul>-->
-    <!--<div id="debugblock">|&#45;&#45;&ndash;&gt;</div>-->
+
+<section class="flat" id="apartment-list"
+        <?= $this->render('_apartment_list', [
+            'dataProvider' => $dataProvider,
+        ]) ?>
 </section>
-<?php //Pjax::end() ?>
 <div class="map_wrapper">
     <div id="map">
         <?=
@@ -215,7 +191,6 @@ $this->title = Yii::t('app', 'Главная');
         <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non.</p>
     </div>
 </div>
-
 
 <!--<div class="site-index">-->
 <!---->

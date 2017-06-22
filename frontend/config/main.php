@@ -80,6 +80,15 @@ return [
                 'yii\bootstrap\BootstrapAsset' => [
                     'css' => [],
                 ],
+                'edgardmessias\assets\nprogress\NProgressAsset' => [
+                    'configuration' => [
+                        'minimum' => 0.08,
+                        'showSpinner' => false,
+                    ],
+                    'page_loading' => true,
+                    'pjax_events' => true,
+                    'jquery_ajax_events' => true,
+                ],
             ],
         ],
     ],

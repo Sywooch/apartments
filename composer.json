@@ -24,7 +24,8 @@
         "kalyabin/yii2-select-google-map-location": "*",
         "kartik-v/yii2-grid": "@dev",
         "voime/yii2-google-maps": "*",
-        "kartik-v/yii2-date-range": "*"
+        "kartik-v/yii2-date-range": "*",
+        "edgardmessias/yii2-nprogress": "*"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

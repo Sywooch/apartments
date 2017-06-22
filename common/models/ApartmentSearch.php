@@ -57,7 +57,7 @@ class ApartmentSearch extends Apartment
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
             'pagination' => [
-                'pageSize' => 6,
+                'pageSize' => 1,
             ],
         ]);
 

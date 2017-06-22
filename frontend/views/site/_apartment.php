@@ -19,13 +19,13 @@ $image = \common\models\Image::findOne(['apartment_id' => $model->id]);
         <div class="infoblock">
             <p class="filterblock">
                 <!--<img src="img/iron_filter.svg" title="Розовый динозаврик">-->
-                <img src="/frontend/web/img/iron_filter.png" title="Утюг">
-                <img src="/frontend/web/img/washer_filter.png" title="Стиральная машина">
-                <img src="/frontend/web/img/tv_filter.png" title="Телевизор">
+                <img src="/frontend/web/img/iron_filter.png" title="<?= Yii::t('app', 'Утюг') ?>">
+                <img src="/frontend/web/img/washer_filter.png" title="<?= Yii::t('app', 'Стиральная машина') ?>">
+                <img src="/frontend/web/img/tv_filter.png" title="<?= Yii::t('app', 'Телевизор') ?>">
             </p>
             <p class="floar">
                 <span><?= $model->room_count ?>к</span>
-                <span><?= $model->floor ?> <?= Yii::t('app', 'этаж') ?></span>
+                <span><?= $model->floor ?> <?= Yii::t('app', ' этаж') ?></span>
             </p>
         </div>
     </div>

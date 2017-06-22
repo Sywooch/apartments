@@ -68,13 +68,22 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
+        if(Yii::$app->request->isAjax || Yii::$app->request->isPjax){
+            $searchModel = new ApartmentSearch();
+            $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+            return $this->renderAjax('_apartment_list',[
+                'searchModel' => $searchModel,
+                'dataProvider' => $dataProvider
+            ]);
+        }
+        
         $model = new Apartment();
         $searchModel = new ApartmentSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-//        $map = Apartment::find()->all();
+
         return $this->render('index', [
             'map_items' => $model->Map(),
-//            'map' => $map,
             'dataProvider' => $dataProvider,
             'searchModel' => $searchModel,
         ]);
@@ -86,7 +95,7 @@ class SiteController extends Controller
             $searchModel = new ApartmentSearch();
             $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
             
-            return $this->renderPartial('_apartment_list',[
+            return $this->renderAjax('_apartment_list',[
                 'searchModel' => $searchModel,
                 'dataProvider' => $dataProvider
             ]);

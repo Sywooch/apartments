@@ -13,6 +13,7 @@ use common\widgets\Alert;
 
 AppAsset::register($this);
 ?>
+<?php \edgardmessias\assets\nprogress\NProgressAsset::register($this); ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
@@ -26,19 +27,16 @@ AppAsset::register($this);
 </head>
 <body>
 <?php $this->beginBody() ?>
-
 <header>
     <div class="wrapper">
         <div id="filterbutton"></div>
         <span id="filter_close"></span>
-        <a href="/site/index"><img class="logo_img" src="/frontend/web/img/logo.png" alt="logo"></a>
+        <a href="/<?= Yii::$app->language ?>/"><img class="logo_img" src="/frontend/web/img/logo.png" alt="logo"></a>
         <nav class="header_nav">
-            <a class="headerbutton" href="/site/contact"><?= Yii::t('app', 'Контакты') ?></a>
-            <a class="headerbutton arenda_dom" href="/site/about"><?= Yii::t('app', 'Сдай свое жилье') ?></a>
+            <a class="headerbutton" href="/<?= Yii::$app->language ?>/site/contact"><?= Yii::t('app', 'Контакты') ?></a>
+            <a class="headerbutton arenda_dom" href="/<?= Yii::$app->language ?>/site/about"><?= Yii::t('app', 'Сдай свое жилье') ?></a>
                 <span>
-<!--                    --><?php //Pjax::begin(['id'=>'change-language', 'options'=>['tag'=>'span']]) ?>
                     <?= MultiLang::widget(); ?>
-<!--                    --><?php //Pjax::end() ?>
                 </span>
             <a class="headerbutton" href="#"><?= Yii::t('app', 'Войти') ?></a>
         </nav>
@@ -82,7 +80,7 @@ AppAsset::register($this);
 <!--        --><?//= Breadcrumbs::widget([
 //            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
 //        ]) ?>
-        <?= Alert::widget() ?>
+<!--        --><?//= Alert::widget() ?>
         <?= $content ?>
     </div>
 

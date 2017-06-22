@@ -5,9 +5,9 @@ function sendRequest(){
     var form = $("#search-filters");
     var partialviewcontainer = $("#apartment-list");
     var search = form.serialize();
-    
+
     $.ajax({
-        url: '/'+lang+'/site/filters',
+        url: '/'+lang+'/site/index',
         dataType: 'html',
         type: 'GET',
         data: search,

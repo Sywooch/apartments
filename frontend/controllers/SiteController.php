@@ -77,7 +77,6 @@ class SiteController extends Controller
                 'dataProvider' => $dataProvider
             ]);
         }
-        
         $model = new Apartment();
         $searchModel = new ApartmentSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
@@ -91,7 +90,7 @@ class SiteController extends Controller
     
     public function actionFilters()
     {
-        if(Yii::$app->request->isAjax){
+        if(Yii::$app->request->isAjax || Yii::$app->request->isPjax){
             $searchModel = new ApartmentSearch();
             $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
             

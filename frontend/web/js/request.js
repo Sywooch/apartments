@@ -3,11 +3,10 @@ function sendRequest(){
     // e.preventDefault();
     var lang = document.documentElement.lang;
     var form = $("#search-filters");
-    var partialviewcontainer = $("#apartment-list");
+    var partialviewcontainer = $("#a_list");
     var search = form.serialize();
-
     $.ajax({
-        url: '/'+lang+'/site/index',
+        url: '/'+lang+'/site/filters',
         dataType: 'html',
         type: 'GET',
         data: search,
@@ -18,5 +17,4 @@ function sendRequest(){
             alert(JSON.stringify(exception));
         }
     });
-
 }

@@ -144,9 +144,9 @@ $this->title = Yii::t('app', 'Главная');
 </aside>
 
 <section class="flat" id="apartment-list">
-        <?= $this->render('_apartment_list', [
-            'dataProvider' => $dataProvider,
-        ]) ?>
+    <?= $this->renderAjax('_apartment_list', [
+        'dataProvider' => $dataProvider,
+    ]) ?>
 </section>
 
 <div class="map_wrapper">

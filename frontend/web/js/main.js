@@ -1,8 +1,8 @@
 
 //------------accordeon-js
 
-$(document).on('ready pjax:success', function(){
-    
+$( document ).ready(function() {
+
     // $(".set > a i").removeClass("filter-minus");
 
     $(".set > a").on("click", function(){

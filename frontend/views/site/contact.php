@@ -46,3 +46,12 @@ $this->params['breadcrumbs'][] = $this->title;
         <?php ActiveForm::end(); ?>
     </div>
 </div>
+
+<a href="#openModal" id="success" class="sidebar_btn sidebar_bonus hidden"><?= Yii::t('app', 'Бонусная программа') ?></a>
+<div id="openModal" class="modalDialog">
+    <div>
+        <a href="#close" title="Закрыть" class="close"></a>
+        <h2 class="modal_header"><?= Yii::t('app', 'Ваше письмо отправлено!') ?></h2>
+        <p><?= Yii::t('app', 'Мы свяжемся с вами в кратчайшие сроки.') ?></p>
+    </div>
+</div>

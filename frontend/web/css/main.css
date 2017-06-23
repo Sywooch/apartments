@@ -297,8 +297,8 @@ header {
 
 .flatblock {
     width: 100%;
-    /*max-width: 387px;*/
-    max-width: 48.27%;
+    max-width: 379px;
+    /*max-width: 48.27%;*/
     height: auto;
     float: left;
     margin-bottom: 24px;
@@ -349,7 +349,7 @@ header {
 }
 
 .priceblock {
-    float: left;
+    float: right;
     width: 29%;
     color: #fff;
     background-color: #4989c7;
@@ -388,6 +388,8 @@ header {
     min-height: 30px;
     padding-left: 3%;
     width: 67.9%;
+    height: 30px;
+    overflow: hidden;
     /*width: 68.3%;*/
 }
 
@@ -420,11 +422,13 @@ header {
 }
 
 .filterblock img {
-    margin-right: 5px;
+    margin-right: 3px;
+    width: 25px;
+    height: 25px;
 }
 
 .floar {
-    width: 29.1%;
+    width: 29%;
     height: 30px;
     border-radius: 0 0 5px;
     background-color: #fe8a23;
@@ -432,7 +436,7 @@ header {
     font-family: Arial, sans-serif;
     font-size: 12px;
     font-weight: 400;
-    float: left;
+    float: right;
     margin: 0;
 }
 
@@ -486,6 +490,14 @@ header {
     width: 100%;
     float: none;
     clear: both;
+}
+
+.disabled span{
+    text-decoration: none;
+    color: #a2a2a2;
+    font-family: "Open Sans", sans-serif;
+    font-size: 12px;
+    font-weight: 400;
 }
 
 .map_wrapper {
@@ -633,6 +645,12 @@ footer {
     left: 5px;
 }
 
+.content label img {
+    float: right;
+    width: 25px;
+    height: 25px;
+}
+
 .filter-plus {
     position: relative;
     display: table;
@@ -671,6 +689,75 @@ footer {
     margin-right: 9px;
 }
 
+
+/*----------------radiobuttons filter-----------------*/
+
+.option-group {
+    display: table;
+
+}
+
+
+.option-group:not(#foo) > input[type='radio'] {
+    opacity: 0;
+    filter: alpha(opacity=0);
+    width: 5px;
+    height: 5px;
+    z-index: 99999;
+    position: relative;
+    cursor: pointer;
+}
+
+
+
+
+.option-group:not(#foo) > input[type='radio'] + label {
+    /*padding-left: 62px;*/
+    /*padding-left: 10px;*/
+    background: rgba(0, 0, 0, 0) url("../img/ch_a.svg") no-repeat scroll 3px 0;
+    position: relative;
+    left: 0;
+    cursor: pointer;
+    height: 30px;
+    width: 30px;
+
+
+    color: #000;
+    float: left;
+    font-family: "Open Sans",sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    /*line-height: 14px;*/
+}
+.option-group label {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 30px;
+}
+
+.option-group:not(#foo) > input[type='radio']:checked + label {
+    background: rgba(0, 0, 0, 0) url("../img/ch_b.svg") no-repeat scroll 3px 0;
+    .custom_radio;
+    float: none;
+    clear: both;
+    height: 30px;
+    color: #fff;
+    /*display: table;*/
+    /*margin: 30px 0 ;*/
+}
+
+
+
+
+
+
+
+/*----------------radiobutton filter end--------------*/
+
+
+
 .filter_list {
     margin: 0;
     padding: 0;
@@ -678,6 +765,7 @@ footer {
 
 .filter_list li {
     list-style: none;
+    margin-bottom: 10px;
 
 }
 
@@ -701,17 +789,14 @@ footer {
 }
 
 .filter_room_count li, .filter_sleep_count li {
-    display: inline-block;
-    margin-right: 10px;
-    width: 20px;
-    height: 25px;
-    border-radius: 3px;
-    background-color: #f4f4f4;
+    display: table;
+    margin-right: 2px;
     text-align: center;
+    float: left;
 }
 
 .filter_sleep_count li {
-    margin-bottom: 5px;
+    margin-bottom: -5px;
 }
 
 .filter_room_count li input, .filter_sleep_count li input {
@@ -1686,372 +1771,185 @@ input[type=number] {
 /* ==========================================================================
    Media Queries
    ========================================================================== */
-   
-@media only screen and (max-width: 796px) {
-    .headerbutton {
-        font-size: 13px;
-        margin-left: 5px;
-        padding: 13px 21px;
-    }
-}
 
 
+/*==========  Desktop First  ==========*/
 
-
-@media only screen and (max-width: 1140px) {
-    .flatblock {
-        width: 100%;
-    }
-
-    .filter_room_count li, .filter_sleep_count li {
-        margin-right: 5px;
-    }
-}
-
-@media only screen and (min-width: 1368px) and (max-width: 1640px) {
+/* Desctops-1920 */
+@media only screen and (max-width : 1900px) {
 
     .map_wrapper {
-        width: 32.60%;
+        width: 30%;
     }
 
+    .flat {;
+        width: 49.56%;
+    }
 }
 
+/* Desctops-1800 */
+@media only screen and (max-width : 1800px) {
+    .flat {
+        width: 48.56%;
+    }
+}
 
-
-@media only screen and (min-width: 1026px) and (max-width: 1367px) {
-
-    .map_wrapper {
-        width: 28.5%;
-        margin-top: 24px;
-        height: 100vh;
+/* Desctops-1700 */
+@media only screen and (max-width : 1700px) {
+    .flat {
+        width: 50.56%;
     }
 
+    .map_wrapper {
+        width: 27.7%
+    }
+}
+
+/* Desctops-1600 */
+@media only screen and (max-width : 1600px) {
 
     .flat {
-        width: 44%;
+        width: 48%;
     }
 
-      /*.map_wrapper {*/
-        /*width: 24%;*/
-    /*}*/
-
-
-    /*.flat {*/
-        /*width: 50%;*/
-    /*}*/
-
-    .sidebar_btn {
-        font-size: 12px;
-        /*padding-left: 3vw;*/
-        width: 80%;
+    .flatblock {
+        max-width: 333px;
     }
-
-
 }
 
-@media only screen and (min-width: 1026px) and (max-width: 1145px) {
+@media only screen and (max-width : 1500px) {
+    .flat {
+        width: 51%;
+    }
 
     .map_wrapper {
-        width: 27%;
+        width: 24%;
+    }
+
+    .flatblock {
+        max-width: 329px;
+    }
+}
+
+@media only screen and (max-width : 1400px) {
+
+    .flat .flatblock:nth-of-type(2n+1) {
+        margin-right: 1%;
+    }
+    .flatblock {
+        max-width: 327px;
+    }
+}
+
+/* Laptops-1366 */
+@media only screen and (max-width : 1366px) {
+    .flatblock {
+        max-width: 314px;
+    }
+
+    .map_wrapper {
+        width: 22%;
     }
 
     .flat {
-        width: 43%;
+        width: 51%;
     }
 }
 
-
-
-@media only screen and (min-width: 480px) and (max-width: 767px) {
-
-    header {
-        padding: 0 2.08% 0;
-        height: 50px;
+@media only screen and (max-width : 1300px) {
+    .flatblock {
+        max-width: 300px;
     }
+}
 
-    .header_nav a {
-        line-height: 50px;
-    }
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1200px) {
+    /**/
+}
 
-  /*  .flatblock {
-        max-width: 99%;
-        width: 100%;
-    }*/
-
-    .pagination {
-        padding: 0;
-    }
-
-    .pagination li {
-        padding: 1px 4px;
-        margin-right: 3px;
-    }
-
-    .pagination li:last-of-type {
-        margin-right: 0;
-    }
-
-    .pagination li a {
-        font-size: 11px;
-    }
-
-    .header_nav .headerbutton {
-        display: none;
-    }
-
-    .logo_img {
-        display: block;
-        width: 100%;
-        max-width: 140px;
-        height: auto;
-        margin-left: 50px;
-    }
-
-    .sidebar .sidebar_btn {
-        font-size: 13px;
-        padding-left: 60px;
-        width: 74%;
-        margin-left: 8px;
-    }
-
-    
-   .flat {
-        width: 98%;
-    }
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1100px) {
 
     .map_wrapper {
         display: none;
     }
 
-    .flatblock {
-        max-width: 80%;
-        width: 100%;
-        margin: 0 auto 15px;
-        float: none;
-        clear: both;
-    }
-
-
-    .flat .flatblock:nth-of-type(2n+1) {
-      /*  margin-right: 0;*/
-        margin: 0 auto 15px;
-    }
-    
-    
-
-}
-
-@media only screen and (max-width: 360px) {
-
-    body {
-        overflow-x: hidden;
-    }
-
-    .wrapper {
-        padding: 0 0 0 2.08%;
-        width: 95.92%;
-    }
-
-    header {
-        padding: 0;
-    }
-
-    .wrapper .flat {
-        width: 98%;
-    }
-
-    .map_wrapper {
-        display: none;
-    }
-
-    .flatblock {
-        max-width: 80%;
-        width: 100%;
-        margin: 0 auto 15px;
-        float: none;
-        clear: both;
-    }
-
-
-    .flat .flatblock:nth-of-type(2n+1) {
-      /*  margin-right: 0;*/
-        margin: 0 auto 15px;
-    }
-
-
-    .sidebar_bonus {
-        background: #4989c7 url("../img/sidebar_bonus.png") no-repeat scroll 10% center;
-    }
-
-    .sidebar_hourly {
-        background: #4989c7 url("../img/sidebar_time.png") no-repeat scroll 10% center;
-    }
-
-    .sidebar_customers {
-        background: #4989c7 url("../img/sidebar_star.png") no-repeat scroll 10% center;
-    }
-
-    .sidebar_friend {
-        background: #4989c7 url("../img/sidebar_friend.png") no-repeat scroll 10% center;
-    }
-
-    .floar span:nth-of-type(1) {
-        margin-left: 15%;
-    }
-
-    .pagination {
-        padding: 0;
-    }
-
-    .pagination li {
-        padding: 1px 5px;
-    }
-
-    .pagination li a {
-        font-size: 11px;
-    }
-
-    .header_nav .headerbutton {
-        display: none;
-    }
-
-    .logo_img {
-        display: block;
-        width: 100%;
-        max-width: 135px;
-        height: auto;
-        margin-left: 46px;
+    .flat {
+        width: 68%;
     }
 }
 
 
-@media only screen and (max-width: 320px) {
 
-    body {
-        overflow-x: hidden;
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px) {
+    .flatblock {
+        max-width: 286px;
     }
+}
 
-    header {
-        padding: 0;
-        height: 50px;
-    }
 
-    .header_nav a {
-        line-height: 50px;
-    }
 
-    /*.sidebar {*/
-        /*-webkit-box-shadow: 5px 10px 22px -5px rgba(0,0,0,0.75);*/
-        /*-moz-box-shadow: 5px 10px 22px -5px rgba(0,0,0,0.75);*/
-        /*box-shadow: 5px 10px 22px -5px rgba(0,0,0,0.75);*/
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+    /**/
+}
+
+
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px) {
+    /**/
+}
+
+
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width : 320px) {
+    /**/
+}
+
+
+
+/*==========  Mobile First  ==========*/
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px) {
+    /**/
+}
+
+
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 480px) {
+    /**/
+}
+
+
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+    /**/
+}
+
+
+
+/*!* Medium Devices, Desktops *!*/
+/*@media only screen and (min-width : 992px) {*/
+    /**/
+    /*.flatblock {*/
+        /*max-width: 286px;*/
     /*}*/
-
-    .wrapper .flat {
-        width: 98%;
-    }
-
-    .map_wrapper {
-        display: none;
-    }
-
-    .flatblock {
-        max-width: 80%;
-        width: 100%;
-        margin: 0 auto 15px;
-        float: none;
-        clear: both;
-    }
-
-
-    .flat .flatblock:nth-of-type(2n+1) {
-        margin: 0 auto 15px;
-    }
-
-
-    .sidebar_bonus {
-        background: #4989c7 url("../img/sidebar_bonus.png") no-repeat scroll 10% center;
-    }
-
-    .sidebar_hourly {
-        background: #4989c7 url("../img/sidebar_time.png") no-repeat scroll 10% center;
-    }
-
-    .sidebar_customers {
-        background: #4989c7 url("../img/sidebar_star.png") no-repeat scroll 10% center;
-    }
-
-    .sidebar_friend {
-        background: #4989c7 url("../img/sidebar_friend.png") no-repeat scroll 10% center;
-    }
-
-    .floar span:nth-of-type(1) {
-        margin-left: 15%;
-    }
-
-
-    .header_nav .headerbutton {
-        display: none;
-    }
-
-
-    .header_nav span {
-        margin-right: 15px;
-        margin-left: 0;
-        margin-top: 6px;
-        display: block;
-    }
-
-    .newheaderbutton {
-        display: block;
-    }
+/*}*/
 
 
 
-    .nameblock {
-        height: 90px;
-        max-height: 90px;
-    }
-
-    .logo_img {
-        display: block;
-        width: 100%;
-        max-width: 135px;
-        height: auto;
-        margin-left: 46px;
-    }
-
-    .pagination {
-        padding: 0;
-    }
-
-    .pagination li {
-        padding: 1px 5px;
-        margin-right: 2px;
-    }
-
-    .pagination li:last-of-type {
-        margin-right: 0;
-    }
-
-    .pagination li a {
-        font-size: 11px;
-    }
-
-    .sidebar .sidebar_btn {
-        font-size: 13px;
-        padding-left: 60px;
-        width: 74%;
-        margin-left: 8px;
-    }
-
-
-    .priceblock {
-        height: 90px;
-        max-height: 90px;
-    }
-
-
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+    /**/
 }
+
+
 
 @media only screen and (max-width: 1025px) {    /*----menu------*/
 
@@ -2071,19 +1969,7 @@ input[type=number] {
     .sidebar {
         display: none;
     }
-    
-    /*.map_wrapper {*/
-        /*width: 43%;*/
-        /*margin-top: 24px;*/
-        /*height: 100vh;*/
-    /*}*/
-    
-    
-    /*.flat {*/
-        /*width: 49.56%;*/
-    /*}*/
-    
-    
+
     .set {
         width: 91%;
     }
@@ -2133,12 +2019,16 @@ input[type=number] {
     .filter_topmenu_responsive {
         display: block;
     }
+
+
+    /*blocks sidebar collapse*/
+    .flat {
+        width: 73%;
+    }
+
+
+    /*----------------------------*/
 }
-
-
-
-
-
 
 
 /* ==========================================================================

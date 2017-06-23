@@ -76,4 +76,9 @@ return [
     'Постоянным клиентам' => 'To regular customers',
     'Засели друга' => 'Settled a friend',
     'сутки' => 'per day',
+    'Ваше письмо отправлено!' => 'Your letter has been sent!',
+    'Мы свяжемся с вами в кратчайшие сроки.' => 'We will contact you as soon as possible.',
+    'Предыдущая' => 'Previous',
+    'Следующая' => 'Next',
+    'этаж' => 'floor'
 ];

@@ -52,12 +52,13 @@ class ApartmentSearch extends Apartment
 
     public function search($params)
     {
-        $query = Apartment::find()->orderBy('id DESC');
+        $query = Apartment::find()
+            ->orderBy('id DESC');
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
             'pagination' => [
-                'pageSize' => 1,
+                'pageSize' => 6,
             ],
         ]);
 

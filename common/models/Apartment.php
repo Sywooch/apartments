@@ -55,7 +55,7 @@ class Apartment extends \yii\db\ActiveRecord
 
     public function getFacilities()
     {
-        return $this->hasMany(Facilities::className(), ['apartment_id' => 'id']);
+        return $this->hasOne(Facilities::className(), ['apartment_id' => 'id']);
     }
 
     public function getTotal($apartment_id)

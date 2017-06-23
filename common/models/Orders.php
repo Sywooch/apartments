@@ -26,7 +26,7 @@ class Orders extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'Orders';
+        return 'orders';
     }
 
     /**

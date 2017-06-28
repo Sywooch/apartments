@@ -25,7 +25,8 @@
         "kartik-v/yii2-grid": "@dev",
         "voime/yii2-google-maps": "*",
         "kartik-v/yii2-date-range": "*",
-        "edgardmessias/yii2-nprogress": "*"
+        "edgardmessias/yii2-nprogress": "*",
+        "justinvoelker/yii2-separatedpager": "*"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

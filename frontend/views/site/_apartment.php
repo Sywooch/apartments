@@ -7,7 +7,7 @@ $image = \common\models\Image::findOne(['apartment_id' => $model->id]);
 ?>
 
     <div class="flatblock">
-        <a href="#"><img class="flatimg" src="<?= $image->image ?>" alt="flat picture"></a>
+        <a href="/site/detail?id=<?= $model->id ?>"><img class="flatimg" src="<?= $image->image ?>" alt="flat picture"></a>
         <div class="nameblock">
             <h4><?= $model->title_ru ?></h4>
             <p class="flat_adress"><?= substr($model->coordinates, 0, -55).', '.$model->area.' '.Yii::t('app', 'район') ?></p>

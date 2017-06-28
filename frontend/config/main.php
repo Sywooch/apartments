@@ -61,6 +61,7 @@ return [
                 'filters' => 'site/filters',
                 'contact' => 'site/contact',
                 'about' => 'site/about',
+                'detail' => 'site/detail'
 //                '<action>'=>'site/<action>',
             ],
         ],

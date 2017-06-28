@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "9aa175b4d4355c74128c8b7fa966f981",
+    "content-hash": "2c88259a7e3f3344ba52aeeb1c6ac8fa",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -1042,6 +1042,47 @@
                 "placeholders"
             ],
             "time": "2016-08-26T01:28:20+00:00"
+        },
+        {
+            "name": "justinvoelker/yii2-separatedpager",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/justinvoelker/yii2-separatedpager.git",
+                "reference": "671a0eb8fcd88d69eb17de74989b9db397dea49d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/justinvoelker/yii2-separatedpager/zipball/671a0eb8fcd88d69eb17de74989b9db397dea49d",
+                "reference": "671a0eb8fcd88d69eb17de74989b9db397dea49d",
+                "shasum": ""
+            },
+            "require": {
+                "yiisoft/yii2": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "justinvoelker\\separatedpager\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Justin Voelker",
+                    "email": "justin@justinvoelker.com"
+                }
+            ],
+            "description": "A Yii2 LinkPager that displays the first and last pages inline with other pages.",
+            "keywords": [
+                "linkpager",
+                "pagination",
+                "yii2"
+            ],
+            "time": "2015-05-30T05:27:52+00:00"
         },
         {
             "name": "kalyabin/yii2-select-google-map-location",

@@ -7,6 +7,8 @@ use yii\widgets\Pjax;
     <?= ListView::widget([
         'dataProvider' => $dataProvider,
         'pager' => [
+            'class' => 'justinvoelker\separatedpager\LinkPager',
+            'maxButtonCount' => 7,
             'activePageCssClass' => 'page_active',
             'nextPageLabel' => Yii::t('app', 'Следующая'),
             'prevPageLabel' => Yii::t('app', 'Предыдущая'),

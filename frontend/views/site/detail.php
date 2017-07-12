@@ -3,11 +3,7 @@ use yii\widgets\ActiveForm;
 use yii\widgets\Pjax;
 use yii\helpers\Html;
 
-$user_id = 1;
-if(!Yii::$app->user->isGuest) {
-    $user_id = Yii::$app->user->identity->getId();
-}
-
+$lang = Yii::$app->language;
 $this->title = Yii::t('app', 'Детали квартиры');
 ?>
 
@@ -55,7 +51,16 @@ $this->title = Yii::t('app', 'Детали квартиры');
 </div>
 <div class="wrapper">
     <div class="main_col">
-        <p class="flat_single_descr"><?= $apartment->description_ru ?></p>
+        <p class="flat_single_descr">
+            <?php if($lang == 'ru'){
+                echo $apartment->description_ru;
+            } elseif($lang == 'ua'){
+                echo $apartment->description_ua;
+            } elseif($lang == 'en'){
+                echo $apartment->description_en;
+            }
+            ?>
+        </p>
         <ul class="singleflat_paramethers">
             <li><span><?= Yii::t('app', 'Тип жилья') ?>:</span><p><?= Yii::t('app', mb_strtolower($apartment->type)) ?></p></li>
             <li><span><?= Yii::t('app', 'Время заезда') ?>:</span><p><?= Yii::t('app', $apartment->facilities->time_in) ?></p></li>

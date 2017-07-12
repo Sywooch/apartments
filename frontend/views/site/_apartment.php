@@ -6,10 +6,19 @@ $lang = Yii::$app->language;
 $image = \common\models\Image::findOne(['apartment_id' => $model->id]);
 ?>
 
+<?= Yii::$app->translate->discover(); ?>
+
     <div class="flatblock">
         <a href="/site/detail?id=<?= $model->id ?>"><img class="flatimg" src="<?= $image->image ?>" alt="flat picture"></a>
         <div class="nameblock">
-            <h4><?= $model->title_ru ?></h4>
+            <?php if($lang == 'ru'){
+                echo '<h4>'.$model->title_ru.'</h4>';
+            } elseif($lang == 'ua'){
+                echo '<h4>'.$model->title_ua.'</h4>';
+            } elseif($lang == 'en'){
+                echo '<h4>'.$model->title_en.'</h4>';
+            }
+            ?>
             <p class="flat_adress"><?= substr($model->coordinates, 0, -55).', '.$model->area.' '.Yii::t('app', 'район') ?></p>
         </div>
         <div class="priceblock">

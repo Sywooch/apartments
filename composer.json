@@ -26,7 +26,8 @@
         "voime/yii2-google-maps": "*",
         "kartik-v/yii2-date-range": "*",
         "edgardmessias/yii2-nprogress": "*",
-        "justinvoelker/yii2-separatedpager": "*"
+        "justinvoelker/yii2-separatedpager": "*",
+        "janisto/yii2-timepicker": "*"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

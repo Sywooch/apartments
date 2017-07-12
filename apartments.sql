@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Июн 23 2017 г., 15:26
+-- Время создания: Июл 12 2017 г., 16:13
 -- Версия сервера: 5.6.31
 -- Версия PHP: 5.6.23
 
@@ -47,6 +47,9 @@ CREATE TABLE IF NOT EXISTS `apartment` (
   `bed_count` int(11) DEFAULT NULL,
   `type` varchar(50) NOT NULL,
   `area` varchar(255) NOT NULL,
+  `guests` int(11) NOT NULL,
+  `owner` varchar(100) NOT NULL,
+  `phone` varchar(50) NOT NULL,
   `floor` int(11) DEFAULT NULL,
   `apartment_area` float DEFAULT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
@@ -55,10 +58,10 @@ CREATE TABLE IF NOT EXISTS `apartment` (
 -- Дамп данных таблицы `apartment`
 --
 
-INSERT INTO `apartment` (`id`, `title_ru`, `title_ua`, `title_en`, `description_ru`, `description_ua`, `description_en`, `coordinates`, `latitude`, `longitude`, `stock`, `price_2`, `price_night`, `price_day`, `price_5`, `price_10`, `room_count`, `bed_count`, `type`, `area`, `floor`, `apartment_area`) VALUES
-(5, 'Новая квартира в самом центре города, Евро ремонт', 'fghj', 'fghj', 'fghj', 'fghjf', 'ghj', 'вулиця Богдана Хмельницького 19, Запорожье, Запорожская область, Украина', '47.8566003', '35.100325', 1, 22, 22, 150, 22, 22, 1, 2, 'Дом', 'Днепровский', 6, 69),
-(6, 'Квартира Люкс, Центр, Пушкина, Район ЗАГСА', '657tryuj', 'ruyhy76ru76u', 'rtuj76u6ru', 'r7urtu7', 'ur67ur67u', 'Заводская улица 2, Запорожье, Запорожская область, Украина', '47.8518485', '35.13174470000001', 0, 55, 22, 280, 22, 22, 3, 4, 'Дом', 'Александровский', 20, 100),
-(7, 'Квартира Люкс, Центр, Гагарина, Район 5 гор. Больницы', 'апрол', 'апро', 'апро', 'апро', 'апро', 'Ладожская улица 17, Запорожье, Запорожская область, Украина', '47.8870025', '35.06736699999999', 1, 454, 44, 120, 44, 44, 2, 4, 'Квартира', 'Заводской', 6, 44);
+INSERT INTO `apartment` (`id`, `title_ru`, `title_ua`, `title_en`, `description_ru`, `description_ua`, `description_en`, `coordinates`, `latitude`, `longitude`, `stock`, `price_2`, `price_night`, `price_day`, `price_5`, `price_10`, `room_count`, `bed_count`, `type`, `area`, `guests`, `owner`, `phone`, `floor`, `apartment_area`) VALUES
+(5, 'Новая квартира в самом центре города, Евро ремонт', 'fghj', 'fghj', 'xdghdfghdfgh', 'fghjf', 'ghj', 'вулиця Богдана Хмельницького 19, Запорожье, Запорожская область, Украина', '47.8566003', '35.100325', 1, 22, 22, 150, 22, 22, 1, 2, 'Дом', 'Днепровский', 8, 'Мария Петровна', '+3 (050) 678 90 43', 6, 69),
+(6, 'Квартира Люкс, Центр, Пушкина, Район ЗАГСА', '657tryuj', 'ruyhy76ru76u', 'rtuj76u6ru', 'r7urtu7', 'ur67ur67u', 'Заводская улица 2, Запорожье, Запорожская область, Украина', '47.8518485', '35.13174470000001', 0, 55, 22, 280, 22, 22, 3, 4, 'Дом', 'Александровский', 5, 'Петр Николаевич', '+3 (067) 895 67 91', 20, 100),
+(7, 'Квартира Люкс, Центр, Гагарина, Район 5 гор. Больницы', 'апрол', 'апро', 'Предлагаю вашему вниманию совершенно новую квартиру в самом центре города, район Гагарина - 5 городской больницы, BILLA. Ранее в сдаче квартира не была.\r\n\r\nРядом с моим жильем общественный транспорт, центр города, парки и искусство и культура. Вам понравится, ведь в моем жилье есть уют и расположение.\r\n\r\nМое жилье подходит для этого: пары, соло-путешественники, деловые путешественники, семьи (с детьми) и большие группы.\r\n\r\nСелю в любое время. Документы при заселении обязательны.', 'апро', 'апро', 'Ладожская улица 17, Запорожье, Запорожская область, Украина', '47.8870025', '35.06736699999999', 1, 150, 200, 210, 140, 125, 2, 4, 'Квартира', 'Заводской', 4, 'Игорь Иванович', '+3 (097) 789 06 75', 6, 44);
 
 -- --------------------------------------------------------
 
@@ -185,17 +188,21 @@ CREATE TABLE IF NOT EXISTS `facilities` (
   `boiler` int(11) DEFAULT '0',
   `laptop` int(11) DEFAULT '0',
   `jacuzzi` int(11) DEFAULT '0',
-  `pool` int(11) DEFAULT '0'
+  `pool` int(11) DEFAULT '0',
+  `time_in` varchar(40) DEFAULT 'любое',
+  `time_out` varchar(40) DEFAULT 'любое',
+  `guest_price` float NOT NULL,
+  `repairs` varchar(255) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `facilities`
 --
 
-INSERT INTO `facilities` (`id`, `apartment_id`, `internet`, `wifi`, `iron`, `drying_machine`, `washer_machine`, `tv`, `plazm_tv`, `fridge`, `balcony`, `door`, `conditioner`, `smoke`, `separate_entrance`, `gas`, `boiler`, `laptop`, `jacuzzi`, `pool`) VALUES
-(4, 5, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(5, 6, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(6, 7, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0);
+INSERT INTO `facilities` (`id`, `apartment_id`, `internet`, `wifi`, `iron`, `drying_machine`, `washer_machine`, `tv`, `plazm_tv`, `fridge`, `balcony`, `door`, `conditioner`, `smoke`, `separate_entrance`, `gas`, `boiler`, `laptop`, `jacuzzi`, `pool`, `time_in`, `time_out`, `guest_price`, `repairs`) VALUES
+(4, 5, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'любое', 'любое', 20, 'евро'),
+(5, 6, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'любое', 'любое', 25, 'евро'),
+(6, 7, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, '06:15', 'любое', 30, 'евро');
 
 -- --------------------------------------------------------
 

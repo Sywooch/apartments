@@ -15,9 +15,11 @@ class Facilities extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            [['repairs', 'guest_price'], 'required'],
             [['apartment_id', 'elevator', 'internet', 'wifi', 'iron', 'drying_machine', 'washer_machine', 'tv',
                 'conditioner', 'smoke', 'separate_entrance', 'plazm_tv', 'fridge', 'balcony', 'door', 'gas', 'boiler',
                 'laptop', 'jacuzzi', 'pool'], 'integer'],
+            [['time_in', 'time_out'], 'string'],
             [['apartment_id'], 'exist', 'skipOnError' => true, 'targetClass' => Apartment::className(), 'targetAttribute' => ['apartment_id' => 'id']],
         ];
     }
@@ -45,7 +47,11 @@ class Facilities extends \yii\db\ActiveRecord
             'boiler' => 'Бойлер',
             'laptop' => 'Место для работы на ноутбуке',
             'jacuzzi' => 'Джакузи',
-            'pool' => 'Бассейн'
+            'pool' => 'Бассейн',
+            'repairs' => 'Ремонт',
+            'guest_price' => 'Доплата за каждого последующего гостя',
+            'time_in' => 'Время заезда',
+            'time_out' => 'Время выезда'
         ];
     }
 

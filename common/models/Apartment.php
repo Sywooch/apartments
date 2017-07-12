@@ -18,7 +18,8 @@ class Apartment extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title_ru', 'title_ua', 'title_en', 'description_ru', 'description_ua', 'description_en', 'coordinates', 'price_2', 'price_night', 'price_day', 'price_5', 'price_10', 'type', 'area'], 'required'],
+            [['title_ru', 'title_ua', 'title_en', 'description_ru', 'description_ua', 'description_en', 'coordinates',
+                'price_2', 'price_night', 'price_day', 'price_5', 'price_10', 'type', 'area', 'guests', 'owner', 'phone'], 'required'],
             [['description_ru', 'description_ua', 'description_en', 'coordinates', 'latitude', 'longitude'], 'string'],
             [['stock'], 'integer'],
             [['price_2', 'price_night', 'price_day', 'price_5', 'price_10', 'apartment_area'], 'number'],
@@ -49,7 +50,10 @@ class Apartment extends \yii\db\ActiveRecord
             'type' => 'Тип жилья',
             'area' => 'Район',
             'floor' => 'Этаж',
+            'guests' => 'Количество гостей',
             'apartment_area' => 'Площадь',
+            'owner' => 'Владелец квартиры',
+            'phone' => 'Телефон владельца квартиры'
         ];
     }
 

@@ -2,14 +2,11 @@
 
 
 use yii\helpers\Html;
-use yii\helpers\FileHelper;
-use yii\bootstrap\Nav;
-use yii\bootstrap\NavBar;
-use yii\widgets\Breadcrumbs;
-use yii\widgets\Pjax;
 use frontend\assets\AppAsset;
 use frontend\widgets\MultiLang\MultiLang;
-use common\widgets\Alert;
+
+$controller = Yii::$app->controller->id;
+$action = Yii::$app->controller->action->id;
 
 AppAsset::register($this);
 ?>
@@ -76,9 +73,27 @@ AppAsset::register($this);
 //    NavBar::end();
 //    ?>
 
-    <div class="wrapper">
+<!--    <div class="wrapper">-->
         <?= $content ?>
-    </div>
+<!--    </div>-->
+
+<?php
+if($controller == 'site' && $action == 'detail') {
+    ?>
+    <footer class="singleflat_footer">
+        <div id="map_single"></div>
+        <p class="footer_copyright">© Аренда квартир 2017</p>
+        <nav class="footer_social">
+            <a class="imgoverlay" href="#"><img src="/frontend/web/img/facebook-icon.png" title="facebook"></a>
+            <a class="imgoverlay" href="#"><img src="/frontend/web/img/vk-icon.png" title="vk"></a>
+            <a class="imgoverlay" href="#"><img src="/frontend/web/img/google--icon.png" title="googleplus"></a>
+            <a class="imgoverlay" href="#"><img src="/frontend/web/img/twitter-icon.png" title="twitter"></a>
+            <a class="imgoverlay" href="#"><img src="/frontend/web/img/instagram-icon.png" title="Розовый динозаврик"></a>
+        </nav>
+    </footer>
+    <?php
+}
+?>
 
 <?php if(
     Yii::$app->request->url == '/ru/about' ||
@@ -86,7 +101,8 @@ AppAsset::register($this);
     Yii::$app->request->url == '/ua/about' ||
     Yii::$app->request->url == '/ru/contact' ||
     Yii::$app->request->url == '/en/contact' ||
-    Yii::$app->request->url == '/ua/contact'){
+    Yii::$app->request->url == '/ua/contact'
+){
 ?>
     <footer class="singlepage_footer">
         <div class="skyline"></div>
@@ -99,7 +115,8 @@ AppAsset::register($this);
             <a class="imgoverlay" href="#"><img src="/frontend/web/img/instagram-icon.png" title="instagram"></a>
         </nav>
     </footer>
-<?php }else{ ?>
+<?php }elseif($controller != 'site' && $action != 'detail' ||
+    $controller == 'site' && $action == 'index'){ ?>
     <footer>
         <p class="footer_copyright">© <?= Yii::t('app', 'Аренда квартир') ?> <?= date('Y') ?></p>
         <nav class="footer_social">

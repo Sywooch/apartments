@@ -22,11 +22,11 @@ use yii\widgets\ActiveForm;
 
             <?= $form->field($model, 'title_en')->textInput(['maxlength' => true]) ?>
 
-            <?= $form->field($model, 'description_ru')->textarea(['rows' => 6]) ?>
+            <?= $form->field($model, 'description_ru')->textarea(['rows' => 9]) ?>
 
-            <?= $form->field($model, 'description_ua')->textarea(['rows' => 6]) ?>
+            <?= $form->field($model, 'description_ua')->textarea(['rows' => 9]) ?>
 
-            <?= $form->field($model, 'description_en')->textarea(['rows' => 6]) ?>
+            <?= $form->field($model, 'description_en')->textarea(['rows' => 9]) ?>
 
             <?= $form->field($model, 'coordinates')->widget(\kalyabin\maplocation\SelectMapLocationWidget::className(), [
                 'attributeLatitude' => 'latitude',
@@ -46,6 +46,8 @@ use yii\widgets\ActiveForm;
             <?= $form->field($model, 'price_5')->textInput() ?>
 
             <?= $form->field($model, 'price_10')->textInput() ?>
+
+            <?= $form->field($model, 'guests')->textInput() ?>
 
             <?= $form->field($model, 'room_count')->dropDownList([
                 'prompt'=>'Выберите количество комнат...',
@@ -119,6 +121,12 @@ use yii\widgets\ActiveForm;
 
             <?= $form->field($model, 'apartment_area')->textInput() ?>
 
+            <?= $form->field($model, 'owner')->textInput() ?>
+
+            <?= $form->field($model, 'phone')->widget(\yii\widgets\MaskedInput::className(), [
+                'mask' => '+3 (999) 999 99 99',
+            ])->textInput() ?>
+
             <?= $form->field($model, 'stock')->checkbox() ?>
 
             <h1 style="text-align: center">Удобства</h1><br><br>
@@ -163,6 +171,31 @@ use yii\widgets\ActiveForm;
                     <?= $form->field($facilities, 'jacuzzi')->checkbox() ?>
 
                     <?= $form->field($facilities, 'pool')->checkbox() ?>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <?= $form->field($facilities, 'repairs')->textInput() ?>
+                    <?= $form->field($facilities, 'guest_price')->textInput() ?>
+                </div>
+                <div class="col-md-6">
+                    <?=
+                    $form->field($facilities, 'time_in')->widget(\janisto\timepicker\TimePicker::className(), [
+                        'mode' => 'time',
+                        'clientOptions' => [
+                            'timeFormat' => 'HH:mm',
+                        ]
+                    ]);
+                    ?>
+
+                    <?=
+                    $form->field($facilities, 'time_out')->widget(\janisto\timepicker\TimePicker::className(), [
+                        'mode' => 'time',
+                        'clientOptions' => [
+                            'timeFormat' => 'HH:mm',
+                        ]
+                    ]);
+                    ?>
                 </div>
             </div>
         </div>

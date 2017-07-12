@@ -53,6 +53,12 @@ class ApartmentController extends Controller
             $model->save();
             if ($facilities->load(Yii::$app->request->post())) {
                 $facilities->apartment_id = $model->id;
+                if(empty($facilities->time_in)){
+                    $facilities->time_in = 'любое';
+                }
+                if(empty($facilities->time_out)){
+                    $facilities->time_out = 'любое';
+                }
                 $facilities->save(false);
             }
             Yii::$app->getSession()->setFlash('success', 'Вы успешно добавили новую квартиру!');
@@ -74,6 +80,12 @@ class ApartmentController extends Controller
             $model->save();
             if ($facilities->load(Yii::$app->request->post())) {
                 $facilities->apartment_id = $model->id;
+                if(empty($facilities->time_in)){
+                    $facilities->time_in = 'любое';
+                }
+                if(empty($facilities->time_out)){
+                    $facilities->time_out = 'любое';
+                }
                 $facilities->save(false);
             }
             Yii::$app->getSession()->setFlash('warning', 'Изменения сохранены!');

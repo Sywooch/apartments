@@ -3,40 +3,40 @@ use yii\widgets\ActiveForm;
 use yii\widgets\Pjax;
 use yii\helpers\Html;
 
-echo $model->title_ru;
-
 $user_id = 1;
 if(!Yii::$app->user->isGuest) {
     $user_id = Yii::$app->user->identity->getId();
 }
+
+$this->title = Yii::t('app', 'Детали квартиры');
 ?>
 
 <div class="wrapper">
     <div class="main_col">
-        <h2 class="flat_single_header">Квартира Люкс,Центр,Гагарина,Район 5 гор.Больницы</h2>
-        <h3 class="flat_single_adr">пр-т Соборный (Ленина), 129</h3>
+        <h2 class="flat_single_header"><?= $apartment->title_ru ?></h2>
+        <h3 class="flat_single_adr"><?= substr($apartment->coordinates, 0, -55) ?></h3>
     </div>
     <div class="right_sidebar">
         <ul class="flat_single">
             <li>
-                <img class="xlogo_img" src="img/room_icon.png" alt="">
-                <span>2</span>
-                комнаты
+                <img class="xlogo_img" src="/frontend/web/img/room_icon.png" alt="">
+                <span><?= $apartment->room_count ?></span>
+                <?= Yii::t('app', 'комнаты') ?>
             </li>
             <li>
-                <img class="xlogo_img" src="img/floar_icon.png" alt="">
-                <span>2</span>
-                этаж
+                <img class="xlogo_img" src="/frontend/web/img/floar_icon.png" alt="">
+                <span><?= $apartment->floor ?></span>
+                <?= Yii::t('app', 'этаж') ?>
             </li>
             <li>
-                <img class="xlogo_img" src="img/sleepplace_icon.png" alt="">
-                <span>4</span>
-                спальных места
+                <img class="xlogo_img" src="/frontend/web/img/sleepplace_icon.png" alt="">
+                <span><?= $apartment->bed_count ?></span>
+                <?= Yii::t('app', 'спальных места') ?>
             </li>
             <li>
-                <img class="xlogo_img" src="img/guest_icon.png" alt="">
-                <span>8</span>
-                гостей
+                <img class="xlogo_img" src="/frontend/web/img/guest_icon.png" alt="">
+                <span><?= $apartment->guests ?></span>
+                <?= Yii::t('app', 'гостей') ?>
             </li>
         </ul>
     </div>
@@ -44,87 +44,151 @@ if(!Yii::$app->user->isGuest) {
 <div class="slider_cont">
     <div class="flexslider">
         <ul class="slides" id="scrollPanel">
-            <li><a href="#" class="fleximg"><img src="img/flat_photo.jpg" alt="" /></a></li>
-            <li><a href="#" class="fleximg"><img src="img/1.jpg" alt="" /></a></li>
-            <li><a href="#" class="fleximg"><img src="img/2.jpg" alt="" /></a></li>
-            <li><a href="#" class="fleximg"><img src="img/3.jpg" alt="" /></a></li>
-            <!--<li><a href="#" class="fleximg"><img src="img/4.jpg"  alt="" /></a></li>-->
-
+            <?php
+            if(isset($images))
+                foreach ($images as $image){
+                    echo '<li><a href="#" class="fleximg"><img src="'.$image->image.'" alt="apartment_image" /></a></li>';
+                }
+            ?>
         </ul>
     </div>
 </div>
 <div class="wrapper">
     <div class="main_col">
-        <p class="flat_single_descr">Предлагаю вашему вниманию совершенно новую квартиру в самом центре города, район Гагарина - 5 городской больницы, BILLA. Ранее в сдаче квартира не была.</p>
-        <p class="flat_single_descr">Рядом с моим жильем общественный транспорт, центр города, парки и искусство и культура. Вам понравится, ведь в моем жилье есть уют и расположение.</p>
-        <p class="flat_single_descr">Мое жилье подходит для этого: пары, соло-путешественники, деловые путешественники, семьи (с детьми) и большие группы.</p>
-        <p class="flat_single_descr">Селю в любое время. Документы при заселении обязательны.</p>
-
-
+        <p class="flat_single_descr"><?= $apartment->description_ru ?></p>
         <ul class="singleflat_paramethers">
-            <li><span>Тип жилья:</span><p>квартира</p></li>
-            <li><span>Время заезда:</span><p>любое</p></li>
-            <li><span>Время выезда:</span><p>любое</p></li>
-            <li><span>Ремонт:</span><p>евро</p></li>
-            <li><span>Площадь:</span><p>50 м<sup>2</sup></p></li>
-            <li><span>Доплата за каждого последующего гостя:</span><p>бесплатно</p></li>
+            <li><span><?= Yii::t('app', 'Тип жилья') ?>:</span><p><?= Yii::t('app', mb_strtolower($apartment->type)) ?></p></li>
+            <li><span><?= Yii::t('app', 'Время заезда') ?>:</span><p><?= Yii::t('app', $apartment->facilities->time_in) ?></p></li>
+            <li><span><?= Yii::t('app', 'Время выезда') ?>:</span><p><?= Yii::t('app', $apartment->facilities->time_out) ?></p></li>
+            <li><span><?= Yii::t('app', 'Ремонт') ?>:</span><p><?= $apartment->facilities->repairs ?></p></li>
+            <li><span><?= Yii::t('app', 'Площадь') ?>:</span><p><?= $apartment->apartment_area ?> <?= Yii::t('app', 'м') ?><sup>2</sup></p></li>
+            <li><span><?= Yii::t('app', 'Доплата за каждого последующего гостя') ?>:</span><p><?= Yii::t('app', $apartment->facilities->guest_price) ?></p></li>
         </ul>
 
         <ul class="singleflat_comfort_items">
-            <li class="tv">Телевизор</li>
-            <li class="inet">Интернет</li>
-            <li class="iron">Утюг</li>
-            <li class="washer">Стиральная машина</li>
-            <li class="plasmatv">Плазменный телевизор</li>
-            <li class="gas_stove">Газовая плита</li>
-            <li class="fridge">Холодильник</li>
-            <li class="wifi">WiFi</li>
-            <li class="balcony">Балкон</li>
-            <li class="boiler">Бойлер</li>
-            <li class="armored_door">Бронедверь</li>
-            <li class="notebook">Место для работы на ноутбуке</li>
-            <li class="smoke">Можно курить</li>
-            <li class="air_conditioning">Кондиционер</li>
-            <li><s>Сушильная машина</s></li>
-            <li><s>Джакузи</s></li>
-            <li><s>Отдельный вход</s></li>
-            <li><s>Бассейн</s></li>
+            <?php
+            if($apartment->facilities->tv == 1){
+                echo '<li class="tv">'.Yii::t('app', 'Телевизор').'</li>';
+            } else {
+                echo '<li class="tv"><s>'.Yii::t('app', 'Телевизор').'</s></li>';
+            }
+            if($apartment->facilities->internet == 1){
+                echo '<li class="inet">'.Yii::t('app', 'Интернет').'</li>';
+            }else {
+                echo '<li class="inet"><s>'.Yii::t('app', 'Интернет').'</s></li>';
+            }
+            if($apartment->facilities->iron == 1){
+                echo '<li class="iron">'.Yii::t('app', 'Утюг').'</li>';
+            }else {
+                echo '<li class="iron"><s>'.Yii::t('app', 'Утюг').'</s></li>';
+            }
+            if($apartment->facilities->washer_machine == 1){
+                echo '<li class="washer">'.Yii::t('app', 'Стиральная машина').'</li>';
+            }else {
+                echo '<li class="washer"><s>'.Yii::t('app', 'Стиральная машина').'</s></li>';
+            }
+            if($apartment->facilities->plazm_tv == 1){
+                echo '<li class="plasmatv">'.Yii::t('app', 'Плазменный телевизор').'</li>';
+            }else {
+                echo '<li class="plasmatv"><s>'.Yii::t('app', 'Плазменный телевизор').'</s></li>';
+            }
+            if($apartment->facilities->gas == 1){
+                echo '<li class="gas_stove">'.Yii::t('app', 'Газовая плита').'</li>';
+            }else {
+                echo '<li class="gas_stove"><s>'.Yii::t('app', 'Газовая плита').'</s></li>';
+            }
+            if($apartment->facilities->fridge == 1){
+                echo '<li class="fridge">'.Yii::t('app', 'Холодильник').'</li>';
+            }else {
+                echo '<li class="fridge"><s>'.Yii::t('app', 'Холодильник').'</s></li>';
+            }
+            if($apartment->facilities->wifi == 1){
+                echo '<li class="wifi">'.Yii::t('app', 'WiFi').'</li>';
+            }else {
+                echo '<li class="wifi"><s>'.Yii::t('app', 'WiFi').'</s></li>';
+            }
+            if($apartment->facilities->balcony == 1){
+                echo '<li class="balcony">'.Yii::t('app', 'Балкон').'</li>';
+            }else {
+                echo '<li class="balcony"><s>'.Yii::t('app', 'Балкон').'</s></li>';
+            }
+            if($apartment->facilities->boiler == 1){
+                echo '<li class="boiler">'.Yii::t('app', 'Бойлер').'</li>';
+            }else {
+                echo '<li class="boiler"><s>'.Yii::t('app', 'Бойлер').'</s></li>';
+            }
+            if($apartment->facilities->door == 1){
+                echo '<li class="armored_door">'.Yii::t('app', 'Бронедверь').'</li>';
+            }else {
+                echo '<li class="armored_door"><s>'.Yii::t('app', 'Бронедверь').'</s></li>';
+            }
+            if($apartment->facilities->laptop == 1){
+                echo '<li class="notebook">'.Yii::t('app', 'Место для работы на ноутбуке').'</li>';
+            }else {
+                echo '<li class="notebook"><s>'.Yii::t('app', 'Место для работы на ноутбуке').'</s></li>';
+            }
+            if($apartment->facilities->smoke == 1){
+                echo '<li class="smoke">'.Yii::t('app', 'Можно курить').'</li>';
+            }else {
+                echo '<li class="smoke"><s>'.Yii::t('app', 'Можно курить').'</s></li>';
+            }
+            if($apartment->facilities->conditioner == 1){
+                echo '<li class="air_conditioning">'.Yii::t('app', 'Кондиционер').'</li>';
+            }else {
+                echo '<li class="air_conditioning"><s>'.Yii::t('app', 'Кондиционер').'</s></li>';
+            }
+            if($apartment->facilities->drying_machine == 1){
+                echo '<li>'.Yii::t('app', 'Сушильная машина').'</li>';
+            }else {
+                echo '<li><s>'.Yii::t('app', 'Сушильная машина').'</s></li>';
+            }
+            if($apartment->facilities->jacuzzi == 1){
+                echo '<li>'.Yii::t('app', 'Джакузи').'</li>';
+            }else {
+                echo '<li><s>'.Yii::t('app', 'Джакузи').'</s></li>';
+            }
+            if($apartment->facilities->separate_entrance == 1){
+                echo '<li>'.Yii::t('app', 'Отдельный вход').'</li>';
+            }else {
+                echo '<li><s>'.Yii::t('app', 'Отдельный вход').'</s></li>';
+            }
+            if($apartment->facilities->pool == 1){
+                echo '<li>'.Yii::t('app', 'Бассейн').'</li>';
+            }else {
+                echo '<li><s>'.Yii::t('app', 'Бассейн').'</s></li>';
+            }
+            ?>
         </ul>
-
-        <!--<a href="#openModal">Открыть модальное окно</a>-->
-        <!--<div id="debugblock"><&#45;&#45;width&ndash;&gt;</div>-->
-
     </div>
     <div class="right_sidebar">
         <ul class="flat_single_timeorder">
             <li>
-                <span>350 ₴</span>
-                <p>от 15 суток</p>
+                <span><?= $apartment->price_10 ?> ₴</span>
+                <p><?= Yii::t('app', 'от 10 суток') ?></p>
             </li>
             <li>
-                <span>400 ₴</span>
-                <p>от 5 суток</p>
+                <span><?= $apartment->price_5 ?> ₴</span>
+                <p><?= Yii::t('app', 'от 5 суток') ?></p>
             </li>
             <li>
-                <span>450 ₴</span>
-                <p>за сутки</p>
+                <span><?= $apartment->price_day ?> ₴</span>
+                <p><?= Yii::t('app', 'за сутки') ?></p>
             </li>
             <li>
-                <span>200 ₴</span>
-                <p>за ночь</p>
+                <span><?= $apartment->price_night ?> ₴</span>
+                <p><?= Yii::t('app', 'за ночь') ?></p>
             </li>
             <li>
-                <span>100 ₴</span>
-                <p>за 2 часа</p>
+                <span><?= $apartment->price_2 ?> ₴</span>
+                <p><?= Yii::t('app', 'за 2 часа') ?></p>
             </li>
         </ul>
 
-
         <form class="flat_single_orderform" action="">
             <div class="flattime">
-                <p><span>Прибытие</span><input type="text" class="timepicker" value="" id="some_class_1"/></p>
-                <p><span>Выезд</span><input type="text" class="timepicker" value="" id="some_class_2"/></p>
-                <p><span>Гостей</span>
+                <p><span><?= Yii::t('app', 'Прибытие') ?></span><input type="text" class="timepicker" value="" id="some_class_1"/></p>
+                <p><span><?= Yii::t('app', 'Выезд') ?></span><input type="text" class="timepicker" value="" id="some_class_2"/></p>
+                <p><span><?= Yii::t('app', 'Гостей') ?></span>
                     <select>
                         <option value="" selected>1 гость</option>
                         <option>2 гостя</option>
@@ -155,23 +219,23 @@ if(!Yii::$app->user->isGuest) {
         </form>
 
         <div class="owner_nameblock">
-            <span class="owner_name">Александров Иннокентий</span>
-            <span class="owner_phone">+ 38 (068) 527-96-01</span>
+            <span class="owner_name"><?= $apartment->owner ?></span>
+            <span class="owner_phone"><?= $apartment->phone ?></span>
         </div>
         <div class="star_ratingblock">
             <div class="amountrate">
                 <div class="flat_stars amount_all" data-score="4.5"></div>
-                <span>20 отзывов</span>
+                <span>20 <?= Yii::t('app', 'отзывов') ?></span>
                 <ul class="ratelist">
-                    <li><p>Цена/качество</p><div class="flat_stars" data-score="4"></div></li>
-                    <li><p>Общение</p><div class="flat_stars" data-score="5"></div></li>
-                    <li><p>Чистота</p><div class="flat_stars" data-score="5"></div></li>
-                    <li><p>Расположение</p><div class="flat_stars" data-score="4"></div></li>
+                    <li><p><?= Yii::t('app', 'Цена/качество') ?></p><div class="flat_stars" data-score="4"></div></li>
+                    <li><p><?= Yii::t('app', 'Общение') ?></p><div class="flat_stars" data-score="5"></div></li>
+                    <li><p><?= Yii::t('app', 'Чистота') ?></p><div class="flat_stars" data-score="5"></div></li>
+                    <li><p><?= Yii::t('app', 'Расположение') ?></p><div class="flat_stars" data-score="4"></div></li>
                 </ul>
             </div>
         </div>
         <div class="feedback_block">
-            <img class="user_feedback_ico" src="img/round.jpg" alt="">
+            <img class="user_feedback_ico" src="/frontend/web/img/round.jpg" alt="">
             <p class="feedback_people_name">
                 <span>Yury</span>
                 <span>Люксембург, Люксембург</span>
@@ -184,7 +248,7 @@ if(!Yii::$app->user->isGuest) {
             <a href="#" class="people_readmore_feedback">Читать далее</a>
         </div>
         <div class="feedback_block">
-            <img class="user_feedback_ico" src="img/round.jpg" alt="">
+            <img class="user_feedback_ico" src="/frontend/web/img/round.jpg" alt="">
             <p class="feedback_people_name">
                 <span>Lidia</span>
                 <span>Сиэтл, Вашингтон</span>
@@ -197,7 +261,7 @@ if(!Yii::$app->user->isGuest) {
             <a href="#" class="people_readmore_feedback">Читать далее</a>
         </div>
         <div class="feedback_block">
-            <img class="user_feedback_ico" src="img/round.jpg" alt="">
+            <img class="user_feedback_ico" src="/frontend/web/img/round.jpg" alt="">
             <p class="feedback_people_name">
                 <span>Peter</span>
                 <span>Виннипег, Канада</span>
@@ -210,7 +274,7 @@ if(!Yii::$app->user->isGuest) {
             <a href="#" class="people_readmore_feedback">Читать далее</a>
         </div>
         <div class="feedback_block">
-            <img class="user_feedback_ico" src="img/round.jpg" alt="">
+            <img class="user_feedback_ico" src="/frontend/web/img/round.jpg" alt="">
             <p class="feedback_people_name">
                 <span>Test</span>
                 <span>Test, Test</span>
@@ -225,22 +289,7 @@ if(!Yii::$app->user->isGuest) {
         <a href="#" class="feedback_button other_feedback clearfix">Другие отзывы</a>
         <a href="#openModal" class="feedback_button send_feedback clearfix">Оставить отзыв</a>
     </div>
-
-
-
-
-
-
-    <!--<div class="test" data-score="1"></div>-->
-
-    <!--<div class="test" data-score="5"></div>-->
-
-
-
-
 </div>
-
-<!--MODAL-->
 
 <div id="openModal" class="modalDialog">
     <div>
@@ -253,8 +302,6 @@ if(!Yii::$app->user->isGuest) {
     </div>
 </div>
 
-<!--<h3>Комментарии</h3>-->
-<!---->
 <?php
 //    if(isset($comments)){
 //        foreach($comments as $comment){

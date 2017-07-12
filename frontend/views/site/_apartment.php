@@ -6,8 +6,6 @@ $lang = Yii::$app->language;
 $image = \common\models\Image::findOne(['apartment_id' => $model->id]);
 ?>
 
-<?= Yii::$app->translate->discover(); ?>
-
     <div class="flatblock">
         <a href="/site/detail?id=<?= $model->id ?>"><img class="flatimg" src="<?= $image->image ?>" alt="flat picture"></a>
         <div class="nameblock">

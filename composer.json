@@ -27,8 +27,7 @@
         "kartik-v/yii2-date-range": "*",
         "edgardmessias/yii2-nprogress": "*",
         "justinvoelker/yii2-separatedpager": "*",
-        "janisto/yii2-timepicker": "*",
-        "richweber/yii2-google-translate-api": "dev-master"
+        "janisto/yii2-timepicker": "*"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

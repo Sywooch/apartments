@@ -13,10 +13,6 @@ return [
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
-        'translate' => [
-            'class' => 'richweber\google\translate\Translation',
-            'key' => 'AIzaSyBODSjKZyfxeeGpkLX6LIxZ0H7ZQpqpsoY',
-        ],
         'request' => [
             'csrfParam' => '_csrf-frontend',
             'baseUrl' => '',

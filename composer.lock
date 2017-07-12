@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "dbf89d22618bac2054f7a71614c27a15",
+    "content-hash": "839a3a3979ff6157c3abcc14759fdff2",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -2192,48 +2192,6 @@
                 "uuid"
             ],
             "time": "2017-03-26T20:37:53+00:00"
-        },
-        {
-            "name": "richweber/yii2-google-translate-api",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/RichWeber/yii2-google-translate-api.git",
-                "reference": "8c7e47bd8c3309f6dcb4869141e2c30a3a231537"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/RichWeber/yii2-google-translate-api/zipball/8c7e47bd8c3309f6dcb4869141e2c30a3a231537",
-                "reference": "8c7e47bd8c3309f6dcb4869141e2c30a3a231537",
-                "shasum": ""
-            },
-            "require": {
-                "yiisoft/yii2": "*"
-            },
-            "type": "yii2-extension",
-            "autoload": {
-                "psr-4": {
-                    "richweber\\google\\translate\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "RichWeber",
-                    "email": "rbagatyi@gmail.com"
-                }
-            ],
-            "description": "Yii2 extension to Google Translate API",
-            "keywords": [
-                "api",
-                "google",
-                "translate",
-                "yii2"
-            ],
-            "time": "2015-02-18 22:53:39"
         },
         {
             "name": "rmrevin/yii2-fontawesome",
@@ -5315,8 +5273,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "kartik-v/yii2-grid": 20,
-        "richweber/yii2-google-translate-api": 20
+        "kartik-v/yii2-grid": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

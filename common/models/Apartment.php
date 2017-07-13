@@ -100,4 +100,14 @@ class Apartment extends \yii\db\ActiveRecord
         }
         return $map_items;
     }
+
+    public function SingleMap($apartment_id)
+    {
+        $map = Apartment::findOne(['id' => $apartment_id]);
+        $map_item[] = [
+            'position' => [$map->latitude, $map->longitude],
+            'options' => ["icon" => "'/frontend/web/img/marker.png'"],
+        ];
+        return $map_item;
+    }
 }

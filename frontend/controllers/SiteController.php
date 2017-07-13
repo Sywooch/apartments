@@ -102,6 +102,7 @@ class SiteController extends Controller
     }
     
     public function actionDetail($id){
+        $model = new Apartment();
         $apartment = Apartment::find()->joinWith(['facilities'])->where('apartment.id='.$id)->one();
         $comments = Comments::find()->where('apartment_id='.$apartment->id)->orderBy('id DESC')->all();
         $new_comment = new Comments();
@@ -115,7 +116,8 @@ class SiteController extends Controller
             'apartment' => $apartment,
             'comments' => $comments,
             'new_comment' => $new_comment,
-            'images' => $images
+            'images' => $images,
+            'map_item' => $model->SingleMap($id)
         ]);
     }
 

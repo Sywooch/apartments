@@ -77,24 +77,6 @@ AppAsset::register($this);
         <?= $content ?>
 <!--    </div>-->
 
-<?php
-if($controller == 'site' && $action == 'detail') {
-    ?>
-    <footer class="singleflat_footer">
-        <div id="map_single"></div>
-        <p class="footer_copyright">© Аренда квартир 2017</p>
-        <nav class="footer_social">
-            <a class="imgoverlay" href="#"><img src="/frontend/web/img/facebook-icon.png" title="facebook"></a>
-            <a class="imgoverlay" href="#"><img src="/frontend/web/img/vk-icon.png" title="vk"></a>
-            <a class="imgoverlay" href="#"><img src="/frontend/web/img/google--icon.png" title="googleplus"></a>
-            <a class="imgoverlay" href="#"><img src="/frontend/web/img/twitter-icon.png" title="twitter"></a>
-            <a class="imgoverlay" href="#"><img src="/frontend/web/img/instagram-icon.png" title="Розовый динозаврик"></a>
-        </nav>
-    </footer>
-    <?php
-}
-?>
-
 <?php if(
     Yii::$app->request->url == '/ru/about' ||
     Yii::$app->request->url == '/en/about' ||

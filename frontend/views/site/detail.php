@@ -68,7 +68,7 @@ $this->title = Yii::t('app', 'Детали квартиры');
             <li><span><?= Yii::t('app', 'Время выезда') ?>:</span><p><?= Yii::t('app', $apartment->facilities->time_out) ?></p></li>
             <li><span><?= Yii::t('app', 'Ремонт') ?>:</span><p><?= $apartment->facilities->repairs ?></p></li>
             <li><span><?= Yii::t('app', 'Площадь') ?>:</span><p><?= $apartment->apartment_area ?> <?= Yii::t('app', 'м') ?><sup>2</sup></p></li>
-            <li><span><?= Yii::t('app', 'Доплата за каждого последующего гостя') ?>:</span><p><?= Yii::t('app', $apartment->facilities->guest_price) ?></p></li>
+            <li><span><?= Yii::t('app', 'Доплата за каждого последующего гостя') ?>:</span><p><?= Yii::t('app', $apartment->facilities->guest_price) ?> ₴</p></li>
         </ul>
 
         <ul class="singleflat_comfort_items">
@@ -209,19 +209,19 @@ $this->title = Yii::t('app', 'Детали квартиры');
             </div>
             <ul class="flatprice">
                 <li>
-                    <span class="flatprice_description">450 ₴ х 3 суток</span>
+                    <span class="flatprice_description">450 ₴ х 3 <?= Yii::t('app', 'суток') ?></span>
                     <span class="flatprice_price">1350 ₴</span>
                 </li>
                 <li>
-                    <span class="flatprice_description">Сбор за услуги</span>
+                    <span class="flatprice_description"><?= Yii::t('app', 'Сбор за услуги') ?></span>
                     <span class="flatprice_price">135 ₴</span>
                 </li>
                 <li>
-                    <span class="flatprice_description flatprice_bold">Итого</span>
+                    <span class="flatprice_description flatprice_bold"><?= Yii::t('app', 'Итого') ?></span>
                     <span class="flatprice_price flatprice_bold">1485 ₴</span>
                 </li>
             </ul>
-            <input class="flat_single_ordersubmit" type="submit" value="Забронировать сейчас">
+            <input class="flat_single_ordersubmit" type="submit" value="<?= Yii::t('app', 'Забронировать сейчас') ?>">
         </form>
 
         <div class="owner_nameblock">
@@ -292,8 +292,8 @@ $this->title = Yii::t('app', 'Детали квартиры');
             <p class="feedback_text overflow_test"></p>
             <a href="#" class="people_readmore_feedback">Читать далее</a>
         </div>
-        <a href="#" class="feedback_button other_feedback clearfix">Другие отзывы</a>
-        <a href="#openModal" class="feedback_button send_feedback clearfix">Оставить отзыв</a>
+        <a href="#" class="feedback_button other_feedback clearfix"><?= Yii::t('app', 'Другие отзывы') ?></a>
+        <a href="#openModal" class="feedback_button send_feedback clearfix"><?= Yii::t('app', 'Оставить отзыв') ?></a>
     </div>
 </div>
 
@@ -316,17 +316,16 @@ $this->title = Yii::t('app', 'Детали квартиры');
             'zoom' => 10,
             'center'=>'Zaporozhye, UA',
             'markers' => $map_item,
-//            'markerFitBounds'=>true,
         ]);
         ?>
     </div>
-    <p class="footer_copyright">© Аренда квартир 2017</p>
+    <p class="footer_copyright">© <?= Yii::t('app', 'Аренда квартир') ?> 2017</p>
     <nav class="footer_social">
         <a class="imgoverlay" href="#"><img src="/frontend/web/img/facebook-icon.png" title="facebook"></a>
         <a class="imgoverlay" href="#"><img src="/frontend/web/img/vk-icon.png" title="vk"></a>
         <a class="imgoverlay" href="#"><img src="/frontend/web/img/google--icon.png" title="googleplus"></a>
         <a class="imgoverlay" href="#"><img src="/frontend/web/img/twitter-icon.png" title="twitter"></a>
-        <a class="imgoverlay" href="#"><img src="/frontend/web/img/instagram-icon.png" title="Розовый динозаврик"></a>
+        <a class="imgoverlay" href="#"><img src="/frontend/web/img/instagram-icon.png" title="instagram"></a>
     </nav>
 </footer>
 

@@ -10,7 +10,17 @@ $this->title = Yii::t('app', 'Детали квартиры');
 
 <div class="wrapper">
     <div class="main_col">
-        <h2 class="flat_single_header"><?= $apartment->title_ru ?></h2>
+        <h2 class="flat_single_header">
+            <?php
+                if($lang == 'ru'){
+                    echo $apartment->title_ru;
+                } elseif($lang == 'ua'){
+                    echo $apartment->title_ua;
+                } elseif($lang == 'en'){
+                    echo $apartment->title_en;
+                }
+            ?>
+        </h2>
         <h3 class="flat_single_adr"><?= substr($apartment->coordinates, 0, -55) ?></h3>
     </div>
     <div class="right_sidebar">
@@ -313,7 +323,7 @@ $this->title = Yii::t('app', 'Детали квартиры');
         <?=
         Map::widget([
             'apiKey'=> 'AIzaSyDvdY_YjgJ2FCdyfMZ89DGodrrtOXpvETA',
-            'zoom' => 10,
+            'zoom' => 11,
             'center'=>'Zaporozhye, UA',
             'markers' => $map_item,
         ]);

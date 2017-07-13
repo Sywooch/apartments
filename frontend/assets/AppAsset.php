@@ -14,16 +14,18 @@ class AppAsset extends AssetBundle
     public $css = [
 //        'css/site.css',
         'css/main.css',
+        'css/jquery.datetimepicker.css',
         'css/flexslider.css',
         'css/normalize.min.css',
         'css/raty.css',
     ];
     public $js = [
-        'js/flatsingle.js',
-        'js/jquery.flexslider.js',
+        'js/menu.js',
         'js/jquery.raty.js',
         'js/main.js',
-        'js/menu.js',
+        'js/jquery.datetimepicker.full.min.js',
+        'js/flatsingle.js',
+        'js/jquery.flexslider.js',
         'js/request.js'
     ];
     public $depends = [

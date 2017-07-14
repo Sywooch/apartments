@@ -13,17 +13,17 @@ class AppAsset extends AssetBundle
     public $baseUrl = '/frontend/web';
     public $css = [
 //        'css/site.css',
-        'css/main.css',
         'css/jquery.datetimepicker.css',
         'css/flexslider.css',
         'css/normalize.min.css',
         'css/raty.css',
+        'css/main.css',
     ];
     public $js = [
         'js/menu.js',
         'js/jquery.raty.js',
-        'js/main.js',
         'js/jquery.datetimepicker.full.min.js',
+        'js/main.js',
         'js/flatsingle.js',
         'js/jquery.flexslider.js',
         'js/request.js'

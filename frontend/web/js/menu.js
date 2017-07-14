@@ -27,14 +27,3 @@ $( document ).ready(function() {
         );
     });
 });
-
-// window.onload = function() {
-//
-//     var debugWidth =  window.innerWidth;
-//     document.getElementById('debugblock').innerHTML = 'device_width=' + debugWidth;
-//
-//     window.onresize = function(event) {
-//         var debugWidth =  window.innerWidth;
-//         document.getElementById('debugblock').innerHTML = 'device_width=' + debugWidth;
-//     };
-// }

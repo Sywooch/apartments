@@ -101,6 +101,25 @@ class SiteController extends Controller
         }
     }
     
+    public function actionGetPrice()
+    {
+        if(Yii::$app->request->isAjax && Yii::$app->request->post()){
+            $apartment = Apartment::find()
+                ->where(['apartment.id' => Yii::$app->request->post('id')])
+                ->joinWith(['facilities'])
+                ->one();
+            $response = array(
+                'price_2_hours' => $apartment->price_2,
+                'price_night' => $apartment->price_night,
+                'price_day' => $apartment->price_day,
+                'price_5' => $apartment->price_5,
+                'price_10' => $apartment->price_10
+            );
+
+            return json_encode($response);
+        }
+    }
+    
     public function actionDetail($id){
         $model = new Apartment();
         $apartment = Apartment::find()->joinWith(['facilities'])->where('apartment.id='.$id)->one();

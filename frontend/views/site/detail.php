@@ -202,11 +202,12 @@ $this->title = Yii::t('app', 'Детали квартиры');
 
         <form class="flat_single_orderform" action="">
             <div class="flattime">
-                <p><span><?= Yii::t('app', 'Прибытие') ?></span><input type="text" class="timepicker" value="" id="some_class_1"/></p>
-                <p><span><?= Yii::t('app', 'Выезд') ?></span><input type="text" class="timepicker" value="" id="some_class_2"/></p>
+                <p><span><?= Yii::t('app', 'Прибытие') ?></span><input type="text" class="timepicker" value="" id="some_class_1" required /></p>
+                <p><span><?= Yii::t('app', 'Выезд') ?></span><input type="text" class="timepicker" value="" id="some_class_2" required /></p>
                 <p><span><?= Yii::t('app', 'Гостей') ?></span>
                     <select>
-                        <option value="" selected>1 гость</option>
+                        <option value="" selected></option>
+                        <option>1 гость</option>
                         <option>2 гостя</option>
                         <option>3 гостя</option>
                         <option>4 гостя</option>
@@ -228,7 +229,7 @@ $this->title = Yii::t('app', 'Детали квартиры');
                 </li>
                 <li>
                     <span class="flatprice_description flatprice_bold"><?= Yii::t('app', 'Итого') ?></span>
-                    <span class="flatprice_price flatprice_bold">1485 ₴</span>
+                    <span class="flatprice_price flatprice_bold">1485 <span>₴</span></span>
                 </li>
             </ul>
             <input class="flat_single_ordersubmit" type="submit" value="<?= Yii::t('app', 'Забронировать сейчас') ?>">

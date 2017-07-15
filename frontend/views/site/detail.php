@@ -78,7 +78,7 @@ $this->title = Yii::t('app', 'Детали квартиры');
             <li><span><?= Yii::t('app', 'Время выезда') ?>:</span><p><?= Yii::t('app', $apartment->facilities->time_out) ?></p></li>
             <li><span><?= Yii::t('app', 'Ремонт') ?>:</span><p><?= $apartment->facilities->repairs ?></p></li>
             <li><span><?= Yii::t('app', 'Площадь') ?>:</span><p><?= $apartment->apartment_area ?> <?= Yii::t('app', 'м') ?><sup>2</sup></p></li>
-            <li><span><?= Yii::t('app', 'Доплата за каждого последующего гостя') ?>:</span><p><?= Yii::t('app', $apartment->facilities->guest_price) ?> ₴</p></li>
+            <li><span><?= Yii::t('app', 'Доплата за каждого последующего гостя') ?>:</span><p id="guest_price"><?= Yii::t('app', $apartment->facilities->guest_price) ?> ₴</p></li>
         </ul>
 
         <ul class="singleflat_comfort_items">
@@ -179,15 +179,15 @@ $this->title = Yii::t('app', 'Детали квартиры');
     <div class="right_sidebar">
         <ul class="flat_single_timeorder">
             <li>
-                <span><?= $apartment->price_10 ?> ₴</span>
+                <span id="price_per_10_day"><?= $apartment->price_10 ?> ₴</span>
                 <p><?= Yii::t('app', 'от 10 суток') ?></p>
             </li>
             <li>
-                <span><?= $apartment->price_5 ?> ₴</span>
+                <span id="price_per_5_day"><?= $apartment->price_5 ?> ₴</span>
                 <p><?= Yii::t('app', 'от 5 суток') ?></p>
             </li>
             <li>
-                <span><?= $apartment->price_day ?> ₴</span>
+                <span id="price_per_day"><?= $apartment->price_day ?> ₴</span>
                 <p><?= Yii::t('app', 'за сутки') ?></p>
             </li>
             <li>
@@ -205,31 +205,31 @@ $this->title = Yii::t('app', 'Детали квартиры');
                 <p><span><?= Yii::t('app', 'Прибытие') ?></span><input type="text" class="timepicker" value="" id="some_class_1" required /></p>
                 <p><span><?= Yii::t('app', 'Выезд') ?></span><input type="text" class="timepicker" value="" id="some_class_2" required /></p>
                 <p><span><?= Yii::t('app', 'Гостей') ?></span>
-                    <select>
-                        <option value="" selected></option>
-                        <option>1 гость</option>
-                        <option>2 гостя</option>
-                        <option>3 гостя</option>
-                        <option>4 гостя</option>
-                        <option>5 гостей</option>
-                        <option>6 гостей</option>
-                        <option>7 гостей</option>
-                        <option>8 гостей</option>
+                    <select id="guest_count">
+                        <option value="0" selected></option>
+                        <option value="1">1 гость</option>
+                        <option value="2">2 гостя</option>
+                        <option value="3">3 гостя</option>
+                        <option value="4">4 гостя</option>
+                        <option value="5">5 гостей</option>
+                        <option value="6">6 гостей</option>
+                        <option value="7">7 гостей</option>
+                        <option value="8">8 гостей</option>
                     </select>
                 </p>
             </div>
             <ul class="flatprice">
                 <li>
-                    <span class="flatprice_description">450 ₴ х 3 <?= Yii::t('app', 'суток') ?></span>
-                    <span class="flatprice_price">1350 ₴</span>
+                    <span id="multiplication" class="flatprice_description"></span>
+                    <span  id="multiplication_price" class="flatprice_price"></span>
                 </li>
                 <li>
                     <span class="flatprice_description"><?= Yii::t('app', 'Сбор за услуги') ?></span>
-                    <span class="flatprice_price">135 ₴</span>
+                    <span id="service_charge" class="flatprice_price">50 ₴</span>
                 </li>
                 <li>
                     <span class="flatprice_description flatprice_bold"><?= Yii::t('app', 'Итого') ?></span>
-                    <span class="flatprice_price flatprice_bold">1485 <span>₴</span></span>
+                    <span id="result_price" class="flatprice_price flatprice_bold"></span>
                 </li>
             </ul>
             <input class="flat_single_ordersubmit" type="submit" value="<?= Yii::t('app', 'Забронировать сейчас') ?>">

@@ -21,6 +21,7 @@ class AppAsset extends AssetBundle
     ];
     public $js = [
         'js/menu.js',
+        'js/moment.js',
         'js/jquery.raty.js',
         'js/jquery.datetimepicker.full.min.js',
         'js/main.js',

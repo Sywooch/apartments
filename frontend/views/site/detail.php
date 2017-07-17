@@ -200,21 +200,21 @@ $this->title = Yii::t('app', 'Детали квартиры');
             </li>
         </ul>
 
-        <form class="flat_single_orderform" action="">
+        <form id="booking_form" class="flat_single_orderform" action="">
             <div class="flattime">
                 <p><span><?= Yii::t('app', 'Прибытие') ?></span><input type="text" class="timepicker" value="" id="some_class_1" required /></p>
                 <p><span><?= Yii::t('app', 'Выезд') ?></span><input type="text" class="timepicker" value="" id="some_class_2" required /></p>
                 <p><span><?= Yii::t('app', 'Гостей') ?></span>
                     <select id="guest_count">
                         <option value="0" selected></option>
-                        <option value="1">1 гость</option>
-                        <option value="2">2 гостя</option>
-                        <option value="3">3 гостя</option>
-                        <option value="4">4 гостя</option>
-                        <option value="5">5 гостей</option>
-                        <option value="6">6 гостей</option>
-                        <option value="7">7 гостей</option>
-                        <option value="8">8 гостей</option>
+                        <option value="1">1 <?= Yii::t('app', 'гость') ?></option>
+                        <option value="2">2 <?= Yii::t('app', 'гостя') ?></option>
+                        <option value="3">3 <?= Yii::t('app', 'гостя') ?></option>
+                        <option value="4">4 <?= Yii::t('app', 'гостя') ?></option>
+                        <option value="5">5 <?= Yii::t('app', 'гостей') ?></option>
+                        <option value="6">6 <?= Yii::t('app', 'гостей') ?></option>
+                        <option value="7">7 <?= Yii::t('app', 'гостей') ?></option>
+                        <option value="8">8 <?= Yii::t('app', 'гостей') ?></option>
                     </select>
                 </p>
             </div>
@@ -316,6 +316,15 @@ $this->title = Yii::t('app', 'Детали квартиры');
         <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
         <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
         <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non.</p>
+    </div>
+</div>
+
+<a href="#openModal" id="success" class="sidebar_btn sidebar_bonus hidden"><?= Yii::t('app', 'Бонусная программа') ?></a>
+<div id="openModal" class="modalDialog">
+    <div>
+        <a href="#close" title="Закрыть" class="close"></a>
+        <h2 class="modal_header"><?= Yii::t('app', 'Ваш заказ успешно оформлен!') ?></h2>
+        <p><?= Yii::t('app', 'Мы свяжемся с вами в кратчайшие сроки.') ?></p>
     </div>
 </div>
 

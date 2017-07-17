@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Июл 12 2017 г., 16:13
+-- Время создания: Июл 17 2017 г., 16:21
 -- Версия сервера: 5.6.31
 -- Версия PHP: 5.6.23
 
@@ -242,11 +242,8 @@ CREATE TABLE IF NOT EXISTS `orders` (
   `apartment_id` int(11) NOT NULL,
   `date_start` date NOT NULL,
   `date_end` date NOT NULL,
-  `user_id` int(11) DEFAULT NULL,
-  `description` varchar(255) DEFAULT NULL,
-  `order_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `status` int(11) NOT NULL DEFAULT '0',
-  `total_price` float DEFAULT NULL
+  `guest_count` int(11) DEFAULT NULL,
+  `total_price` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -341,7 +338,7 @@ ALTER TABLE `image`
 --
 ALTER TABLE `orders`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `apartment_id` (`apartment_id`);
+  ADD KEY `orders_ibfk_1` (`apartment_id`);
 
 --
 -- Индексы таблицы `user`
@@ -432,7 +429,7 @@ ALTER TABLE `image`
 -- Ограничения внешнего ключа таблицы `orders`
 --
 ALTER TABLE `orders`
-  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`apartment_id`) REFERENCES `apartment` (`id`);
+  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`apartment_id`) REFERENCES `apartment` (`id`) ON DELETE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

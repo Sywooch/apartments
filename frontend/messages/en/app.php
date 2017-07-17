@@ -112,5 +112,8 @@ return [
     'суток' => 'days',
     'Сбор за услуги' => 'Service fee',
     'м' => 'm',
-    'спальных места' => 'sleeping places'
+    'спальных места' => 'sleeping places',
+    'гость' => 'guest',
+    'гостя' => 'guests',
+    'Ваш заказ успешно оформлен!' => 'Your order has been successfully created!'
 ];

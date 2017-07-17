@@ -134,23 +134,3 @@ $( document ).ready(function() {
         }
     });
 });
-
-// $.ajax({
-//     url: '/'+lang+'/site/get-price',
-//     dataType: 'json',
-//     type: 'POST',
-//     data: {
-//         id: id
-//     },
-//     success: function( data ) {
-//         var price_2_hours = data['price_2'];
-//         var price_night = data['price_night'];
-//         var price_day = data['price_day'];
-//         var price_5 = data['price_5'];
-//         var price_10 = data['price_10'];
-//         alert('Ajax');
-//     },
-//     error: function ( exception ) {
-//         alert(JSON.stringify( exception ));
-//     }
-// });

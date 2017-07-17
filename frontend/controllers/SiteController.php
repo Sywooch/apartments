@@ -100,6 +100,17 @@ class SiteController extends Controller
             ]);
         }
     }
+
+    //Order added
+    public function actionBooking()
+    {
+        if(Yii::$app->request->isAjax && Yii::$app->request->post()){
+            $request = Yii::$app->request->post();
+            if(isset($request['date_start']) && isset($request['date_end']) && isset($request['apartment_id'])){
+                return 1;
+            }
+        }
+    }
     
     public function actionGetPrice()
     {
@@ -122,9 +133,9 @@ class SiteController extends Controller
     
     public function actionDetail($id){
         $model = new Apartment();
+        $new_comment = new Comments();
         $apartment = Apartment::find()->joinWith(['facilities'])->where('apartment.id='.$id)->one();
         $comments = Comments::find()->where('apartment_id='.$apartment->id)->orderBy('id DESC')->all();
-        $new_comment = new Comments();
         $images = Image::find()->where(['apartment_id' => $id])->all();
 
         if ($new_comment->load(Yii::$app->request->post()) && $new_comment->save()) {

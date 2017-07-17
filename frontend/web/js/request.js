@@ -40,3 +40,35 @@ $( document ).on('submit','form#contact-form',function(e){
         }
     });
 });
+
+$( document ).on( 'submit','form#booking_form', function (e) {
+    e.preventDefault();
+    var lang = document.documentElement.lang;
+    var date_start = $( '#some_class_1' ).val();
+    var date_end = $( '#some_class_2' ).val();
+    var guests_count = $( '#guest_count' ).val();
+    var apartment_id = $.urlParam('id');
+    var total = parseInt( $( '#result_price' ).text().slice( 0, -1 ) );
+        $.ajax({
+            url: '/'+lang+'/site/booking',
+            dataType: 'json',
+            type: 'POST',
+            data: {
+                "apartment_id": apartment_id,
+                "date_start": date_start,
+                "date_end": date_end,
+                "guests_count": guests_count,
+                "total_price": total
+            },
+            success: function( data ) {
+                $( '#booking_form' ).trigger( "reset" );
+                $( '#multiplication' ).empty();
+                $( '#multiplication_price' ).empty();
+                $( '#result_price' ).empty();
+                document.getElementById( "success" ).click();
+            },
+            error: function ( exception ) {
+                alert(JSON.stringify( exception ));
+            }
+        });
+});

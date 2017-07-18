@@ -30,7 +30,7 @@ class SiteController extends Controller
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
-                    'logout' => ['post'],
+                    'logout' => ['post', 'get'],
                 ],
             ],
         ];
@@ -58,7 +58,11 @@ class SiteController extends Controller
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
+            if(Yii::$app->user->identity->getId() != 1){
+                return $this->redirect('logout');
+            } else {
+                return $this->goBack();
+            }
         } else {
             return $this->render('login', [
                 'model' => $model,

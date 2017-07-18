@@ -319,8 +319,8 @@ $this->title = Yii::t('app', 'Детали квартиры');
     </div>
 </div>
 
-<a href="#openModal" id="success" class="sidebar_btn sidebar_bonus hidden"><?= Yii::t('app', 'Бонусная программа') ?></a>
-<div id="openModal" class="modalDialog">
+<a href="#openSuccessModal" id="success" class="sidebar_btn sidebar_bonus hidden"></a>
+<div id="openSuccessModal" class="modalDialog">
     <div>
         <a href="#close" title="Закрыть" class="close"></a>
         <h2 class="modal_header"><?= Yii::t('app', 'Ваш заказ успешно оформлен!') ?></h2>

@@ -3,6 +3,7 @@ namespace frontend\controllers;
 
 use common\models\ApartmentSearch;
 use common\models\Comments;
+use common\models\Orders;
 use Yii;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
@@ -28,7 +29,7 @@ class SiteController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['logout', 'signup'],
+                'only' => ['logout', 'signup', 'booking'],
                 'rules' => [
                     [
                         'actions' => ['signup'],
@@ -37,6 +38,11 @@ class SiteController extends Controller
                     ],
                     [
                         'actions' => ['logout'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                    [
+                        'actions' => ['booking'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -104,10 +110,22 @@ class SiteController extends Controller
     //Order added
     public function actionBooking()
     {
+        $model = new Orders();
         if(Yii::$app->request->isAjax && Yii::$app->request->post()){
             $request = Yii::$app->request->post();
             if(isset($request['date_start']) && isset($request['date_end']) && isset($request['apartment_id'])){
-                return 1;
+                $model->apartment_id = $request['apartment_id'];
+                $model->user_id = $request['user_id'];
+                $model->date_start = date("Y-m-d", strtotime($request['date_start']));
+                $model->date_end = date("Y-m-d", strtotime($request['date_end']));
+                $model->guest_count = $request['guests_count'];
+                $model->total_price = $request['total_price'];
+                $model->status = 0;
+                if($model->save()){
+                    return 1;
+                } else {
+                    return 0;
+                }
             }
         }
     }

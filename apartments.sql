@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Июл 17 2017 г., 16:21
+-- Время создания: Июл 18 2017 г., 12:13
 -- Версия сервера: 5.6.31
 -- Версия PHP: 5.6.23
 
@@ -240,11 +240,21 @@ INSERT INTO `image` (`id`, `apartment_id`, `image`) VALUES
 CREATE TABLE IF NOT EXISTS `orders` (
   `id` int(11) NOT NULL,
   `apartment_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
   `date_start` date NOT NULL,
   `date_end` date NOT NULL,
   `guest_count` int(11) DEFAULT NULL,
-  `total_price` float NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `total_price` float NOT NULL,
+  `status` int(11) DEFAULT '0',
+  `date` timestamp NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `orders`
+--
+
+INSERT INTO `orders` (`id`, `apartment_id`, `user_id`, `date_start`, `date_end`, `guest_count`, `total_price`, `status`, `date`) VALUES
+(5, 6, 1, '2017-07-23', '2017-07-28', 8, 1370, 0, '2017-07-18 08:32:22');
 
 -- --------------------------------------------------------
 
@@ -271,7 +281,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `name`, `surname`, `auth_key`, `password_hash`, `password_reset_token`, `email`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Admin', 'Администратор', 'Администраторович', 'UTo8q7LX4oqzNWicwZE7txlyFy8QQlXf', '$2y$13$jdKfU1vtbmHEY.P8Wg7W4.40CHL7BZU5yKbjnWsY0qtg2.a58V81S', NULL, 'prybylov.v@gmail.com', 10, 1490176869, 1490179685),
+(1, 'Admin', 'Администратор', 'Вася', 'UTo8q7LX4oqzNWicwZE7txlyFy8QQlXf', '$2y$13$jdKfU1vtbmHEY.P8Wg7W4.40CHL7BZU5yKbjnWsY0qtg2.a58V81S', NULL, 'prybylov.v@gmail.com', 10, 1490176869, 1490179685),
 (4, 'vasya', 'Василий', 'Иванов', 'QmOmPJu4x_JjsiLpdHSBarbi4YYM8qSL', '$2y$13$jdKfU1vtbmHEY.P8Wg7W4.40CHL7BZU5yKbjnWsY0qtg2.a58V81S', NULL, 'vlad.vasyakot@mail.ru', 10, 1490185426, 1497875945);
 
 --
@@ -338,7 +348,8 @@ ALTER TABLE `image`
 --
 ALTER TABLE `orders`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `orders_ibfk_1` (`apartment_id`);
+  ADD KEY `orders_ibfk_1` (`apartment_id`),
+  ADD KEY `orders_ibfk_2` (`user_id`);
 
 --
 -- Индексы таблицы `user`
@@ -377,7 +388,7 @@ ALTER TABLE `image`
 -- AUTO_INCREMENT для таблицы `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT для таблицы `user`
 --
@@ -429,7 +440,8 @@ ALTER TABLE `image`
 -- Ограничения внешнего ключа таблицы `orders`
 --
 ALTER TABLE `orders`
-  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`apartment_id`) REFERENCES `apartment` (`id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`apartment_id`) REFERENCES `apartment` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

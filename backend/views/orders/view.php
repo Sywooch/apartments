@@ -6,38 +6,67 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model common\models\Orders */
 
-$this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Orders', 'url' => ['index']];
+$this->title = 'Заказ №'.$model->id;
+$this->params['breadcrumbs'][] = ['label' => 'Заказы', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="orders-view">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <div class="col-md-6">
+        <p>
+            <?= Html::a('Отредактировать', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+            <?= Html::a('Удалить', ['delete', 'id' => $model->id], [
+                'class' => 'btn btn-danger',
+                'data' => [
+                    'confirm' => 'Вы уверенны, что хотите удалить данный заказ?',
+                    'method' => 'post',
+                ],
+            ]) ?>
+        </p>
 
-    <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
-                'method' => 'post',
+
+        <?= DetailView::widget([
+            'model' => $model,
+            'attributes' => [
+                'id',
+                [
+                    'attribute' => 'apartment_id',
+                    'value' => $model->apartment->title_ru
+                ],
+                'date_start',
+                'date_end',
+                'user_id',
+                [
+                    'attribute' => 'user_id',
+                    'format' => 'raw',
+                    'value' => function($model){
+                        return '<p>Логин: '.$model->user->username.'</p>
+                                <p>Фамилия: '.$model->user->surname.'</p>
+                                <p>Имя: '.$model->user->name.'</p>
+                                <p>Email: <a href="mailto:'.$model->user->email.'">'.$model->user->email.'</a></p>';
+                    }
+                ],
+                [
+                    'attribute' => 'status',
+                    'value' => function($model){
+                        if($model->status == 0){
+                            return 'В ожидании';
+                        } elseif($model->status == 1){
+                            return 'Принят';
+                        } elseif($model->status == 2){
+                            return 'Отклонен';
+                        }
+                    }
+                ],
+                'date',
+                [
+                    'attribute' => 'total_price',
+                    'value' => function($model){
+                        return $model->total_price.' грн.';
+                    }
+                ]
             ],
         ]) ?>
-    </p>
-
-    <?= DetailView::widget([
-        'model' => $model,
-        'attributes' => [
-            'id',
-            'apartment_id',
-            'date_start',
-            'date_end',
-            'user_id',
-            'description',
-            'order_date',
-            'status',
-            'total_price',
-        ],
-    ]) ?>
+    </div>
 
 </div>

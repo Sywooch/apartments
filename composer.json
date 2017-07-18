@@ -27,7 +27,8 @@
         "kartik-v/yii2-date-range": "*",
         "edgardmessias/yii2-nprogress": "*",
         "justinvoelker/yii2-separatedpager": "*",
-        "janisto/yii2-timepicker": "*"
+        "janisto/yii2-timepicker": "*",
+        "kartik-v/yii2-widget-datepicker": "@dev"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

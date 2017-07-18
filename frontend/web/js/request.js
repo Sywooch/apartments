@@ -58,17 +58,22 @@ $( document ).on( 'submit','form#booking_form', function (e) {
                 "date_start": date_start,
                 "date_end": date_end,
                 "guests_count": guests_count,
-                "total_price": total
+                "total_price": total,
+                "user_id": 1
             },
             success: function( data ) {
                 $( '#booking_form' ).trigger( "reset" );
                 $( '#multiplication' ).empty();
                 $( '#multiplication_price' ).empty();
                 $( '#result_price' ).empty();
-                document.getElementById( "success" ).click();
+                if(data == 1){
+                    document.getElementById( "success" ).click();
+                }
             },
             error: function ( exception ) {
-                alert(JSON.stringify( exception ));
+                if( JSON.stringify( exception['status'] == 403 ) ){
+                    window.location.href = '/'+lang+'/site/login';
+                }
             }
         });
 });

@@ -115,5 +115,11 @@ return [
     'спальных места' => 'sleeping places',
     'гость' => 'guest',
     'гостя' => 'guests',
-    'Ваш заказ успешно оформлен!' => 'Your order has been successfully created!'
+    'Ваш заказ успешно оформлен!' => 'Your order has been successfully created!',
+    'Выход' => 'Log out',
+    'Вход' => 'Login',
+    'Авторизируйтесь' => 'Authorize',
+    'Если вы забыли пароль, вы можете' => 'If you forgot your password, you can',
+    'сбросить его' => 'reset it',
+    'Регистрация' => 'Sign in',
 ];

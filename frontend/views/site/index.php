@@ -156,7 +156,7 @@ $this->title = Yii::t('app', 'Главная');
                 </a>
                 <div class="content">
                     <ul class="filter_list filter_additional_param">
-                        <li><input type="checkbox" id="check4" name="ApartmentSearch[image]" value="1" onclick="sendRequest();"><label for="check4"><?= Yii::t('app', 'Не менее 5 фото') ?></label></li>
+<!--                        <li><input type="checkbox" id="check4" name="ApartmentSearch[image]" value="1" onclick="sendRequest();"><label for="check4">--><?//= Yii::t('app', 'Не менее 5 фото') ?><!--</label></li>-->
                         <li><input type="checkbox" id="check5" name="ApartmentSearch[comment]" value="1" onclick="sendRequest();"><label for="check5"><?= Yii::t('app', 'Только с отзывами') ?></label></li>
                         <li><input type="checkbox" id="check6" name="ApartmentSearch[stock]" value="1" onclick="sendRequest();"><label for="check6"><?= Yii::t('app', 'Акционные') ?></label></li>
                     </ul>
@@ -213,7 +213,6 @@ $this->title = Yii::t('app', 'Главная');
             </div>
         <?php ActiveForm::end() ?>
         <a href="#openModal" class="sidebar_btn sidebar_bonus"><?= Yii::t('app', 'Бонусная программа') ?></a>
-        <a href="#openModal" class="sidebar_btn sidebar_hourly"><?= Yii::t('app', 'Почасовое заселение') ?></a>
         <a href="#openModal" class="sidebar_btn sidebar_customers"><?= Yii::t('app', 'Постоянным клиентам') ?></a>
         <a href="#openModal" class="sidebar_btn sidebar_friend"><?= Yii::t('app', 'Засели друга') ?></a>
 

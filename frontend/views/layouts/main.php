@@ -35,7 +35,13 @@ AppAsset::register($this);
                 <span>
                     <?= MultiLang::widget(); ?>
                 </span>
-            <a class="headerbutton" href="#"><?= Yii::t('app', 'Войти') ?></a>
+            <?php
+                if(Yii::$app->user->isGuest){
+                    echo Html::a(Yii::t('app', 'Вход'), ['/site/login'], ['class' => 'headerbutton']);
+                } else {
+                    echo Html::a(Yii::t('app', 'Выход').' ('.Yii::$app->user->identity->username.')', ['/site/logout'], ['class' => 'headerbutton','data' => ['method'=>'post']]);
+                }
+            ?>
         </nav>
     </div>
 </header>
@@ -73,9 +79,7 @@ AppAsset::register($this);
 //    NavBar::end();
 //    ?>
 
-<!--    <div class="wrapper">-->
-        <?= $content ?>
-<!--    </div>-->
+    <?= $content ?>
 
 <?php if(
     Yii::$app->request->url == '/ru/about' ||

@@ -42,6 +42,7 @@ $( document ).ready(function() {
                         }else if(days >=5 && days < 10){
                             input_start.removeClass('invalid_field');
                             input_end.removeClass('invalid_field');
+                            guest_count = $( "#guest_count option:selected" ).val();
                             price = $('#price_per_5_day').text();
                             total_price = days * parseFloat(price.slice(0, -1));
                             result_price = total_price + parseFloat($('#service_charge').text().slice(0, -1));
@@ -51,6 +52,7 @@ $( document ).ready(function() {
                         }else if(days >= 10){
                             input_start.removeClass('invalid_field');
                             input_end.removeClass('invalid_field');
+                            guest_count = $( "#guest_count option:selected" ).val();
                             price = $('#price_per_10_day').text();
                             total_price = days * parseFloat(price.slice(0, -1));
                             result_price = total_price + parseFloat($('#service_charge').text().slice(0, -1));

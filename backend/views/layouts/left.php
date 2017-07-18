@@ -25,19 +25,23 @@
                     ['label' => 'Квартиры', 'icon' => 'fa fa-bed', 'url' => '/admin/apartment/'],
                     ['label' => 'Пользователи', 'icon' => 'fa fa-user', 'url' => '/admin/user/'],
                     ['label' => 'Комментарии', 'icon' => 'fa fa-comments', 'url' => '/admin/comments/'],
-//                    ['label' => 'Gii', 'icon' => 'fa fa-file-code-o', 'url' => ['/gii']],
-//                    ['label' => 'Debug', 'icon' => 'fa fa-dashboard', 'url' => ['/debug']],
                     ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
                     [
-                        'label' => '<span class="glyphicon glyphicon-warning-sign"></span> RBAC',
+                        'label' => '<span class="glyphicon glyphicon-cog"></span> Настройки',
                         'items' => [
-                            ['label' => 'Назначения', 'url' => ['/admin/assignment/']],
-                            ['label' => 'Роли', 'url' => ['/admin/role/'],],
-                            ['label' => 'Разрешения', 'url' => ['/admin/permission/'],],
-                            ['label' => 'Маршруты', 'url' => ['/admin/route/'],],
-                            ['label' => 'Правила', 'url' => ['/admin/rule/'],],
-                        ],
-                    ],
+                            ['label' => 'Смена пароля', 'url' => '/admin/user/change-password/']
+                        ]
+                    ]
+//                    [
+//                        'label' => '<span class="glyphicon glyphicon-warning-sign"></span> RBAC',
+//                        'items' => [
+//                            ['label' => 'Назначения', 'url' => ['/admin/assignment/']],
+//                            ['label' => 'Роли', 'url' => ['/admin/role/'],],
+//                            ['label' => 'Разрешения', 'url' => ['/admin/permission/'],],
+//                            ['label' => 'Маршруты', 'url' => ['/admin/route/'],],
+//                            ['label' => 'Правила', 'url' => ['/admin/rule/'],],
+//                        ],
+//                    ],
                 ],
             ]
         ) ?>

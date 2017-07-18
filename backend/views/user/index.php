@@ -3,10 +3,6 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 
-/* @var $this yii\web\View */
-/* @var $searchModel backend\models\UserSearch */
-/* @var $dataProvider yii\data\ActiveDataProvider */
-
 $this->title = 'Пользователи';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -38,7 +34,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'template' => '{my_button}',
                 'buttons' => [
                     'my_button' => function ($url, $model, $key) {
-                        if($model->status == 10){
+                        if($model->status == 10 && Yii::$app->user->identity->getId() != $model->id){
                         return Html::a('Заблокировать', ['blocked', 'id'=>$model->id],[
                             'class' => 'btn btn-danger',
                             'data' => [

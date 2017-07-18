@@ -35,7 +35,6 @@ $this->params['breadcrumbs'][] = $this->title;
                 ],
                 'date_start',
                 'date_end',
-                'user_id',
                 [
                     'attribute' => 'user_id',
                     'format' => 'raw',

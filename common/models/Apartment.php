@@ -86,10 +86,11 @@ class Apartment extends \yii\db\ActiveRecord
 //                $single_image = 'http://'.substr(strstr($image->image, 'domains\\'), 8, strlen($image->image));
                 $map_items[] = [
                     'position' => [$item->latitude, $item->longitude],
+                    'title' => substr($item->coordinates, 0, -55),
                     'content' => '<h3>'.$item->title_ru.'</h3><p>'.substr($item->coordinates, 0, -55).'</p>',
                     'options' => ["icon" => "'/frontend/web/img/marker.png'"],
                     'label' => [
-                        'text' => 'test',
+                        'text' => $item->price_day.' ₴',
                         'color' => 'white',
                         'fontWeight' => 700,
                         'fontSize' => '18px',
@@ -107,6 +108,13 @@ class Apartment extends \yii\db\ActiveRecord
         $map_item[] = [
             'position' => [$map->latitude, $map->longitude],
             'options' => ["icon" => "'/frontend/web/img/marker.png'"],
+            'label' => [
+                'text' => $map->price_day.' ₴',
+                'color' => 'white',
+                'fontWeight' => 700,
+                'fontSize' => '18px',
+                'fontFamily' => 'Helvetica'
+            ]
         ];
         return $map_item;
     }

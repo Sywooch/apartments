@@ -4,6 +4,7 @@ use voime\GoogleMaps\Map;
 use yii\widgets\Pjax;
 use yii\helpers\Html;
 
+$user = Yii::$app->user->identity;
 $lang = Yii::$app->language;
 $this->title = Yii::t('app', 'Детали квартиры');
 ?>
@@ -319,6 +320,12 @@ $this->title = Yii::t('app', 'Детали квартиры');
     </div>
 </div>
 
+<div id="hidden_user_id">
+    <?php if(isset($user)){
+        echo $user->id;
+    } ?>
+</div>
+
 <a href="#openSuccessModal" id="success" class="sidebar_btn sidebar_bonus hidden"></a>
 <div id="openSuccessModal" class="modalDialog">
     <div>
@@ -339,7 +346,7 @@ $this->title = Yii::t('app', 'Детали квартиры');
         ]);
         ?>
     </div>
-    <p class="footer_copyright">© <?= Yii::t('app', 'Аренда квартир') ?> 2017</p>
+    <p class="footer_copyright">© <?= Yii::t('app', 'Аренда квартир') ?> <?= date('Y') ?></p>
     <nav class="footer_social">
         <a class="imgoverlay" href="#"><img src="/frontend/web/img/facebook-icon.png" title="facebook"></a>
         <a class="imgoverlay" href="#"><img src="/frontend/web/img/vk-icon.png" title="vk"></a>

@@ -47,7 +47,8 @@ $( document ).on( 'submit','form#booking_form', function (e) {
     var date_start = $( '#some_class_1' ).val();
     var date_end = $( '#some_class_2' ).val();
     var guests_count = $( '#guest_count' ).val();
-    var apartment_id = $.urlParam('id');
+    var apartment_id = $.urlParam( 'id' );
+    var user_id =  parseInt( $( '#hidden_user_id' ).text() );
     var total = parseInt( $( '#result_price' ).text().slice( 0, -1 ) );
         $.ajax({
             url: '/'+lang+'/site/booking',
@@ -59,7 +60,7 @@ $( document ).on( 'submit','form#booking_form', function (e) {
                 "date_end": date_end,
                 "guests_count": guests_count,
                 "total_price": total,
-                "user_id": 1
+                "user_id": user_id
             },
             success: function( data ) {
                 $( '#booking_form' ).trigger( "reset" );

@@ -24,7 +24,7 @@ $this->title = Yii::t('app', 'Вход');
 
                 <?= $form->field($model, 'email')->textInput(['placeholder' => 'E-mail'])->label(false) ?>
 
-                <?= $form->field($model, 'password')->passwordInput(['placeholder' => 'пароль'])->label(false) ?>
+                <?= $form->field($model, 'password')->passwordInput(['placeholder' => Yii::t('app', 'Пароль')])->label(false) ?>
 
                 <fieldset>
                     <span class="check_remember">
@@ -49,17 +49,17 @@ $this->title = Yii::t('app', 'Вход');
                 'errorCssClass' => 'valid_err'
             ]); ?>
 
-                <?= $form->field($register, 'username')->textInput(['id' => 'login', 'placeholder' => 'Логин'])->label(false) ?>
+                <?= $form->field($register, 'username')->textInput(['id' => 'login', 'placeholder' => Yii::t('app', 'Логин')])->label(false) ?>
 
-                <?= $form->field($register, 'surname')->textInput(['id' => 'usersurname', 'placeholder' => 'Фамилия'])->label(false) ?>
+                <?= $form->field($register, 'surname')->textInput(['id' => 'usersurname', 'placeholder' => Yii::t('app', 'Фамилия')])->label(false) ?>
 
-                <?= $form->field($register, 'name')->textInput(['id' => 'username', 'placeholder' => 'Имя'])->label(false) ?>
+                <?= $form->field($register, 'name')->textInput(['id' => 'username', 'placeholder' => Yii::t('app', 'Имя')])->label(false) ?>
 
-                <?= $form->field($register, 'email')->textInput(['id' => 'usermail', 'placeholder' => 'E-mail'])->label(false) ?>
+                <?= $form->field($register, 'email')->textInput(['id' => 'usermail', 'placeholder' => Yii::t('app', 'E-mail')])->label(false) ?>
 
-                <?= $form->field($register, 'password')->passwordInput(['id' => 'userpass', 'placeholder' => 'Пароль'])->label(false) ?>
+                <?= $form->field($register, 'password')->passwordInput(['id' => 'userpass', 'placeholder' => Yii::t('app', 'Пароль')])->label(false) ?>
 
-                <?= $form->field($register, 'confirm_password')->passwordInput(['id' => 'userpass_confirm', 'placeholder' => 'Повторите пароль'])->label(false) ?>
+                <?= $form->field($register, 'confirm_password')->passwordInput(['id' => 'userpass_confirm', 'placeholder' => Yii::t('app', 'Повторите пароль')])->label(false) ?>
 
                 <?= Html::submitButton(Yii::t('app', 'Регистрация'), ['class' => 'frm_submit', 'id' => 'register_submit', 'name' => 'signup-button']) ?>
 

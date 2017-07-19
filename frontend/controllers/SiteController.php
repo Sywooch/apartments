@@ -241,14 +241,12 @@ class SiteController extends Controller
             if ($user = $model->signup()) {
                 $userRole = Yii::$app->authManager->getRole('User');
                 Yii::$app->authManager->assign($userRole, $user->getId());
-//                if (Yii::$app->getUser()->login($user)) {
                     \Yii::$app->mailer->compose(['html' => 'verify-html'],['user' => $user])
                         ->setTo($user->email)
                         ->setFrom([Yii::$app->params['adminEmail'] => 'Apartment robot'])
                         ->setSubject('Verify your account')
                         ->send();
                     return $this->redirect('complete-registration');
-//                }
             }
         }
     }

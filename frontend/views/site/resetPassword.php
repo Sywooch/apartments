@@ -14,7 +14,7 @@ $this->title = Yii::t('app', 'Смена пароля');
             'errorCssClass' => 'valid_err'
         ]); ?>
 
-        <?= $form->field($model, 'password')->passwordInput(['autofocus' => true, 'placeholder' => 'Пароль'])->label(false) ?>
+        <?= $form->field($model, 'password')->passwordInput(['autofocus' => true, 'placeholder' => Yii::t('app', 'Пароль')])->label(false) ?>
 
         <?= Html::submitButton(Yii::t('app', 'Изменить'), ['class' => 'frm_submit']) ?>
 

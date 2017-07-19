@@ -5,7 +5,6 @@ use yii\widgets\ActiveForm;
 use yii\captcha\Captcha;
 
 $this->title = Yii::t('app', 'Контакты');
-$this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <div class="singlepage_wrapper">
@@ -24,7 +23,13 @@ $this->params['breadcrumbs'][] = $this->title;
     </div>
     <div class="half_col">
         <h2 class="contacts_header"><?= Yii::t('app', 'Обратная связь') ?></h2>
-        <?php $form = ActiveForm::begin(['id' => 'contact-form', 'options'=>['class' => 'contactform']]); ?>
+        <?php $form = ActiveForm::begin([
+            'id' => 'contact-form',
+            'errorCssClass' => 'valid_err',
+            'options'=> [
+                'class' => 'contactform'
+            ]
+        ]); ?>
             <label for="name" class="name_label"><?= Yii::t('app', 'Имя') ?><br>
                 <?= $form->field($model, 'name')->textInput(['id'=>'name'])->label(false) ?>
             </label>

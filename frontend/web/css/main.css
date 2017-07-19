@@ -1773,29 +1773,17 @@ input[type=number] {
     width: 100%;
     height: 100vh;
 }
-    /*display: -webkit-box;*/
-    /*display: -ms-flexbox;*/
-    /*display: flex;*/
-    /*height: 100%;*/
-    /*-webkit-box-align: center;*/
-    /*-ms-flex-align: center;*/
-    /*align-items: center;*/
-    /*-webkit-box-pack: center;*/
-    /*-ms-flex-pack: center;*/
-    /*justify-content: center;*/
-/*}*/
 
-#register-login-form {
+
+#login-form #register-login-form {
     display: table-cell;
     vertical-align: middle;
     width: 320px;
-    /*height: 400px;*/
-    /*background: #f00;*/
     margin: auto;  /* Магия! Блок отцентрирован по вертикали и горизонтали! */
 }
 
 
-main {
+#login-form main {
     min-width: 320px;
     max-width: 800px;
     padding: 10px 30px 30px 30px;
@@ -1805,7 +1793,7 @@ main {
     font-family: "Open Sans", sans-serif;
 }
 
-.check_remember {
+#login-form .check_remember {
     display: table;
     float: left;
     color: #4989c7;
@@ -1814,14 +1802,14 @@ main {
     line-height: 18px
 }
 
-#login_submit {
+#login-form #login_submit {
     display: table;
     float: none;
     clear: both;
 }
 
 
-main span label {
+#login-form main span label {
    width: 111px;
     padding: 0 0 0 5px;
     float: left;
@@ -1832,11 +1820,11 @@ main span label {
 }
 /*--------validation-err----*/
 
-.field_valid_err {
+#login-form .field_valid_err {
     border: 2px solid #fe8a23 !important;
 }
 
-main .valid_err {
+#login-form main .valid_err {
     color: #fe8a23;
     font-size: 12px;
     font-weight: 400;
@@ -1846,7 +1834,7 @@ main .valid_err {
 
 /*-------------------------*/
 
-.forgotpass {
+#login-form .forgotpass {
     display: table;
     float: right;
     color: #4989c7;
@@ -1855,17 +1843,17 @@ main .valid_err {
     line-height: 18px;
 }
 
-section {
+#login-form section {
     display: none;
     padding: 20px 0 0;
     border-top: 1px solid #ddd;
 }
 
-input[type=radio] {
+#login-form input[type=radio] {
     display: none;
 }
 
-label {
+#login-form label {
     display: inline-block;
     margin: 0 0 -1px;
     padding: 15px 25px;
@@ -1877,14 +1865,14 @@ label {
     width: 33%;
 }
 
-main fieldset {
+#login-form main fieldset {
     display: table;
     width: 100%;
     margin: 15px 0;
     padding-top: 15px;
 }
 
-.frm_submit {
+#login-form .frm_submit {
     width: 100%;
     height: 35px;
     background-color: #4989c7;
@@ -1897,7 +1885,7 @@ main fieldset {
     margin-top: 18px;
 }
 
-label:before {
+#login-form label:before {
     /*font-family: fontawesome;*/
     font-weight: normal;
     margin-right: 10px;
@@ -1919,12 +1907,12 @@ label:before {
     /*content: '\f1a9';*/
 /*}*/
 
-label:hover {
+#login-form label:hover {
     color: #888;
     cursor: pointer;
 }
 
-input:checked + label {
+#login-form input:checked + label {
     /*color: #555;*/
     border: 0 none;
     border-bottom: 5px solid #4989c7;
@@ -1937,15 +1925,16 @@ input:checked + label {
 
 }
 
-#tab1:checked ~ #content1,
-#tab2:checked ~ #content2,
-#tab3:checked ~ #content3,
-#tab4:checked ~ #content4 {
+
+#login-form #tab1:checked ~ #content1,
+#login-form #tab2:checked ~ #content2,
+#login-form #tab3:checked ~ #content3,
+#login-form #tab4:checked ~ #content4 {
     display: block;
     transition: all 0.3s ease 0s;
 }
 
-main input[type="text"], input[type="email"], input[type="password"] {
+#login-form main input[type="text"], input[type="email"], input[type="password"] {
     width: 100%;
     height: 35px;
     border: 1px solid #cbcbcb;
@@ -1960,9 +1949,18 @@ main input[type="text"], input[type="email"], input[type="password"] {
     margin-bottom: 15px;
 }
 
-input[type="checkbox"] {
+#login-form input[type="checkbox"] {
     float: left;
 }
+
+#remember_user:checked + label {
+    border: 0 none !important;
+    color: #717171 !important;
+    font-size: 12px !important;
+    font-weight: 400 !important;
+    line-height: 12px !important;
+}
+
 
 
 /* ==========================================================================

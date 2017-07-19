@@ -63,7 +63,8 @@ return [
                 'about' => 'site/about',
                 'detail' => 'site/detail',
                 'login' => 'site/login',
-                'signup' => 'site/signup'
+                'signup' => 'site/signup',
+                'complete-registration' => 'site/complete-registration'
 //                '<action>'=>'site/<action>',
             ],
         ],

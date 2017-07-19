@@ -14,6 +14,7 @@ class SignupForm extends Model
     public $email;
     public $password;
     public $confirm_password;
+    public $status = 5;
 
 
     public function rules()
@@ -30,7 +31,7 @@ class SignupForm extends Model
             ['email', 'required'],
             ['email', 'email'],
             ['email', 'string', 'max' => 255],
-            ['email', 'unique', 'targetClass' => '\common\models\User', 'message' => 'Такой email уже .'],
+            ['email', 'unique', 'targetClass' => '\common\models\User', 'message' => 'Такой email уже существует.'],
 
             ['password', 'required'],
             ['password', 'string', 'min' => 6],
@@ -76,6 +77,7 @@ class SignupForm extends Model
         $user->email = $this->email;
         $user->setPassword($this->password);
         $user->generateAuthKey();
+        $user->status = $this->status;
         
         return $user->save() ? $user : null;
     }

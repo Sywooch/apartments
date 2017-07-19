@@ -11,6 +11,7 @@ use yii\web\IdentityInterface;
 class User extends ActiveRecord implements IdentityInterface
 {
     const STATUS_DELETED = 0;
+    const STATUS_VERIFIED = 5;
     const STATUS_ACTIVE = 10;
 
     public $newPassword;
@@ -34,7 +35,7 @@ class User extends ActiveRecord implements IdentityInterface
     {
         return [
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
-            ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
+            ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED, self::STATUS_VERIFIED]],
             [['newPassword', 'currentPassword', 'newPasswordConfirm'], 'required', 'on' => 'changePwd'],
             [['currentPassword'], 'validateCurrentPassword'],
             [['newPassword', 'newPasswordConfirm'], 'string', 'min' => 6],
@@ -82,9 +83,9 @@ class User extends ActiveRecord implements IdentityInterface
         throw new NotSupportedException('"findIdentityByAccessToken" is not implemented.');
     }
 
-    public static function findByUsername($username)
+    public static function findByEmail($email)
     {
-        return static::findOne(['username' => $username, 'status' => self::STATUS_ACTIVE]);
+        return static::findOne(['email' => $email, 'status' => self::STATUS_ACTIVE]);
     }
 
     public static function findByPasswordResetToken($token)

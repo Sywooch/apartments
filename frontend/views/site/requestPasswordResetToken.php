@@ -1,31 +1,24 @@
 <?php
 
-/* @var $this yii\web\View */
-/* @var $form yii\bootstrap\ActiveForm */
-/* @var $model \frontend\models\PasswordResetRequestForm */
-
 use yii\helpers\Html;
-use yii\bootstrap\ActiveForm;
+use yii\widgets\ActiveForm;
 
-$this->title = 'Сброс пароля';
-$this->params['breadcrumbs'][] = $this->title;
+$this->title = Yii::t('app', 'Сброс пароля');
 ?>
-<div class="site-request-password-reset">
-    <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>Пожалуйста, введите ваш Email. Письмо с ссылкой будет отправлено на него.</p>
+<div id="register-login-form">
+    <main>
+        <h4 style="text-align: center"><?= Yii::t('app', 'Сброс пароля') ?></h4>
+            <?php $form = ActiveForm::begin([
+                'id' => 'request-password-reset-form',
+                'enableAjaxValidation' => true,
+                'errorCssClass' => 'valid_err'
+            ]); ?>
 
-    <div class="row">
-        <div class="col-lg-5">
-            <?php $form = ActiveForm::begin(['id' => 'request-password-reset-form']); ?>
+                <?= $form->field($model, 'email')->textInput(['placeholder' => 'E-mail', 'autofocus' => true])->label(false) ?>
 
-                <?= $form->field($model, 'email')->textInput(['autofocus' => true]) ?>
-
-                <div class="form-group">
-                    <?= Html::submitButton('Отправить', ['class' => 'btn btn-primary']) ?>
-                </div>
+                <?= Html::submitButton(Yii::t('app', 'Отправить'), ['class' => 'frm_submit']) ?>
 
             <?php ActiveForm::end(); ?>
-        </div>
-    </div>
+    </main>
 </div>

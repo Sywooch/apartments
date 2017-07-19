@@ -4,6 +4,7 @@ namespace frontend\controllers;
 use common\models\ApartmentSearch;
 use common\models\Comments;
 use common\models\Orders;
+use common\models\User;
 use Yii;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
@@ -19,6 +20,7 @@ use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 use yii\web\Response;
+use yii\widgets\ActiveForm;
 
 
 class SiteController extends Controller
@@ -172,16 +174,21 @@ class SiteController extends Controller
 
     public function actionLogin()
     {
+        $this->layout = 'login';
+
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }
 
         $model = new LoginForm();
+        $register = new SignupForm();
+
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->goBack();
         } else {
             return $this->render('login', [
                 'model' => $model,
+                'register' => $register
             ]);
         }
     }
@@ -198,6 +205,7 @@ class SiteController extends Controller
     public function actionContact()
     {
         $model = new ContactForm();
+
         if(Yii::$app->request->isAjax && $model->load(Yii::$app->request->post())){
             if($model->sendEmail(Yii::$app->params['adminEmail'])){
                 return 1;    
@@ -223,25 +231,56 @@ class SiteController extends Controller
     public function actionSignup()
     {
         $model = new SignupForm();
+
+        if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post())) {
+            Yii::$app->response->format = Response::FORMAT_JSON;
+            return ActiveForm::validate($model);
+        }
+
         if ($model->load(Yii::$app->request->post())) {
             if ($user = $model->signup()) {
                 $userRole = Yii::$app->authManager->getRole('User');
                 Yii::$app->authManager->assign($userRole, $user->getId());
-                if (Yii::$app->getUser()->login($user)) {
-                    return $this->goHome();
-                }
+//                if (Yii::$app->getUser()->login($user)) {
+                    \Yii::$app->mailer->compose(['html' => 'verify-html'],['user' => $user])
+                        ->setTo($user->email)
+                        ->setFrom([Yii::$app->params['adminEmail'] => 'Apartment robot'])
+                        ->setSubject('Verify your account')
+                        ->send();
+                    return $this->redirect('complete-registration');
+//                }
             }
         }
-
-        return $this->render('signup', [
-            'model' => $model,
-        ]);
     }
 
+    public function actionCheck($token){
+        $user = User::findOne(['auth_key' => $token]);
+        if($user) {
+            $user->status = 10;
+            $user->save(false);
+            Yii::$app->getUser()->login($user);
+            return $this->redirect('index');
+        } else {
+            return 'Invalid token';
+        }
+    }
+    
+    public function actionCompleteRegistration()
+    {
+        return $this->render('complete-registration');
+    }
 
     public function actionRequestPasswordReset()
     {
+        $this->layout = 'login';
+
         $model = new PasswordResetRequestForm();
+
+        if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post())) {
+            Yii::$app->response->format = Response::FORMAT_JSON;
+            return ActiveForm::validate($model);
+        }
+
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             if ($model->sendEmail()) {
                 Yii::$app->session->setFlash('success', 'Проверьте ваш mail для дальнейших инструкций.');
@@ -260,6 +299,8 @@ class SiteController extends Controller
 
     public function actionResetPassword($token)
     {
+        $this->layout = 'login';
+
         try {
             $model = new ResetPasswordForm($token);
         } catch (InvalidParamException $e) {

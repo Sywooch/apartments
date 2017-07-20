@@ -370,7 +370,7 @@ endif;
 
 <div id="hidden_user_id">
     <?php if(isset($user)){
-        echo $user->id;
+        echo '<input id="hidden_user_input_id" type="hidden" value="'.$user->id.'">';
     } ?>
 </div>
 
@@ -403,34 +403,3 @@ endif;
         <a class="imgoverlay" href="#"><img src="/frontend/web/img/instagram-icon.png" title="instagram"></a>
     </nav>
 </footer>
-
-<?php
-//    if(isset($comments)){
-//        foreach($comments as $comment){
-//            echo $comment->apartment->title_ru.'<br/>';
-//            echo $comment->user->username.'<br/>';
-//            echo $comment->comment.'<br/>';
-//        }
-//    }
-//?>
-<!---->
-<!--    --><?php //$form = ActiveForm::begin(); ?>
-<!---->
-<!--    --><?//= $form->field($new_comment, 'apartment_id')->hiddenInput(['value' => $model->id])->label(false) ?>
-<!---->
-<!--    --><?//= $form->field($new_comment, 'user_id')->hiddenInput(['value' => $user_id])->label(false) ?>
-<!---->
-<!--    --><?//= $form->field($new_comment, 'comment')->textArea() ?>
-<!---->
-<!--    --><?php //if(!Yii::$app->user->isGuest) { ?>
-<!--        <div class="form-group">-->
-<!--            --><?//= Html::submitButton('Добавить', ['class' => 'btn btn-success']) ?>
-<!--        </div>-->
-<!--    --><?php //} else if(Yii::$app->user->isGuest){ ?>
-<!--        <div class="form-group">-->
-<!--            <p>Вы не авторизированы, --><?//= Html::a('авторизируйтесь', ['/site/login']) ?><!--, чтобы оставить комментарий.</p>-->
-<!--        </div>-->
-<!--    --><?php //} ?>
-<!---->
-<!--    --><?php //ActiveForm::end(); ?>
-<!---->

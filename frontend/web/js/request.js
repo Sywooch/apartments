@@ -48,7 +48,7 @@ $( document ).on( 'submit','form#booking_form', function (e) {
     var date_end = $( '#some_class_2' ).val();
     var guests_count = $( '#guest_count' ).val();
     var apartment_id = $.urlParam( 'id' );
-    var user_id =  parseInt( $( '#hidden_user_id' ).text() );
+    var user_id =  parseInt( $( '#hidden_user_input_id' ).val() );
     var total = parseInt( $( '#result_price' ).text().slice( 0, -1 ) );
         $.ajax({
             url: '/'+lang+'/site/booking',

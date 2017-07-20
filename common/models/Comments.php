@@ -18,7 +18,7 @@ class Comments extends \yii\db\ActiveRecord
     {
         return [
             [['apartment_id', 'user_id', 'comment', 'city'], 'required'],
-            [['apartment_id', 'user_id'], 'integer'],
+            [['apartment_id', 'user_id', 'rating', 'rating_price', 'rating_clean', 'rating_communication', 'rating_place'], 'integer'],
             [['comment', 'city'], 'string', 'max' => 255],
             [['apartment_id'], 'exist', 'skipOnError' => true, 'targetClass' => Apartment::className(), 'targetAttribute' => ['apartment_id' => 'id']],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['user_id' => 'id']],
@@ -35,6 +35,11 @@ class Comments extends \yii\db\ActiveRecord
             'city' => 'Город',
             'date' => 'Дата',
             'comment' => 'Комментарий',
+            'rating' => 'Общая оценка',
+            'rating_price' => 'Цена/качество',
+            'rating_clean' => 'Чистота',
+            'rating_communication' => 'Общение',
+            'rating_place' => 'Расположение'
         ];
     }
 

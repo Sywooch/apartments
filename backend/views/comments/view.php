@@ -17,7 +17,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('Удалить', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
+                'confirm' => 'Вы уверенны, что хотите удалить этот комментарий?',
                 'method' => 'post',
             ],
         ]) ?>
@@ -33,9 +33,14 @@ $this->params['breadcrumbs'][] = $this->title;
                 ],
                 [
                     'attribute' => 'user_id',
-                    'value' => $model->user->username,
+                    'value' => $model->user->surname.' '.$model->user->name,
                 ],
                 'comment',
+                'rating',
+                'rating_price',
+                'rating_clean',
+                'rating_communication',
+                'rating_place'
             ],
         ]) ?>
     </div>

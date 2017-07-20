@@ -247,13 +247,13 @@ endif;
         </div>
         <div class="star_ratingblock">
             <div class="amountrate">
-                <div class="flat_stars amount_all" data-score="4.5"></div>
+                <div class="flat_stars amount_all" data-score="<?= $rating['rating_total'] ?>"></div>
                 <span><?= $count ?> <?= Yii::t('app', 'отзывов') ?></span>
                 <ul class="ratelist">
-                    <li><p><?= Yii::t('app', 'Цена/качество') ?></p><div class="flat_stars" data-score="4"></div></li>
-                    <li><p><?= Yii::t('app', 'Общение') ?></p><div class="flat_stars" data-score="5"></div></li>
-                    <li><p><?= Yii::t('app', 'Чистота') ?></p><div class="flat_stars" data-score="5"></div></li>
-                    <li><p><?= Yii::t('app', 'Расположение') ?></p><div class="flat_stars" data-score="4"></div></li>
+                    <li><p><?= Yii::t('app', 'Цена/качество') ?></p><div class="flat_stars" data-score="<?= $rating['rating_price'] ?>"></div></li>
+                    <li><p><?= Yii::t('app', 'Общение') ?></p><div class="flat_stars" data-score="<?= $rating['rating_communication'] ?>"></div></li>
+                    <li><p><?= Yii::t('app', 'Чистота') ?></p><div class="flat_stars" data-score="<?= $rating['rating_clean'] ?>"></div></li>
+                    <li><p><?= Yii::t('app', 'Расположение') ?></p><div class="flat_stars" data-score="<?= $rating['rating_place'] ?>"></div></li>
                 </ul>
             </div>
         </div>

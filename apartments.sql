@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Июл 20 2017 г., 11:22
+-- Время создания: Июл 20 2017 г., 12:20
 -- Версия сервера: 5.6.31
 -- Версия PHP: 5.6.23
 
@@ -155,7 +155,11 @@ CREATE TABLE IF NOT EXISTS `comments` (
   `user_id` int(11) NOT NULL,
   `city` varchar(255) NOT NULL,
   `comment` varchar(255) NOT NULL,
-  `rating` float NOT NULL,
+  `rating` int(11) NOT NULL,
+  `rating_price` int(11) NOT NULL,
+  `rating_clean` int(11) NOT NULL,
+  `rating_communication` int(11) NOT NULL,
+  `rating_place` int(11) NOT NULL,
   `date` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
@@ -163,9 +167,9 @@ CREATE TABLE IF NOT EXISTS `comments` (
 -- Дамп данных таблицы `comments`
 --
 
-INSERT INTO `comments` (`id`, `apartment_id`, `user_id`, `city`, `comment`, `rating`, `date`) VALUES
-(3, 7, 4, 'Харьков', 'Сойдет!', 5, '2017-07-20 06:34:21'),
-(4, 7, 11, 'Киев', 'Неплохая квартира, жить можно.', 3.5, '2017-05-15 06:42:12');
+INSERT INTO `comments` (`id`, `apartment_id`, `user_id`, `city`, `comment`, `rating`, `rating_price`, `rating_clean`, `rating_communication`, `rating_place`, `date`) VALUES
+(3, 7, 4, 'Харьков', 'Сойдет!', 5, 3, 5, 5, 4, '2017-07-20 06:34:21'),
+(4, 7, 11, 'Киев', 'Неплохая квартира, жить можно.', 4, 5, 1, 2, 5, '2017-05-15 06:42:12');
 
 -- --------------------------------------------------------
 

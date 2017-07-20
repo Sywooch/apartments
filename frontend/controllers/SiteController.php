@@ -155,10 +155,12 @@ class SiteController extends Controller
         $model = new Apartment();
         $image_model = new Image();
         $new_comment = new Comments();
+        
         $apartment = $model->SingleApartment($id);
         $count = $new_comment->CommentsCount($apartment->id);
         $comments = $new_comment->AllApartmentComments($apartment->id);
         $images = $image_model->AllApartmentImages($id);
+        $rating = $model->ApartmentRating($comments);
 
         if ($new_comment->load(Yii::$app->request->post()) && $new_comment->save()) {
             return $this->redirect(Yii::$app->request->referrer);
@@ -166,6 +168,7 @@ class SiteController extends Controller
         
         return $this->render('detail', [
             'count' => $count,
+            'rating' => $rating,
             'apartment' => $apartment,
             'comments' => $comments,
             'new_comment' => $new_comment,

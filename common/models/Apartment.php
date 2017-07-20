@@ -124,4 +124,40 @@ class Apartment extends \yii\db\ActiveRecord
         ];
         return $map_item;
     }
+
+    public function ApartmentRating($data)
+    {
+        $total = 0;
+        $price = 0;
+        $clean = 0;
+        $place = 0;
+        $communication = 0;
+        $count = 0;
+
+        if(isset($data)){
+            foreach ($data as $item){
+                $price += $item->rating_price;
+                $clean += $item->rating_clean;
+                $place += $item->rating_place;
+                $communication += $item->rating_communication;
+                $count ++;
+            }
+        }
+
+        if($count != 0){
+            $price = round($price / $count);
+            $clean = round($clean / $count);
+            $place = round($place / $count);
+            $communication = round($communication / $count);
+            $total = round(($price + $clean + $place + $communication) / 4, 1);
+        }
+
+        return array(
+            'rating_total' => $total,
+            'rating_price' => $price,
+            'rating_clean' => $clean,
+            'rating_place' => $place,
+            'rating_communication' => $communication
+        );
+    }
 }

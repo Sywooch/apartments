@@ -31,7 +31,7 @@ class SiteController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['logout', 'signup', 'booking'],
+                'only' => ['logout', 'signup', 'booking', 'create-comment'],
                 'rules' => [
                     [
                         'actions' => ['signup'],
@@ -48,6 +48,11 @@ class SiteController extends Controller
                         'allow' => true,
                         'roles' => ['@'],
                     ],
+                    [
+                        'actions' => ['create-comment'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ]
                 ],
             ],
             'verbs' => [
@@ -253,6 +258,27 @@ class SiteController extends Controller
                         ->setSubject('Verify your account')
                         ->send();
                     return $this->redirect('complete-registration');
+            }
+        }
+    }
+    
+    public function actionCreateComment()
+    {
+        $model = new Comments();
+
+        if(Yii::$app->request->post('id')){
+            $request = Yii::$app->request->post();
+            $model->apartment_id = $request['id'];
+            $model->user_id = Yii::$app->user->identity->getId();
+            $model->city = $request['rate_city'];
+            $model->comment = $request['rate_text'];
+            $model->rating = $request['total_rate'];
+            $model->rating_price = $request['price_quality'];
+            $model->rating_clean = $request['cleaninig'];
+            $model->rating_communication = $request['responsibility'];
+            $model->rating_place = $request['location'];
+            if($model->save()){
+                return $this->redirect('detail?id='.$request['id']);
             }
         }
     }

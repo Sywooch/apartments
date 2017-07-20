@@ -7,6 +7,10 @@ use frontend\widgets\MultiLang\MultiLang;
 
 $controller = Yii::$app->controller->id;
 $action = Yii::$app->controller->action->id;
+$body_id = '';
+if($controller == 'site' && $action == 'detail'){
+    $body_id = 'flat_single';
+}
 
 AppAsset::register($this);
 ?>
@@ -22,7 +26,7 @@ AppAsset::register($this);
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;subset=cyrillic-ext" rel="stylesheet">
     <?php $this->head() ?>
 </head>
-<body>
+<body id="<?= $body_id ?>">
 <?php $this->beginBody() ?>
 <header>
     <div class="wrapper">

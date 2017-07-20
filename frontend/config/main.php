@@ -64,7 +64,8 @@ return [
                 'detail' => 'site/detail',
                 'login' => 'site/login',
                 'signup' => 'site/signup',
-                'complete-registration' => 'site/complete-registration'
+                'complete-registration' => 'site/complete-registration',
+                'create-comment' => 'site/create-comment'
 //                '<action>'=>'site/<action>',
             ],
         ],

@@ -293,12 +293,78 @@ endif;
 
 <div id="openModal" class="modalDialog">
     <div>
-        <a href="#close" title="Закрыть" class="close"></a>
-        <h2 class="modal_header">Модальное окно</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
-        <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
-        <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non.</p>
+        <a href="#close" title="<?= Yii::t('app', 'Закрыть') ?>" class="close"></a>
+        <h2 class="modal_header"><?= Yii::t('app', 'Оставить отзыв') ?></h2>
+        <?php  $form = ActiveForm::begin([
+            'id' => 'comment-form',
+            'action' => 'create-comment'
+        ]) ?>
+            <fieldset>
+                <p><?= Yii::t('app', 'Город') ?></p>
+                <input type="text" name="rate_city" placeholder="<?= Yii::t('app', 'город') ?>" required>
+                <input type="hidden" name="id" placeholder="<?= Yii::t('app', 'город') ?>" value="<?= Yii::$app->request->get('id') ?>" required>
+            </fieldset>
+            <fieldset>
+                <p><?= Yii::t('app', 'Текст отзыва') ?></p>
+                <textarea name="rate_text" id="" cols="30" rows="5" required></textarea>
+            </fieldset>
+            <fieldset>
+                <p><?= Yii::t('app', 'Общая оценка') ?></p>
+                <select size="1" name="total_rate" required>
+                    <option disabled selected><?= Yii::t('app', 'Выберите оценку') ?></option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </fieldset>
+            <fieldset>
+                <p><?= Yii::t('app', 'Цена/качество') ?></p>
+                <select size="1" name="price_quality" required>
+                    <option disabled selected><?= Yii::t('app', 'Выберите оценку') ?></option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </fieldset>
+            <fieldset>
+                <p><?= Yii::t('app', 'Чистота') ?></p>
+                <select size="1" name="cleaninig" required>
+                    <option disabled selected><?= Yii::t('app', 'Выберите оценку') ?></option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </fieldset>
+            <fieldset>
+                <p><?= Yii::t('app', 'Общение') ?></p>
+                <select size="1" name="responsibility" required>
+                    <option disabled selected><?= Yii::t('app', 'Выберите оценку') ?></option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </fieldset>
+            <fieldset>
+                <p><?= Yii::t('app', 'Расположение') ?></p>
+                <select size="1" name="location" required>
+                    <option disabled selected><?= Yii::t('app', 'Выберите оценку') ?></option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <input type="submit" value="<?= Yii::t('app', 'Добавить') ?>">
+            </fieldset>
+        <?php ActiveForm::end() ?>
     </div>
 </div>
 

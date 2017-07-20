@@ -48,6 +48,11 @@ class Image extends \yii\db\ActiveRecord
         return Yii::getAlias('@frontendWebroot/images/' . $this->getHash() . '.jpg');
     }
 
+    public function AllApartmentImages($id)
+    {
+        return Image::find()->where(['apartment_id' => $id])->all();
+    }
+
 //    public function afterDelete()
 //    {
 //        unlink($this->getPath());

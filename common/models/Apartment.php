@@ -75,6 +75,14 @@ class Apartment extends \yii\db\ActiveRecord
     {
         return $this->hasMany(Comments::className(), ['apartment_id' => 'id']);
     }
+    
+    public function SingleApartment($id)
+    {
+        return Apartment::find()
+            ->joinWith(['facilities'])
+            ->where('apartment.id='.$id)
+            ->one();
+    }
 
     public function Map()
     {
@@ -82,8 +90,6 @@ class Apartment extends \yii\db\ActiveRecord
         $map_items = [];
         if(isset($map) && !empty($map)){
             foreach ($map as $item){
-//                $image = Image::find()->where(['apartment_id'=>$item->id])->one();
-//                $single_image = 'http://'.substr(strstr($image->image, 'domains\\'), 8, strlen($image->image));
                 $map_items[] = [
                     'position' => [$item->latitude, $item->longitude],
                     'title' => substr($item->coordinates, 0, -55),

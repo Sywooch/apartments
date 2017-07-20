@@ -11,8 +11,9 @@
 
     });
 
-
      $('.flat_stars').raty({
+         readOnly : true,
+         hints: false,
          score: function() {
              return $(this).attr('data-score');
          }
@@ -21,23 +22,9 @@
     $.datetimepicker.setLocale('ru');
     $('.timepicker').datetimepicker();
 
-
-    // $(this).find('img').each( function(){
-    //     var currentSrc = this.src;
-    //     //  console.log('currentsrc ' + currentSrc);
-    //     this.src = this.getAttribute('data-src');
-    // });
-
-    // c= querySelectorAll('article').text().length;
-    // console.log (c);
-
     textLimit = 336;
 
     $('.feedback_block').each( function() {
-
-        // q= $(this).text().length;
-        // console.log(q);
-        // console.log('textlimit' + textLimit);
 
         if ($(this).find('.overflow_test').text().length >= textLimit) {
             // console.log('limit');

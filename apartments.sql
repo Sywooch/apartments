@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Июл 18 2017 г., 12:13
+-- Время создания: Июл 20 2017 г., 11:22
 -- Версия сервера: 5.6.31
 -- Версия PHP: 5.6.23
 
@@ -81,8 +81,9 @@ CREATE TABLE IF NOT EXISTS `auth_assignment` (
 
 INSERT INTO `auth_assignment` (`item_name`, `user_id`, `created_at`) VALUES
 ('Admin', '1', 1490184484),
-('User', '4', 1490185426),
-('User', '5', 1490607406);
+('User', '10', 1500458375),
+('User', '11', 1500458461),
+('User', '4', 1490185426);
 
 -- --------------------------------------------------------
 
@@ -152,15 +153,19 @@ CREATE TABLE IF NOT EXISTS `comments` (
   `id` int(11) NOT NULL,
   `apartment_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `comment` varchar(255) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+  `city` varchar(255) NOT NULL,
+  `comment` varchar(255) NOT NULL,
+  `rating` float NOT NULL,
+  `date` timestamp NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `comments`
 --
 
-INSERT INTO `comments` (`id`, `apartment_id`, `user_id`, `comment`) VALUES
-(3, 7, 4, 'Сойдет!');
+INSERT INTO `comments` (`id`, `apartment_id`, `user_id`, `city`, `comment`, `rating`, `date`) VALUES
+(3, 7, 4, 'Харьков', 'Сойдет!', 5, '2017-07-20 06:34:21'),
+(4, 7, 11, 'Киев', 'Неплохая квартира, жить можно.', 3.5, '2017-05-15 06:42:12');
 
 -- --------------------------------------------------------
 
@@ -274,15 +279,16 @@ CREATE TABLE IF NOT EXISTS `user` (
   `status` smallint(6) NOT NULL DEFAULT '10',
   `created_at` int(11) NOT NULL,
   `updated_at` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Дамп данных таблицы `user`
 --
 
 INSERT INTO `user` (`id`, `username`, `name`, `surname`, `auth_key`, `password_hash`, `password_reset_token`, `email`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Admin', 'Администратор', 'Вася', 'UTo8q7LX4oqzNWicwZE7txlyFy8QQlXf', '$2y$13$jdKfU1vtbmHEY.P8Wg7W4.40CHL7BZU5yKbjnWsY0qtg2.a58V81S', NULL, 'prybylov.v@gmail.com', 10, 1490176869, 1490179685),
-(4, 'vasya', 'Василий', 'Иванов', 'QmOmPJu4x_JjsiLpdHSBarbi4YYM8qSL', '$2y$13$jdKfU1vtbmHEY.P8Wg7W4.40CHL7BZU5yKbjnWsY0qtg2.a58V81S', NULL, 'vlad.vasyakot@mail.ru', 10, 1490185426, 1497875945);
+(1, 'Admin', 'Администратор', 'Вася', 'i1YZmvngDa274Q8JQRyhQjDz2nb5Nktf', '$2y$13$hXgOWEPT5gQtYPSokOeOdOxH50jvq/8T2IXp0ySOBjlajWaolK.me', NULL, 'prybylov2.v@gmail.com', 10, 1490176869, 1500381606),
+(4, 'vasya', 'Василий', 'Иванов', 'QmOmPJu4x_JjsiLpdHSBarbi4YYM8qSL', '$2y$13$NjDtM1TURZM3zKh1DhYgH.WfvA0ZIoSVq4o4nRdGzgIfoh0XO0vdW', NULL, 'vlad.vasyakot@mail.ru', 10, 1490185426, 1497875945),
+(11, 'vlad', 'Петр', 'Самодин', 'OyUtr5XO0aGh1qwGqscuf3_pkHb7hkz2', '$2y$13$.FSqA6rB0D/De98fDS/3ounP9f8bCQ7pOgx/h5w5BT70kyX1E/xUq', NULL, 'prybylov.v@gmail.com', 10, 1500458461, 1500459307);
 
 --
 -- Индексы сохранённых таблиц
@@ -373,7 +379,7 @@ ALTER TABLE `apartment`
 -- AUTO_INCREMENT для таблицы `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT для таблицы `facilities`
 --
@@ -393,7 +399,7 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT для таблицы `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
 --
 -- Ограничения внешнего ключа сохраненных таблиц
 --

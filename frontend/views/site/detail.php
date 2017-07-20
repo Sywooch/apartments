@@ -7,6 +7,11 @@ use yii\helpers\Html;
 $user = Yii::$app->user->identity;
 $lang = Yii::$app->language;
 $this->title = Yii::t('app', 'Детали квартиры');
+if ($lang == 'ru'):
+    $months = array( 1 => 'Января', 'Февраля', 'Марта', 'Апреля', 'Мая', 'Июня', 'Июля', 'Августа', 'Сентября', 'Октября', 'Ноября', 'Декабря' );
+elseif($lang == 'ua'):
+    $months = array( 1 => 'Січня', 'Лютого', 'Березня', 'Квітня', 'Травня', 'Червня', 'Липня', 'Серпня', 'Вересня', 'Жовтня', 'Листопада', 'Грудня' );
+endif;
 ?>
 
 <div class="wrapper">
@@ -243,7 +248,7 @@ $this->title = Yii::t('app', 'Детали квартиры');
         <div class="star_ratingblock">
             <div class="amountrate">
                 <div class="flat_stars amount_all" data-score="4.5"></div>
-                <span>20 <?= Yii::t('app', 'отзывов') ?></span>
+                <span><?= $count ?> <?= Yii::t('app', 'отзывов') ?></span>
                 <ul class="ratelist">
                     <li><p><?= Yii::t('app', 'Цена/качество') ?></p><div class="flat_stars" data-score="4"></div></li>
                     <li><p><?= Yii::t('app', 'Общение') ?></p><div class="flat_stars" data-score="5"></div></li>
@@ -252,59 +257,36 @@ $this->title = Yii::t('app', 'Детали квартиры');
                 </ul>
             </div>
         </div>
-        <div class="feedback_block">
-            <img class="user_feedback_ico" src="/frontend/web/img/round.jpg" alt="">
-            <p class="feedback_people_name">
-                <span>Yury</span>
-                <span>Люксембург, Люксембург</span>
-            </p>
-            <div class="user_feedback_rating">
-                <div class="flat_stars" data-score="5"></div>
-                <span>(июнь 2015)</span>
+        <?php
+        if(isset($comments)):
+            foreach($comments as $comment):
+        ?>
+            <div class="feedback_block">
+                <img class="user_feedback_ico" src="/frontend/web/img/round.jpg" alt="">
+                <p class="feedback_people_name">
+                    <span><?= $comment->user->surname.' '.$comment->user->name ?></span>
+                    <span><?= $comment->city ?></span>
+                </p>
+                <div class="user_feedback_rating">
+                    <div class="flat_stars" data-score="<?= $comment->rating ?>"></div>
+                    <span>(<?php
+                        if($lang == 'en'):
+                            echo date('d F Y' , strtotime($comment->date));
+                        else:
+                            echo date('d '.$months[date('n', strtotime($comment->date))].' Y' , strtotime($comment->date));
+                        endif;
+                        ?>)
+                    </span>
+                </div>
+                <p class="feedback_text overflow_test"><?= $comment->comment ?></p>
             </div>
-            <p class="feedback_text overflow_test">1111111111111111111 111111111111111111111111 111111111111111 11111111111 11 Жил неделю. Из того что понравилось: отличный район (под боком большой базар, магазины, Ашан. Центр - уехать можно куда угодно. Кондиционер не подвел) Интернет 5мбит, для работы вполне. Пытались приходить убираться, что плюс (я отказался). Жил ЖилЖил Жил Жил Жил ЖилЖил Жил ЖилЖилЖил ЖилЖилЖил Жил ЖилЖил Жил Жил Жил Жил Жил</p>
-            <a href="#" class="people_readmore_feedback">Читать далее</a>
-        </div>
-        <div class="feedback_block">
-            <img class="user_feedback_ico" src="/frontend/web/img/round.jpg" alt="">
-            <p class="feedback_people_name">
-                <span>Lidia</span>
-                <span>Сиэтл, Вашингтон</span>
-            </p>
-            <div class="user_feedback_rating">
-                <div class="flat_stars" data-score="5"></div>
-                <span>(март 2017)</span>
-            </div>
-            <p class="feedback_text overflow_test">Apartment was in a central location, accessible to public transportation and the main arterial in the city. The owner was quick to response. His property manager was excellent. She checked in and even took care of a request very quickly. The apartment was comfortable. The only negative was the building itself. Older and rundown but not ...</p>
-            <a href="#" class="people_readmore_feedback">Читать далее</a>
-        </div>
-        <div class="feedback_block">
-            <img class="user_feedback_ico" src="/frontend/web/img/round.jpg" alt="">
-            <p class="feedback_people_name">
-                <span>Peter</span>
-                <span>Виннипег, Канада</span>
-            </p>
-            <div class="user_feedback_rating">
-                <div class="flat_stars" data-score="5"></div>
-                <span>(февраль 2017)</span>
-            </div>
-            <p class="feedback_text overflow_test">Nice location on a Main Street, busy during the day, quiet at night. Staff and owner easy to work with and friendly.</p>
-            <a href="#" class="people_readmore_feedback">Читать далее</a>
-        </div>
-        <div class="feedback_block">
-            <img class="user_feedback_ico" src="/frontend/web/img/round.jpg" alt="">
-            <p class="feedback_people_name">
-                <span>Test</span>
-                <span>Test, Test</span>
-            </p>
-            <div class="user_feedback_rating">
-                <div class="flat_stars" data-score="5"></div>
-                <span>(сентябрь 2017)</span>
-            </div>
-            <p class="feedback_text overflow_test"></p>
-            <a href="#" class="people_readmore_feedback">Читать далее</a>
-        </div>
+        <?php
+            endforeach;
+            endif;
+        ?>
+        <?php if($count != 0): ?>
         <a href="#" class="feedback_button other_feedback clearfix"><?= Yii::t('app', 'Другие отзывы') ?></a>
+        <?php endif; ?>
         <a href="#openModal" class="feedback_button send_feedback clearfix"><?= Yii::t('app', 'Оставить отзыв') ?></a>
     </div>
 </div>

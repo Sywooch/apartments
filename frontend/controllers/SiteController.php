@@ -153,16 +153,19 @@ class SiteController extends Controller
     
     public function actionDetail($id){
         $model = new Apartment();
+        $image_model = new Image();
         $new_comment = new Comments();
-        $apartment = Apartment::find()->joinWith(['facilities'])->where('apartment.id='.$id)->one();
-        $comments = Comments::find()->where('apartment_id='.$apartment->id)->orderBy('id DESC')->all();
-        $images = Image::find()->where(['apartment_id' => $id])->all();
+        $apartment = $model->SingleApartment($id);
+        $count = $new_comment->CommentsCount($apartment->id);
+        $comments = $new_comment->AllApartmentComments($apartment->id);
+        $images = $image_model->AllApartmentImages($id);
 
         if ($new_comment->load(Yii::$app->request->post()) && $new_comment->save()) {
             return $this->redirect(Yii::$app->request->referrer);
         }
         
         return $this->render('detail', [
+            'count' => $count,
             'apartment' => $apartment,
             'comments' => $comments,
             'new_comment' => $new_comment,

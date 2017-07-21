@@ -36,6 +36,9 @@ AppAsset::register($this);
         <span id="filter_close"></span>
         <a href="/<?= Yii::$app->language ?>/"><img class="logo_img" src="/frontend/web/img/logo.png" alt="logo"></a>
         <nav class="header_nav">
+            <?php if(!Yii::$app->user->isGuest): ?>
+            <a class="headerbutton" href="/<?= Yii::$app->language ?>/profile?id=<?= Yii::$app->user->identity->getId() ?>"><?= Yii::t('app', 'Личный кабинет') ?></a>
+            <?php endif; ?>
             <a class="headerbutton" href="/<?= Yii::$app->language ?>/contact"><?= Yii::t('app', 'Контакты') ?></a>
             <a class="headerbutton arenda_dom" href="/<?= Yii::$app->language ?>/about"><?= Yii::t('app', 'Сдай свое жилье') ?></a>
                 <span>

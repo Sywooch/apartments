@@ -75,10 +75,35 @@ class UserController extends Controller
                 }
                 return $this->refresh();
             }
+        } else {
+            return $this->render('change_password', [
+                'user' => $user
+            ]);
         }
-        return $this->render("change_password", [
-            'user' => $user,
-        ]);
+    }
+    
+    public function actionChangeEmail()
+    {
+        $user = Yii::$app->user->identity;
+        $user->setScenario('changeEmail');
+        $request = Yii::$app->request->post();
+
+        if (Yii::$app->request->isAjax && $user->load(Yii::$app->request->post())) {
+            Yii::$app->response->format = Response::FORMAT_JSON;
+            return ActiveForm::validate($user);
+        }
+        
+        if($user->load(Yii::$app->request->post())){
+            $user->email = $request['User']['email'];
+            if($user->save(false)){
+                Yii::$app->session->setFlash('success', 'Вы успешно поменяли свой E-mail!');
+                return $this->refresh();
+            }
+        } else {
+            return $this->render('change_email', [
+                'user' => $user
+            ]);   
+        }
     }
 
 }

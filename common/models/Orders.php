@@ -45,8 +45,7 @@ class Orders extends \yii\db\ActiveRecord
             'date' => 'Дата заказа'
         ];
     }
-
-
+    
     public function getApartment()
     {
         return $this->hasOne(Apartment::className(), ['id' => 'apartment_id']);
@@ -55,6 +54,18 @@ class Orders extends \yii\db\ActiveRecord
     public function getUser()
     {
         return $this->hasOne(User::className(), ['id' => 'user_id']);
+    }
+
+    public function DateFormat($date)
+    {
+        $lang = Yii::$app->language;
+        if ($lang == 'ru'):
+            $months = array( 1 => 'Января', 'Февраля', 'Марта', 'Апреля', 'Мая', 'Июня', 'Июля', 'Августа', 'Сентября', 'Октября', 'Ноября', 'Декабря' );
+        elseif($lang == 'ua'):
+            $months = array( 1 => 'Січня', 'Лютого', 'Березня', 'Квітня', 'Травня', 'Червня', 'Липня', 'Серпня', 'Вересня', 'Жовтня', 'Листопада', 'Грудня' );
+        endif;
+
+        return date('d '.$months[date('n', strtotime($date))].' Y' , strtotime($date));
     }
 
     public function getStatusName()

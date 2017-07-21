@@ -65,7 +65,10 @@ return [
                 'login' => 'site/login',
                 'signup' => 'site/signup',
                 'complete-registration' => 'site/complete-registration',
-                'create-comment' => 'site/create-comment'
+                'create-comment' => 'site/create-comment',
+                'profile' => 'profile/profile',
+                'change-password' => 'profile/change-password',
+                'avatar-upload' => 'profile/avatar-upload'
 //                '<action>'=>'site/<action>',
             ],
         ],

@@ -29,7 +29,8 @@
                     [
                         'label' => '<span class="glyphicon glyphicon-cog"></span> Настройки',
                         'items' => [
-                            ['label' => 'Смена пароля', 'url' => '/admin/user/change-password/']
+                            ['label' => 'Смена пароля', 'url' => '/admin/user/change-password/'],
+                            ['label' => 'Смена E-mail', 'url' => '/admin/user/change-email/']
                         ]
                     ]
 //                    [

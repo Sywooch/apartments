@@ -7,11 +7,6 @@ use yii\helpers\Html;
 $user = Yii::$app->user->identity;
 $lang = Yii::$app->language;
 $this->title = Yii::t('app', 'Детали квартиры');
-if ($lang == 'ru'):
-    $months = array( 1 => 'Января', 'Февраля', 'Марта', 'Апреля', 'Мая', 'Июня', 'Июля', 'Августа', 'Сентября', 'Октября', 'Ноября', 'Декабря' );
-elseif($lang == 'ua'):
-    $months = array( 1 => 'Січня', 'Лютого', 'Березня', 'Квітня', 'Травня', 'Червня', 'Липня', 'Серпня', 'Вересня', 'Жовтня', 'Листопада', 'Грудня' );
-endif;
 ?>
 
 <div class="wrapper">
@@ -262,7 +257,11 @@ endif;
             foreach($comments as $comment):
         ?>
             <div class="feedback_block">
-                <img class="user_feedback_ico" src="/frontend/web/img/round.jpg" alt="">
+                <?php if(isset($comment->user->avatar)): ?>
+                    <img class="user_feedback_ico" src="/frontend/web/<?= $comment->user->avatar ?>" alt="">
+                <?php else: ?>
+                    <img class="user_feedback_ico" src="/frontend/web/img/round.jpg" alt="">
+                <?php endif; ?>
                 <p class="feedback_people_name">
                     <span><?= $comment->user->surname.' '.$comment->user->name ?></span>
                     <span><?= $comment->city ?></span>
@@ -270,10 +269,10 @@ endif;
                 <div class="user_feedback_rating">
                     <div class="flat_stars" data-score="<?= $comment->rating ?>"></div>
                     <span>(<?php
-                        if($lang == 'en'):
+                        if(Yii::$app->language == 'en'):
                             echo date('d F Y' , strtotime($comment->date));
                         else:
-                            echo date('d '.$months[date('n', strtotime($comment->date))].' Y' , strtotime($comment->date));
+                            echo $orders->DateFormat($comment->date);
                         endif;
                         ?>)
                     </span>

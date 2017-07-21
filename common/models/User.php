@@ -14,6 +14,7 @@ class User extends ActiveRecord implements IdentityInterface
     const STATUS_VERIFIED = 5;
     const STATUS_ACTIVE = 10;
 
+    public $photo;
     public $newPassword;
     public $currentPassword;
     public $newPasswordConfirm;
@@ -37,6 +38,11 @@ class User extends ActiveRecord implements IdentityInterface
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED, self::STATUS_VERIFIED]],
             [['newPassword', 'currentPassword', 'newPasswordConfirm'], 'required', 'on' => 'changePwd'],
+            [['photo'], 'required', 'on' => 'changeAvatar'],
+            [['email'], 'email'],
+            [['email'], 'unique'],
+            [['email'], 'required', 'on' => 'changeEmail'],
+            [['photo'], 'file', 'extensions' => 'png, jpg'],
             [['currentPassword'], 'validateCurrentPassword'],
             [['newPassword', 'newPasswordConfirm'], 'string', 'min' => 6],
             [['newPassword', 'newPasswordConfirm'], 'filter', 'filter' => 'trim'],
@@ -49,6 +55,7 @@ class User extends ActiveRecord implements IdentityInterface
         return [
             'username' => 'Логин',
             'name' => 'Имя',
+            'photo' => 'Аватар',
             'surname' => 'Фамилия',
             'status' => 'Статус',
             'email' => 'Email',

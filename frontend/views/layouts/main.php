@@ -10,6 +10,8 @@ $action = Yii::$app->controller->action->id;
 $body_id = '';
 if($controller == 'site' && $action == 'detail'){
     $body_id = 'flat_single';
+} elseif ($controller == 'profile' && $action == 'profile'){
+    $body_id = 'profile';
 }
 
 AppAsset::register($this);
@@ -91,7 +93,8 @@ AppAsset::register($this);
     Yii::$app->request->url == '/ua/about' ||
     Yii::$app->request->url == '/ru/contact' ||
     Yii::$app->request->url == '/en/contact' ||
-    Yii::$app->request->url == '/ua/contact'
+    Yii::$app->request->url == '/ua/contact' ||
+    $controller == 'profile' && $action == 'profile'
 ){
 ?>
     <footer class="singlepage_footer">

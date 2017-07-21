@@ -1,20 +1,19 @@
 <?php
 namespace frontend\controllers;
 
-use common\models\ApartmentSearch;
-use common\models\Comments;
-use common\models\Orders;
-use common\models\User;
 use Yii;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
 use yii\web\Controller;
-use yii\data\ActiveDataProvider;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use common\models\LoginForm;
 use common\models\Apartment;
 use common\models\Image;
+use common\models\ApartmentSearch;
+use common\models\Comments;
+use common\models\Orders;
+use common\models\User;
 use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
@@ -158,6 +157,7 @@ class SiteController extends Controller
     
     public function actionDetail($id){
         $model = new Apartment();
+        $orders = new Orders();
         $image_model = new Image();
         $new_comment = new Comments();
         
@@ -173,6 +173,7 @@ class SiteController extends Controller
         
         return $this->render('detail', [
             'count' => $count,
+            'orders' => $orders,
             'rating' => $rating,
             'apartment' => $apartment,
             'comments' => $comments,

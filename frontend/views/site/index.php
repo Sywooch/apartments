@@ -212,9 +212,8 @@ $this->title = Yii::t('app', 'Главная');
                 </div>
             </div>
         <?php ActiveForm::end() ?>
-        <a href="#openModal" class="sidebar_btn sidebar_bonus"><?= Yii::t('app', 'Бонусная программа') ?></a>
-        <a href="#openModal" class="sidebar_btn sidebar_customers"><?= Yii::t('app', 'Постоянным клиентам') ?></a>
-        <a href="#openModal" class="sidebar_btn sidebar_friend"><?= Yii::t('app', 'Засели друга') ?></a>
+
+        <?= $this->render('/layouts/main-responsive') ?>
 
     </aside>
 

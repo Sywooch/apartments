@@ -45,9 +45,9 @@ class LoginForm extends Model
             if (!$user || !$user->validatePassword($this->password)) {
                 $this->addError($attribute, 'Не верное имя пользователя или пароль.');
             }
-            if ($user->status == 0){
-                $this->addError($attribute, 'Вы были заблокированы.');
-            }
+//            if ($user->status == 0){
+//                $this->addError($attribute, 'Вы были заблокированы.');
+//            }
         }
     }
 

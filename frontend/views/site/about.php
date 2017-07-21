@@ -8,6 +8,10 @@ $this->title = Yii::t('app', 'О нас');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
+<aside class="sidebar sidebar_single">
+    <?= $this->render('/layouts/main-responsive') ?>
+</aside>
+
 <div class="singlepage_wrapper">
     <h2 class="sdai_header"><?= Yii::t('app', 'Сдай свое жилье') ?></h2>
     <p class="rent_block"><?= Yii::t('app', 'Для того чтобы начать сотрудничество с нашим ресурсом вам необходимо позвонить нам и сообщить о вашем желании разместить на нашем сайте объявление о вашем объекте размещения и ознакомиться с нашими условиями сотрудничества.') ?></p>

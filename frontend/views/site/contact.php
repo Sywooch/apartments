@@ -7,6 +7,10 @@ use yii\captcha\Captcha;
 $this->title = Yii::t('app', 'Контакты');
 ?>
 
+<aside class="sidebar sidebar_single">
+    <?= $this->render('/layouts/main-responsive') ?>
+</aside>
+
 <div class="singlepage_wrapper">
     <div class="half_col">
         <h2 class="contacts_header"><?= Yii::t('app', 'Контакты') ?></h2>

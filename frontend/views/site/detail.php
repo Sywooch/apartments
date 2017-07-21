@@ -9,6 +9,10 @@ $lang = Yii::$app->language;
 $this->title = Yii::t('app', 'Детали квартиры');
 ?>
 
+<aside class="sidebar sidebar_single">
+    <?= $this->render('/layouts/main-responsive') ?>
+</aside>
+
 <div class="wrapper">
     <div class="main_col">
         <h2 class="flat_single_header">

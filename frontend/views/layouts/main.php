@@ -55,40 +55,7 @@ AppAsset::register($this);
     </div>
 </header>
 
-<!--    --><?php
-//    NavBar::begin([
-//        'brandLabel' => 'Аренда квартир',
-//        'brandUrl' => Yii::$app->homeUrl,
-//        'options' => [
-//            'class' => 'navbar-inverse navbar-fixed-top',
-//        ],
-//    ]);
-//    $menuItems = [
-//        ['label' => 'Главная', 'url' => ['/site/index']],
-//        ['label' => 'О нас', 'url' => ['/site/about']],
-//        ['label' => 'Контакты', 'url' => ['/site/contact']],
-//    ];
-//    if (Yii::$app->user->isGuest) {
-//        $menuItems[] = ['label' => 'Регистрация', 'url' => ['/site/signup']];
-//        $menuItems[] = ['label' => 'Вход', 'url' => ['/site/login']];
-//    } else {
-//        $menuItems[] = '<li>'
-//            . Html::beginForm(['/site/logout'], 'post')
-//            . Html::submitButton(
-//                'Выход (' . Yii::$app->user->identity->username . ')',
-//                ['class' => 'btn btn-link logout']
-//            )
-//            . Html::endForm()
-//            . '</li>';
-//    }
-//    echo Nav::widget([
-//        'options' => ['class' => 'navbar-nav navbar-right'],
-//        'items' => $menuItems,
-//    ]);
-//    NavBar::end();
-//    ?>
-
-    <?= $content ?>
+<?= $content ?>
 
 <?php if(
     Yii::$app->request->url == '/ru/about' ||

@@ -20,7 +20,7 @@
                 'encodeLabels' => false,
                 'items' => [
                     ['label' => 'Меню', 'options' => ['class' => 'header']],
-                    ['label' => 'Сайт', 'icon' => 'glyphicon glyphicon-home', 'url' => '/'],
+                    ['label' => 'Сайт', 'icon' => 'glyphicon glyphicon-home', 'url' => '/', 'template'=> '<a href="{url}" target="_blank">{icon}{label}</a>'],
                     ['label' => 'Заказы', 'icon' => 'fa fa-shopping-cart', 'url' => '/admin/orders/'],
                     ['label' => 'Квартиры', 'icon' => 'fa fa-bed', 'url' => '/admin/apartment/'],
                     ['label' => 'Пользователи', 'icon' => 'fa fa-user', 'url' => '/admin/user/'],

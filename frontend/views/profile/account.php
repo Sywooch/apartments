@@ -8,6 +8,10 @@ use yii\widgets\ActiveForm;
 $this->title = Yii::t('app', 'Профиль');
 ?>
 
+<aside class="sidebar sidebar_single">
+    <?= $this->render('/layouts/main-responsive') ?>
+</aside>
+
 <div class="personal_cab_sideb">
     <?php $form = ActiveForm::begin([
         'id' => 'userprofile_passreset',

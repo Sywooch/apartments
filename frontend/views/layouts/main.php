@@ -48,7 +48,7 @@ AppAsset::register($this);
                 if(Yii::$app->user->isGuest){
                     echo Html::a(Yii::t('app', 'Вход'), ['/site/login'], ['class' => 'headerbutton']);
                 } else {
-                    echo Html::a(Yii::t('app', 'Выход').' ('.Yii::$app->user->identity->username.')', ['/site/logout'], ['class' => 'headerbutton','data' => ['method'=>'post']]);
+                    echo Html::a(Yii::t('app', 'Выход'), ['/site/logout'], ['class' => 'headerbutton','data' => ['method'=>'post']]);
                 }
             ?>
         </nav>
@@ -56,6 +56,17 @@ AppAsset::register($this);
 </header>
 
 <?= $content ?>
+
+<div id="openModal_l" class="modalDialog">
+    <div>
+        <a href="#close" title="Закрыть" class="close"></a>
+        <h2 class="modal_header">Модальное окно</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
+        <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+        <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non.</p>
+    </div>
+</div>
 
 <?php if(
     Yii::$app->request->url == '/ru/about' ||

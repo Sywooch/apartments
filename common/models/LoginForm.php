@@ -12,7 +12,6 @@ class LoginForm extends Model
     public $username;
     public $email;
     public $password;
-    public $status;
     public $rememberMe = true;
 
     private $_user;
@@ -44,10 +43,11 @@ class LoginForm extends Model
             $user = $this->getUser();
             if (!$user || !$user->validatePassword($this->password)) {
                 $this->addError($attribute, 'Не верное имя пользователя или пароль.');
+            } elseif ($this->_user->status == 0){
+                $this->addError($attribute, 'Вы были заблокированы.');
+            } elseif ($this->_user->status == 5){
+                $this->addError($attribute, 'Вы не активировали ваш аккаунт.');
             }
-//            if ($user->status == 0){
-//                $this->addError($attribute, 'Вы были заблокированы.');
-//            }
         }
     }
 

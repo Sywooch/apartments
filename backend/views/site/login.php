@@ -23,7 +23,7 @@ $fieldOptions2 = [
     <div class="login-box-body">
         <p class="login-box-msg">Пожалуйста, авторизируйтесь</p>
 
-        <?php $form = ActiveForm::begin(['id' => 'login-form', 'enableClientValidation' => false]); ?>
+        <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
 
         <?= $form
             ->field($model, 'email', $fieldOptions1)

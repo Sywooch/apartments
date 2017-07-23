@@ -45,14 +45,14 @@ class SignupForm extends Model
     public function attributeLabels()
     {
         return [
-            'username' => 'Логин',
-            'name' => 'Имя',
-            'surname' => 'Фамилия',
-            'email' => 'Email',
-            'password' => 'Пароль',
-            'confirm_password' => 'Пароль подтверждения',
-            'status' => 'Статус',
-            'created_at' => 'Зарегистрирован',
+            'username' => Yii::t('app', 'Логин'),
+            'name' => Yii::t('app', 'Имя'),
+            'surname' => Yii::t('app', 'Фамилия'),
+            'email' => Yii::t('app', 'Email'),
+            'password' => Yii::t('app', 'Пароль'),
+            'confirm_password' => Yii::t('app', 'Пароль подтверждения'),
+            'status' => Yii::t('app', 'Статус'),
+            'created_at' => Yii::t('app', 'Зарегистрирован'),
         ];
     }
 

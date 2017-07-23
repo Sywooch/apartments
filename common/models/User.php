@@ -70,7 +70,7 @@ class User extends ActiveRecord implements IdentityInterface
     {
         if (!$this->verifyPassword($this->currentPassword))
         {
-            $this->addError("currentPassword", "Current password is not correct!");
+            $this->addError("currentPassword", "Текущий пароль не верный!");
         }
     }
 

@@ -144,4 +144,6 @@ return [
     'Дата заезда' => 'Arrival date',
     'Дата выезда' => 'Date of departure',
     'Сумма' => 'Amount',
+    'Пользователя с таким Email не существует' => 'User with this Email does not exist',
+    'Пароль подтверждения' => 'Confirm password'
 ];

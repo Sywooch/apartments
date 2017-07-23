@@ -50,7 +50,6 @@ use yii\widgets\ActiveForm;
             <?= $form->field($model, 'guests')->textInput() ?>
 
             <?= $form->field($model, 'room_count')->dropDownList([
-                'prompt'=>'Выберите количество комнат...',
                     '1' => '1',
                     '2' => '2',
                     '3' => '3',
@@ -60,7 +59,6 @@ use yii\widgets\ActiveForm;
             ?>
 
             <?= $form->field($model, 'bed_count')->dropDownList([
-                'prompt'=>'Выберите количество спальных мест...',
                 '1' => '1',
                 '2' => '2',
                 '3' => '3',
@@ -75,9 +73,8 @@ use yii\widgets\ActiveForm;
             ?>
 
             <?= $form->field($model, 'type')->dropDownList([
-                'prompt'=>'Выберите тип жилья...',
-                'Дом' => 'Дом',
                 'Квартира' => 'Квартира',
+                'Дом' => 'Дом',
                 'Комната' => 'Комната',
             ]);
             ?>
@@ -95,7 +92,6 @@ use yii\widgets\ActiveForm;
             ?>
 
             <?= $form->field($model, 'floor')->dropDownList([
-                'prompt'=>'Выберите этаж...',
                 '1' => '1',
                 '2' => '2',
                 '3' => '3',
@@ -125,6 +121,9 @@ use yii\widgets\ActiveForm;
 
             <?= $form->field($model, 'phone')->widget(\yii\widgets\MaskedInput::className(), [
                 'mask' => '+3 (999) 999 99 99',
+                'clientOptions'=>[
+                    'clearIncomplete'=>true
+                ]
             ])->textInput() ?>
 
             <?= $form->field($model, 'stock')->checkbox() ?>

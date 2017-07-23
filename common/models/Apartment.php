@@ -19,7 +19,8 @@ class Apartment extends \yii\db\ActiveRecord
     {
         return [
             [['title_ru', 'title_ua', 'title_en', 'description_ru', 'description_ua', 'description_en', 'coordinates',
-                'price_2', 'price_night', 'price_day', 'price_5', 'price_10', 'type', 'area', 'guests', 'owner', 'phone'], 'required'],
+                'price_2', 'price_night', 'price_day', 'price_5', 'price_10', 'type', 'area', 'guests', 'owner', 'phone',
+                'room_count', 'floor'], 'required'],
             [['description_ru', 'description_ua', 'description_en', 'coordinates', 'latitude', 'longitude'], 'string'],
             [['stock'], 'integer'],
             [['price_2', 'price_night', 'price_day', 'price_5', 'price_10', 'apartment_area'], 'number'],

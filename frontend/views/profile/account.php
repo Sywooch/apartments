@@ -58,7 +58,15 @@ $this->title = Yii::t('app', 'Профиль');
             [
                 'contentOptions' => ['data-label' => Yii::t('app', 'Информация о квартире')],
                 'header' => Yii::t('app', 'Информация о квартире'),
-                'value' => 'apartment.title_ru'
+                'value' => function($model){
+                    if(Yii::$app->language == 'ru'){
+                        return $model->apartment->title_ru;
+                    } elseif(Yii::$app->language == 'ua'){
+                        return $model->apartment->title_ua;
+                    } elseif(Yii::$app->language == 'en'){
+                        return $model->apartment->title_en;
+                    }
+                }
             ],
             [
                 'contentOptions' => ['data-label' => 'Дата заказа'],

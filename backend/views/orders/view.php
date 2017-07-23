@@ -33,8 +33,14 @@ $this->params['breadcrumbs'][] = $this->title;
                     'attribute' => 'apartment_id',
                     'value' => $model->apartment->title_ru
                 ],
-                'date_start',
-                'date_end',
+                [
+                    'attribute' => 'date_start',
+                    'value' => $model->DateFormat($model->date_start)
+                ],
+                [
+                    'attribute' => 'date_end',
+                    'value' => $model->DateFormat($model->date_end)
+                ],
                 [
                     'attribute' => 'user_id',
                     'format' => 'raw',
@@ -57,7 +63,10 @@ $this->params['breadcrumbs'][] = $this->title;
                         }
                     }
                 ],
-                'date',
+                [
+                    'attribute' => 'date',
+                    'value' => $model->DateTimeFormat($model->date)
+                ],
                 [
                     'attribute' => 'total_price',
                     'value' => function($model){

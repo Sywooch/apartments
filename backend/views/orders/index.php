@@ -35,7 +35,9 @@ $this->params['breadcrumbs'][] = $this->title;
                 ],
                 [
                     'attribute' => 'date_start',
-                    'value' => 'date_start',
+                    'value' => function($model) {
+                        return $model->DateFormat($model->date_start);
+                    },
                     'filter' => DatePicker::widget([
                         'model' => $searchModel,
                         'attribute' => 'date_start',
@@ -47,7 +49,9 @@ $this->params['breadcrumbs'][] = $this->title;
                 ],
                 [
                     'attribute' => 'date_end',
-                    'value' => 'date_end',
+                    'value' => function($model) {
+                        return $model->DateFormat($model->date_end);
+                    },
                     'filter' => DatePicker::widget([
                         'model' => $searchModel,
                         'attribute' => 'date_end',
@@ -70,7 +74,12 @@ $this->params['breadcrumbs'][] = $this->title;
                         return $model->total_price.' грн.';
                     }
                 ],
-                'date',
+                [
+                    'attribute' => 'date',
+                    'value' => function($model) {
+                        return $model->DateTimeFormat($model->date);
+                    },
+                ],
                 [
                     'attribute' => 'status',
                     'value' => 'statusName',

@@ -68,6 +68,13 @@ class Orders extends \yii\db\ActiveRecord
         return date('d '.$months[date('n', strtotime($date))].' Y' , strtotime($date));
     }
 
+    public function DateTimeFormat($date)
+    {
+        $months = array( 1 => 'Января', 'Февраля', 'Марта', 'Апреля', 'Мая', 'Июня', 'Июля', 'Августа', 'Сентября', 'Октября', 'Ноября', 'Декабря' );
+
+        return date('d '.$months[date('n', strtotime($date))].' Y H:i:s' , strtotime($date));
+    }
+
     public function getStatusName()
     {
         $values = array(

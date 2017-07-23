@@ -15,7 +15,7 @@ class OrdersSearch extends Orders
     {
         return [
             [['id', 'status'], 'integer'],
-            [['user_id', 'apartment_id'], 'safe'],
+            [['user_id', 'apartment_id', 'date_start', 'date_end'], 'safe'],
             [['total_price'], 'number'],
         ];
     }

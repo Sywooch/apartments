@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
+use kartik\date\DatePicker;
 
 $this->title = 'Заказы';
 $this->params['breadcrumbs'][] = $this->title;
@@ -32,8 +33,30 @@ $this->params['breadcrumbs'][] = $this->title;
                     'attribute' => 'apartment_id',
                     'value' => 'apartment.title_ru'
                 ],
-                'date_start',
-                'date_end',
+                [
+                    'attribute' => 'date_start',
+                    'value' => 'date_start',
+                    'filter' => DatePicker::widget([
+                        'model' => $searchModel,
+                        'attribute' => 'date_start',
+                        'pluginOptions' => [
+                            'autoclose'=>true,
+                            'format' => 'yyyy-mm-dd'
+                        ]
+                    ]),
+                ],
+                [
+                    'attribute' => 'date_end',
+                    'value' => 'date_end',
+                    'filter' => DatePicker::widget([
+                        'model' => $searchModel,
+                        'attribute' => 'date_end',
+                        'pluginOptions' => [
+                            'autoclose'=>true,
+                            'format' => 'yyyy-mm-dd'
+                        ]
+                    ]),
+                ],
                 [
                     'attribute' => 'user_id',
                     'format' => 'raw',

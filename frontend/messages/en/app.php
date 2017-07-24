@@ -145,5 +145,9 @@ return [
     'Дата выезда' => 'Date of departure',
     'Сумма' => 'Amount',
     'Пользователя с таким Email не существует' => 'User with this Email does not exist',
-    'Пароль подтверждения' => 'Confirm password'
+    'Пароль подтверждения' => 'Confirm password',
+    'Пароли не совпадают!' => 'Passwords do not match!',
+    'Текущий пароль не верный!' => 'The current password is not correct!',
+    'Аватар' => 'Avatar',
+    'Подтверждение нового пароля' => 'Confirm New Password',
 ];

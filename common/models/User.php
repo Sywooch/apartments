@@ -46,7 +46,7 @@ class User extends ActiveRecord implements IdentityInterface
             [['currentPassword'], 'validateCurrentPassword'],
             [['newPassword', 'newPasswordConfirm'], 'string', 'min' => 6],
             [['newPassword', 'newPasswordConfirm'], 'filter', 'filter' => 'trim'],
-            [['newPasswordConfirm'], 'compare', 'compareAttribute' => 'newPassword', 'message' => 'Пароли не совпадают!'],
+            [['newPasswordConfirm'], 'compare', 'compareAttribute' => 'newPassword', 'message' => Yii::t('app', 'Пароли не совпадают!')],
         ];
     }
 
@@ -55,14 +55,14 @@ class User extends ActiveRecord implements IdentityInterface
         return [
             'username' => 'Логин',
             'name' => 'Имя',
-            'photo' => 'Аватар',
+            'photo' => Yii::t('app', 'Аватар'),
             'surname' => 'Фамилия',
             'status' => 'Статус',
             'email' => 'Email',
             'created_at' => 'Зарегистрирован',
-            'currentPassword' => 'Текущий пароль',
-            'newPassword' => 'Новый пароль',
-            'newPasswordConfirm' => 'Подтверждение нового пароля',
+            'currentPassword' => Yii::t('app', 'Текущий пароль'),
+            'newPassword' => Yii::t('app', 'Новый пароль'),
+            'newPasswordConfirm' => Yii::t('app', 'Подтверждение нового пароля'),
         ];
     }
 
@@ -70,7 +70,7 @@ class User extends ActiveRecord implements IdentityInterface
     {
         if (!$this->verifyPassword($this->currentPassword))
         {
-            $this->addError("currentPassword", "Текущий пароль не верный!");
+            $this->addError("currentPassword", Yii::t('app', 'Текущий пароль не верный!'));
         }
     }
 

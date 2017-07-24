@@ -6,6 +6,7 @@ use yii\helpers\Html;
 
 $user = Yii::$app->user->identity;
 $lang = Yii::$app->language;
+$comment_count = 0;
 $this->title = Yii::t('app', 'Детали квартиры');
 $this->registerJsFile('/frontend/web/js/comments.js', ['depends' => [\yii\web\JqueryAsset::className()]]);
 ?>
@@ -282,9 +283,11 @@ $this->registerJsFile('/frontend/web/js/comments.js', ['depends' => [\yii\web\Jq
                         ?>)
                     </span>
                 </div>
-                <p class="feedback_text overflow_test"><?= $comment->comment ?></p>
+                <p id="count_read_more_<?= $comment_count ?>" class="feedback_text overflow_test"><?= $comment->comment ?></p>
+                <a href="#read_more_<?= $comment_count ?>" id="read_more_<?= $comment_count ?>" class="people_readmore_feedback read_more_<?= $comment_count ?>"><?= Yii::t('app', 'Читать далее') ?></a>
             </div>
         <?php
+                $comment_count++;
             endforeach;
             endif;
         ?>

@@ -22,7 +22,7 @@ $( document ).ready( function() {
     });
 
     $( "#comments_hide" ).click( function() {
-        f_block.each(function() {
+        f_block.each( function() {
             if( index > 3 ){
                 $( this ).addClass( "hide_comment" );
             }
@@ -31,5 +31,13 @@ $( document ).ready( function() {
         $( "#comments_hide" ).addClass( "hide_comment" );
         $( "#comments_show" ).removeClass( "hide_comment" );
         index = 0;
+    });
+
+    $( ".people_readmore_feedback" ).click( function() {
+        $( '#count_' + this.id ).css({
+            "max-height": "100%",
+            "overflow-y": ""
+        });
+        $( '#' + this.id ).addClass( "hide_comment" );
     });
 });

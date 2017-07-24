@@ -22,10 +22,13 @@ class SignupForm extends Model
         return [
             ['username', 'trim'],
             ['username', 'required'],
+            [['username'], 'loginValidate'],
             ['username', 'unique', 'targetClass' => '\common\models\User', 'message' => 'Такой логин уже существует.'],
             ['username', 'string', 'min' => 2, 'max' => 255],
             [['name', 'surname'], 'required'],
             [['name', 'surname'], 'string', 'min' => 2],
+            [['name'], 'nameValidate'],
+            [['surname'], 'surnameValidate'],
 
             ['email', 'trim'],
             ['email', 'required'],
@@ -34,6 +37,7 @@ class SignupForm extends Model
             ['email', 'unique', 'targetClass' => '\common\models\User', 'message' => 'Такой email уже существует.'],
 
             ['password', 'required'],
+            [['password'], 'passValidate'],
             ['password', 'string', 'min' => 6],
 
             ['confirm_password', 'required'],
@@ -56,10 +60,34 @@ class SignupForm extends Model
         ];
     }
 
+    public function loginValidate($attribute){
+        if(preg_match("#[\W]+#",$this->username)) {
+            $this->addError($attribute, Yii::t('app', 'Логин не может содержать специальные символы'));
+        }
+    }
+
+    public function nameValidate($attribute){
+        if(preg_match("#[\W]+#",$this->name)) {
+            $this->addError($attribute, Yii::t('app', 'Имя не может содержать специальные символы'));
+        }
+    }
+
+    public function surnameValidate($attribute){
+        if(preg_match("#[\W]+#",$this->surname)) {
+            $this->addError($attribute, Yii::t('app', 'Фамилия не может содержать специальные символы'));
+        }
+    }
+
+    public function passValidate($attribute){
+        if($this->password == $this->username){
+            $this->addError($attribute, Yii::t('app', 'Логин не может быть паролем'));
+        }
+    }
+
     public function matchPassword($attribute)
     {
         if ($this->password != $this->confirm_password) {
-            $this->addError($attribute, "Не верный пароль подтверждения");
+            $this->addError($attribute, Yii::t('app', 'Не верный пароль подтверждения'));
         }
     }
 

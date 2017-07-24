@@ -151,5 +151,9 @@ return [
     'Аватар' => 'Avatar',
     'Подтверждение нового пароля' => 'Confirm New Password',
     'Скрыть отзывы' => 'Hide reviews',
-    'Читать далее' => 'Read more'
+    'Читать далее' => 'Read more',
+    'Логин не может содержать специальные символы' => 'Login can not contain special characters',
+    'Имя не может содержать специальные символы' => 'Name can not contain special characters',
+    'Фамилия не может содержать специальные символы' => 'Surname can not contain special characters',
+    'Логин не может быть паролем' => 'Login can not be a password'
 ];

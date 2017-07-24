@@ -51,9 +51,9 @@ $this->title = Yii::t('app', 'Вход');
 
                 <?= $form->field($register, 'username')->textInput(['id' => 'login', 'placeholder' => Yii::t('app', 'Логин')])->label(false) ?>
 
-                <?= $form->field($register, 'surname')->textInput(['id' => 'usersurname', 'placeholder' => Yii::t('app', 'Фамилия')])->label(false) ?>
-
                 <?= $form->field($register, 'name')->textInput(['id' => 'username', 'placeholder' => Yii::t('app', 'Имя')])->label(false) ?>
+
+                <?= $form->field($register, 'surname')->textInput(['id' => 'usersurname', 'placeholder' => Yii::t('app', 'Фамилия')])->label(false) ?>
 
                 <?= $form->field($register, 'email')->textInput(['id' => 'usermail', 'placeholder' => Yii::t('app', 'E-mail')])->label(false) ?>
 

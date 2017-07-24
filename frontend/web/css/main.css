@@ -1426,7 +1426,7 @@ input[type=number] {
 }
 
 .flattime p select {
-    width: 133px;
+    width: 129px;
     height: 30px;
     border: 1px solid #ebebeb;
     background-color: #fff;
@@ -2154,7 +2154,7 @@ input[type=number] {
     line-height: 35px;
     margin-bottom: 15px;
     padding: 0 10px;
-    width: 51%;
+    width: 100%;
 }
 
 #flat_single textarea {

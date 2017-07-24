@@ -23,7 +23,7 @@ $( document ).ready( function() {
 
     $( "#comments_hide" ).click( function() {
         f_block.each( function() {
-            if( index > 3 ){
+            if( index > 2 ){
                 $( this ).addClass( "hide_comment" );
             }
             index += 1;

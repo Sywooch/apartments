@@ -98,6 +98,10 @@ $( document ).ready(function() {
         }
     };
 
+    $( '#reload_capcha' ).click( function() {
+       $( '#contactform-verifycode-image' ).click();
+    });
+
     $(".set > a").on("click", function(){
         if($(this).hasClass('active')){
             $(this).removeClass("active");

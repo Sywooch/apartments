@@ -30,6 +30,7 @@ $this->title = Yii::t('app', 'Контакты');
         <?php $form = ActiveForm::begin([
             'id' => 'contact-form',
             'errorCssClass' => 'valid_err',
+            'enableAjaxValidation' => true,
             'options'=> [
                 'class' => 'contactform'
             ]
@@ -45,6 +46,8 @@ $this->title = Yii::t('app', 'Контакты');
             <label for="message" class="textarea_label"><?= Yii::t('app', 'Сообщение') ?><br>
                 <?= $form->field($model, 'body')->textarea(['id'=>'message'])->label(false) ?>
             </label>
+
+            <a href="#" id="reload_capcha"><?= Yii::t('app', 'Изменить картинку') ?></a>
 
             <?= $form->field($model, 'verifyCode')->widget(Captcha::className(), [
                 'template' => '{image}{input}',

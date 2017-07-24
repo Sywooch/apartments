@@ -156,5 +156,6 @@ return [
     'Имя не может содержать специальные символы' => 'Name can not contain special characters',
     'Фамилия не может содержать специальные символы' => 'Surname can not contain special characters',
     'Логин не может быть паролем' => 'Login can not be a password',
-    'Пароль не может содержать пробелы' => 'Password can not contain spaces'
+    'Пароль не может содержать пробелы' => 'Password can not contain spaces',
+    'Изменить картинку' => 'Change photo'
 ];

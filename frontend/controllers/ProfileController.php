@@ -72,7 +72,7 @@ class ProfileController extends Controller
 
         return $this->render('account', [
             'user' => $user,
-            'dataProvider' => $dataProvider
+            'dataProvider' => $dataProvider,
         ]);
     }
 

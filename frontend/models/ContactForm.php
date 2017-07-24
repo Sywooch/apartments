@@ -19,11 +19,11 @@ class ContactForm extends Model
     {
         return [
             [['name', 'email', 'body'], 'required'],
+            [['name'], 'nameValidate'],
             ['email', 'email'],
             ['verifyCode', 'captcha'],
         ];
     }
-
 
     public function attributeLabels()
     {
@@ -33,6 +33,12 @@ class ContactForm extends Model
             'email' => Yii::t('app', 'Email'),
             'body' => Yii::t('app', 'Сообщение'),
         ];
+    }
+
+    public function nameValidate($attribute){
+        if(preg_match("#[\W]+#",$this->name)) {
+            $this->addError($attribute, Yii::t('app', 'Имя не может содержать специальные символы'));
+        }
     }
 
     public function sendEmail($email)

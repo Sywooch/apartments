@@ -2172,6 +2172,19 @@ input[type=number] {
     margin-bottom: 0;
 }
 
+#comment-form input[type="submit"] {
+    background-color: #4989c7;
+    border: 1px solid #4989c7;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 400;
+    height: 35px;
+    line-height: 18px;
+    width: 100%;
+    margin: 20px 0;
+}
+
 .modal_rating {
     width: 212px;
     float: left;
@@ -2180,6 +2193,20 @@ input[type=number] {
 
 .modal_rating select {
     width: 100%;
+}
+
+#contactform-verifycode-image {
+    float: left;
+}
+
+#reload_capcha {
+    float: right;
+    color: #4989c7;
+
+    font-family: "Open Sans",sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 35px;
 }
 
 /*-----------/-page user cab--------------------*/

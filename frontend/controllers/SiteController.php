@@ -218,6 +218,11 @@ class SiteController extends Controller
     {
         $model = new ContactForm();
 
+        if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post())) {
+            Yii::$app->response->format = Response::FORMAT_JSON;
+            return ActiveForm::validate($model);
+        }
+
         if(Yii::$app->request->isAjax && $model->load(Yii::$app->request->post())){
             if($model->sendEmail(Yii::$app->params['adminEmail'])){
                 return 1;    

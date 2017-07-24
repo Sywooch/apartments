@@ -6,6 +6,7 @@ use yii\widgets\Pjax;
 use yii\widgets\ActiveForm;
 
 $this->title = Yii::t('app', 'Профиль');
+$this->registerJsFile('/frontend/web/js/pop-up.js', ['depends' => [\yii\web\JqueryAsset::className()]]);
 ?>
 
 <aside class="sidebar sidebar_single">
@@ -17,7 +18,7 @@ $this->title = Yii::t('app', 'Профиль');
         'id' => 'userprofile_passreset',
         'action' => 'change-password',
         'enableAjaxValidation' => true,
-        'errorCssClass' => 'valid_err'
+        'errorCssClass' => 'valid_err',
     ]); ?>
         <h2><?= Yii::t('app', 'Смена пароля') ?></h2>
         <fieldset>
@@ -34,6 +35,8 @@ $this->title = Yii::t('app', 'Профиль');
         </fieldset>
         <?= Html::submitButton(Yii::t('app', 'Подтвердить'), ['id' => 'userprofile_passreset_submit']) ?>
     <?php ActiveForm::end(); ?>
+    
+    <a href="#change_password_success" id="success_password" class="sidebar_btn sidebar_bonus hidden"></a>
 
     <?php $form = ActiveForm::begin([
         'id' => 'change_avatar',
@@ -111,4 +114,12 @@ $this->title = Yii::t('app', 'Профиль');
         ],
     ]); ?>
     <?php Pjax::end(); ?>
+</div>
+
+<div id="change_password_success" class="modalDialog">
+    <div>
+        <a href="#close" title="Закрыть" class="close"></a>
+        <h2 class="modal_header"><?= Yii::t('app', 'Смена пароля!') ?></h2>
+        <p><?= Yii::t('app', 'Вы успешно поменяли ваш пароль.') ?></p>
+    </div>
 </div>

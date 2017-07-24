@@ -225,7 +225,7 @@ header {
     display: block;
     text-decoration: none;
     font-family: "Open Sans", sans-serif;
-    font-size: 0.80vw;
+    font-size: 15px;
     font-weight: 600;
     margin: 10px 0;
     transition: all 0.2s ease 0s;
@@ -244,7 +244,7 @@ header {
     color: #4989c7;
     display: none;
     font-family: "Open Sans",sans-serif;
-    font-size: 1.2vw;
+    font-size: 15px;
     font-weight: 600;
     height: 40px;
     line-height: 40px;
@@ -2345,7 +2345,7 @@ input[type=number] {
 
 @media only screen and (max-width : 1300px) {
     .flatblock {
-        max-width: 300px;
+        max-width: 48%;
     }
 
     .owner_name, .owner_phone {
@@ -2367,7 +2367,7 @@ input[type=number] {
     }
 
     .flat {
-        width: 69%;
+        width: 72%;
     }
 
     .flat .flatblock:nth-of-type(2n+1) {
@@ -2375,7 +2375,7 @@ input[type=number] {
     }
 
     .flatblock {
-        max-width: 380px;
+        max-width: 48%;
     }
 
     .map_wrapper {
@@ -2405,12 +2405,18 @@ input[type=number] {
         width: 69%;
     }
 
-    .flat .flatblock:nth-of-type(2n+1) {
-        margin-right: 2%;
-    }
+    /*.flat .flatblock:nth-of-type(2n+1) {*/
+        /*margin-right: 2%;*/
+        /*float: left;*/
+    /*}*/
+
+    /*.flat .flatblock:nth-of-type(2n+2) {*/
+        /*!*margin-right: 2%;*!*/
+        /*float: right;*/
+    /*}*/
 
     .flatblock {
-        max-width: 351px;
+        max-width: 48%;
     }
 
     .map_wrapper {
@@ -2491,6 +2497,33 @@ input[type=number] {
     .pagination {
         margin: 0 auto 30px;
     }
+
+    .flatblock {
+        max-width: 322px;
+    }
+
+    /*.flat {*/
+        /*width: 96%;*/
+    /*}*/
+}
+
+@media only screen and (max-width : 1025px) {  /*---menu-standart-->responsive----*/
+
+
+
+    .flat .flatblock:nth-of-type(2n+1) {
+        margin-right: 3%;
+    }
+
+
+    .flatblock {
+        max-width: 48%;
+    }
+
+    .flat {
+        width: 96%;
+    }
+
 }
 
 @media only screen and (max-width : 1000px) {
@@ -2499,13 +2532,22 @@ input[type=number] {
         width: 62%;
     }
 
+    .flatblock {
+        max-width: 443px;
+    }
+
+
+    .flat .flatblock:nth-of-type(2n+2) {
+        /*margin-right: 2%;*/
+        float: left;
+    }
     /*#profile */
 }
 
 /* Medium Devices, Desktops */
 @media only screen and (max-width : 992px) {
     .flatblock {
-        max-width: 286px;
+        max-width: 48%;
     }
 }
 
@@ -2603,7 +2645,7 @@ input[type=number] {
         -webkit-box-shadow: 5px 10px 22px -5px rgba(0,0,0,0.75);
         -moz-box-shadow: 5px 10px 22px -5px rgba(0,0,0,0.75);
         box-shadow: 5px 10px 22px -5px rgba(0,0,0,0.75);
-        z-index: 9999999;
+        z-index: 9999;
     }
 
     .logo_img {
@@ -2643,9 +2685,9 @@ input[type=number] {
 
 
     /*blocks sidebar collapse*/
-    .flat {
-        width: 73%;
-    }
+    /*.flat {*/
+        /*width: 73%;*/
+    /*}*/
 
 
     /*----------------------------*/
@@ -2699,6 +2741,17 @@ input[type=number] {
             font-weight: bold;
         }
 
+    .modalDialog > div {
+        width: 90%;
+    }
+
+}
+
+
+@media only screen and (max-width : 900px) {
+    .personal_cab_stat {
+        width: 58%;
+    }
 }
 
 /*@media screen and (max-width: 750px) {*/
@@ -2793,7 +2846,11 @@ input[type=number] {
 }
 
 .invalid_field {
-    border: 2px solid #f00;
+    border: 2px solid #f00 !important;
+}
+
+.hide_comment {
+    display: none;
 }
 
 /* ==========================================================================

@@ -7,6 +7,7 @@ use yii\helpers\Html;
 $user = Yii::$app->user->identity;
 $lang = Yii::$app->language;
 $this->title = Yii::t('app', 'Детали квартиры');
+$this->registerJsFile('/frontend/web/js/comments.js', ['depends' => [\yii\web\JqueryAsset::className()]]);
 ?>
 
 <aside class="sidebar sidebar_single">
@@ -287,8 +288,9 @@ $this->title = Yii::t('app', 'Детали квартиры');
             endforeach;
             endif;
         ?>
-        <?php if($count != 0): ?>
-        <a href="#" class="feedback_button other_feedback clearfix"><?= Yii::t('app', 'Другие отзывы') ?></a>
+        <?php if($count > 3): ?>
+        <a href="#comments_show" id="comments_show" class="feedback_button other_feedback clearfix"><?= Yii::t('app', 'Другие отзывы') ?></a>
+        <a href="#comments_show" id="comments_hide" class="feedback_button other_feedback clearfix hide_comment"><?= Yii::t('app', 'Скрыть отзывы') ?></a>
         <?php endif; ?>
         <a href="#openModal" class="feedback_button send_feedback clearfix"><?= Yii::t('app', 'Оставить отзыв') ?></a>
     </div>

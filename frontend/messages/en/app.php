@@ -150,4 +150,5 @@ return [
     'Текущий пароль не верный!' => 'The current password is not correct!',
     'Аватар' => 'Avatar',
     'Подтверждение нового пароля' => 'Confirm New Password',
+    'Скрыть отзывы' => 'Hide reviews'
 ];

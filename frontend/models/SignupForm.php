@@ -81,6 +81,8 @@ class SignupForm extends Model
     public function passValidate($attribute){
         if($this->password == $this->username){
             $this->addError($attribute, Yii::t('app', 'Логин не может быть паролем'));
+        } elseif(strpos($this->password, 0x20) !== false){
+            $this->addError($attribute, Yii::t('app', 'Пароль не может содержать пробелы'));
         }
     }
 

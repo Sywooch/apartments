@@ -155,5 +155,6 @@ return [
     'Логин не может содержать специальные символы' => 'Login can not contain special characters',
     'Имя не может содержать специальные символы' => 'Name can not contain special characters',
     'Фамилия не может содержать специальные символы' => 'Surname can not contain special characters',
-    'Логин не может быть паролем' => 'Login can not be a password'
+    'Логин не может быть паролем' => 'Login can not be a password',
+    'Пароль не может содержать пробелы' => 'Password can not contain spaces'
 ];

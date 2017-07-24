@@ -2142,7 +2142,7 @@ input[type=number] {
     /*background: red;*/
 }
 
-#flat_single input[type="text"], input[type="email"], input[type="password"] {
+.flat_single input[type="text"], input[type="email"], input[type="password"] {
     background-color: #fff;
     border: 1px solid #cbcbcb;
     box-sizing: border-box;
@@ -2851,6 +2851,12 @@ input[type=number] {
 
 .hide_comment {
     display: none;
+}
+
+.help-block {
+    font-size: 13px;
+    margin-bottom: 10px;
+    color: orange;
 }
 
 /* ==========================================================================

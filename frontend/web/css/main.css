@@ -297,7 +297,7 @@ header {
 
 .flatblock {
     width: 100%;
-    max-width: 379px;
+    max-width: 378px;
     /*max-width: 48.27%;*/
     height: auto;
     float: left;
@@ -1426,7 +1426,7 @@ input[type=number] {
 }
 
 .flattime p select {
-    width: 129px;
+    width: 133px;
     height: 30px;
     border: 1px solid #ebebeb;
     background-color: #fff;
@@ -2154,7 +2154,7 @@ input[type=number] {
     line-height: 35px;
     margin-bottom: 15px;
     padding: 0 10px;
-    width: 100%;
+    width: 51%;
 }
 
 #flat_single textarea {

@@ -316,7 +316,7 @@ $this->registerJsFile('/frontend/web/js/comments.js', ['depends' => [\yii\web\Jq
                 <p><?= Yii::t('app', 'Текст отзыва') ?></p>
                 <textarea name="rate_text" id="" cols="30" rows="5" required></textarea>
             </fieldset>
-            <fieldset>
+            <fieldset class="modal_rating">
                 <p><?= Yii::t('app', 'Общая оценка') ?></p>
                 <select size="1" name="total_rate" required>
                     <option disabled selected><?= Yii::t('app', 'Выберите оценку') ?></option>
@@ -327,7 +327,7 @@ $this->registerJsFile('/frontend/web/js/comments.js', ['depends' => [\yii\web\Jq
                     <option value="5">5</option>
                 </select>
             </fieldset>
-            <fieldset>
+            <fieldset class="modal_rating">
                 <p><?= Yii::t('app', 'Цена/качество') ?></p>
                 <select size="1" name="price_quality" required>
                     <option disabled selected><?= Yii::t('app', 'Выберите оценку') ?></option>
@@ -338,7 +338,7 @@ $this->registerJsFile('/frontend/web/js/comments.js', ['depends' => [\yii\web\Jq
                     <option value="5">5</option>
                 </select>
             </fieldset>
-            <fieldset>
+            <fieldset class="modal_rating">
                 <p><?= Yii::t('app', 'Чистота') ?></p>
                 <select size="1" name="cleaninig" required>
                     <option disabled selected><?= Yii::t('app', 'Выберите оценку') ?></option>
@@ -349,7 +349,7 @@ $this->registerJsFile('/frontend/web/js/comments.js', ['depends' => [\yii\web\Jq
                     <option value="5">5</option>
                 </select>
             </fieldset>
-            <fieldset>
+            <fieldset class="modal_rating">
                 <p><?= Yii::t('app', 'Общение') ?></p>
                 <select size="1" name="responsibility" required>
                     <option disabled selected><?= Yii::t('app', 'Выберите оценку') ?></option>
@@ -360,7 +360,7 @@ $this->registerJsFile('/frontend/web/js/comments.js', ['depends' => [\yii\web\Jq
                     <option value="5">5</option>
                 </select>
             </fieldset>
-            <fieldset>
+            <fieldset class="modal_rating">
                 <p><?= Yii::t('app', 'Расположение') ?></p>
                 <select size="1" name="location" required>
                     <option disabled selected><?= Yii::t('app', 'Выберите оценку') ?></option>

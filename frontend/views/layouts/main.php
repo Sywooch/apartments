@@ -71,10 +71,10 @@ AppAsset::register($this);
 <?php if(
     Yii::$app->request->url == '/ru/about' ||
     Yii::$app->request->url == '/en/about' ||
-    Yii::$app->request->url == '/ua/about' ||
+    Yii::$app->request->url == '/uk/about' ||
     Yii::$app->request->url == '/ru/contact' ||
     Yii::$app->request->url == '/en/contact' ||
-    Yii::$app->request->url == '/ua/contact' ||
+    Yii::$app->request->url == '/uk/contact' ||
     $controller == 'profile' && $action == 'profile'
 ){
 ?>

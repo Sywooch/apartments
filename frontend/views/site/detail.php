@@ -19,7 +19,7 @@ $this->title = Yii::t('app', 'Детали квартиры');
             <?php
                 if($lang == 'ru'){
                     echo $apartment->title_ru;
-                } elseif($lang == 'ua'){
+                } elseif($lang == 'uk'){
                     echo $apartment->title_ua;
                 } elseif($lang == 'en'){
                     echo $apartment->title_en;
@@ -70,7 +70,7 @@ $this->title = Yii::t('app', 'Детали квартиры');
         <p class="flat_single_descr">
             <?php if($lang == 'ru'){
                 echo $apartment->description_ru;
-            } elseif($lang == 'ua'){
+            } elseif($lang == 'uk'){
                 echo $apartment->description_ua;
             } elseif($lang == 'en'){
                 echo $apartment->description_en;

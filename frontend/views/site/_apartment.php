@@ -11,7 +11,7 @@ $image = \common\models\Image::findOne(['apartment_id' => $model->id]);
         <div class="nameblock">
             <?php if($lang == 'ru'){
                 echo '<h4>'.$model->title_ru.'</h4>';
-            } elseif($lang == 'ua'){
+            } elseif($lang == 'uk'){
                 echo '<h4>'.$model->title_ua.'</h4>';
             } elseif($lang == 'en'){
                 echo '<h4>'.$model->title_en.'</h4>';

@@ -61,7 +61,7 @@ $this->title = Yii::t('app', 'Профиль');
                 'value' => function($model){
                     if(Yii::$app->language == 'ru'){
                         return $model->apartment->title_ru;
-                    } elseif(Yii::$app->language == 'ua'){
+                    } elseif(Yii::$app->language == 'uk'){
                         return $model->apartment->title_ua;
                     } elseif(Yii::$app->language == 'en'){
                         return $model->apartment->title_en;

@@ -54,7 +54,7 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'class' => 'frontend\widgets\MultiLang\components\UrlManager',
-            'languages' => ['ru', 'en', 'ua'],
+            'languages' => ['ru', 'en', 'uk'],
             'enableDefaultLanguageUrlCode' => true,
             'rules' => [
                 '' => 'site/index',

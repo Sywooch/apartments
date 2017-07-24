@@ -15,7 +15,7 @@ $class_ua = 'lang';
         $class_en = 'lang lang_active';
     } elseif($lang == 'ru') {
         $class_ru = 'lang lang_active';
-    } elseif($lang == 'ua') {
+    } elseif($lang == 'uk') {
         $class_ua = 'lang lang_active';
     }
 ?>    
@@ -31,5 +31,5 @@ $class_ua = 'lang';
 
 <?= Html::a('УКР', array_merge(
     \Yii::$app->request->get(),
-    [\Yii::$app->controller->route, 'language' => 'ua']
+    [\Yii::$app->controller->route, 'language' => 'uk']
 ), ['class' => $class_ua]); ?>

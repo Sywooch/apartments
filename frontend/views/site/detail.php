@@ -309,8 +309,8 @@ $this->registerJsFile('/frontend/web/js/comments.js', ['depends' => [\yii\web\Jq
         ]) ?>
             <fieldset>
                 <p><?= Yii::t('app', 'Город') ?></p>
-                <input type="text" name="rate_city" placeholder="<?= Yii::t('app', 'город') ?>" required>
-                <input type="hidden" name="id" placeholder="<?= Yii::t('app', 'город') ?>" value="<?= Yii::$app->request->get('id') ?>" required>
+                <input type="text" name="rate_city" placeholder="<?= Yii::t('app', 'Город') ?>" required>
+                <input type="hidden" name="id" placeholder="<?= Yii::t('app', 'Город') ?>" value="<?= Yii::$app->request->get('id') ?>" required>
             </fieldset>
             <fieldset>
                 <p><?= Yii::t('app', 'Текст отзыва') ?></p>

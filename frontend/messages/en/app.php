@@ -160,5 +160,10 @@ return [
     'Изменить картинку' => 'Change photo',
     'Вы успешно сменили пароль!' => 'You have successfully changed your password!',
     'Вы успешно сменили аватар!' => 'You have successfully changed your avatar!',
-    'Проверьте ваш email и следуйте дальнейшим инструкциям.' => 'Check your mail and follow the instructions.'
+    'Проверьте ваш email и следуйте дальнейшим инструкциям.' => 'Check your mail and follow the instructions.',
+    'Город' => 'City',
+    'Текст отзыва' => 'Review text',
+    'Общая оценка' => 'Overall rating',
+    'Выберите оценку' => 'Select a rating',
+    'Добавить' => 'Add'
 ];

@@ -1554,6 +1554,26 @@ input[type=number] {
     font-weight: 400;
 }
 
+.alert_success {
+    color: #636363;
+    background-color: #bce8f1;
+    border-color: #d6e9c6;
+}
+
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.close_alert {
+    position: relative;
+    top: -2px;
+    right: -21px;
+    color: inherit;
+}
+
 /*.send_feedback {*/
     /*float: right;*/
 /*}*/

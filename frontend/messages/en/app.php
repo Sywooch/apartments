@@ -157,5 +157,7 @@ return [
     'Фамилия не может содержать специальные символы' => 'Surname can not contain special characters',
     'Логин не может быть паролем' => 'Login can not be a password',
     'Пароль не может содержать пробелы' => 'Password can not contain spaces',
-    'Изменить картинку' => 'Change photo'
+    'Изменить картинку' => 'Change photo',
+    'Вы успешно сменили пароль!' => 'You have successfully changed your password!',
+    'Вы успешно сменили аватар!' => 'You have successfully changed your avatar!',
 ];

@@ -4,14 +4,16 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
 use yii\widgets\ActiveForm;
+use common\widgets\Alert;
 
 $this->title = Yii::t('app', 'Профиль');
-$this->registerJsFile('/frontend/web/js/pop-up.js', ['depends' => [\yii\web\JqueryAsset::className()]]);
 ?>
 
 <aside class="sidebar sidebar_single">
     <?= $this->render('/layouts/main-responsive') ?>
 </aside>
+
+<?= Alert::widget() ?>
 
 <div class="personal_cab_sideb">
     <?php $form = ActiveForm::begin([
@@ -35,7 +37,7 @@ $this->registerJsFile('/frontend/web/js/pop-up.js', ['depends' => [\yii\web\Jque
         </fieldset>
         <?= Html::submitButton(Yii::t('app', 'Подтвердить'), ['id' => 'userprofile_passreset_submit']) ?>
     <?php ActiveForm::end(); ?>
-    
+
     <a href="#change_password_success" id="success_password" class="sidebar_btn sidebar_bonus hidden"></a>
 
     <?php $form = ActiveForm::begin([

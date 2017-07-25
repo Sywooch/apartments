@@ -92,6 +92,7 @@ class ProfileController extends Controller
                 $user->password_hash = $user->newPassword;
                 $user->password_hash = Yii::$app->getSecurity()->generatePasswordHash($user->password_hash);
                 if($user->save(false)){
+                    Yii::$app->session->setFlash('success', Yii::t('app', 'Вы успешно сменили пароль!'));
                     return $this->redirect(['profile', 'id' => $user->getId()]);
                 }
             }
@@ -113,6 +114,7 @@ class ProfileController extends Controller
                 $user->photo->saveAs( 'public/avatars/'.$imageName.'.'.$user->photo->extension );
                 $user->avatar = 'public/avatars/'.$imageName.'.'.$user->photo->extension;
                 if($user->save(false)){
+                    Yii::$app->session->setFlash('success', Yii::t('app', 'Вы успешно сменили аватар!'));
                     return $this->redirect(['profile', 'id' => $user->getId()]);
                 }
             }

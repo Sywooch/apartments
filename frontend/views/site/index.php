@@ -4,10 +4,12 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use yii\widgets\Pjax;
 use voime\GoogleMaps\Map;
+use common\widgets\Alert;
 
 $this->title = Yii::t('app', 'Главная');
 ?>
 <div class="wrapper">
+    <?= Alert::widget() ?>
     <aside class="sidebar">
         <?php $form = ActiveForm::begin(['id' => 'search-filters','method' => 'get','options' => ['data-pjax' => true ], 'class'=>'sidebar_filters']) ?>
             <div class="set">

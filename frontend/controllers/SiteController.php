@@ -319,7 +319,7 @@ class SiteController extends Controller
 
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             if ($model->sendEmail()) {
-                Yii::$app->session->setFlash('success', 'Проверьте ваш mail для дальнейших инструкций.');
+                Yii::$app->session->setFlash('success', 'Проверьте ваш email и следуйте дальнейшим инструкциям.');
 
                 return $this->goHome();
             } else {

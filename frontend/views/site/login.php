@@ -28,7 +28,8 @@ $this->title = Yii::t('app', 'Вход');
 
                 <fieldset>
                     <span class="check_remember">
-                        <input id="remember_user" type="checkbox" name="LoginForm[rememberMe]">
+<!--                        --><?//= $form->field($model, 'rememberMe')->checkbox() ?>
+                        <input id="remember_user" type="checkbox" name="LoginForm[rememberMe]" value="1" />
                         <label for="remember_user"><?= Yii::t('app', 'Запомнить меня') ?></label>
                     </span>
                     <a class="forgotpass" href="/site/request-password-reset"><?= Yii::t('app', 'Забыли пароль?') ?></a>

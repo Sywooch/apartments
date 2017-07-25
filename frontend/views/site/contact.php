@@ -30,7 +30,7 @@ $this->title = Yii::t('app', 'Контакты');
         <?php $form = ActiveForm::begin([
             'id' => 'contact-form',
             'errorCssClass' => 'valid_err',
-            'enableAjaxValidation' => true,
+//            'enableAjaxValidation' => true,
             'options'=> [
                 'class' => 'contactform'
             ]

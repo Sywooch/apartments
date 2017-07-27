@@ -13,7 +13,8 @@
 
      $('.flat_stars').raty({
          readOnly : true,
-         hints: false,
+         hints: ['', '', '', '', ''],
+         noRatedMsg: '',
          score: function() {
              return $(this).attr('data-score');
          }

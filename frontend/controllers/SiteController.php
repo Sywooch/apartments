@@ -223,14 +223,16 @@ class SiteController extends Controller
 //            return ActiveForm::validate($model);
 //        }
 
-        if(Yii::$app->request->isAjax && $model->load(Yii::$app->request->post())){
-            if($model->sendEmail(Yii::$app->params['adminEmail'])){
-                return 1;    
-            }
-        }
+//        if(Yii::$app->request->isAjax && $model->load(Yii::$app->request->post())){
+//            if($model->sendEmail(Yii::$app->params['adminEmail'])){
+//                return 1;    
+//            }
+//        }
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-            $model->sendEmail(Yii::$app->params['adminEmail']);
-            return $this->refresh();
+            if($model->sendEmail(Yii::$app->params['adminEmail'])){
+                Yii::$app->session->setFlash('success', 'Ваше письмо отправлено!');
+                return $this->refresh();
+            }
         } else {
             return $this->render('contact', [
                 'model' => $model,

@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use yii\captcha\Captcha;
+use common\widgets\Alert;
 
 $this->title = Yii::t('app', 'Контакты');
 ?>
@@ -10,6 +11,8 @@ $this->title = Yii::t('app', 'Контакты');
 <aside class="sidebar sidebar_single">
     <?= $this->render('/layouts/main-responsive') ?>
 </aside>
+
+<?= Alert::widget() ?>
 
 <div class="singlepage_wrapper">
     <div class="half_col">
@@ -28,7 +31,7 @@ $this->title = Yii::t('app', 'Контакты');
     <div class="half_col">
         <h2 class="contacts_header"><?= Yii::t('app', 'Обратная связь') ?></h2>
         <?php $form = ActiveForm::begin([
-            'id' => 'contact-form',
+            'id' => 'contact-forms',
             'errorCssClass' => 'valid_err',
 //            'enableAjaxValidation' => true,
             'options'=> [

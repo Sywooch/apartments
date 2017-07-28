@@ -165,5 +165,7 @@ return [
     'Текст отзыва' => 'Review text',
     'Общая оценка' => 'Overall rating',
     'Выберите оценку' => 'Select a rating',
-    'Добавить' => 'Add'
+    'Добавить' => 'Add',
+    'Вернуться назад' => 'Come back',
+    'Перейти на главную' => 'Go to main page'
 ];

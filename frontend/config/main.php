@@ -68,7 +68,8 @@ return [
                 'create-comment' => 'site/create-comment',
                 'profile' => 'profile/profile',
                 'change-password' => 'profile/change-password',
-                'avatar-upload' => 'profile/avatar-upload'
+                'avatar-upload' => 'profile/avatar-upload',
+                'error' => 'site/errors'
 //                '<action>'=>'site/<action>',
             ],
         ],

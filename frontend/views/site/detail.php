@@ -161,24 +161,24 @@ $this->registerJsFile('/frontend/web/js/comments.js', ['depends' => [\yii\web\Jq
                 echo '<li class="air_conditioning"><s>'.Yii::t('app', 'Кондиционер').'</s></li>';
             }
             if($apartment->facilities->drying_machine == 1){
-                echo '<li>'.Yii::t('app', 'Сушильная машина').'</li>';
+                echo '<li class="dryer">'.Yii::t('app', 'Сушильная машина').'</li>';
             }else {
-                echo '<li><s>'.Yii::t('app', 'Сушильная машина').'</s></li>';
+                echo '<li class="dryer"><s>'.Yii::t('app', 'Сушильная машина').'</s></li>';
             }
             if($apartment->facilities->jacuzzi == 1){
-                echo '<li>'.Yii::t('app', 'Джакузи').'</li>';
+                echo '<li class="hot_tub">'.Yii::t('app', 'Джакузи').'</li>';
             }else {
-                echo '<li><s>'.Yii::t('app', 'Джакузи').'</s></li>';
+                echo '<li class="hot_tub"><s>'.Yii::t('app', 'Джакузи').'</s></li>';
             }
             if($apartment->facilities->separate_entrance == 1){
-                echo '<li>'.Yii::t('app', 'Отдельный вход').'</li>';
+                echo '<li class="a_exit">'.Yii::t('app', 'Отдельный вход').'</li>';
             }else {
-                echo '<li><s>'.Yii::t('app', 'Отдельный вход').'</s></li>';
+                echo '<li class="a_exit"><s>'.Yii::t('app', 'Отдельный вход').'</s></li>';
             }
             if($apartment->facilities->pool == 1){
-                echo '<li>'.Yii::t('app', 'Бассейн').'</li>';
+                echo '<li class="pool">'.Yii::t('app', 'Бассейн').'</li>';
             }else {
-                echo '<li><s>'.Yii::t('app', 'Бассейн').'</s></li>';
+                echo '<li class="pool"><s>'.Yii::t('app', 'Бассейн').'</s></li>';
             }
             ?>
         </ul>

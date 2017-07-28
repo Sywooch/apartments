@@ -1014,6 +1014,8 @@ input[type=number] {
     display: table;
     float: left;
     width: 50%;
+    box-sizing: border-box;
+    padding:  0 15px;
    /* background: rgb(23, 255, 24);*/
 }
 
@@ -1066,11 +1068,13 @@ input[type=number] {
 
 .contactform textarea {
     width: 100%;
-    display: table;
-    /*-webkit-box-sizing: border-box;*/
-    /*-moz-box-sizing: border-box;*/
-    /*box-sizing: border-box;*/
+    display: block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
     min-height: 15vh;
+    max-height: 15vh;
+    overflow-y: scroll;
     margin-top: 10px;
     margin-bottom: 15px;
     border: 1px solid #cbcbcb;
@@ -1554,26 +1558,6 @@ input[type=number] {
     font-weight: 400;
 }
 
-.alert_success {
-    color: #636363;
-    background-color: #bce8f1;
-    border-color: #d6e9c6;
-}
-
-.alert {
-    padding: 15px;
-    margin-bottom: 20px;
-    border: 1px solid transparent;
-    border-radius: 4px;
-}
-
-.close_alert {
-    position: relative;
-    top: -2px;
-    right: -21px;
-    color: inherit;
-}
-
 /*.send_feedback {*/
     /*float: right;*/
 /*}*/
@@ -1702,62 +1686,105 @@ input[type=number] {
     margin-bottom: 15px;
 }
 
+.other_feedback {
+    float: left;
+    display: table;
+}
+
+.send_feedback {
+    float: right;
+    display: table;
+}
+
 .tv {
-    background: rgba(0, 0, 0, 0) url("../img/tv.png") no-repeat scroll 0 center;
+    background: rgba(0, 0, 0, 0) url("../img/tv.svg") no-repeat scroll 0 center;
+    background-size: 25px;
 }
 
 .inet {
-    background: rgba(0, 0, 0, 0) url("../img/inet.png") no-repeat scroll 0 center;
+    background: rgba(0, 0, 0, 0) url("../img/inet.svg") no-repeat scroll 0 center;
+    background-size: 25px;
 }
 
 .wifi {
-    background: rgba(0, 0, 0, 0) url("../img/wifi.png") no-repeat scroll 0 center;
+    background: rgba(0, 0, 0, 0) url("../img/wifi.svg") no-repeat scroll 0 center;
+    background-size: 25px;
 }
 
 .iron {
-    background: rgba(0, 0, 0, 0) url("../img/iron.png") no-repeat scroll 0 center;
+    background: rgba(0, 0, 0, 0) url("../img/iron.svg") no-repeat scroll 0 center;
+    background-size: 25px;
 }
 
 .plasmatv {
-    background: rgba(0, 0, 0, 0) url("../img/plasmatv.png") no-repeat scroll 0 center;
+    background: rgba(0, 0, 0, 0) url("../img/plasmatv.svg") no-repeat scroll 0 center;
+    background-size: 25px;
 }
 
 .washer {
-    background: rgba(0, 0, 0, 0) url("../img/washer.png") no-repeat scroll 0 center;
+    background: rgba(0, 0, 0, 0) url("../img/washer.svg") no-repeat scroll 0 center;
+    background-size: 25px;
 }
 
 .gas_stove {
-    background: rgba(0, 0, 0, 0) url("../img/gas_stove.png") no-repeat scroll 0 center;
+    background: rgba(0, 0, 0, 0) url("../img/gas_stove.svg") no-repeat scroll 0 center;
+    background-size: 25px;
 }
 
 .fridge {
-    background: rgba(0, 0, 0, 0) url("../img/fridge.png") no-repeat scroll 0 center;
+    background: rgba(0, 0, 0, 0) url("../img/fridge.svg") no-repeat scroll 0 center;
+    background-size: 25px;
 }
 
 .balcony {
-    background: rgba(0, 0, 0, 0) url("../img/balcony.png") no-repeat scroll 0 center;
+    background: rgba(0, 0, 0, 0) url("../img/balcony.svg") no-repeat scroll 0 center;
+    background-size: 25px;
 }
 
 .boiler {
-    background: rgba(0, 0, 0, 0) url("../img/boiler.png") no-repeat scroll 0 center;
+    background: rgba(0, 0, 0, 0) url("../img/boiler.svg") no-repeat scroll 0 center;
+    background-size: 25px;
 }
 
 .armored_door {
-    background: rgba(0, 0, 0, 0) url("../img/armored_door.png") no-repeat scroll 0 center;
+    background: rgba(0, 0, 0, 0) url("../img/armored_door.svg") no-repeat scroll 0 center;
+    background-size: 25px;
 }
 
 .smoke {
-    background: rgba(0, 0, 0, 0) url("../img/smoke.png") no-repeat scroll 0 center;
+    background: rgba(0, 0, 0, 0) url("../img/smoke.svg") no-repeat scroll 0 center;
+    background-size: 25px;
 }
 
 .air_conditioning {
-    background: rgba(0, 0, 0, 0) url("../img/air_conditioning.png") no-repeat scroll 0 center;
+    background: rgba(0, 0, 0, 0) url("../img/air-conditioning.svg") no-repeat scroll 0 center;
+    background-size: 25px;
 }
 
 .notebook {
-    background: rgba(0, 0, 0, 0) url("../img/notebook.png") no-repeat scroll 0 center;
+    background: rgba(0, 0, 0, 0) url("../img/notebook.svg") no-repeat scroll 0 center;
+    background-size: 25px;
 }
 
+.dryer {
+    background: rgba(0, 0, 0, 0) url("../img/dryer.svg") no-repeat scroll 0 center;
+    background-size: 25px;
+}
+
+.hot_tub {
+    background: rgba(0, 0, 0, 0) url("../img/hot_tub.svg") no-repeat scroll 0 center;
+    background-size: 25px;
+}
+
+.a_exit {
+    background: rgba(0, 0, 0, 0) url("../img/key.svg") no-repeat scroll 0 center;
+    background-size: 25px;
+}
+
+.pool {
+    background: rgba(0, 0, 0, 0) url("../img/pool.svg") no-repeat scroll 0 center;
+    background-size: 25px;
+}
 
 
 
@@ -2229,7 +2256,96 @@ input[type=number] {
     line-height: 35px;
 }
 
+
+.alert_success {
+    color: #636363;
+    background-color: #bce8f1;
+    border-color: #d6e9c6;
+}
+
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.close_alert {
+    position: relative;
+    /*top: -2px;*/
+    /*right: -21px;*/
+    float: right;
+    color: inherit;
+    background: rgba(0, 0, 0, 0) url("../img/close-icon_modal.png") no-repeat scroll center center;
+    cursor: pointer;
+    border: 0 none;
+    width: 26px;
+    height: 26px;
+}
+
 /*-----------/-page user cab--------------------*/
+
+/*---------------404-page-----------------------*/
+.wrapper_404 {
+    width: 370px;
+    margin: 14% auto 20%;
+}
+
+.wrapper_404 h1 {
+    color: #4989c7;
+    font-family: "Open Sans";
+    font-size: 142px;
+    line-height: 142px;
+    font-weight: 600;
+    width: 100%;
+    text-align: center;
+    display: table;
+    margin: 0;
+}
+.wrapper_404 p {
+    font-size: 19px;
+    font-weight: 400;
+    line-height: 48px;
+    color: #4989c7;
+    font-family: "Open Sans";
+    text-align: center;
+    width: 100%;
+    margin: 0;
+}
+
+.wrapper_404 a {
+    background-color: #4989c7;
+    border-radius: 5px;
+    color: #fff;
+    font-family: "Open Sans",sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    height: 35px;
+    line-height: 28px;
+    margin-right: 10px;
+    padding: 5px 5px;
+    text-align: center;
+    text-decoration: none;
+    width: 158px;
+    position: relative;
+    z-index: 10;
+}
+
+.wrapper_404 a:hover {
+    background-color: #ff9100;
+}
+
+.wrapper_404 a:first-of-type {
+    display: table;
+    float: left;
+}
+
+.wrapper_404 a:last-of-type {
+    display: table;
+    float: right;
+}
+
+/*---------------/404-page-----------------------*/
 
 /* ==========================================================================
    Media Queries
@@ -2303,6 +2419,12 @@ input[type=number] {
         max-width: 333px;
     }
 
+    .flatimg {
+        max-height: 220px;
+        min-height: 220px;
+
+    }
+
     .singleflat_paramethers span {
         max-width: 159px;
     }
@@ -2347,6 +2469,14 @@ input[type=number] {
         top: -275px;
         z-index: -1;
     }
+
+    .ratelist li {
+        width: 100%;
+    }
+
+    .ratelist li:nth-child(2n) {
+        margin-left: 0;
+    }
 }
 
 @media only screen and (max-width : 1400px) {
@@ -2358,17 +2488,16 @@ input[type=number] {
         max-width: 327px;
     }
 
+    .ratelist li {
+        width: 100%;
+    }
+
     .ratelist li:nth-child(2n) {
         margin-left: 0;
     }
-    .ratelist li {
-        float: left;
-        width: 50%;
-        padding-right: 20px;
-    }
 
     .skyline {
-        top: -245px;
+        top: -230px;
         z-index: -1;
     }
 }
@@ -2387,7 +2516,10 @@ input[type=number] {
         width: 51%;
     }
 
-
+    .flatimg {
+        max-height: 207px;
+        min-height: 207px;
+    }
 }
 
 @media only screen and (max-width : 1300px) {
@@ -2407,6 +2539,12 @@ input[type=number] {
 
     .flat_single li span {
         font-size: 30px;
+    }
+
+
+    .flatimg {
+        max-height: 260px;
+        min-height: 260px;
     }
 
     .personal_cab_stat {
@@ -2477,6 +2615,14 @@ input[type=number] {
     .pagination {
         margin: 0 auto 30px;
     }
+
+    .flat_single_ordersubmit {
+        background: #ff9100 url("../img/flat_single_ordersubmit.png") no-repeat scroll 19% center;
+    }
+
+    .flattime {
+        width: 100%;
+    }
 }
 
 /* Large Devices, Wide Screens */
@@ -2517,7 +2663,12 @@ input[type=number] {
     }
 
     .skyline {
-        top: -196px;
+        /*top: -15vh;*/
+        /*z-index: -1;*/
+        left: 0;
+        margin: 0;
+        position: absolute;
+        top: -25vh;
         z-index: -1;
     }
 
@@ -2527,6 +2678,11 @@ input[type=number] {
 
     .flat .flatblock:nth-of-type(2n+1) {
         margin-right: 3%;
+    }
+
+    .flatimg {
+        max-height: 200px;
+        min-height: 200px;
     }
 
     .flatblock {
@@ -2589,12 +2745,26 @@ input[type=number] {
         float: left;
     }
     /*#profile */
+
+    .flattime {
+        width: 100%;
+    }
 }
 
 /* Medium Devices, Desktops */
 @media only screen and (max-width : 992px) {
     .flatblock {
         max-width: 48%;
+    }
+
+
+
+
+    .singlepage_wrapper {
+        display: table;
+        margin: 0 auto;
+        max-width: 89%;
+        width: 100%;
     }
 }
 
@@ -2609,7 +2779,7 @@ input[type=number] {
 
 /* Extra Small Devices, Phones */
 @media only screen and (max-width : 480px) {
-    /**/
+
 }
 
 
@@ -2744,6 +2914,8 @@ input[type=number] {
         float: none;
         width: 100%;
         clear: both;
+        box-sizing: border-box;
+        padding: 0 10px;
     }
 }
 
@@ -2902,6 +3074,7 @@ input[type=number] {
 
 .help-block {
     font-size: 13px;
+    line-height: 20px;
     margin-bottom: 10px;
     color: orange;
 }

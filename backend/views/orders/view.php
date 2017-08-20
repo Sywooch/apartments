@@ -3,9 +3,6 @@
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 
-/* @var $this yii\web\View */
-/* @var $model common\models\Orders */
-
 $this->title = 'Заказ №'.$model->id;
 $this->params['breadcrumbs'][] = ['label' => 'Заказы', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
@@ -53,6 +50,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 ],
                 [
                     'attribute' => 'status',
+                    'format' => 'raw',
                     'value' => function($model){
                         if($model->status == 0){
                             return 'В ожидании';
@@ -75,6 +73,48 @@ $this->params['breadcrumbs'][] = $this->title;
                 ]
             ],
         ]) ?>
+        <p>
+            <?php if($model->status == 0): ?>
+                <?= Html::a('Принять', ['change-status', 'id' => $model->id], [
+                    'class' => 'btn btn-success',
+                    'data' => [
+                        'method' => 'post',
+                        'params' => [
+                            'status' => 1
+                        ]
+                    ]
+                ]); ?>
+                <?= Html::a('Отклонить', ['change-status', 'id' => $model->id], [
+                    'class' => 'btn btn-warning',
+                    'data' => [
+                        'method' => 'post',
+                        'params' => [
+                            'status' => 2
+                        ]
+                    ]
+                ]); ?>
+            <?php elseif($model->status == 1): ?>
+                <?= Html::a('Отклонить', ['change-status', 'id' => $model->id], [
+                    'class' => 'btn btn-warning',
+                    'data' => [
+                        'method' => 'post',
+                        'params' => [
+                            'status' => 2
+                        ]
+                    ]
+                ]); ?>
+            <?php elseif($model->status == 2): ?>
+                <?= Html::a('Принять', ['change-status', 'id' => $model->id], [
+                    'class' => 'btn btn-success',
+                    'data' => [
+                        'method' => 'post',
+                        'params' => [
+                            'status' => 1
+                        ]
+                    ]
+                ]); ?>
+            <?php endif; ?>
+        </p>
     </div>
 
 </div>

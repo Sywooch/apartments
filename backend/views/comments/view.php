@@ -3,9 +3,6 @@
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 
-/* @var $this yii\web\View */
-/* @var $model common\models\Comments */
-
 $this->title = $model->apartment->title_ru;
 $this->params['breadcrumbs'][] = ['label' => 'Комментарии', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
@@ -43,5 +40,29 @@ $this->params['breadcrumbs'][] = $this->title;
                 'rating_place'
             ],
         ]) ?>
+
+        <p>
+            <?php if($model->status == 0): ?>
+                <?= Html::a('Опубликовать', ['change-status', 'id' => $model->id], [
+                    'class' => 'btn btn-success',
+                    'data' => [
+                        'method' => 'post',
+                        'params' => [
+                            'status' => 1
+                        ]
+                    ],
+                ]) ?>
+            <?php else: ?>
+                <?= Html::a('Убрать', ['change-status', 'id' => $model->id], [
+                    'class' => 'btn btn-warning',
+                    'data' => [
+                        'method' => 'post',
+                        'params' => [
+                            'status' => 0
+                        ]
+                    ],
+                ]) ?>
+            <?php endif; ?>
+        </p>
     </div>
 </div>

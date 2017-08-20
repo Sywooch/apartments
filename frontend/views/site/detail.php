@@ -9,6 +9,11 @@ $lang = Yii::$app->language;
 $comment_count = 0;
 $this->title = Yii::t('app', 'Детали квартиры');
 $this->registerJsFile('/frontend/web/js/comments.js', ['depends' => [\yii\web\JqueryAsset::className()]]);
+
+
+$guests = ['гость', 'гостя', 'гостей'];
+$rooms = ['комната', 'комнаты', 'комнат'];
+$bed = ['спальное место', 'спальных места', 'спальных мест'];
 ?>
 
 <aside class="sidebar sidebar_single">
@@ -16,7 +21,7 @@ $this->registerJsFile('/frontend/web/js/comments.js', ['depends' => [\yii\web\Jq
 </aside>
 
 <div class="wrapper">
-    <div class="main_col">
+    <div class="singleflat_col">
         <h2 class="flat_single_header">
             <?php
                 if($lang == 'ru'){
@@ -30,12 +35,12 @@ $this->registerJsFile('/frontend/web/js/comments.js', ['depends' => [\yii\web\Jq
         </h2>
         <h3 class="flat_single_adr"><?= substr($apartment->coordinates, 0, -55) ?></h3>
     </div>
-    <div class="right_sidebar">
+    <div class="singleflat_right_sidebar">
         <ul class="flat_single">
             <li>
                 <img class="xlogo_img" src="/frontend/web/img/room_icon.png" alt="">
                 <span><?= $apartment->room_count ?></span>
-                <?= Yii::t('app', 'комнаты') ?>
+                <?= Yii::t('app', $apartment->plural($apartment->room_count, $rooms)) ?>
             </li>
             <li>
                 <img class="xlogo_img" src="/frontend/web/img/floar_icon.png" alt="">
@@ -45,12 +50,12 @@ $this->registerJsFile('/frontend/web/js/comments.js', ['depends' => [\yii\web\Jq
             <li>
                 <img class="xlogo_img" src="/frontend/web/img/sleepplace_icon.png" alt="">
                 <span><?= $apartment->bed_count ?></span>
-                <?= Yii::t('app', 'спальных места') ?>
+                <?= Yii::t('app', $apartment->plural($apartment->bed_count, $bed)) ?>
             </li>
             <li>
-                <img class="xlogo_img" src="/frontend/web/img/guest_icon.png" alt="">
+                <img class="xlogo_img xteam" src="/frontend/web/img/team.svg" alt="">
                 <span><?= $apartment->guests ?></span>
-                <?= Yii::t('app', 'гостей') ?>
+                <?= Yii::t('app', $apartment->plural($apartment->guests , $guests)) ?>
             </li>
         </ul>
     </div>
@@ -80,9 +85,9 @@ $this->registerJsFile('/frontend/web/js/comments.js', ['depends' => [\yii\web\Jq
             ?>
         </p>
         <ul class="singleflat_paramethers">
+            <li><span><?= Yii::t('app', 'Время выезда') ?>:</span><p><?= Yii::t('app', $apartment->facilities->time_out) ?></p></li>
             <li><span><?= Yii::t('app', 'Тип жилья') ?>:</span><p><?= Yii::t('app', mb_strtolower($apartment->type)) ?></p></li>
             <li><span><?= Yii::t('app', 'Время заезда') ?>:</span><p><?= Yii::t('app', $apartment->facilities->time_in) ?></p></li>
-            <li><span><?= Yii::t('app', 'Время выезда') ?>:</span><p><?= Yii::t('app', $apartment->facilities->time_out) ?></p></li>
             <li><span><?= Yii::t('app', 'Ремонт') ?>:</span><p><?= $apartment->facilities->repairs ?></p></li>
             <li><span><?= Yii::t('app', 'Площадь') ?>:</span><p><?= $apartment->apartment_area ?> <?= Yii::t('app', 'м') ?><sup>2</sup></p></li>
             <li><span><?= Yii::t('app', 'Доплата за каждого последующего гостя') ?>:</span><p id="guest_price"><?= Yii::t('app', $apartment->facilities->guest_price) ?> ₴</p></li>
@@ -92,93 +97,57 @@ $this->registerJsFile('/frontend/web/js/comments.js', ['depends' => [\yii\web\Jq
             <?php
             if($apartment->facilities->tv == 1){
                 echo '<li class="tv">'.Yii::t('app', 'Телевизор').'</li>';
-            } else {
-                echo '<li class="tv"><s>'.Yii::t('app', 'Телевизор').'</s></li>';
             }
             if($apartment->facilities->internet == 1){
                 echo '<li class="inet">'.Yii::t('app', 'Интернет').'</li>';
-            }else {
-                echo '<li class="inet"><s>'.Yii::t('app', 'Интернет').'</s></li>';
             }
             if($apartment->facilities->iron == 1){
                 echo '<li class="iron">'.Yii::t('app', 'Утюг').'</li>';
-            }else {
-                echo '<li class="iron"><s>'.Yii::t('app', 'Утюг').'</s></li>';
             }
             if($apartment->facilities->washer_machine == 1){
                 echo '<li class="washer">'.Yii::t('app', 'Стиральная машина').'</li>';
-            }else {
-                echo '<li class="washer"><s>'.Yii::t('app', 'Стиральная машина').'</s></li>';
             }
             if($apartment->facilities->plazm_tv == 1){
                 echo '<li class="plasmatv">'.Yii::t('app', 'Плазменный телевизор').'</li>';
-            }else {
-                echo '<li class="plasmatv"><s>'.Yii::t('app', 'Плазменный телевизор').'</s></li>';
             }
             if($apartment->facilities->gas == 1){
                 echo '<li class="gas_stove">'.Yii::t('app', 'Газовая плита').'</li>';
-            }else {
-                echo '<li class="gas_stove"><s>'.Yii::t('app', 'Газовая плита').'</s></li>';
             }
             if($apartment->facilities->fridge == 1){
                 echo '<li class="fridge">'.Yii::t('app', 'Холодильник').'</li>';
-            }else {
-                echo '<li class="fridge"><s>'.Yii::t('app', 'Холодильник').'</s></li>';
             }
             if($apartment->facilities->wifi == 1){
                 echo '<li class="wifi">'.Yii::t('app', 'WiFi').'</li>';
-            }else {
-                echo '<li class="wifi"><s>'.Yii::t('app', 'WiFi').'</s></li>';
             }
             if($apartment->facilities->balcony == 1){
                 echo '<li class="balcony">'.Yii::t('app', 'Балкон').'</li>';
-            }else {
-                echo '<li class="balcony"><s>'.Yii::t('app', 'Балкон').'</s></li>';
             }
             if($apartment->facilities->boiler == 1){
                 echo '<li class="boiler">'.Yii::t('app', 'Бойлер').'</li>';
-            }else {
-                echo '<li class="boiler"><s>'.Yii::t('app', 'Бойлер').'</s></li>';
             }
             if($apartment->facilities->door == 1){
                 echo '<li class="armored_door">'.Yii::t('app', 'Бронедверь').'</li>';
-            }else {
-                echo '<li class="armored_door"><s>'.Yii::t('app', 'Бронедверь').'</s></li>';
             }
             if($apartment->facilities->laptop == 1){
                 echo '<li class="notebook">'.Yii::t('app', 'Место для работы на ноутбуке').'</li>';
-            }else {
-                echo '<li class="notebook"><s>'.Yii::t('app', 'Место для работы на ноутбуке').'</s></li>';
             }
             if($apartment->facilities->smoke == 1){
                 echo '<li class="smoke">'.Yii::t('app', 'Можно курить').'</li>';
-            }else {
-                echo '<li class="smoke"><s>'.Yii::t('app', 'Можно курить').'</s></li>';
             }
             if($apartment->facilities->conditioner == 1){
                 echo '<li class="air_conditioning">'.Yii::t('app', 'Кондиционер').'</li>';
-            }else {
-                echo '<li class="air_conditioning"><s>'.Yii::t('app', 'Кондиционер').'</s></li>';
             }
             if($apartment->facilities->drying_machine == 1){
                 echo '<li class="dryer">'.Yii::t('app', 'Сушильная машина').'</li>';
-            }else {
-                echo '<li class="dryer"><s>'.Yii::t('app', 'Сушильная машина').'</s></li>';
             }
             if($apartment->facilities->jacuzzi == 1){
                 echo '<li class="hot_tub">'.Yii::t('app', 'Джакузи').'</li>';
-            }else {
-                echo '<li class="hot_tub"><s>'.Yii::t('app', 'Джакузи').'</s></li>';
             }
             if($apartment->facilities->separate_entrance == 1){
                 echo '<li class="a_exit">'.Yii::t('app', 'Отдельный вход').'</li>';
-            }else {
-                echo '<li class="a_exit"><s>'.Yii::t('app', 'Отдельный вход').'</s></li>';
             }
             if($apartment->facilities->pool == 1){
                 echo '<li class="pool">'.Yii::t('app', 'Бассейн').'</li>';
-            }else {
-                echo '<li class="pool"><s>'.Yii::t('app', 'Бассейн').'</s></li>';
             }
             ?>
         </ul>
@@ -387,7 +356,7 @@ $this->registerJsFile('/frontend/web/js/comments.js', ['depends' => [\yii\web\Jq
     <div>
         <a href="#close" title="Закрыть" class="close"></a>
         <h2 class="modal_header"><?= Yii::t('app', 'Ваш заказ успешно оформлен!') ?></h2>
-        <p><?= Yii::t('app', 'Мы свяжемся с вами в кратчайшие сроки.') ?></p>
+        <p style="text-align: center"><?= Yii::t('app', 'Мы свяжемся с вами в кратчайшие сроки.') ?></p>
     </div>
 </div>
 

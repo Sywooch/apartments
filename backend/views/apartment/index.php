@@ -78,7 +78,17 @@ $this->params['breadcrumbs'][] = $this->title;
                 }
             ],
             'title_ru',
-            'description_ru:ntext',
+            [
+                'attribute' => 'description_ru',
+                'format' => 'raw',
+                'value' => function($model) {
+                    if(strlen($model->description_ru) > 100){
+                        return substr($model->description_ru,0,100).'...';
+                    } else {
+                        return $model->description_ru;
+                    }
+                }
+            ],
             'apartment_area',
             [
                 'attribute' => 'apartment_area',

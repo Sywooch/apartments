@@ -77,22 +77,33 @@ body {
     display: table;
 }
 
-.skyline {
-    /*//background: rgba(0, 0, 0, 0) url("../img/skyline.svg") no-repeat scroll 0 0 / cover ;*/
+/*.skyline {*/
+    /*background: rgba(0, 0, 0, 0) url("../img/skyline.svg") no-repeat scroll 0 0 / cover ;*/
 
-    background: url("../img/skyline.svg");
-    background-repeat: no-repeat;
-    background-size: 100% auto;
-    height: 307px;
-    left: 0;
-    position: absolute;
-    top: -307px;
-    width: 100%;
-}
+    /*!*background: url("../img/skyline.svg");*!*/
+    /*!*background-repeat: no-repeat;*!*/
+    /*!*background-size: 100% auto;*!*/
+    /*!*height: 307px;*!*/
+    /*!*left: 0;*!*/
+    /*!*position: absolute;*!*/
+    /*!*top: -307px;*!*/
+    /*!*width: 100%;*!*/
+/*}*/
 
 .singlepage_footer {
     position: relative;
     margin-top: 310px;
+}
+
+.singlepage_footer::before {
+    background: rgba(0, 0, 0, 0) url("../img/skyline.svg") no-repeat scroll 0 0 / 100% auto;
+    content: "";
+    height: 307px;
+    left: 0;
+    position: absolute;
+    top: -16vw;
+    width: 100%;
+    z-index: -1;
 }
 
 
@@ -105,7 +116,7 @@ body {
 
 header {
     width: 100%;
-
+    max-height: 75px;
     height: 4.86vh;
     min-height: 70px;
     background-color: #4989c7;
@@ -313,6 +324,7 @@ header {
     width: 100%;
     display: block;
     border-radius: 5px 5px 0 0;
+    object-fit: cover;
 }
 
 
@@ -532,6 +544,7 @@ footer {
     display: table;
     color: #fff;
     margin-top: 25px;
+    padding-top: 30px;
 }
 
 .footer_copyright {
@@ -851,7 +864,8 @@ input[type=number] {
 /******accordeon-end*******/
 
 .flexslider .slides img {
-    height: 450px;
+    height: 700px;
+    object-fit: cover;
 }
 
 .sdai_header {
@@ -1181,7 +1195,8 @@ input[type=number] {
 
 .singleflat_footer {
     position: relative;
-    margin-top: 50vh;
+    /*margin-top: 50vh;*/
+    padding-top: 390px;
 }
 
 
@@ -1207,6 +1222,19 @@ input[type=number] {
     display: table;
     padding: 0 1.4%;
     width: 37.8%;
+}
+
+.singleflat_col {
+    width: 46.5%;
+    display: table;
+    padding-right: 2.9%;
+    float: left;
+}
+
+.singleflat_right_sidebar {
+    padding: 0 1.4%;
+    width: 47.8%;
+    display: table;
 }
 
 .flat_single_header {
@@ -1544,6 +1572,7 @@ input[type=number] {
 .feedback_button{
     width: 150px;
     height: 35px;
+
     margin-top: 20px;
     border-radius: 5px;
     border: 1px solid #4989c7;
@@ -2184,6 +2213,10 @@ input[type=number] {
     display: table;
     background: #EFF3F7;
 }
+.xteam {
+    width: 30px;
+    height: 25px;
+}
 
 #flat_single .modalDialog > div p {
     /*background: red;*/
@@ -2286,6 +2319,10 @@ input[type=number] {
 /*-----------/-page user cab--------------------*/
 
 /*---------------404-page-----------------------*/
+#wrappage404 {
+    overflow-x: hidden;
+}
+
 .wrapper_404 {
     width: 370px;
     margin: 14% auto 20%;
@@ -2344,6 +2381,20 @@ input[type=number] {
     display: table;
     float: right;
 }
+
+.reload_param {
+    width: 100%;
+    text-align: center;
+    color: #4989c7;
+    font-family: "Open Sans",sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 14px;
+    text-decoration: underline;
+    display: table;
+    margin: 20px 0;
+}
+
 
 /*---------------/404-page-----------------------*/
 
@@ -2454,7 +2505,12 @@ input[type=number] {
 
     .flatprice {
         border: 1px solid #ebebeb;
-        width: 53%;
+        width: 45%;
+    }
+
+
+    .flattime {
+        width: 48%;
     }
 
     .flat_single_ordersubmit {
@@ -2476,6 +2532,10 @@ input[type=number] {
 
     .ratelist li:nth-child(2n) {
         margin-left: 0;
+    }
+
+    .singleflat_paramethers span{
+        font-size: 15px;
     }
 }
 
@@ -2681,8 +2741,8 @@ input[type=number] {
     }
 
     .flatimg {
-        max-height: 200px;
-        min-height: 200px;
+        max-height: 210px;
+        min-height: 210px;
     }
 
     .flatblock {
@@ -2749,6 +2809,17 @@ input[type=number] {
     .flattime {
         width: 100%;
     }
+
+
+}
+
+
+@media only screen and (min-width: 901px) and (max-width: 1011px) {
+
+    .flatimg {
+        max-height: 263px;
+        min-height: 263px;
+    }
 }
 
 /* Medium Devices, Desktops */
@@ -2759,34 +2830,318 @@ input[type=number] {
 
 
 
-
+/*-----------------------FLATSINGLE-TOP-&-COLS-----------------------------------*/
     .singlepage_wrapper {
-        display: table;
-        margin: 0 auto;
-        max-width: 89%;
-        width: 100%;
+        padding: 0 1.5%;
+        width: 97%;
     }
+
+
+    .singleflat_right_sidebar {
+        padding: 0 1.5%;
+        width: 97%;
+    }
+
+    .flat_single {
+        float: left;
+    }
+
+
+    .main_col, .right_sidebar {
+        padding: 0 1.5%;
+        width: 97%;
+        float: none;
+        clear: both;
+    }
+
+    /*-----------------------/FLATSINGLE-TOP-&-COLS--------------------------------*/
+
+    .singleflat_comfort_items li {
+        width: 43%;
+    }
+
+
+    .flattime {
+        width: 48%;
+    }
+
+    .modalDialog > div {
+        width: 90%;
+    }
+
 }
 
 
 
 /* Small Devices, Tablets */
 @media only screen and (max-width : 768px) {
-    /**/
+    .singleflat_col {
+        padding-right: 0;
+        width: 94.2%;
+    }
+
+    .singleflat_comfort_items li {
+        width: 39%;
+    }
 }
 
+
+@media only screen and (max-width : 580px) {
+
+    .singleflat_comfort_items li {
+        width: 97%;
+    }
+}
 
 
 /* Extra Small Devices, Phones */
 @media only screen and (max-width : 480px) {
+    .flatblock {
+        max-width: 100%;
+    }
 
+    /*.flatimg {*/
+        /*max-height: 350px;*/
+        /*min-height: 350px;*/
+    /*}*/
+
+    .sdai_list li {
+        width: 90%;
+    }
+
+    .singlepage_wrapper {
+        max-width: 95%;
+    }
+
+    .details_block p {
+        min-height: 100px;
+    }
 }
 
 
 
+@media only screen and (max-width : 360px) {
+    .flat_single li {
+        min-width: 135px;
+        max-width: 135px;
+    }
+
+    /*.flat_single li {*/
+        /*line-height: 22px;*/
+        /*margin: 0 16px 5px 0;*/
+        /*max-width: 100px;*/
+    /*}*/
+
+    .singleflat_comfort_items li {
+        width: 90%;
+    }
+
+    .flat_single_timeorder li {
+        width: 100%;
+    }
+
+
+    .flattime {
+        width: 100%;
+    }
+
+    .flatprice {
+        width: 100%;
+    }
+
+    .flat_single_ordersubmit {
+        background: #ff9100 url("../img/flat_single_ordersubmit.png") no-repeat scroll 6% center;
+    }
+
+
+    .singleflat_paramethers li {
+        width: 100%;
+    }
+
+    .singleflat_paramethers span {
+        float: left;
+        width: 100%;
+        text-align: left;
+        max-width: 100%;
+    }
+
+    .singleflat_paramethers p {
+        float: left;
+        width: 100%;
+        text-align: left;
+    }
+
+
+    .singleflat_paramethers li:nth-child(2n) {
+        margin-left: 0;
+    }
+
+    .flat_single_header {
+        font-size: 17px;
+    }
+
+    .feedback_button {
+        background-color: #4989c7;
+        border: 1px solid #4989c7;
+        border-radius: 5px;
+        color: #fff;
+        display: table;
+        font-family: "Open Sans",sans-serif;
+        font-size: 11px;
+        font-weight: 400;
+
+
+        text-align: center;
+        text-decoration: none;
+        width: 100px;
+    }
+
+
+    /*.singleflat_footer {*/
+        /*padding-top: 101px;*/
+    /*}*/
+
+    .owner_name, .owner_phone {
+        float: none;
+        padding-left: 60px;
+        padding-top: 10px;
+    }
+
+
+    .sdai_list li {
+        width: 90%;
+    }
+
+    .singlepage_wrapper {
+        max-width: 95%;
+    }
+
+    .details_block p {
+        min-height: 100px;
+    }
+
+    .modalDialog > div {
+        width: 77%;
+    }
+
+}
+
+
 /* Custom, iPhone Retina */
 @media only screen and (max-width : 320px) {
-    /**/
+    .flat_single li {
+        min-width: 135px;
+        max-width: 135px;
+    }
+
+    /*.flat_single li {*/
+    /*line-height: 22px;*/
+    /*margin: 0 16px 5px 0;*/
+    /*max-width: 100px;*/
+    /*}*/
+
+    .singleflat_comfort_items li {
+        width: 90%;
+    }
+
+    .flat_single_timeorder li {
+        width: 100%;
+    }
+
+
+    .flattime {
+        width: 100%;
+    }
+
+    .flatprice {
+        width: 100%;
+    }
+
+    .flat_single_ordersubmit {
+        background: #ff9100 url("../img/flat_single_ordersubmit.png") no-repeat scroll 6% center;
+    }
+
+
+    .singleflat_paramethers li {
+        width: 100%;
+    }
+
+    .singleflat_paramethers span {
+        float: left;
+        width: 100%;
+        text-align: left;
+        max-width: 100%;
+    }
+
+    .singleflat_paramethers p {
+        float: left;
+        width: 100%;
+        text-align: left;
+    }
+
+
+    .singleflat_paramethers li:nth-child(2n) {
+        margin-left: 0;
+    }
+
+    .flat_single_header {
+        font-size: 17px;
+    }
+
+    .feedback_button {
+        background-color: #4989c7;
+        border: 1px solid #4989c7;
+        border-radius: 5px;
+        color: #fff;
+        display: table;
+        font-family: "Open Sans",sans-serif;
+        font-size: 11px;
+        font-weight: 400;
+
+
+        text-align: center;
+        text-decoration: none;
+        width: 100px;
+    }
+
+
+    /*.singleflat_footer {*/
+        /*padding-top: 101px;*/
+    /*}*/
+
+
+    .owner_name, .owner_phone {
+        float: none;
+        padding-left: 60px;
+        padding-top: 10px;
+    }
+
+    .flat_single li {
+        max-width: 201px;
+    }
+
+    .flexslider .slides img {
+        height: 200px;
+        object-fit: cover;
+    }
+
+
+    .sdai_list li {
+        width: 90%;
+    }
+
+    .singlepage_wrapper {
+        max-width: 95%;
+    }
+
+    .details_block p {
+        min-height: 100px;
+    }
+
+
+    .modalDialog > div {
+        width: 75%;
+    }
 }
 
 
@@ -2802,7 +3157,7 @@ input[type=number] {
 
 /* Extra Small Devices, Phones */
 @media only screen and (min-width : 480px) {
-    /**/
+
 }
 
 
@@ -2960,9 +3315,6 @@ input[type=number] {
             font-weight: bold;
         }
 
-    .modalDialog > div {
-        width: 90%;
-    }
 
 }
 
@@ -2972,6 +3324,53 @@ input[type=number] {
         width: 58%;
     }
 }
+
+@media only screen and (max-width: 768px) {
+
+}
+
+@media only screen and (max-width: 570px) {
+
+
+
+    .main_col, .right_sidebar {
+        display: table;
+        float: none;
+        padding-right: 2%;
+        width: 96%;
+    }
+
+
+}
+
+@media only screen and (max-width: 480px) {
+
+
+    /*.flatimg {*/
+        /*max-height: 141px;*/
+        /*min-height: 141px;*/
+    /*}*/
+
+
+    .main_col, .right_sidebar {
+        display: table;
+        float: none;
+        padding-right: 2%;
+        width: 96%;
+    }
+
+}
+
+@media only screen and (max-width: 360px) {
+
+}
+
+
+
+/*@media only screen and (max-width: 320px) {*/
+
+/*}*/
+
 
 /*@media screen and (max-width: 750px) {*/
 

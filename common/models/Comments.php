@@ -19,8 +19,7 @@ class Comments extends \yii\db\ActiveRecord
         return [
             [['apartment_id', 'user_id', 'comment', 'city'], 'required'],
             [['apartment_id', 'user_id', 'rating', 'rating_price', 'rating_clean', 'rating_communication', 'rating_place'], 'integer'],
-            [['city'], 'string', 'max' => 255],
-            [['comment'], 'string'],
+            [['comment', 'city'], 'string', 'max' => 255],
             [['apartment_id'], 'exist', 'skipOnError' => true, 'targetClass' => Apartment::className(), 'targetAttribute' => ['apartment_id' => 'id']],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['user_id' => 'id']],
         ];
@@ -59,14 +58,14 @@ class Comments extends \yii\db\ActiveRecord
     public function CommentsCount($id)
     {
        return Comments::find()
-            ->where('apartment_id='.$id)
+            ->where(['apartment_id' => $id, 'status' => 1])
             ->count();
     }
 
     public function AllApartmentComments($id)
     {
         return Comments::find()
-            ->where('apartment_id='.$id)
+            ->where(['apartment_id' => $id, 'status' => 1])
             ->orderBy('date DESC')
             ->all();
     }

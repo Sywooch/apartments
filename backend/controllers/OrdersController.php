@@ -69,6 +69,26 @@ class OrdersController extends Controller
         }
     }
 
+    public function actionChangeStatus($id)
+    {
+        if(Yii::$app->request->post('status')){
+            $order = Orders::findOne(['id' => $id]);
+
+            if(isset($order)){
+                $post = Yii::$app->request->post('status');
+                $order->status = $post;
+                $order->save(false);
+                if($post == 1){
+                    Yii::$app->session->setFlash('success', 'Заявка принята!');
+                } else {
+                    Yii::$app->session->setFlash('danger', 'Заявка отклонена!');
+                }
+
+                return $this->redirect('index');
+            }
+        }
+    }
+
     public function actionDelete($id)
     {
         $this->findModel($id)->delete();

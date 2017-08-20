@@ -9,14 +9,10 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
-/**
- * CommentsController implements the CRUD actions for Comments model.
- */
+
 class CommentsController extends Controller
 {
-    /**
-     * @inheritdoc
-     */
+
     public function behaviors()
     {
         return [
@@ -29,10 +25,7 @@ class CommentsController extends Controller
         ];
     }
 
-    /**
-     * Lists all Comments models.
-     * @return mixed
-     */
+
     public function actionIndex()
     {
         $searchModel = new CommentsSearch();
@@ -44,11 +37,7 @@ class CommentsController extends Controller
         ]);
     }
 
-    /**
-     * Displays a single Comments model.
-     * @param integer $id
-     * @return mixed
-     */
+
     public function actionView($id)
     {
         return $this->render('view', [
@@ -56,11 +45,7 @@ class CommentsController extends Controller
         ]);
     }
 
-    /**
-     * Creates a new Comments model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
-     * @return mixed
-     */
+
     public function actionCreate()
     {
         $model = new Comments();
@@ -74,12 +59,7 @@ class CommentsController extends Controller
         }
     }
 
-    /**
-     * Updates an existing Comments model.
-     * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
-     * @return mixed
-     */
+
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
@@ -93,12 +73,26 @@ class CommentsController extends Controller
         }
     }
 
-    /**
-     * Deletes an existing Comments model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
-     * @return mixed
-     */
+
+    public function actionChangeStatus($id)
+    {
+        $post = Yii::$app->request->post('status');
+        $comment = Comments::findOne(['id' => $id]);
+
+        if(isset($comment)){
+            $comment->status = $post;
+            $comment->save(false);
+            if($post == 1){
+                Yii::$app->session->setFlash('info', 'Комментарий опубликован!');
+            } else {
+                Yii::$app->session->setFlash('danger', 'Комментарий убран!');
+            }
+
+            return $this->redirect('index');
+        }
+    }
+
+
     public function actionDelete($id)
     {
         $this->findModel($id)->delete();
@@ -106,13 +100,7 @@ class CommentsController extends Controller
         return $this->redirect(['index']);
     }
 
-    /**
-     * Finds the Comments model based on its primary key value.
-     * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $id
-     * @return Comments the loaded model
-     * @throws NotFoundHttpException if the model cannot be found
-     */
+
     protected function findModel($id)
     {
         if (($model = Comments::findOne($id)) !== null) {

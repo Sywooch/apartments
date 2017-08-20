@@ -135,7 +135,7 @@ $( document ).ready(function() {
                 this.src = this.getAttribute('data-hover');
             });
 
-            $('.content').slideUp(200);
+           // $('.content').slideUp(200);
             $(this).siblings('.content').slideDown(200);
         }
     });

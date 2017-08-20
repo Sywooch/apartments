@@ -105,6 +105,8 @@ return [
     'дом' => 'house',
     'квартира' => 'apartment',
     'комната' => 'room',
+    'комнаты' => 'rooms',
+    'комнат' => 'rooms',
     'от 10 суток' => 'from 10 days',
     'от 5 суток' => 'from 5 days',
     'за ночь' => 'per night',
@@ -113,8 +115,11 @@ return [
     'Сбор за услуги' => 'Service fee',
     'м' => 'm',
     'спальных места' => 'sleeping places',
+    'спальное место' => 'sleeping place',
+    'спальных мест' => 'sleeping places',
     'гость' => 'guest',
     'гостя' => 'guests',
+    'гостей' => 'guests',
     'Ваш заказ успешно оформлен!' => 'Your order has been successfully created!',
     'Выход' => 'Log out',
     'Вход' => 'Login',
@@ -167,5 +172,6 @@ return [
     'Выберите оценку' => 'Select a rating',
     'Добавить' => 'Add',
     'Вернуться назад' => 'Come back',
-    'Перейти на главную' => 'Go to main page'
+    'Перейти на главную' => 'Go to main page',
+    'Сбросить параметры' => 'Reset options',
 ];

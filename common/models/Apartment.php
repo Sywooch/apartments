@@ -161,4 +161,9 @@ class Apartment extends \yii\db\ActiveRecord
             'rating_communication' => $communication
         );
     }
+
+    public function plural($number, $words) {
+        $cases = [2, 0, 1, 1, 1, 2];
+        return $words[($number % 100 > 4 && $number % 100 < 20) ? 2 : $cases[min($number % 10, 5)]];
+    }
 }

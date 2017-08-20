@@ -27,8 +27,8 @@ class SignupForm extends Model
             ['username', 'string', 'min' => 2, 'max' => 255],
             [['name', 'surname'], 'required'],
             [['name', 'surname'], 'string', 'min' => 2],
-            [['name'], 'nameValidate'],
-            [['surname'], 'surnameValidate'],
+//            [['name'], 'nameValidate'],
+//            [['surname'], 'surnameValidate'],
 
             ['email', 'trim'],
             ['email', 'required'],
@@ -66,17 +66,6 @@ class SignupForm extends Model
         }
     }
 
-    public function nameValidate($attribute){
-        if(preg_match("#[\W]+#",$this->name)) {
-            $this->addError($attribute, Yii::t('app', 'Имя не может содержать специальные символы'));
-        }
-    }
-
-    public function surnameValidate($attribute){
-        if(preg_match("#[\W]+#",$this->surname)) {
-            $this->addError($attribute, Yii::t('app', 'Фамилия не может содержать специальные символы'));
-        }
-    }
 
     public function passValidate($attribute){
         if($this->password == $this->username){

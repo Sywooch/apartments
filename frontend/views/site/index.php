@@ -213,6 +213,7 @@ $this->title = Yii::t('app', 'Главная');
                     </ul>
                 </div>
             </div>
+        <a href="/" class="reload_param"><?= Yii::t('app', 'Сбросить параметры') ?></a>
         <?php ActiveForm::end() ?>
 
         <?= $this->render('/layouts/main-responsive') ?>

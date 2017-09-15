@@ -4,10 +4,12 @@
 use yii\helpers\Html;
 use frontend\assets\AppAsset;
 use frontend\widgets\MultiLang\MultiLang;
+use backend\models\Social;
 
 $controller = Yii::$app->controller->id;
 $action = Yii::$app->controller->action->id;
 $body_id = '';
+$social = Social::findOne(['id' => 1]);
 if($controller == 'site' && $action == 'detail'){
     $body_id = 'flat_single';
 } elseif ($controller == 'profile' && $action == 'profile'){
@@ -104,11 +106,21 @@ AppAsset::register($this);
         <div class="skyline"></div>
         <p class="footer_copyright">© <?= Yii::t('app', 'Аренда квартир') ?> <?= date('Y') ?></p>
         <nav class="footer_social">
-            <a class="imgoverlay" href="#"><img src="/frontend/web/img/facebook-icon.png" title="facebook"></a>
-            <a class="imgoverlay" href="#"><img src="/frontend/web/img/vk-icon.png" title="vk"></a>
-            <a class="imgoverlay" href="#"><img src="/frontend/web/img/google--icon.png" title="googleplus"></a>
-            <a class="imgoverlay" href="#"><img src="/frontend/web/img/twitter-icon.png" title="twitter"></a>
-            <a class="imgoverlay" href="#"><img src="/frontend/web/img/instagram-icon.png" title="instagram"></a>
+            <?php if($social->f_status == 1): ?>
+                <a class="imgoverlay" href="<?= $social->facebook ?>" target="_blank"><img src="/frontend/web/img/facebook-icon.png" title="facebook"></a>
+            <?php endif; ?>
+            <?php if($social->vk_status == 1): ?>
+                <a class="imgoverlay" href="<?= $social->vk ?>" target="_blank"><img src="/frontend/web/img/vk-icon.png" title="vk"></a>
+            <?php endif; ?>
+            <?php if($social->g_status == 1): ?>
+                <a class="imgoverlay" href="<?= $social->google ?>" target="_blank"><img src="/frontend/web/img/google--icon.png" title="googleplus"></a>
+            <?php endif; ?>
+            <?php if($social->t_status == 1): ?>
+                <a class="imgoverlay" href="<?= $social->twitter ?>" target="_blank"><img src="/frontend/web/img/twitter-icon.png" title="twitter"></a>
+            <?php endif; ?>
+            <?php if($social->i_status == 1): ?>
+                <a class="imgoverlay" href="<?= $social->instagram ?>" target="_blank"><img src="/frontend/web/img/instagram-icon.png" title="instagram"></a>
+            <?php endif; ?>
         </nav>
     </footer>
 <?php }elseif($controller != 'site' && $action != 'detail' ||
@@ -116,11 +128,21 @@ AppAsset::register($this);
     <footer>
         <p class="footer_copyright">© <?= Yii::t('app', 'Аренда квартир') ?> <?= date('Y') ?></p>
         <nav class="footer_social">
-            <a class="imgoverlay" href="#"><img src="/frontend/web/img/facebook-icon.png" title="facebook"></a>
-            <a class="imgoverlay" href="#"><img src="/frontend/web/img/vk-icon.png" title="vk"></a>
-            <a class="imgoverlay" href="#"><img src="/frontend/web/img/google--icon.png" title="googleplus"></a>
-            <a class="imgoverlay" href="#"><img src="/frontend/web/img/twitter-icon.png" title="twitter"></a>
-            <a class="imgoverlay" href="#"><img src="/frontend/web/img/instagram-icon.png" title="instagram"></a>
+            <?php if($social->f_status == 1): ?>
+                <a class="imgoverlay" href="<?= $social->facebook ?>" target="_blank"><img src="/frontend/web/img/facebook-icon.png" title="facebook"></a>
+            <?php endif; ?>
+            <?php if($social->vk_status == 1): ?>
+                <a class="imgoverlay" href="<?= $social->vk ?>" target="_blank"><img src="/frontend/web/img/vk-icon.png" title="vk"></a>
+            <?php endif; ?>
+            <?php if($social->g_status == 1): ?>
+                <a class="imgoverlay" href="<?= $social->google ?>" target="_blank"><img src="/frontend/web/img/google--icon.png" title="googleplus"></a>
+            <?php endif; ?>
+            <?php if($social->t_status == 1): ?>
+                <a class="imgoverlay" href="<?= $social->twitter ?>" target="_blank"><img src="/frontend/web/img/twitter-icon.png" title="twitter"></a>
+            <?php endif; ?>
+            <?php if($social->i_status == 1): ?>
+                <a class="imgoverlay" href="<?= $social->instagram ?>" target="_blank"><img src="/frontend/web/img/instagram-icon.png" title="instagram"></a>
+            <?php endif; ?>
         </nav>
     </footer>
 <?php } ?>

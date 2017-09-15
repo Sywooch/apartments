@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: localhost
--- Время создания: Авг 20 2017 г., 14:42
+-- Время создания: Сен 15 2017 г., 10:50
 -- Версия сервера: 5.6.37
 -- Версия PHP: 5.6.30-0+deb8u1
 
@@ -103,6 +103,16 @@ INSERT INTO `auth_assignment` (`item_name`, `user_id`, `created_at`) VALUES
 ('User', '24', 1503222774),
 ('User', '25', 1503222908),
 ('User', '26', 1503223014),
+('User', '27', 1503248627),
+('User', '28', 1503294239),
+('User', '29', 1503381093),
+('User', '30', 1503381307),
+('User', '31', 1503381430),
+('User', '32', 1503381819),
+('User', '33', 1503381874),
+('User', '34', 1503382018),
+('User', '35', 1503382688),
+('User', '36', 1503382891),
 ('User', '4', 1490185426);
 
 -- --------------------------------------------------------
@@ -130,7 +140,8 @@ INSERT INTO `auth_item` (`name`, `type`, `description`, `rule_name`, `data`, `cr
 ('/profile/*', 2, NULL, NULL, NULL, 1500620102, 1500620102),
 ('/profile/profile', 2, NULL, NULL, NULL, 1500620006, 1500620006),
 ('/site/login', 2, NULL, NULL, NULL, 1490188519, 1490188519),
-('Admin', 1, 'Администратор', NULL, NULL, 1490184441, 1490184495),
+('/site/social', 2, NULL, NULL, NULL, 1503770271, 1503770271),
+('Admin', 1, 'Администратор', NULL, NULL, 1490184441, 1503770344),
 ('User', 1, 'Пользователь', NULL, NULL, 1490184472, 1500620122);
 
 -- --------------------------------------------------------
@@ -151,7 +162,8 @@ CREATE TABLE IF NOT EXISTS `auth_item_child` (
 INSERT INTO `auth_item_child` (`parent`, `child`) VALUES
 ('Admin', '/*'),
 ('User', '/profile/*'),
-('User', '/site/login');
+('User', '/site/login'),
+('Admin', '/site/social');
 
 -- --------------------------------------------------------
 
@@ -185,7 +197,7 @@ CREATE TABLE IF NOT EXISTS `comments` (
   `rating_communication` int(11) NOT NULL,
   `rating_place` int(11) NOT NULL,
   `date` timestamp NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `comments`
@@ -296,7 +308,7 @@ CREATE TABLE IF NOT EXISTS `orders` (
   `total_price` float NOT NULL,
   `status` int(11) DEFAULT '0',
   `date` timestamp NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `orders`
@@ -304,9 +316,37 @@ CREATE TABLE IF NOT EXISTS `orders` (
 
 INSERT INTO `orders` (`id`, `apartment_id`, `user_id`, `date_start`, `date_end`, `guest_count`, `total_price`, `status`, `date`) VALUES
 (5, 6, 4, '2017-07-23', '2017-07-28', 8, 1370, 1, '2017-07-18 08:32:22'),
-(6, 11, 13, '2017-07-25', '2017-07-31', 4, 80, 2, '2017-07-25 09:18:26'),
-(7, 9, 1, '2017-08-18', '2017-08-18', 0, 8736, 0, '2017-08-16 21:19:37'),
-(8, 9, 16, '2017-08-18', '2017-08-19', 3, 8892, 0, '2017-08-18 09:00:26');
+(7, 9, 1, '2017-08-18', '2017-08-18', 0, 8736, 1, '2017-08-16 21:19:37'),
+(8, 9, 16, '2017-08-18', '2017-08-19', 3, 8892, 1, '2017-08-18 09:00:26'),
+(9, 10, 1, '2017-08-29', '2017-08-31', 0, 9158, 1, '2017-08-25 11:05:39'),
+(10, 10, 1, '2017-08-26', '2017-08-28', 0, 9158, 0, '2017-08-25 11:06:05');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `social`
+--
+
+CREATE TABLE IF NOT EXISTS `social` (
+`id` int(11) NOT NULL,
+  `facebook` varchar(255) DEFAULT NULL,
+  `google` varchar(255) DEFAULT NULL,
+  `vk` varchar(255) DEFAULT NULL,
+  `twitter` varchar(255) DEFAULT NULL,
+  `instagram` varchar(255) DEFAULT NULL,
+  `f_status` int(11) DEFAULT '1',
+  `g_status` int(11) DEFAULT '1',
+  `vk_status` int(11) DEFAULT '1',
+  `t_status` int(11) DEFAULT '1',
+  `i_status` int(11) DEFAULT '1'
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `social`
+--
+
+INSERT INTO `social` (`id`, `facebook`, `google`, `vk`, `twitter`, `instagram`, `f_status`, `g_status`, `vk_status`, `t_status`, `i_status`) VALUES
+(1, 'https://www.facebook.com/apartmenttherapy/', 'https://www.quora.com/What-is-G+-in-apartments', 'https://www.vk.com', 'https://twitter.com/aptsgoals', 'https://www.instagram.com/apartmenttherapy/?hl=ru', 0, 1, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -327,21 +367,21 @@ CREATE TABLE IF NOT EXISTS `user` (
   `status` smallint(6) NOT NULL DEFAULT '10',
   `created_at` int(11) NOT NULL,
   `updated_at` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Дамп данных таблицы `user`
 --
 
 INSERT INTO `user` (`id`, `avatar`, `username`, `name`, `surname`, `auth_key`, `password_hash`, `password_reset_token`, `email`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'public/avatars/597736f00b420.png', 'Admin', 'Администратор', 'Вася', 'i1YZmvngDa274Q8JQRyhQjDz2nb5Nktf', '$2y$13$hXgOWEPT5gQtYPSokOeOdOxH50jvq/8T2IXp0ySOBjlajWaolK.me', NULL, 'test.apartments@gmail.com', 10, 1490176869, 1500985072),
-(4, 'public/avatars/5976f689c7d19.jpg', 'vasya', 'Василий', 'Иванов', 'QmOmPJu4x_JjsiLpdHSBarbi4YYM8qSL', '$2y$13$NjDtM1TURZM3zKh1DhYgH.WfvA0ZIoSVq4o4nRdGzgIfoh0XO0vdW', NULL, 'vlad.vasyakot@mail.ru', 10, 1490185426, 1500968585),
+(1, 'public/avatars/597736f00b420.png', 'Admin', 'Администратор', 'Вася', 'i1YZmvngDa274Q8JQRyhQjDz2nb5Nktf', '$2y$13$hXgOWEPT5gQtYPSokOeOdOxH50jvq/8T2IXp0ySOBjlajWaolK.me', NULL, 'test.apartments@gmail.com', 10, 1490176869, 1503297106),
+(4, 'public/avatars/5976f689c7d19.jpg', 'vasya', 'Василий', 'Иванов', 'QmOmPJu4x_JjsiLpdHSBarbi4YYM8qSL', '$2y$13$NjDtM1TURZM3zKh1DhYgH.WfvA0ZIoSVq4o4nRdGzgIfoh0XO0vdW', NULL, 'vlad.vasyakot@mail.ru', 10, 1490185426, 1504174881),
 (11, NULL, 'vlad', 'Петр', 'Самодин', 'OyUtr5XO0aGh1qwGqscuf3_pkHb7hkz2', '$2y$13$.FSqA6rB0D/De98fDS/3ounP9f8bCQ7pOgx/h5w5BT70kyX1E/xUq', NULL, 'prybylov.v2@gmail.com', 10, 1500458461, 1500459307),
-(12, NULL, '@$#%$#@', 'name', 'User', '3s5AIL42QEZqgGSwyLJVgD0P609YHZn8', '$2y$13$marbJ./m.vsg409ip3QynOzUtk10sUmSAntt1M95f3tvlB.hUs2Im', NULL, 'ehfrhr@jjk.fdsrg', 5, 1500889224, 1500889224),
 (13, 'public/avatars/5979959097cf0.jpg', 'Testpage', 'Name', 'Surname ', 'UhwflC61e8WxmLU7kg3VOtMjDYNyyZZw', '$2y$13$EJhyjEuS0e87icetyNA8IOaEe00bK0OU3LS/0sl1HhxJ7Z.6lN3Hu', '2rbel3EXpDM7utzi1_eCcvO6qjw-E197_1500985975', 'testpage@yahoo.com', 10, 1500890392, 1501140390),
 (14, NULL, 'new_user', 'Olga', 'Test', 'AhN0IiHSyjBOJ_Alzrx57MevNa8x2ZZU', '$2y$13$g1MMHutYrXT4e/oD0UVOi.LpJsc113CJYm4qD/jISxbtWSRiPshYO', NULL, 'testpaget@yahoo.com', 5, 1500892297, 1500892297),
 (15, NULL, 'alex', 'Alex', 'Alex', '_MV3Hpauiql_6rmLEDVhTZvM3QnhEBV6', '$2y$13$Grk7UycF.AC3RHgPQQHTAeIEBBiehhDgXuicNSYH5IgTlIxruZs3C', NULL, 'alex@gmail.com', 5, 1503046477, 1503046477),
-(16, NULL, 'alexslot', 'Alex', 'Alex', 'jSksRlEcrQWpnwocXq5X8lbUyDyw5klF', '$2y$13$MWYEJZWmTNi.3kvgCTIuNedhOPB2l/qLoWRouEwsAvp/eYPbqN5XC', NULL, 'alexandrslot@gmail.com', 10, 1503046536, 1503046805);
+(16, NULL, 'alexslot', 'Alex', 'Alex', 'jSksRlEcrQWpnwocXq5X8lbUyDyw5klF', '$2y$13$MWYEJZWmTNi.3kvgCTIuNedhOPB2l/qLoWRouEwsAvp/eYPbqN5XC', NULL, 'alexandrslot@gmail.com', 10, 1503046536, 1503046805),
+(27, NULL, 'test', 'test', 'test', '_gCf4KYjsjcdLBptNhzzs0RB27BWGREp', '$2y$13$8cvr1wNWczn0tW5lIl3gXekC3ZmhMp11df4G676HPG/MPa7bjUYV.', NULL, 'rangerzx@mail.ru', 10, 1503248627, 1504174849);
 
 --
 -- Индексы сохранённых таблиц
@@ -402,6 +442,12 @@ ALTER TABLE `orders`
  ADD PRIMARY KEY (`id`), ADD KEY `orders_ibfk_1` (`apartment_id`), ADD KEY `orders_ibfk_2` (`user_id`);
 
 --
+-- Индексы таблицы `social`
+--
+ALTER TABLE `social`
+ ADD PRIMARY KEY (`id`);
+
+--
 -- Индексы таблицы `user`
 --
 ALTER TABLE `user`
@@ -420,7 +466,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
 -- AUTO_INCREMENT для таблицы `comments`
 --
 ALTER TABLE `comments`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=17;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT для таблицы `facilities`
 --
@@ -435,12 +481,17 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=77;
 -- AUTO_INCREMENT для таблицы `orders`
 --
 ALTER TABLE `orders`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
+--
+-- AUTO_INCREMENT для таблицы `social`
+--
+ALTER TABLE `social`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT для таблицы `user`
 --
 ALTER TABLE `user`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=27;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=28;
 --
 -- Ограничения внешнего ключа сохраненных таблиц
 --

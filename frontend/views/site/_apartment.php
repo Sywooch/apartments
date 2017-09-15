@@ -1,6 +1,9 @@
 <?php
 use yii\helpers\Html;
 use yii\helpers\Url;
+use common\widgets\Translate;
+
+$translit = new Translate;
 
 $lang = Yii::$app->language;
 $image = \common\models\Image::findOne(['apartment_id' => $model->id]);
@@ -21,7 +24,13 @@ $image = \common\models\Image::findOne(['apartment_id' => $model->id]);
                 echo '<h4>'.$model->title_en.'</h4>';
             }
             ?>
-            <p class="flat_adress"><?= substr($model->coordinates, 0, -55).', '.$model->area.' '.Yii::t('app', 'район') ?></p>
+            <p class="flat_adress">
+                <?php if($lang == 'en'): ?>
+                    <?= $translit->translate(substr($model->coordinates, 0, -55).', '.$model->area.' '.Yii::t('app', 'район')) ?>
+                <?php else: ?>
+                    <?= substr($model->coordinates, 0, -55).', '.$model->area.' '.Yii::t('app', 'район') ?>
+                <?php endif; ?>
+            </p>
         </div>
         <div class="priceblock">
             <p class="flat_price"><span><?= $model->price_day ?></span> ₴</p>
@@ -87,7 +96,7 @@ $image = \common\models\Image::findOne(['apartment_id' => $model->id]);
                 ?>
             </p>
             <p class="floar">
-                <span><?= $model->room_count ?>к</span>
+                <span><?= $model->room_count ?><?= Yii::t('app', 'к') ?></span>
                 <span><?= $model->floor ?> <?= Yii::t('app', 'этаж') ?></span>
             </p>
         </div>

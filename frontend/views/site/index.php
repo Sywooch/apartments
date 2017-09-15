@@ -13,11 +13,11 @@ $this->title = Yii::t('app', 'Главная');
     <aside class="sidebar">
         <?php $form = ActiveForm::begin(['id' => 'search-filters','method' => 'get','options' => ['data-pjax' => true ], 'class'=>'sidebar_filters']) ?>
             <div class="set">
-                <a href="#">
+                <p>
                     <img class="filter_img" src="/frontend/web/img/sidebar-roomcount.png" data-hover="/frontend/web/img/sidebar-roomcount_hover.png" data-src="/frontend/web/img/sidebar-roomcount.png" alt="room_count">
                     <span class="sidebar_link_description"><?= Yii::t('app', 'Количество') ?><br><?= Yii::t('app', 'комнат') ?></span>
                     <i class="filter-plus"></i>
-                </a>
+                </p>
                 <div class="content">
                     <ul class="filter_list filter_room_count">
                         <li>
@@ -54,11 +54,11 @@ $this->title = Yii::t('app', 'Главная');
                 </div>
             </div>
             <div class="set">
-                <a href="#">
+                <p>
                     <img class="filter_img" src="/frontend/web/img/sidebar-sleepplace.png" data-hover="/frontend/web/img/sidebar-sleepplace_hover.png" data-src="/frontend/web/img/sidebar-sleepplace.png" alt="room_count">
                     <span class="sidebar_link_description"><?= Yii::t('app', 'Количество') ?> <br> <?= Yii::t('app', 'спальных мест') ?></span>
                     <i class="filter-plus"></i>
-                </a>
+                </p>
                 <div class="content">
                     <ul class="filter_list filter_sleep_count">
                         <li>
@@ -126,11 +126,11 @@ $this->title = Yii::t('app', 'Главная');
                 </div>
             </div>
             <div class="set">
-                <a href="#">
+                <p>
                     <img class="filter_img" src="/frontend/web/img/house_type.png" data-hover="/frontend/web/img/house_type_hover.png" data-src="/frontend/web/img/house_type.png" alt="house_type">
                     <span class="sidebar_link_description"><?= Yii::t('app', 'Тип') ?><br><?= Yii::t('app', 'жилья') ?></span>
                     <i class="filter-plus"></i>
-                </a>
+                </p>
                 <div class="content">
                     <ul class="filter_list filter_house_type">
                         <li><input type="checkbox" id="check1" name="ApartmentSearch[type][]" value="Дом" onclick="sendRequest();"><label for="check1"><?= Yii::t('app', 'Дом') ?></label></li>
@@ -140,22 +140,22 @@ $this->title = Yii::t('app', 'Главная');
                 </div>
             </div>
             <div class="set">
-                <a href="#">
+                <p>
                     <img class="filter_img" src="/frontend/web/img/sidebar_money.png" data-hover="/frontend/web/img/sidebar_money_hover.png" data-src="/frontend/web/img/sidebar_money.png" alt="house_price">
                     <span class="sidebar_link_description"><?= Yii::t('app', 'Цена') ?><br><?= Yii::t('app', 'за сутки') ?></span>
                     <i class="filter-plus"></i>
-                </a>
+                </p>
                 <div class="content">
                     <span class="filter_pricerange"><?= Yii::t('app', 'от') ?> <input type="number" name="ApartmentSearch[min_price]"/ onblur="sendRequest();"></span>
                     <span class="filter_pricerange"><?= Yii::t('app', 'до') ?> <input type="number" name="ApartmentSearch[max_price]"/ onblur="sendRequest();"></span>
                 </div>
             </div>
             <div class="set">
-                <a href="#">
+                <p>
                     <img class="filter_img" src="/frontend/web/img/sidebar_additional_param.png" data-hover="/frontend/web/img/sidebar_additional_param_hover.png" data-src="/frontend/web/img/sidebar_additional_param.png" alt="additional_param">
                     <span class="sidebar_link_description"><?= Yii::t('app', 'Дополнительные') ?> <br><?= Yii::t('app', 'параметры') ?></span>
                     <i class="filter-plus"></i>
-                </a>
+                </p>
                 <div class="content">
                     <ul class="filter_list filter_additional_param">
 <!--                        <li><input type="checkbox" id="check4" name="ApartmentSearch[image]" value="1" onclick="sendRequest();"><label for="check4">--><?//= Yii::t('app', 'Не менее 5 фото') ?><!--</label></li>-->
@@ -166,11 +166,11 @@ $this->title = Yii::t('app', 'Главная');
             </div>
 
             <div class="set">
-                <a href="#">
+                <p>
                     <img class="filter_img" src="/frontend/web/img/sidebar_bedroom.png" data-hover="/frontend/web/img/sidebar_bedroom_hover.png" data-src="/frontend/web/img/sidebar_bedroom.png" alt="house_type">
                     <span class="sidebar_link_description"><?= Yii::t('app', 'Список') ?> <br><?= Yii::t('app', 'удобств') ?></span>
                     <i class="filter-plus"></i>
-                </a>
+                </p>
                 <div class="content">
                     <ul class="filter_list filter_comfort_param">
                         <li><input type="checkbox" id="param_tv" name="ApartmentSearch[tv]" value="1" onclick="sendRequest();"><label for="param_tv"><?= Yii::t('app', 'Телевизор') ?><img src="/frontend/web/img/tv.svg" alt="tv_ico"></label></li>
@@ -196,11 +196,11 @@ $this->title = Yii::t('app', 'Главная');
             </div>
 
             <div class="set">
-                <a href="#">
+                <p>
                     <img class="filter_img" src="/frontend/web/img/sidebar_flug.png" data-hover="/frontend/web/img/sidebar_flug_hover.png" data-src="/frontend/web/img/sidebar_flug.png" alt="house_type">
                     <span class="sidebar_link_description"><?= Yii::t('app', 'Район') ?></span>
                     <i class="filter-plus"></i>
-                </a>
+                </p>
                 <div class="content">
                     <ul class="filter_list filter_area">
                         <li><input type="checkbox" id="check4area" name="ApartmentSearch[area][]" value="Александровский" onclick="sendRequest();"><label for="check4area"><?= Yii::t('app', 'Александровский') ?><br><i>(<?= Yii::t('app', 'Жовтневый') ?>)</i></label></li>

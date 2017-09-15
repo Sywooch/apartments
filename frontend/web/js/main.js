@@ -102,8 +102,15 @@ $( document ).ready(function() {
        $( '#contactform-verifycode-image' ).click();
     });
 
-    $(".set > a").on("click", function(){
+    $(".set > p").on("click", function(){
+
+
+        $(this).siblings('.content').slideUp(200);
+        $(this).children('i').removeClass("filter-minus").addClass("filter-plus");
+
+
         if($(this).hasClass('active')){
+
             $(this).removeClass("active");
 
             $(this).find('img').each( function(){
@@ -111,19 +118,23 @@ $( document ).ready(function() {
                 this.src = this.getAttribute('data-src');
             });
 
-            $(".set > a img").find('img').each( function(){
+            $(".set > p img").find('img').each( function(){
                 var currentSrc = this.src;
                 this.src = this.getAttribute('data-src');
             });
 
-            $(this).siblings('.content').slideUp(200);
-            $(".set > a i").removeClass("filter-minus").addClass("filter-plus");
-        }else{
-            $(".set > a i").removeClass("filter-minus").addClass("filter-plus");
-            $(this).find("i").removeClass("filter-plus").addClass("filter-minus");
-            $(".set > a").removeClass("active");
+          //  $(this).siblings('.content').slideUp(200);
+            $(".set > p").siblings('.content').slideUp(200);
+            $(".set > p i").removeClass("filter-minus").addClass("filter-plus");
 
-            $(".set > a img").each( function(){
+
+        }else{
+
+            $(".set > p i").removeClass("filter-minus").addClass("filter-plus");
+            $(this).find("i").removeClass("filter-plus").addClass("filter-minus");
+            $(".set > p").removeClass("active");
+
+            $(".set > p img").each( function(){
                 var currentSrc = this.src;
                 this.src = this.getAttribute('data-src');
             });
@@ -135,7 +146,7 @@ $( document ).ready(function() {
                 this.src = this.getAttribute('data-hover');
             });
 
-           // $('.content').slideUp(200);
+            //$('.content').slideUp(200);
             $(this).siblings('.content').slideDown(200);
         }
     });

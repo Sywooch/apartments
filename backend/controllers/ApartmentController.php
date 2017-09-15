@@ -7,6 +7,7 @@ use common\models\Apartment;
 use common\models\ApartmentSearch;
 use common\models\Facilities;
 use common\models\FacilitiesSearch;
+use backend\models\Social;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -94,6 +95,20 @@ class ApartmentController extends Controller
             return $this->render('update', [
                 'model' => $model,
                 'facilities' => $facilities,
+            ]);
+        }
+    }
+
+    public function actionSocial()
+    {
+        $model = Social::findOne(['id' => 1]);
+
+        if($model->load(Yii::$app->request->post()) && $model->save()){
+            Yii::$app->session->setFlash('success', 'Изменения успешно сохранены!');
+            return $this->refresh();
+        } else {
+            return $this->render('social', [
+                'model' => $model
             ]);
         }
     }

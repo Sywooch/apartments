@@ -3,10 +3,14 @@ use yii\widgets\ActiveForm;
 use voime\GoogleMaps\Map;
 use yii\widgets\Pjax;
 use yii\helpers\Html;
+use common\widgets\Translate;
+use backend\models\Social;
 
+$translit = new Translate();
 $user = Yii::$app->user->identity;
 $lang = Yii::$app->language;
 $comment_count = 0;
+$social = Social::findOne(['id' => 1]);
 $this->title = Yii::t('app', 'Детали квартиры');
 $this->registerJsFile('/frontend/web/js/comments.js', ['depends' => [\yii\web\JqueryAsset::className()]]);
 
@@ -33,7 +37,11 @@ $bed = ['спальное место', 'спальных места', 'спал�
                 }
             ?>
         </h2>
-        <h3 class="flat_single_adr"><?= substr($apartment->coordinates, 0, -55) ?></h3>
+        <?php if($lang == 'en'): ?>
+            <h3 class="flat_single_adr"><?= $translit->translate(substr($apartment->coordinates, 0, -55)) ?></h3>
+        <?php else: ?>
+            <h3 class="flat_single_adr"><?= substr($apartment->coordinates, 0, -55) ?></h3>
+        <?php endif; ?>
     </div>
     <div class="singleflat_right_sidebar">
         <ul class="flat_single">
@@ -88,10 +96,19 @@ $bed = ['спальное место', 'спальных места', 'спал�
             <li><span><?= Yii::t('app', 'Время выезда') ?>:</span><p><?= Yii::t('app', $apartment->facilities->time_out) ?></p></li>
             <li><span><?= Yii::t('app', 'Тип жилья') ?>:</span><p><?= Yii::t('app', mb_strtolower($apartment->type)) ?></p></li>
             <li><span><?= Yii::t('app', 'Время заезда') ?>:</span><p><?= Yii::t('app', $apartment->facilities->time_in) ?></p></li>
-            <li><span><?= Yii::t('app', 'Ремонт') ?>:</span><p><?= $apartment->facilities->repairs ?></p></li>
+            <li><span><?= Yii::t('app', 'Ремонт') ?>:</span><p>
+                <?php if($lang == 'en'): ?>
+                    <?= $translit->translate($apartment->facilities->repairs) ?>
+                <?php else: ?>
+                    <?= $apartment->facilities->repairs ?>
+                <?php endif; ?>
+                </p></li>
             <li><span><?= Yii::t('app', 'Площадь') ?>:</span><p><?= $apartment->apartment_area ?> <?= Yii::t('app', 'м') ?><sup>2</sup></p></li>
             <li><span><?= Yii::t('app', 'Доплата за каждого последующего гостя') ?>:</span><p id="guest_price"><?= Yii::t('app', $apartment->facilities->guest_price) ?> ₴</p></li>
         </ul>
+
+
+        <h2 class="flat_single_header comfortitems_header"><?= Yii::t('app', 'В квартире есть') ?>:</h2>
 
         <ul class="singleflat_comfort_items">
             <?php
@@ -212,7 +229,11 @@ $bed = ['спальное место', 'спальных места', 'спал�
         </form>
 
         <div class="owner_nameblock">
-            <span class="owner_name"><?= $apartment->owner ?></span>
+            <?php if($lang == 'en'): ?>
+                <span class="owner_name"><?= $translit->translate($apartment->owner) ?></span>
+            <?php else: ?>
+                <span class="owner_name"><?= $apartment->owner ?></span>
+            <?php endif; ?>
             <span class="owner_phone"><?= $apartment->phone ?></span>
         </div>
         <div class="star_ratingblock">
@@ -356,7 +377,7 @@ $bed = ['спальное место', 'спальных места', 'спал�
     <div>
         <a href="#close" title="Закрыть" class="close"></a>
         <h2 class="modal_header"><?= Yii::t('app', 'Ваш заказ успешно оформлен!') ?></h2>
-        <p style="text-align: center"><?= Yii::t('app', 'Мы свяжемся с вами в кратчайшие сроки.') ?></p>
+        <p style="text-align: center"><?= Yii::t('app', 'Мы свяжемся с вами в течении 10 минут.') ?></p>
     </div>
 </div>
 
@@ -373,10 +394,20 @@ $bed = ['спальное место', 'спальных места', 'спал�
     </div>
     <p class="footer_copyright">© <?= Yii::t('app', 'Аренда квартир') ?> <?= date('Y') ?></p>
     <nav class="footer_social">
-        <a class="imgoverlay" href="#"><img src="/frontend/web/img/facebook-icon.png" title="facebook"></a>
-        <a class="imgoverlay" href="#"><img src="/frontend/web/img/vk-icon.png" title="vk"></a>
-        <a class="imgoverlay" href="#"><img src="/frontend/web/img/google--icon.png" title="googleplus"></a>
-        <a class="imgoverlay" href="#"><img src="/frontend/web/img/twitter-icon.png" title="twitter"></a>
-        <a class="imgoverlay" href="#"><img src="/frontend/web/img/instagram-icon.png" title="instagram"></a>
+        <?php if($social->f_status == 1): ?>
+            <a class="imgoverlay" href="<?= $social->facebook ?>" target="_blank"><img src="/frontend/web/img/facebook-icon.png" title="facebook"></a>
+        <?php endif; ?>
+        <?php if($social->vk_status == 1): ?>
+            <a class="imgoverlay" href="<?= $social->vk ?>" target="_blank"><img src="/frontend/web/img/vk-icon.png" title="vk"></a>
+        <?php endif; ?>
+        <?php if($social->g_status == 1): ?>
+            <a class="imgoverlay" href="<?= $social->google ?>" target="_blank"><img src="/frontend/web/img/google--icon.png" title="googleplus"></a>
+        <?php endif; ?>
+        <?php if($social->t_status == 1): ?>
+            <a class="imgoverlay" href="<?= $social->twitter ?>" target="_blank"><img src="/frontend/web/img/twitter-icon.png" title="twitter"></a>
+        <?php endif; ?>
+        <?php if($social->i_status == 1): ?>
+            <a class="imgoverlay" href="<?= $social->instagram ?>" target="_blank"><img src="/frontend/web/img/instagram-icon.png" title="instagram"></a>
+        <?php endif; ?>
     </nav>
 </footer>

@@ -262,7 +262,7 @@ class SiteController extends Controller
                 Yii::$app->authManager->assign($userRole, $user->getId());
                     \Yii::$app->mailer->compose(['html' => 'verify-html'],['user' => $user])
                         ->setTo($user->email)
-                        ->setFrom([Yii::$app->params['adminEmail'] => 'Apartment robot'])
+                        ->setFrom([Yii::$app->params['adminEmail'] => 'Apartments'])
                         ->setSubject('Verify your account')
                         ->send();
                     return $this->redirect('complete-registration');

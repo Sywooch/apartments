@@ -77,7 +77,7 @@ return [
     'Засели друга' => 'Settled a friend',
     'сутки' => 'per day',
     'Ваше письмо отправлено!' => 'Your letter has been sent!',
-    'Мы свяжемся с вами в кратчайшие сроки.' => 'We will contact you as soon as possible.',
+    'Мы свяжемся с вами в течении 10 минут.' => 'We will contact you in 10 minutes.',
     'Предыдущая' => 'Previous',
     'Следующая' => 'Next',
     'этаж' => 'floor',
@@ -174,4 +174,6 @@ return [
     'Вернуться назад' => 'Come back',
     'Перейти на главную' => 'Go to main page',
     'Сбросить параметры' => 'Reset options',
+    'к' => 'r',
+    'В квартире есть' => 'The apartment has'
 ];

@@ -31,8 +31,10 @@ return [
             'transport' => [
                 'class' => 'Swift_SmtpTransport',
                 'host' => 'smtp.gmail.com',
-                'username' => 'crm.urich@gmail.com',
-                'password' => '1995202009vasya',
+//                'username' => 'crm.urich@gmail.com',
+//                'password' => '1995202009vasya',
+                'username' => 'apartments.zp.local@gmail.com',
+                'password' => 'adminapartments',
                 'port' => '587',
                 'encryption' => 'tls',
             ],

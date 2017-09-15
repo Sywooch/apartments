@@ -94,7 +94,7 @@ class Apartment extends \yii\db\ActiveRecord
                 $map_items[] = [
                     'position' => [$item->latitude, $item->longitude],
                     'title' => substr($item->coordinates, 0, -55),
-                    'content' => '<h3>'.$item->title_ru.'</h3><p>'.substr($item->coordinates, 0, -55).'</p>',
+                    'content' => '<a href="/detail?id='.$item->id.'" target="_blank"><h3>'.$item->title_ru.'</h3></a><p>'.substr($item->coordinates, 0, -55).'</p>',
                     'options' => ["icon" => "'/frontend/web/img/marker.png'"],
                     'label' => [
                         'text' => $item->price_day.' ₴',
